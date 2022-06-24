@@ -19,14 +19,14 @@ function AsideUser(){
                         </a>
                     </li>
                     <li>
-                        <a href="/rasiid.html">
+                        <Link to={'/*'}>
                          <FontAwesomeIcon className="i" icon={faFileInvoiceDollar}/> Rasiika Lacagta
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/cashout.html">
+                        <Link to={'/Acount/Cashout'}>
                         <FontAwesomeIcon className="i" icon={faSackDollar}/> Lacag La Bax
-                        </a>
+                        </Link>
                     </li>
                     <li>
                         <a href="">

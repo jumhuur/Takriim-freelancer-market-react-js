@@ -155,7 +155,7 @@
       "image": "/images/thumbnail_IMG-7405.jpg",
       "m_total": 350.25,
       "m_pandding": 45.02,
-      "m_avalible": 45.00
+      "m_avalible": 45.50
     },
     {
       "id": 2,
@@ -165,7 +165,7 @@
       "image": "/images/xamse.jpg",
       "m_total": 150.25,
       "m_pandding": 15.02,
-      "m_avalible": 25.00
+      "m_avalible": 25.70
     },
     {
       "id": 3,
@@ -315,7 +315,6 @@
       "xaalad": 2,
       "gudoomay": false
     },
-
     {
       "id": 303,
       "title": "Design-Garaynta Xayaysiika Social-Ka",

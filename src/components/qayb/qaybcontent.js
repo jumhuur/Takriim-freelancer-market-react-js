@@ -71,7 +71,7 @@ function Qaybcontent(){
                      </div>
                  </div>
              </div>
-            )) : <Jobsskl />}
+            )) :<Jobsskl />}
             </div>
             {/* <!---------------dhamaadka shaqooyinka -------------------> */}
         </div>

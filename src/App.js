@@ -17,6 +17,8 @@ import Gudoon from './components/Profile/Order_s_details';
 import My_Orders from './components/Profile/freeOrder';
 import Gudbin_dalab from './components/Profile/Gudbin';
 import Add_servece from './components/Profile/Add_serv';
+import Lacag_La_bixid from './components/Profile/Cash_out';
+import Labxaday from './components/Profile/cashout_msg';
 
 
 function App(){
@@ -69,6 +71,12 @@ function App(){
           </Route>
           <Route exact path="/Acount/Add_Job">
             <Add_servece />
+          </Route>
+          <Route exact path="/Acount/Cashout">
+            <Lacag_La_bixid />
+          </Route>
+          <Route exact path="/Acount/Cashout_sax">
+            <Labxaday />
           </Route>
           <Route path="*">
             <Notfound />
