@@ -152,35 +152,50 @@
       "Job": "Full Stack Web Devaloper",
       "email": "jumhuur123@hotmail.com",
       "Qiimaha": 15,
-      "image": "/images/thumbnail_IMG-7405.jpg"
+      "image": "/images/thumbnail_IMG-7405.jpg",
+      "m_total": 350.25,
+      "m_pandding": 45.02,
+      "m_avalible": 45
     },
     {
       "id": 2,
       "Name": "Xamse Axmed",
       "Job": "Designer",
       "email": "jumhuur123@hotmail.com",
-      "image": "/images/xamse.jpg"
+      "image": "/images/xamse.jpg",
+      "m_total": 150.25,
+      "m_pandding": 15.02,
+      "m_avalible": 25.00
     },
     {
       "id": 3,
       "Name": "Muniir maxamad",
       "Job": "web devaloper",
       "email": "jumhuur123@hotmail.com",
-      "image": "/images/muniir.jpg"
+      "image": "/images/muniir.jpg",
+      "m_total": 550.25,
+      "m_pandding": 75.02,
+      "m_avalible": 89.30
     },
     {
       "id": 4,
       "Name": "xafsa maxamad",
       "Job": "Tarnslater & editor",
       "email": "jumhuur123@hotmail.com",
-      "image": "/images/avataaars.svg"
+      "image": "/images/avataaars.svg",
+      "m_total": 50.25,
+      "m_pandding": 5.02,
+      "m_avalible": 9.30
     },
     {
       "id": 5,
       "Name": "ilhaan axmed",
       "Job": "Qoraaa",
       "email": "jumhuur123@hotmail.com",
-      "image": "/images/avataaars2.svg"
+      "image": "/images/avataaars2.svg",
+      "m_total": 77.25,
+      "m_pandding": 65.02,
+      "m_avalible": 56.30
     }
   ],
   "Qayb": [
