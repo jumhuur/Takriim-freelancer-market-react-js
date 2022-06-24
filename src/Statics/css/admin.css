@@ -1,0 +1,886 @@
+/*-----------------------diyaarin Bilow---------------------------------------*/
+:root {
+  /*---colors----*/
+  --main-color: #003a75;
+  --color-1: #0172e5;
+  --color-2: #007fff;
+  --color-3: #3399ff;
+  --color-4: #67b3ff;
+  --color-5: #a5d8ff;
+  --colo-6: #c3e1ff;
+  --color-7: #f4f6f9;
+  --color-8: #0059b2;
+  --color-9: #014c99;
+  --cadaan: #ffffff;
+  --cawlaan: #e2e2e2;
+  --main_colo-2: #f9fafd;
+  --madaw_color: #313a46;
+  
+
+  /*---size_ciwaano and Qoraal----*/
+  --ciwaan1aad: 45px;
+  --ciwaan1-5aad: 40px;
+  --ciwaan2aad: 45px;
+  --ciwaan3aad: 42px;
+  --ciwaan4aad: 35px;
+  --ciwaan5aad: 33px;
+  --ciwaan6aad: 30px;
+  --ciwaan7aad: 28px;
+  --ciwaan8aad: 25px;
+  --ciwaan9aad: 22px;
+  --ciwaan10aad: 20px;
+  --ciwaan11aad: 19px;
+  --ciwaan12aad: 18px;
+  --ciwaan13aad: 16px;
+  --ciwaan14aad: 15px;
+  --ciwaan15aad: 12px;
+  --ciwaan16aad: 10px;
+  --ciwaan18aad: 8px;
+  --ciwaan19aad: 6px;
+  --ciwaan20aad: 4px;
+  --ciwaan21aad: 2px;
+}
+
+/*------fonts ---------------*/
+@font-face {
+  font-family: "khad";
+  src: url(/Fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Khad_carabi";
+  src: url(/Fonts/Noto\ Kufi\ Arabic\ Regular.ttf);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--main_colo-2);
+  position: relative;
+}
+
+body h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0;
+  margin: 0;
+  text-transform: capitalize;
+  font-family: "khad";
+  user-select: none;
+}
+
+p {
+  text-transform: capitalize;
+  line-height: var(--ciwaan7aad);
+  font-family: "khad";
+}
+
+button {
+  user-select: none;
+}
+
+body a {
+  text-decoration: none;
+  user-select: none;
+}
+
+body a:hover {
+  text-decoration: none;
+}
+
+.xajiye {
+  max-width: 1450px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+/*-----------------------diyaarin dhamaad-----------------------------------*/
+/*-----------------------bilow styl nav -------------------------------------*/
+.nav_1aad {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-7);
+}
+
+.nav_1aad .xajiye .main_admin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+/*------------ Bilow aside nav ------------------------*/
+
+.nav_1aad .xajiye .main_admin .nav_side {
+  width: 20%;
+  height: 100vh;
+  background-color: var(--color-2);
+  padding-bottom: 25px;
+  overflow: hidden;
+}
+
+.nav_1aad .xajiye .main_admin .nav_side .logo_and_head {
+  width: 100%;
+  height: 120px;
+  /*background-color: var(--color-5);*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.nav_1aad .xajiye .main_admin .nav_side .logo_and_head .logo {
+  width: 100%;
+  height: 69px;
+  /*background-color: var(--color-3);*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+.nav_1aad .xajiye .main_admin .nav_side .logo_and_head .logo img {
+  width: 103px;
+  height: 19px;
+}
+
+.nav_1aad .xajiye .main_admin .nav_side .logo_and_head .head {
+  width: 100%;
+  height: 55px;
+  /*background-color: var(--color-1);*/
+}
+
+.nav_1aad .xajiye .main_admin .nav_side .logo_and_head .head p {
+  color: var(--main_colo-2);
+  font-size: var(--ciwaan12aad);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: wrap;
+  margin-left: 15px;
+}
+
+.asidelinks {
+  width: 100%;
+  height: 505px;
+  overflow-y: scroll;
+}
+
+.asidelinks::-webkit-scrollbar {
+  width: 5px;
+}
+
+.asidelinks::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px var(--main-color);
+}
+
+.asidelinks::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  outline: 1px solid var(--main-color);
+  border-radius: 15px;
+}
+
+.asidelinks ul {
+  width: 100%;
+  height: fit-content;
+  overflow: hidden;
+  padding-bottom: 25px;
+}
+
+.asidelinks ul li {
+  padding-top: 2%;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.asidelinks ul li:hover {
+  background-color: var(--color-3);
+  transition: all ease 0.4s;
+}
+
+.asidelinks ul li.active {
+  background-color: var(--color-3);
+}
+
+.asidelinks ul li a {
+  color: var(--cadaan);
+  font-size: var(--ciwaan13aad);
+  font-family: "khad";
+  padding: 3% 10%;
+  display: block;
+}
+
+.qayb_faraca {
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 0px;
+  background-color: var(--color-9);
+  margin: 6px 15px;
+  overflow: hidden;
+  transition: all ease 0.5s;
+  display: none;
+  transform: translate(0px, 0px);
+  border-radius: 5px;
+  overflow: hidden;
+  /*border-left: solid 1px var(--color-3);*/
+}
+.qayb_faraca ul {
+  margin-top: 5px;
+}
+
+.qayb_faraca.active {
+  transform: scale(1);
+  animation-name: dhaaqaaq;
+  animation-delay: 0s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-duration: 0.3s;
+  display: block;
+}
+
+@keyframes dhaaqaaq {
+  from {
+    transform: scale(1.5);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+/*------------ dhamaad aside nav ------------------------*/
+
+/*------------ bilow top_nav -----------------------------*/
+.nav_1aad .xajiye .main_admin .gudaha {
+  width: 80%;
+  height: 100vh;
+  background-color: var(--main_colo-2);
+  position: relative;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top {
+  width: 100%;
+  height: 85px;
+  background-color: var(--cadaan);
+  box-shadow: #f1f1f1 8px 0px 9px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .qayb_nav {
+  width: calc(98% / 2);
+  height: 100%;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .button_and_search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .button_and_search form {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .button_and_search .clas {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  position: relative;
+}
+
+.nav_1aad
+  .xajiye
+  .main_admin
+  .gudaha
+  .nav_top
+  .button_and_search
+  .clas
+ i {
+  position: absolute;
+  top: 31px;
+  left: 28px;
+  right: 0;
+  bottom: 0;
+  color: var(--color-1);
+  font-size: var(--ciwaan11aad);
+  display: inline;
+  width: fit-content;
+  height: fit-content;
+}
+
+.nav_1aad
+  .xajiye
+  .main_admin
+  .gudaha
+  .nav_top
+  .button_and_search
+  .clas
+  input[type="text"] {
+  width: 70%;
+  height: 52%;
+  outline: none;
+  border: none;
+  font-family: "khad";
+  font-size: var(--ciwaan13aad);
+  padding-left: 30px;
+  color: var(--color-8);
+  background-color: #e8f0fe;
+  border-radius: 5px;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .button_and_search .clas button {
+  outline: none;
+  border: none;
+  background: var(--color-1);
+  color: var(--cadaan);
+  font-family: "khad";
+  font-size: var(--ciwaan14aad);
+  height: 52%;
+  width: 20%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+}
+.nav_1aad
+  .xajiye
+  .main_admin
+  .gudaha
+  .nav_top
+  .button_and_search
+  .clas
+  button:hover {
+  background-color: var(--color-3);
+}
+
+.btn_items {
+  width: 15%;
+  height: 100%;
+  background-color: inherit;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  cursor: pointer;
+}
+
+.btn_items i{
+  color: var(--color-1);
+  font-size: var(--ciwaan8aad);
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav {
+  height: 100%;
+  /*background-color: var(--color-2);*/
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav .luuqada {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  cursor: pointer;
+}
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav .luuqada .icons {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav .luuqada .name_luuqad {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav .luuqada .name_luuqad p {
+  color: var(--color-1);
+  font-size: var(--ciwaan13aad);
+}
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav .luuqada .icons img {
+  width: 78%;
+  height: 34%;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav .icon_top {
+  width: 6%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  cursor: pointer;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav .icon_top i {
+  color: var(--color-1);
+  font-size: var(--ciwaan11aad);
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav .user {
+  width: 41%;
+  height: 100%;
+  background-color: var(--main_colo-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav .user .image_user {
+  width: 27%;
+  height: 69%;
+  border-radius: 50%;
+  /*border: var(--colo-6) solid 3px;*/
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav .user .image_user img {
+  width: 100%;
+  height: 100%;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav .user .name_user {
+  width: 65%;
+  /*background-color: var(--color-5);*/
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.nav_1aad .xajiye .main_admin .gudaha .nav_top .nav .user .name_user p {
+  color: var(--color-3);
+  font-size: var(--ciwaan14aad);
+}
+/*------------ dhamaad top_nav -----------------------------*/
+
+.dhexe {
+  width: 100%;
+  /*background-color: var(--color-8);*/
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+  padding: 1% 0;
+}
+
+.dhexe .name_madarasad {
+  width: 30%;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.dhexe .name_madarasad h2 {
+  color: var(--madaw_color);
+  font-size: var(--ciwaan9aad);
+}
+
+.items_and_butt {
+  width: 50%;
+  height: 75px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.items_and_butt input[type="text"] {
+  width: 40%;
+  height: 55px;
+  background-color: #e8f0fe;
+  outline: none;
+  border: none;
+  color: var(--color-8);
+  border-radius: 5px;
+  padding-left: 15px;
+  font-family: "khad";
+  font-size: var(--ciwaan13aad);
+}
+
+.items_and_butt button {
+  width: 45%;
+  height: 65%;
+  background-color: var(--color-1);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-family: "khad";
+  cursor: pointer;
+  color: var(--cadaan);
+  font-size: var(--ciwaan14aad);
+}
+
+.items_and_butt button:hover {
+  background-color: var(--color-2);
+  transition: all 0.4s;
+}
+
+.dhamaan_content {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap row;
+}
+
+.dhamaan_content .content {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-flow: wrap row;
+  padding: 2% 0;
+}
+
+.dhamaan_content .content .part {
+  width: calc(90% / 4);
+  height: 110px;
+  background-color: var(--cadaan);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+  box-shadow: #e7e7e7 -1px 1px 7px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  
+}
+/*
+.dhamaan_content .content .part::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 5px;
+}
+
+*/
+
+.dhamaan_content .content .part div:first-child {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+.dhamaan_content .content .part div:last-child {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+.dhamaan_content .content .part div h2 {
+  color: var(--color-8);
+  font-size: var(--ciwaan9aad);
+  font-family: "khad";
+  padding-bottom: 5px;
+}
+
+.dhamaan_content .content .part div p {
+  color: var(--madaw_color);
+}
+
+.dhamaan_content .content .part div i {
+  color: var(--color-1);
+  font-size: var(--ciwaan4aad);
+}
+
+.dhamaan_content .content .part.lacagta {
+  background-color: var(--color-1);
+}
+
+.dhamaan_content .content .part.lacagta h2 {
+  color: var(--cadaan);
+}
+.dhamaan_content .content .part.lacagta p,.dhamaan_content .content .part.lacagta i {
+  color: var(--cawlaan);
+}
+
+.dhamaan_content .content .part.lacagta ion-icon {
+  color: var(--colo-6);
+}
+
+.table_sec {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-flow: wrap;
+  padding-bottom: 10%;
+}
+
+.table_sec table {
+  width: 75%;
+  height: 100%;
+  background-color: var(--cadaan);
+  text-transform: capitalize;
+  border-collapse: collapse;
+}
+
+.table_sec table thead td {
+  color: var(--cadaan);
+  background-color: var(--color-2);
+  font-size: var(--ciwaan10aad);
+  font-family: "khad";
+  height: 50px;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.table_sec table tbody td {
+  padding: 1.5%;
+  color: var(--madaw_color);
+  font-family: "khad";
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.table_sec table tbody td i{
+  font-size: var(--ciwaan11aad);
+  cursor: pointer;
+  color: var(--color-1);
+}
+
+.table_sec table tbody tr:hover {
+  background-color: var(--cawlaan);
+  transition: 0.3s;
+}
+.table_sec table tbody tr:hover td {
+  color: var(--madaw_color);
+}
+.last_arin {
+  width: 20%;
+  height: 450px;
+  background-color: var(--color-1);
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+.last_arin h2 {
+  color: var(--cadaan);
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.last_arin .contex_haw {
+  height: 50%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.last_arin p {
+  color: var(--cawlaan);
+  text-align: center;
+  font-size: var(--ciwaan12aad);
+  padding: 2%;
+  font-weight: bold;
+  text-transform: capitalize;
+  display: none;
+  user-select: none;
+  transform: translate(350px, 0px);
+}
+
+.last_arin p.active {
+  display: block;
+  animation-name: dhaqaajin_s;
+  animation-delay: 0s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-duration: 0.3s;
+  transform: translate(0px, 0px);
+}
+
+@keyframes dhaqaajin_s {
+  from {
+    transform: translate(350px, 0px);
+  }
+
+  to {
+    transform: translate(0px, 0px);
+  }
+}
+.last_arin .tps {
+  width: 70%;
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.last_arin .tps div {
+  width: 30%;
+  height: 35px;
+  /*background-color: var(--color-7);*/
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+  transition: all 0.5s;
+  background-color: var(--color-3);
+}
+
+.last_arin .tps div i {
+  color: var(--cadaan);
+}
+
+.last_arin .tps div:hover {
+  transition: all 0.5s;
+  background-color: var(--color-3);
+}
+
+.last_arin .tps div.unactive {
+  visibility: hidden;
+}
+
+.last_arin img {
+  width: 65%;
+  height: auto;
+  user-select: none;
+}
+
+/*-----------------------bilow styl nav -------------------------------------*/
+
+/*--------all median -------------------------------*/
+
+@media (min-width: 100px) and (max-width: 460px) {
+  .sliding .tranding_haye .card_template{
+    height: 100%;
+    margin-bottom: 2%;
+  }
+
+  /* .sliding .tranding_haye .card_template .macluumaad .tirakoob ul{
+    display: none;
+  } */
+
+  .sliding .tranding_haye .card_template .btn_shaqo{
+    width: 100% !important;
+  }
+
+  div.xaalad1aad .rasiid_tamplate.xaalad{
+    width: 100%;
+  }
+
+  .sliding .tranding_haye .card_template .macluumaad .qoraalo h2, P{
+    margin: 5% 0px;
+    line-height: 1.6;
+  }
+
+  .qayb_name .qayb_name_page ul{
+    display: none;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 576px) {
+  .xajiye,
+  .haye {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .xajiye{
+      max-width: 100%;
+    }
+    .haye {
+      max-width: 540px;
+    }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .xajiye{
+      max-width: 100%;
+    }
+    .haye {
+      max-width: 720px;
+    }
+
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    .xajiye{
+      max-width: 100%;
+    }
+    .haye {
+      max-width: 960px;
+    }
+}
+@media (min-width: 1200px) and (max-width:1400px) {
+    .xajiye{
+      max-width: 100%;
+    }
+    .haye {
+      max-width: 1140px;
+    }
+}
+@media (max-width: 1400px) {
+    .xajiye{
+      max-width: 100%;
+    }
+    .haye {
+      max-width: 1320px;
+    }
+}
+/*-------------- dhamaadka  all media -----------------*/

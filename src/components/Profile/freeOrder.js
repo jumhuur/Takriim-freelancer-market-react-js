@@ -1,0 +1,154 @@
+import Holder from "../NavHolder"
+import Footer from "../Footer"
+import  SklatonAll from '../skaltons/Jobskalaton';
+import { Link, useParams } from "react-router-dom"
+import { useEffect, useRef, useState } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faMessage, faStar , faEnvelope} from "@fortawesome/free-solid-svg-icons";
+function My_Orders(){
+    const {id} = useParams()
+    const [jobfree, setjobfree] = useState(null)
+
+    useEffect(function(){
+        fetch(`http://localhost:800/Orders/${id}`)
+        .then((res) =>{
+            if(res.ok){
+                return res.json()
+            }
+        })
+        .then((data) => {
+            setjobfree(data)
+        })
+
+    }, [])
+
+
+    function OnchangeHandler(){
+        console.log(jobfree.xaalad)
+    }
+    return(
+    <div>
+        <Holder />
+        <section className="main_shaqo">
+        <div className="xajiye">
+        {jobfree ? 
+        <div className="shao_macluumad_dhan">
+                <div className="qayb_ sawiro">
+                    <div className="head_job">
+                        <div className="title">
+                            <h2>{jobfree.title}</h2>
+                        </div>                 
+                    </div>
+                    <div className="faahfaahin_sho">
+                        <h2 className="order_details"><i className="fa-solid fa-bars"></i> Waxyaabha aad uga baahnayad</h2>
+                        <p> {jobfree.Loobahanyahay}</p>
+                    </div>
+                    {/* <!---------Bilowga macluumaad raacsan ----------------------------> */}
+                    <div className="tranding_haye">
+                        <div className="rasiid_tamplate">
+                            <div className="rasiid info_raacsan">
+                                <h2 className="ciwaan_bahanahay">Ka Dajiso Halkan Hoose :</h2>
+                                {/* <!-- <p className="info_dalab_p">
+                                </p> --> */}
+                                <h2 className="ciwaan_bahanahay2">File Ama Sawir La Soo Raaciyay <FontAwesomeIcon icon={faAngleDown}/> :</h2>
+                                <a href={jobfree.upload} download className="link_mirfaq">(Download Now) dajiso Hada  <FontAwesomeIcon icon={faDownload} /></a>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <!---------dhamaadka macluumaad raacsan -------------------------> */}
+
+                </div>
+                
+                <div className="qayb_ macluumo">
+                    <div className="top_mac">
+                        <h2>Macluumadka Dalabkan</h2>
+                    </div>
+                    <div className="basic_info">
+                        <h2>USD $<span>{jobfree && jobfree.Qiimaha}</span></h2> 
+                        <p>
+                            Waa Qiimaha Iibsaduhu Gaadhsiiyay
+                        </p>
+                        <div className="more_info">
+                            <ul>
+                                <li> <FontAwesomeIcon className="i" icon={faCircleCheck} /> Mudada : <span>{jobfree && jobfree.Mudada}</span> Maalmood</li>
+                                <li>  <FontAwesomeIcon className="i" icon={faCircleCheck} /> Xadiga : <span>{jobfree && jobfree.Xadiga}</span> {jobfree && jobfree.Nooca}</li>
+                                <li>  <FontAwesomeIcon className="i" icon={faCircleCheck} /> {jobfree && jobfree.qodob1aad} </li>
+                                <li>  <FontAwesomeIcon className="i" icon={faCircleCheck} /> {jobfree && jobfree.qodob2aad} </li>
+                                {
+                                    jobfree.xaalad == 2 ?
+                                    <li> <FontAwesomeIcon className="i" icon={faShieldHalved} /> Ma Gudoomay ? : {jobfree.gudoomay? "Haa" : "Maya"} </li>
+                                    :
+                                    ""
+                                }
+                                
+                            </ul>
+                            <form action="/order_end.html" method="get">
+                                {jobfree.xaalad == 0 ?
+                                <div>
+                                <select name="Xaalad_dalabka" onChange={OnchangeHandler}>
+                                <option value={1}>
+                                    Waan Bilabay Shaqada
+                                </option>
+                                <option value={3}>
+                                    Waan Ka Laabtay Dalabkan
+                                </option>
+                                </select>
+                                <Link to={`/Acount/Myorder/info/${jobfree.id}`}>
+                                    <button>Cusbonaysii Xaalada</button>
+                                </Link>
+                                </div>
+                        
+                                :jobfree.xaalad == 1 ?
+                                <div>
+                                <select name="Xaalad_dalabka" onChange={OnchangeHandler}>
+                                <option value={2}>
+                                    Waan Udhameeyay Dalabka
+                                </option>
+                                </select>
+                                <Link to={`/Acount/gudbi`}>
+                                    <button>Gudbi Dalabka</button>
+                                </Link>
+                                </div>
+                                :jobfree.xaalad == 2 ?
+                                <di>
+                                <p><FontAwesomeIcon icon={faCircleCheck} /> Waad Dhamaysay dalabkan</p>
+                                </di>
+                                :
+                                <div>
+                                <p><FontAwesomeIcon icon={faCircleXmark} /> Waad ka Laabatay Dalabkan</p>
+                                </div>
+                                }
+                            </form>
+                        </div>
+
+                        <div className="iibiye_info">
+                            <div className="sir">
+                                <img src="/images/avatar.jpg" />
+                            </div>
+                            <div className="info_seller">
+                                <a href="">
+                                    <h2>jimcaale muuse xasan</h2>
+                                </a>
+                                
+                                <p>iibsadaha</p>
+                                <a href="/chat.html">
+                                    <button><FontAwesomeIcon icon={faMessage} /> La xidhiidh</button>
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+        : <SklatonAll />}
+        </div>
+        </section>
+        <Footer />
+    </div>
+
+    )
+}
+
+
+export default My_Orders

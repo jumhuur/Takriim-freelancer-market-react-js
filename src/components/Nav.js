@@ -1,0 +1,137 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Nativactions from "./Nativactions";
+import Massages from "./Massages";
+import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
+import { faAngleDown, faBars, faBell, faEarthAfrica, faEnvelope, faRightToBracket ,faToolbox} from "@fortawesome/free-solid-svg-icons";
+import NavMobile from "./NavMobile";
+import Drop_nav from "./Drop_nav";
+
+function Nav(){
+    const [isactive, setisactive] = useState(false)
+    const [massage, setmagessa] = useState(false)
+    const [drop, setdrop] = useState(false)
+    const [Navmobile, setnavMobile] = useState(false)
+    function HandelOgaysiis(){
+        isactive ? setisactive(false): setisactive(true);
+        setmagessa(false)
+        setdrop(false)
+    }
+
+    function HandelMassage(){
+        massage ? setmagessa(false): setmagessa(true);
+        setisactive(false)
+        setdrop(false)
+    }
+
+    function handelDrop(){
+        drop ? setdrop(false): setdrop(true);
+        setisactive(false)
+        setmagessa(false)
+    }
+
+    function HandelNavMobile(){
+        Navmobile ? setnavMobile(false): setnavMobile(true);
+    }
+    return (
+        <div>
+                <div className="xajiye">
+        <div className='header hoos'>
+        <div className="logo">
+            <Link to='/'>
+                <img src="/images/SVGL.svg" alt="logo" />
+            </Link>
+        </div>
+        {/* <!---------nav normal-----------------------------> */}
+        <div className="nav_links normal">
+            <ul className="ul_nav">
+                <li>
+                    <a href="#">
+                    <FontAwesomeIcon className="i" icon={faEarthAfrica} /> So  <FontAwesomeIcon className="i" icon={faAngleDown}/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        more  <FontAwesomeIcon className="i" icon={faAngleDown}/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Takriim Org
+                    </a>
+                </li>
+                <li className="btn">
+                    <a href="/login.html">
+                    <FontAwesomeIcon className="i" icon={faRightToBracket}/> Gal Akoon
+                    </a>
+                </li>
+                <li className="user_nav">
+                    <div className="user_">
+                        <img src="/images/avatar.png" />
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        {/* <!--------- end nav normal-----------------------------> */}
+        <div className="nav_links user">
+            <ul>
+                <li>
+                <Link to={'/Acount/orders'}>
+                <FontAwesomeIcon className="i" icon={faToolbox}/> Dalabyo  
+                </Link>
+                </li>
+                <li onClick={HandelMassage}>
+                <a href="#Massage">
+                <FontAwesomeIcon className="i" icon={faEnvelope}/> Fariimo <span>20</span>
+                </a>
+                </li>
+                <Massages massageHold={massage}/>
+                <li onClick={HandelOgaysiis}>
+                    <a href="#Ogaysiis">
+                    <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis <span>01</span>
+                    </a>
+                </li>
+                <Nativactions isactive={isactive}/>
+                <li className="user_nav">
+                    <a href="#Drop" onClick={handelDrop}>
+                        <div className="user_">
+                            <img src="/images/avatar.jpg" />
+                        </div>
+                    </a>
+                </li>
+                <Drop_nav drop={drop}/>
+            </ul>
+
+
+        </div>
+        {/* <!--------- nav mobile-----------------------------> */}
+        <div className="nav_links mobile">
+            <ul>
+
+                <li onClick={ HandelNavMobile}>
+                    <a href="#mobile">
+                    <FontAwesomeIcon className="barmobile i" icon={faBars}/>
+                    </a>
+                </li>
+
+                <li className="user_nav">
+                    <Link to={'/Acount/maxamad%20dayib/1'}>
+                        <div className="user_">
+                            <img src="/images/avatar.jpg" />
+                        </div>
+                    </Link>
+                </li>
+            </ul>
+        </div>
+        {/* <!--------- end nav mobile-----------------------------> */}
+        </div>
+    </div>
+    <NavMobile nav_mb={Navmobile}/>
+    </div>
+)
+    
+}
+
+
+export default Nav

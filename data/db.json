@@ -1,0 +1,325 @@
+{
+  "Jobs": [
+    {
+      "id": 250,
+      "title": "Duubista Codadka xayaysiiska ah",
+      "body": "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+      "iibsade": 150,
+      "Qiimayn": 75,
+      "Qiimaha": 5,
+      "Muuqaal" : "https://www.youtube.com/watch?v=JI5ABkUwYwU",
+      "image": "/images/cod.jpg",
+      "Qaybid": 5,
+      "Mudada": 0.5,
+      "UserId": 2,
+      "Xadiga": 30,
+      "Nooca": "Sikin(Seconds)",
+      "xaalad": 1,
+      "qodob1aad": "Hadalka ayaan kuu saxayaa",
+      "qodob2aad": "Waxaan kuu dubayaa cod saafi ah"
+    },
+    {
+      "id": 251,
+      "title": "Qorida Imtixaanada Luuqada Carabiga ah",
+      "body": "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+      "iibsade": 63,
+      "Qiimayn": 36,
+      "Qiimaha": 10,
+      "Muuqaal" : "https://www.youtube.com/watch?v=JI5ABkUwYwU",
+      "image": "/images/Qorid.jpg",
+      "Qaybid": 1,
+      "UserId": 1,
+      "Mudada": 0.5,
+      "Xadiga": 500,
+      "Nooca": "Kalmad(word)",
+      "xaalad": 2,
+      "qodob1aad": "Waxaan kuugu qoraya hab casriya",
+      "qodob2aad": "Waan kuugu soo dirayaa word & PDF"
+    },
+    {
+      "id": 252,
+      "title": "Design-garaynta xayaysiika social-ka",
+      "body": "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+      "iibsade": 88,
+      "Qiimayn": 75,
+      "Qiimaha": 15,
+      "Muuqaal" : "https://www.youtube.com/watch?v=JI5ABkUwYwU",
+      "image": "/images/0007.webp",
+      "Qaybid": 3,
+      "UserId": 3,
+      "Mudada": 1,
+      "Xadiga": 6,
+      "Nooca": "Nashqad(design)",
+      "xaalad": 2,
+      "qodob1aad": "Design Casriya Oo indhaha soo jidanaya",
+      "qodob2aad": "Waxaan Kuugu soo diryaa Png & Jpg"
+    },
+    {
+      "id": 253,
+      "title": "Hufida baxsiyada jaamacada shareecada",
+      "body": "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+      "iibsade": 350,
+      "Qiimayn": 220,
+      "Qiimaha": 10,
+      "Muuqaal" : "https://www.youtube.com/watch?v=JI5ABkUwYwU",
+      "image": "/images/imtixaan.jpg",
+      "Qaybid": 1,
+      "UserId": 4,
+      "Mudada": 5,
+      "Xadiga": 2,
+      "Nooca": "Bog(page)",
+      "xaalad": 2,
+      "qodob1aad": " Sixida Naxwaha Hadalka",
+      "qodob2aad": "Usamaynta Calaamadaha Hadalka"
+    },
+    {
+      "id": 254,
+      "title": "Hagaajinta Iyo Qurxinta Muuqaalada",
+      "body": "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+      "iibsade": 18,
+      "Qiimayn": 5,
+      "Qiimaha": 25,
+      "Muuqaal" : "https://www.youtube.com/watch?v=JI5ABkUwYwU",
+      "image": "/images/muqaalhagaajin.jpg",
+      "Qaybid": 2,
+      "UserId": 5,
+      "Mudada": 1,
+      "Xadiga": 10,
+      "Nooca": "Daqiiqo(Minute)",
+      "xaalad": 5,
+      "qodob1aad": " Waxaan ku darayaa Effects",
+      "qodob2aad": "Qaladadka ayaan ka saarayaa"
+    },
+    {
+      "id": 255,
+      "title": "Tifatirka qoraalada soomaliga ah",
+      "body": "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+      "iibsade": 56,
+      "Qiimayn": 45,
+      "Qiimaha": 10,
+      "Muuqaal" : "https://www.youtube.com/watch?v=JI5ABkUwYwU",
+      "image": "/images/Tifatir.jpg",
+      "Qaybid": 8,
+      "UserId": 4,
+      "Mudada": 1,
+      "Xadiga": 20,
+      "Nooca": "Bog(page)",
+      "xaalad": 5,
+      "qodob1aad": "Waxaan saxayaa qaabka hadalka ",
+      "qodob2aad": "waxaan u samaynayaa calaamada hadalka"
+    },
+    {
+      "id": 256,
+      "title": "Nashqadaynta Muqaal motion graphic ah ",
+      "body": "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+      "iibsade": 10,
+      "Qiimayn": 7,
+      "Qiimaha": 30,
+      "Muuqaal" : "https://www.youtube.com/watch?v=JI5ABkUwYwU",
+      "image": "/images/vg.gif",
+      "Qaybid": 2,
+      "UserId": 2,
+      "Mudada": 1,
+      "Xadiga": 1,
+      "Nooca": "daqiiqad(Minute)",
+      "xaalad": 5,
+      "qodob1aad": "Sawirida muuqaalka ",
+      "qodob2aad": "Habaynta & dhaqaajinta muuqaalka"
+    },
+    {
+      "id": 257,
+      "title": "muqaal motion graphic ah",
+      "body": "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+      "iibsade": 10,
+      "Qiimayn": 7,
+      "Qiimaha": 40,
+      "Muuqaal" : "https://www.youtube.com/watch?v=JI5ABkUwYwU",
+      "image": "/images/vg2.gif",
+      "Qaybid": 2,
+      "UserId": 1,
+      "Mudada": 0.50,
+      "Xadiga": 1,
+      "Nooca": "daqiiqad(Minute)",
+      "xaalad": 5,
+      "qodob1aad": "Diyaarinta sawirada muqaalka",
+      "qodob2aad": "U dhaqaajinta sawirada qaab muqaal"
+    }
+  ],
+  "User": [
+    {
+      "id": 1,
+      "Name": "maxamad dayib",
+      "Job": "Full Stack Web Devaloper",
+      "email": "jumhuur123@hotmail.com",
+      "Qiimaha": 15,
+      "image": "/images/thumbnail_IMG-7405.jpg"
+    },
+    {
+      "id": 2,
+      "Name": "Xamse Axmed",
+      "Job": "Designer",
+      "email": "jumhuur123@hotmail.com",
+      "image": "/images/xamse.jpg"
+    },
+    {
+      "id": 3,
+      "Name": "Muniir maxamad",
+      "Job": "web devaloper",
+      "email": "jumhuur123@hotmail.com",
+      "image": "/images/muniir.jpg"
+    },
+    {
+      "id": 4,
+      "Name": "xafsa maxamad",
+      "Job": "Tarnslater & editor",
+      "email": "jumhuur123@hotmail.com",
+      "image": "/images/avataaars.svg"
+    },
+    {
+      "id": 5,
+      "Name": "ilhaan axmed",
+      "Job": "Qoraaa",
+      "email": "jumhuur123@hotmail.com",
+      "image": "/images/avataaars2.svg"
+    }
+  ],
+  "Qayb": [
+    {
+      "id": 1,
+      "Name": "Qorid",
+      "Title": "Qaybta Shaqooyinka Qorida",
+      "image": "/images/qoraal.svg",
+      "icon": "<FontAwesomeIcon className='i' icon={faCubesStacked} />"
+    },
+    {
+      "id": 2,
+      "Name": "Muuqaal",
+      "Title": "Qaybta Shaqooyinka Muuqaal",
+      "image": "/images/muuqaal.svg",
+      "icon": "faCirclePlay"
+    },
+    {
+      "id": 3,
+      "Name": "nashqadayn",
+      "Title": "Qaybta Shaqooyinka nashqadayn",
+      "image": "/images/nashqad.svg",
+      "icon": "faPenNib"
+    },
+    {
+      "id": 4,
+      "Name": "Turjumaad",
+      "Title": "Qaybta Shaqooyinka Turjumaad",
+      "image": "/images/qoraal.svg",
+      "icon": "faLanguage"
+    },
+    {
+      "id": 5,
+      "Name": "Cod",
+      "Title": "Qaybta Shaqooyinka Cod",
+      "image": "/images/voice.svg",
+      "icon": "{faMicrophone}"
+    },
+    {
+      "id": 6,
+      "Name": "Suuq Gayn",
+      "Title": "Qaybta Shaqooyinka Suuq Gayn",
+      "image": "/images/Mobile Marketing-pana.svg",
+      "icon": "faMicrophone"
+    },
+    {
+      "id": 7,
+      "Name": "Tababar",
+      "Title": "Qaybta Shaqooyinka Tababar",
+      "image": "/images/tababar.svg",
+      "icon": "faPersonChalkboard"
+    },
+    {
+      "id": 8,
+      "Name": "Tifatir",
+      "Title": "Qaybta Shaqooyinka Cod",
+      "image": "/images/voice.svg",
+      "icon": "faAngleDown"
+    }
+  ],
+
+  "Orders": [
+    {
+      "id": 300,
+      "title": "Hagaajinta Iyo Qurxinta Muuqaalada",
+      "Loobahanyahay": "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+      "Qiimaha": 25.75,
+      "image": "/images/order_user.svg",
+      "upload": "/images/Your_Order.zip",
+      "Qaybid": 2,
+      "Jobid": 254,
+      "UserId": 5,
+      "Mudada": 1,
+      "Dalbade_id": 20,
+      "Xadiga": 10,
+      "Nooca": "Daqiiqo(Minute)",
+      "qodob1aad": " Waxaan ku darayaa Effects",
+      "qodob2aad": "Qaladadka ayaan ka saarayaa",
+      "xaalad": 1,
+      "gudoomay": false
+    },
+    {
+      "id": 301,
+      "title": "Duubista Codadka xayaysiiska ah",
+      "Loobahanyahay": "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+      "Qiimaha": 50.50,
+      "image": "/images/order_user.svg",
+      "upload": "/images/Your_Order.zip",
+      "Qaybid": 1,
+      "Jobid": 250,
+      "UserId": 2,
+      "Dalbade_id": 20,
+      "Mudada": 14,
+      "Xadiga": 10,
+      "Nooca": "Daqiiqo(Minute)",
+      "qodob1aad": " Waxaan ku darayaa Effects",
+      "qodob2aad": "Qaladadka ayaan ka saarayaa",
+      "xaalad": 3,
+      "gudoomay": false
+    },
+    {
+      "id": 302,
+      "title": "muqaal motion graphic ah",
+      "Loobahanyahay": "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+      "Qiimaha": 200.00,
+      "image": "/images/order_user.svg",
+      "upload": "/images/Your_Order.zip",
+      "Qaybid": 2,
+      "Jobid": 257,
+      "UserId": 1,
+      "Dalbade_id": 20,
+      "Mudada": 1,
+      "Xadiga": 10,
+      "Nooca": "Daqiiqo(Minute)",
+      "qodob1aad": " Waxaan ku darayaa Effects",
+      "qodob2aad": "Qaladadka ayaan ka saarayaa",
+      "xaalad": 2,
+      "gudoomay": false
+    },
+
+    {
+      "id": 303,
+      "title": "Design-Garaynta Xayaysiika Social-Ka",
+      "Loobahanyahay": "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+      "Qiimaha": 150.00,
+      "image": "/images/order_user.svg",
+      "upload": "/images/Your_Order.zip",
+      "Qaybid": 2,
+      "Jobid": 257,
+      "UserId": 3,
+      "Dalbade_id": 20,
+      "Mudada": 10,
+      "Xadiga": 60,
+      "Nooca": "Nashqad(Design)",
+      "qodob1aad": " Design Casriya Oo Indhaha Soo Jidanaya",
+      "qodob2aad": " Waxaan Kuugu Soo Diryaa Png & Jpg",
+      "xaalad": 0,
+      "gudoomay": false
+    }
+
+  ]
+}

@@ -1,0 +1,204 @@
+        {
+            Id: 254,
+            title: "Logo Desing Adobe Ilustrator",
+            body: "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+            iibsade:  150,
+            Qiimayn: 75,
+            Qiimaha: 15,
+            image:"/images/Writer's block-pana.svg",
+        },
+        {
+            Id: 259,
+            title: "Qorida Imtixaanada Luuqada Carabiga ah",
+            body: "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+            iibsade:  63,
+            Qiimayn: 36,
+            Qiimaha: 5,
+            image : "/images/Writer's block-bro.svg'",
+        },
+        {
+            Id: 252,
+            title: "Logo Desing Adobe Ilustrator",
+            body: "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+            iibsade:  88,
+            Qiimayn: 75,
+            Qiimaha: 15,
+            image: '/images/nashqad.svg'
+        },
+        {
+            Id: 355,
+            title: "Hufida baxsiyada jaamacada shareecada",
+            body: "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+            iibsade:  350,
+            Qiimayn: 220,
+            Qiimaha: 10,
+            image: '/images/nashqad.svg'
+        },
+        {
+            Id: 255,
+            title: "Nahqadaynta Xayaysiiska Social Media",
+            body: "Waxaan kuu samayanayaa loogo loo nashaqadeeyay sidii ugu casrisanayd waxanan kuugu samaynayaa qiimiha ugu macquulsan ee lagu sameeya waxaan isticmalayaa barmaamijka ugu wanaagsan ee adobe",
+            iibsade:  250,
+            Qiimayn: 75,
+            Qiimaha: 20,
+            image: "/images/voice.svg",
+        }
+
+
+
+
+
+
+<div className="card_template" key={job.Id}>
+    <div className="imges">
+    <img src={job.image} alt="sawir_template" />
+    </div>
+    <div className="macluumaad">
+        <div className="qoraalo">
+            <Link to={`/jobs/${job.Id}`}>
+                <h2>{job.title}</h2>
+                <p>{job.body}...</p>
+            </Link>
+        </div>
+        <div className="tirakoob">
+            <ul>
+                <li>
+                    <i className="fa-solid fa-people-group"></i>  <span>{job.iibsade}</span> iibsade
+                </li>
+                <li>
+                    <i className="fa-solid fa-star"></i> <span>{job.Qiimayn}</span>Qiimayn
+                </li>
+            </ul>
+            <div className="btn_shaqo">
+                <button><i className="fa-solid fa-credit-card"></i>  Qiimaha:   <span> {job.Qiimaha}$ </span> </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+// list 
+
+                </li>
+                <li>
+                    <a href="/qayb.html">
+                    <FontAwesomeIcon className="i" icon={faPenNib} />  Nashadayn
+                    </a>
+                </li>
+                <li>
+                    <a href="/qayb.html">
+                    <FontAwesomeIcon className="i" icon={faLanguage} />  Turjumaad
+                    </a>
+                </li>
+                <li>
+                    <a href="/qayb.html">
+                    <FontAwesomeIcon className="i" icon={faFilePen} />  Qorid
+                    </a>
+                </li>
+                <li>
+                    <a href="/qayb.html">
+                    <FontAwesomeIcon className="i" icon={faMicrophone} />  cod
+                    </a>
+                </li>
+                <li>
+                    <a href="/qayb.html">
+                    <FontAwesomeIcon className="i" icon={faBookReader} />  Tifatir
+                    </a>
+                </li>
+                <li>
+                    <a href="/qayb.html">
+                    <FontAwesomeIcon className="i" icon={faCode} />  Devalopment
+                    </a>
+                </li>
+                <li className="color">
+                    <a href="#color">
+                     in Badan  <FontAwesomeIcon className="i arrow" icon={faAngleDown} /> 
+                    </a>
+                </li>
+
+
+
+
+                        <section className="sliding">
+        <div className="xajiye kala_qayb">
+            <div className="filters">
+                <div className="skl skl_chil">
+
+                </div>
+                <div className="skl skl_chil skl2">
+
+                </div>
+                <div className="skl skl_chil skl1">
+
+                </div>
+                <div className="skl skl skl_chil">
+
+                </div>
+
+                <div className="skl skl_chil">
+
+                </div>
+                <div className="haye_round">
+                    <div className="skl skl_chil round1">
+
+                    </div>
+                    <div className="skl skl_chil round1">
+    
+                    </div>
+                    <div className="skl skl_chil round1">
+                    </div>
+                </div>
+                <div className="skl skl_chil">
+
+                </div>
+
+                <div className="xayaysiis skl">
+                    
+                </div>
+            </div>
+            {/* <!---------------biloga shaqooyinka -------------------> */}
+            <div className="tranding_haye main">
+                <div className="card_template" id="sklman">
+                    <div className="sawir skl" id="skl">
+                    </div>
+                    <div className="macluumaad">
+                        <div className="qoraalo skl">
+                            <a href="/job_details.html">
+                            </a>
+                        </div>
+                        <div className="tiro skl">
+                        </div>
+                    </div>
+                </div>
+                <div className="card_template" id="sklman">
+                    <div className="sawir skl" id="skl">
+                    </div>
+                    <div className="macluumaad">
+                        <div className="qoraalo skl">
+                            <a href="/job_details.html">
+                            </a>
+                        </div>
+                        <div className="tiro skl">
+                        </div>
+                    </div>
+                </div>
+                <div className="card_template" id="sklman">
+                    <div className="sawir skl" id="skl">
+                    </div>
+                    <div className="macluumaad" id="sklman">
+                        <div className="qoraalo skl">
+                            <a href="/job_details.html">
+                            </a>
+                        </div>
+                        <div className="tiro skl">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            {/* <!---------------dhamaadka shaqooyinka -------------------> */}
+        </div>
+    </section>

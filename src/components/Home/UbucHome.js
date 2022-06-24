@@ -1,0 +1,19 @@
+import Search from "./search"
+function Ubuc(){
+    return(
+        <div className="home_page">
+            <div className="Qayb home_page2">
+                <div className="qoraalo">
+                    <h2>Shabakada Takriim Waa</h2>
+                    <p>Suuqa Xorta Ah Ee Dhalin yarada Soomalida ! </p>
+                </div>
+                <Search />
+            </div>
+            <div className="Qayb sawir">
+                <img src="/images/home_page.svg" alt="sawir01" />
+            </div>
+        </div>
+    )
+}
+
+export default Ubuc

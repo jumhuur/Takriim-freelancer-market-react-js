@@ -1,0 +1,88 @@
+import Holder from "../NavHolder";
+import AsideUser from "./Aside_Profile";
+import Footer from "../Footer";
+import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
+import {faGears,faClockRotateLeft ,faCreditCard ,faClock, faCircleCheck ,faCircleXmark} from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Jobskl from "../skaltons/Jobskalaton";
+function Orders_Free(){
+    const [order, setorder] = useState(null)
+    useEffect((function(){
+        fetch('http://localhost:800/Orders')
+        .then((response) =>{
+            if(response){
+                return response.json()
+            }
+        })
+        .then((data) =>{
+            setorder(data)
+        })
+
+    }), [])
+    return(
+        <div>
+            <Holder />
+            <section className="orders invocs">
+                <div className="xajiye kala_qayb">
+                    <AsideUser />
+            {/* <!---------------biloga shaqooyinka -------------------> */}
+            <div className="tranding_haye">
+                {order ? order.map((dat_order) => (
+                <div className="card_template" key={dat_order.id}>
+                <div className="imges">
+                    <img src={dat_order.image} alt="sawir_template" />
+                </div>
+                <div className="macluumaad">
+                    <div className="qoraalo">
+                        <Link to={`/Acount/Myorder/info/${dat_order.id}`}>
+                            <h2>{dat_order.title}</h2>
+                            <p>
+                                {dat_order.Loobahanyahay}...
+                            </p>
+                        </Link>
+                    </div>
+                    <div className="tirakoob">
+                        <ul>
+                            {dat_order.xaalad == 0 ? 
+                                <li>
+                                <span> <FontAwesomeIcon className="i sugaya" icon={faGears} /> </span>
+                                Lama Aqbalin 
+                                </li>
+                            :dat_order.xaalad == 1 ?  
+                                <li>
+                                <span> <FontAwesomeIcon className="i socda" icon={faClockRotateLeft} /> </span>
+                                socdaa 
+                                </li>
+                            : dat_order.xaalad == 2 ? 
+                                <li>
+                                <span> <FontAwesomeIcon className="i dhamaday" icon={faCircleCheck} /> </span>
+                                Dhamaaday 
+                                </li>
+                            :
+                                <li>
+                                <span> <FontAwesomeIcon className="i laabtay" icon={faCircleXmark} /> </span>
+                                Laga Laabtay 
+                                </li>
+                            }
+                            <li>
+                            <FontAwesomeIcon className="i" icon={faClock} /> <span>28-04-2022</span>
+                            </li>
+                        </ul>
+                        <div className="btn_shaqo">
+                            <button><FontAwesomeIcon className="i" icon={faCreditCard} />   Qiimaha:   <span> {dat_order.Qiimaha} </span> </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                )): <Jobskl />}
+            </div>
+                </div>
+                    {/* <!---------------dhamaadka shaqooyinka -------------------> */}
+            </section>
+            <Footer />
+    </div>
+    )
+}
+
+export default Orders_Free

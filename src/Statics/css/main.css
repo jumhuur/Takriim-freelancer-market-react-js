@@ -1,0 +1,5730 @@
+:root{
+    --main-color : #7400b8;
+    --main-2 :#2196f3;
+    --bacground-qaybo : #F0F0F0;
+    --Font-color :  #707070;
+    --fonts : #FFFFFF;
+    --ciwaano : #3b3b3b;
+    --gaar: #ff9900;
+    --guul: #06d703;
+    --placeholder_color :  #ced4da;
+
+}
+
+@font-face {
+  font-family: "nooca_farta";
+  src: url(../Fonts/Roboto-Regular.ttf);
+}
+
+::selection{
+  background-color: var(--main-color);
+  color: var(--fonts);
+}
+
+body{
+  position: relative;
+  background-color: var(--bacground-qaybo);
+}
+
+/* width */
+body::-webkit-scrollbar {
+  width: 12px;
+  
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background-color: var(--fonts);
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background-color: var(--placeholder_color);
+  
+}
+
+/* Handle on hover 
+body::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+}
+
+*/
+
+html{
+  scroll-behavior: inherit;
+}
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+textarea {
+  line-height: 1.6;
+  resize: vertical;
+}
+.i.arrow{
+  font-size: 10px;
+}
+
+.haye,
+.xajiye{
+  max-width: 1450px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.con{
+  width: 100%;
+  height: 100%;
+  background-color: var(--fonts);
+}
+
+
+
+/* .swiper{
+  cursor: progress;
+} */
+
+
+.card{
+  width: 100%;
+  height: 100%;
+  background-color: var(--fonts);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+  margin: 5% 0;
+  cursor:grab;
+}
+
+.qof{
+  width: calc(80% / 3);
+  height: 450px;
+  background-color: var(--main-color);
+  margin: 5% 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  width: fit-content;
+}
+
+
+
+/*-------------------------head----------------------------*/
+
+.head{
+  width: 100%;
+  height: 80px;
+  z-index: 99;
+  position: fixed;
+}
+
+.head.hoos{
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+}
+
+
+.head .header{
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+.head .header .logo{
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+}
+
+.head .header .logo img {
+  width: 120px;
+}
+
+.head .header .nav_links{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-flow: wrap column;
+  position: relative;
+}
+
+.head .header .nav_links.normal{
+  display: none;
+}
+
+.head .header .nav_links ul {
+  width: 60%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.head .header .nav_links > ul > li {
+  width: calc(90% / 4);
+  height: fit-content;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+
+}
+
+.head .header .nav_links ul  li.btn{
+  height: 55%;
+  border-radius: 5px;
+  border: solid 1.50px var(--fonts);
+  transition: all 0.3s ease-in-out;
+}
+
+.head .header .nav_links ul  li.user_nav{
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+
+}
+
+.head .header .nav_links ul  li.user_nav .user_{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid 3px #ffffff7a;
+  object-fit: cover;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.head .header .nav_links ul  li.user_nav .user_ img {
+  width: 100%;
+  height: 100%;
+}
+
+.head .header .nav_links ul  li.btn:hover{
+  background-color: var(--fonts);
+  color: var(--main-2);
+}
+
+.head .header .nav_links ul  li.btn a{
+  color: var(--fonts);
+  transition: all 0.4s ease-in-out;
+}
+.head .header .nav_links ul  li.btn:hover a{
+  color: var(--main-2);
+}
+
+.head .header .nav_links > ul   > li a{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  font-family: "nooca_farta";
+  color: var(--fonts);
+  font-size: 17px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.head .header .nav_links ul  li a .i.barmobile{
+  font-size: 25px;
+
+}
+
+.head .header .nav_links ul  li a .i {
+  padding: 0 5%;
+}
+
+.nav_links.user ul li a span{
+  margin-left: 4px;
+  width: 25px;
+  height: 25px;
+  background-color: #06d703;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  border-radius: 50%;
+  visibility: visible;
+  font-size: 13px;
+  color: var(--fonts);
+  font-family: "nooca_farta";
+}
+
+.nav_links.user ul li a span.active{
+  visibility: visible;
+}
+
+
+
+
+/*---------------------- Drop Nav ------------*/
+div#Drop_nav{
+  width: 180px;
+  height: 200px;
+  background-color: var(--fonts);
+  position: absolute;
+  top: 80px;
+  bottom: 1px;
+  right: 0;
+  border-radius: 5px;
+  box-shadow:0px 0px 11px 1px #9b9b9b78;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+div#Drop_nav.active{
+  visibility: visible;
+}
+
+div#Drop_nav::before{
+  content: "";
+  width: 0px;
+  height: 0px;
+  border: solid 15px;
+  background-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: var(--fonts);
+  border-top-color: transparent;
+  position: absolute;
+  top: -25px;
+  left: 68px;
+}
+
+div#Drop_nav ul#Drop_items{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+div#Drop_nav  ul#Drop_items li#Dr{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+  padding: 5% 2%;
+  width: 90%;
+  border-radius: 5px;
+  margin: 1.50% 0;
+  transition: all 0.4s ease;
+}
+
+div#Drop_nav  ul#Drop_items li#Dr:hover{
+  background-color: var(--bacground-qaybo);
+}
+
+div#Drop_nav ul#Drop_items li#Dr a{
+    text-decoration: none;
+    color: var(--Font-color);
+    font-family: "nooca_farta";
+    text-transform: capitalize;
+    font-size: 18px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+div#Drop_nav ul#Drop_items li#Dr a .i {
+  margin-left: 5px;
+  color: var(--main-2);
+}
+
+div#Drop_nav ul#Drop_items li#Dr:hover a{
+  color: var(--ciwaano);
+}
+
+/*-----ogaysis---- and massage----*/
+
+#ogaysiis_nav ,#massages_nav{
+  width: 350px;
+  height: 450px;
+  position: absolute;
+  top: 100px;
+  bottom: 0px;
+  right: 50px;
+  visibility: hidden;
+}
+
+#ogaysiis_nav.active{
+  visibility: visible;
+  top: 90px;
+  transition: all 0.3s ease-in;
+}
+
+
+
+#massages_nav{
+  visibility: hidden;
+  top: 100%;
+  right: 199px;
+}
+
+#massages_nav.active{
+  visibility: visible;
+  top: 90px;
+  transition: all 0.3s ease-in;
+}
+
+/* #massages_nav.active,#ogaysiis_nav.active{
+  visibility: visible;
+}  */
+
+#ogaysiis_nav::before ,#massages_nav::before{
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 152px;
+  border-bottom: solid 10px var(--main-2);
+  border-left: solid 10px transparent;
+  border-right: solid 10px transparent;
+  border-top: solid 10px transparent;
+}
+
+
+#ogaysiis_nav .all_massage ,#massages_nav .all_massage ,#ogaysiis_nav .footer_msg ,#massages_nav .footer_msg{
+  background-color: var(--fonts);
+}
+
+
+#ogaysiis_nav .all_massage ,#massages_nav .all_massage{
+  width: 100%;
+  height: 400px;
+  padding: 2% 3%;
+  overflow-x: auto;
+}
+#ogaysiis_nav .all_massage::-webkit-scrollbar ,#massages_nav .all_massage::-webkit-scrollbar{
+  width: 5px;
+}
+
+#ogaysiis_nav  .all_massage::-webkit-scrollbar-thumb ,#massages_nav  .all_massage::-webkit-scrollbar-thumb {
+  background-color: var(--fonts);
+  border-radius: 15px;
+}
+
+#ogaysiis_nav  .all_massage::-webkit-scrollbar-track , #massages_nav  .all_massage::-webkit-scrollbar-track{
+  background-color: var(--bacground-qaybo);
+}
+
+#ogaysiis_nav .footer_msg ,#massages_nav .footer_msg{
+  width: 100%;
+  height: 45px;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: var(--main-2);
+
+}
+
+#ogaysiis_nav .footer_msg.top ,#massages_nav .footer_msg.top{
+  height: 35px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: var(--main-2);
+  
+}
+
+#ogaysiis_nav .footer_msg a ,#massages_nav .footer_msg a {
+  text-decoration: none;
+  width: fit-content;
+  font-size: 16px;
+  color: var(--fonts);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+}
+#ogaysiis_nav .msg , #massages_nav .msg{
+  width: 100%;
+  margin: 3% 0;
+  padding: 1% 1%;
+  background-color: var(--fonts);
+  border-radius: 6px;
+  /* border-left: solid 3px var(--guul); */
+  z-index: 55;
+  border-bottom: solid 2px var(--main-2);
+  box-shadow: #e0e0e0 0px 0px 7px 0px;
+}
+
+#ogaysiis_nav .msg:hover , #massages_nav .msg:hover{
+    border-bottom: solid 2px var(--guul);
+    transition: all 0.4s ease-in;
+    box-shadow: #e0e0e0 0px 0px 15px 0px;
+}
+
+#ogaysiis_nav .msg .Xaalad ,#massages_nav .msg .Xaalad{
+  color: var(--guul);
+  margin-left: 3%;
+  width: 35px;
+  height: 35px;
+  font-size: 16px;
+  padding: 1% 1%;
+}
+
+#ogaysiis_nav .msg h2 ,#massages_nav .msg h2{
+  font-size: 16px;
+  padding: 0% 2%;
+  padding-top: 5%;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  font-weight: normal;
+  line-height: 1.6;
+  text-transform: capitalize;
+}
+
+#ogaysiis_nav .msg h2 span ,#massages_nav .msg h2 span{
+  color: var(--main-2);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+#ogaysiis_nav .msg p ,#massages_nav .msg p{
+  font-size: 16px;
+  color: var(--ciwaano);
+
+}
+/*-------------------------nav mobile --------------------*/
+.nav_links.mobile ul li a.i.fa-bars {
+  font-size: 30px;
+}
+
+.head #nav_mobile{
+  width: 100%;
+  height: 540px;
+  /* background-image: linear-gradient(205deg, #7400b8,#2196f3); */
+  background-color: var(--fonts);
+  position: absolute;
+  right: 0;
+  transform: translate(-126%);
+  transition: all 0.4s ease-in-out;
+  overflow-x: auto;
+}
+
+.head #nav_mobile.active{
+  transform: translate(0%);
+  transition: all 0.4s ease-in-out;
+  padding: 5% 3%;
+}
+
+.head #nav_mobile ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-flow: wrap;
+
+}
+
+.head #nav_mobile ul li{
+  width: 90%;
+  font-size: 18px;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  margin: 1% 0;
+  padding: 3% 3%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.head #nav_mobile ul li .i {
+  color: var(--main-2);
+}
+
+.head #nav_mobile ul a{
+  width: 100%;
+}
+
+.head #nav_mobile ul li:hover{
+  transition: all 0.4s ease-in-out;
+  background-color: var(--bacground-qaybo);
+}
+
+.head #nav_mobile ul div.qaybo_mobile{
+  width: 80%;
+  background-color: var(--bacground-qaybo);
+  padding: 1% 2%;
+  border-radius: 5px;
+  margin: 1% 0;
+}
+
+
+
+.head #nav_mobile ul div.qaybo_mobile ul li a{
+  color: var(--Font-color);
+}
+
+.head #nav_mobile ul div.qaybo_mobile ul li:hover a{
+  color: var(--main-2);
+}
+
+.head #nav_mobile ul div.qaybo_mobile ul li:hover .i{
+  color: var(--main-2);
+}
+
+.head #nav_mobile ul div.qaybo_mobile ul li .i{
+  color: var(--ciwaano);
+}
+
+.head #nav_mobile ul button.nav_mobile_btn{
+  width: 95%;
+  height: 55px;
+  margin: 2% 0;
+  outline: none;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 0 15px;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  caret-color: var(--main-2);
+  border: none;
+  background-color: var(--fonts);
+  border: solid 1.50px var(--main-2);
+  cursor: pointer;
+}
+
+
+#nav_mobile li a {
+  text-decoration: none;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  font-size: 20px;
+}
+
+#nav_mobile li a span{
+  width: 30px;
+  height: 30px;
+  background-color: var(--guul);
+  border-radius: 50%;
+  font-size: 16px;
+  color: var(--fonts);
+  position: absolute;
+  margin: 0% 1%;
+  text-align: center;
+  padding-top: 2%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column; */
+
+}
+
+/*-------------------gride color --------------------*/
+.nav_bar{
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav_bar .haye{
+  position: relative;
+}
+
+.nav_bar .bollets{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #FFFFFF;
+  opacity: 0.1;
+}
+
+.nav_bar .bollets:nth-child(1){
+  top: 20%;
+  left: 50%;
+  right: auto;
+  width: 50px;
+  height: 50px;
+}
+
+.nav_bar .bollets:nth-child(2){
+  top: 80%;
+  left: 80%;
+  right: auto;
+  width: 70px;
+  height: 70px;
+}
+
+.nav_bar .bollets:nth-child(3){
+  top: auto;
+  left: 35%;
+  right: auto;
+  width: 10px;
+  height: 10px;
+}
+
+.nav_bar .bollets:nth-child(4){
+  top: 5%;
+  left: 10%;
+  right: auto;
+  width: 40px;
+  height: 40px;
+}
+
+.nav_bar .bollets:nth-child(5){
+  top: 75%;
+  left: 22%;
+  right: auto;
+  width: 30px;
+  height: 30px;
+}
+
+.nav_bar .bollets:nth-child(6){
+  top: 15%;
+  left: 2%;
+  right: auto;
+  width: 100px;
+  height: 100px;
+}
+
+.nav_bar .bollets:nth-child(7){
+  top: 55%;
+  left: 85%;
+  right: auto;
+  width: 100px;
+  height: 100px;
+}
+
+.nav_bar .bollets:nth-child(8){
+  top: 15%;
+  left: 95%;
+  right: auto;
+  width: 80px;
+  height: 80px;
+}
+
+.nav_bar .bollets:nth-child(9){
+  top: 15%;
+  left: 95%;
+  right: auto;
+  width: 400px;
+  height: 400px;
+}
+
+.nav_bar .bollets:nth-child(10){
+  top: 15%;
+  left: 85%;
+  right: auto;
+  width: 70px;
+  height: 70px;
+}
+
+.home_page{
+  width: 100%;
+  height: 100%;
+  padding-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  color: var(--fonts);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+}
+
+.Qayb{
+  width: calc(95% / 2);
+}
+
+.Qayb.sawir{
+  height: 650px;
+}
+
+.nav_bar .home_page2 h2{
+  color: var(--fonts);
+  font-size: 3em;
+  padding: 3% 0;
+  text-align: left;
+}
+
+.nav_bar .home_page2 p{
+  color: var(--fonts);
+  font-size: 25px;
+  padding: 2% 0;
+}
+
+.nav_bar .search{
+  width: 100%;
+  height: 100%;
+  padding: 2% 0;
+  position: relative;
+}
+
+.nav_bar .search form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.nav_bar .search input{
+  width: 86%;
+  height: 55px;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  background-color: var(--fonts);
+  padding:0 15px;
+  caret-color: var(--main-2);
+  color: var(--main-2);
+  font-size: 18px;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+
+}
+
+.nav_bar .search button{
+  width: 70px;
+  height: 55px;
+  border-radius: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: var(--bacground-qaybo);
+  color: var(--main-2);
+}
+
+.nav_bar .search button:hover{
+  background: var(--bacground-qaybo);
+}
+
+
+.search .papular{
+  width: 100%;
+  height: 50px;
+  margin: 3% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+.search .papular > ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.search .papular > ul > li {
+  width: calc(90% / 4);
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  text-transform: capitalize;
+  border: solid 1.50px var(--fonts);
+  border-radius: 15px;
+  transition: all 0.4s ease-in-out;
+}
+
+.search .papular > ul > li.papular_items:hover{
+  background-color: var(--fonts);
+}
+
+.search .papular > ul > li > a{
+  color: var(--fonts);
+  font-size: 15px;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  transition: all 0.5s ease-in-out;
+}
+
+.search .papular > ul > li.title.i {
+  color: var(--guul);
+}
+
+.search .papular > ul > li:hover > a{
+  color: var(--ciwaano);
+}
+
+.search .papular > ul > li > p{
+  font-size: 18px;
+  color: var(--fonts);
+  border: none;
+}
+
+.search .papular > ul > li:nth-child(1){
+  border: none;
+}
+
+
+/*--iqrtiraax----*/
+/* div.iqtiraax{
+  width: 100%;
+  height: 500px;
+  background-color: var(--main-color);
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 55;
+} */
+
+/*-------------------------------links noocyo ---------------------*/
+.links_noocyo{
+  width: 100%;
+  position: relative;
+  padding: 0% 0;
+  border-bottom: solid 2px #ebebeb;
+  z-index: 10;
+  background-color: var(--fonts);
+}
+
+.links_noocyo ul{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  padding: 0.50% 0;
+}
+
+.links_noocyo ul li {
+  width: 12%;
+  height: 50px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  border-radius: 5px;
+}
+
+.links_noocyo ul li:hover{
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+}
+
+.links_noocyo ul li:hover a{
+  color: var(--fonts);
+}
+
+.links_noocyo ul li:hover a .i {
+  color: var(--fonts);
+}
+
+.links_noocyo ul li a{
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  font-family: "nooca_farta";
+  color: var(--Font-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  text-decoration: none;
+  text-transform: capitalize;
+
+}
+
+.links_noocyo ul li.color{
+  border-left: solid 2px #e6e6e6;
+}
+
+.links_noocyo ul li a .i {
+  padding: 0 5px;
+  color: var(--main-2);
+}
+
+/*------------------------------ tranding----------------------*/
+
+.tranding{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 5% 0;
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+}
+
+.tranding .tranding_haye{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.tranding .tranding_haye{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.tranding .tranding_haye .card_template{
+  width: calc(95% / 3);
+  height: 250px;
+  margin: 3% 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  overflow: hidden;
+  /* box-shadow: 0px 0px 7px 1px #efecec; */
+  background-color: var(--fonts);
+}
+
+/* .tranding .tranding_haye .card_template:hover{
+    box-shadow: 0px 0px 7px 1px #efecec;
+} */
+
+.tranding .tranding_haye .card_template .imges{
+  width: 100%;
+  height: 70%;
+  background-color: #e6e6e6;
+  padding: 0;
+}
+
+.tranding .tranding_haye .card_template .macluumaad{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+.tranding .tranding_haye .card_template .macluumaad h2 ,P{
+  color: var(--main-2);
+  font-family: "nooca_farta";
+  font-weight:200;
+  font-size: 22px;
+  padding-left: 2%;
+  text-transform: capitalize;
+}
+
+h2 a{
+  text-decoration: none;
+  color: var(--ciwaano);
+}
+
+.tranding .tranding_haye .card_template .macluumaad P{
+  font-size: 17px;
+  color: var(--main-2);
+  font-weight: normal;
+}
+
+.tranding .tranding_haye .card_template .macluumaad P.i{
+  color: var(--main-2);
+}
+
+.swiper h2{
+  color: var(--ciwaano);
+  font-family: "nooca_farta";
+  font-weight: normal;
+  font-size: 23px;
+  padding-left: 2%;
+  margin-top: 5%;
+}
+
+
+
+
+/*--------sliding---------------------*/
+.sliding{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 1% 0;
+}
+
+.sliding .kala_qayb{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sliding .tranding_haye{
+  width: 70%;
+  height: 100%;
+  position: relative;
+}
+
+.sliding .tranding_haye{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.sliding .tranding_haye .card_template{
+  width: calc(90% / 1);
+  height: 100%;
+  margin: 2% 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: nowrap;
+  overflow: hidden;
+  background-color: var(--fonts);
+  position: relative;
+  padding: 1%;
+  border-bottom: solid 2px var(--main-2);
+  transition: all 0.4s ease-in-out;
+}
+
+
+.sliding .tranding_haye .card_template:hover{
+  box-shadow: 0px 0px 20px 10px #a2c0fb81;
+  border-radius: 5px;
+}
+
+.sliding .tranding_haye .card_template .imges{
+  width: 25%;
+  height: 165px;
+  background-color: #ffffff;
+  padding: 0;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.sliding .tranding_haye .card_template .macluumaad{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+.sliding .tranding_haye .card_template .macluumaad .qoraalo{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: wrap row;
+}
+
+.sliding .tranding_haye .card_template .macluumaad .qoraalo a{
+  text-decoration: none;
+}
+
+.sliding .tranding_haye .card_template .macluumaad .tirakoob{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-flow: wrap row;
+  /* background-color: #573605; */
+}
+
+.sliding .tranding_haye .card_template .macluumaad .tirakoob ul {
+  width: 50%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.sliding .tranding_haye .card_template .macluumaad .tirakoob ul li{
+  list-style: none;
+  width: calc(95% / 2);
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--ciwaano);
+  font-size: 18px;
+  font-family: "nooca_farta";
+}
+
+
+
+.sliding .tranding_haye .card_template .macluumaad .tirakoob ul li .i{
+  margin: 0 4%;
+  color: var(--main-2);
+}
+
+.sliding .tranding_haye .card_template .macluumaad .tirakoob ul li:nth-child(2) .i{
+  color: var(--gaar);
+}
+
+.sliding .tranding_haye .card_template .macluumaad .tirakoob ul li span{
+  margin-right: 2%;
+}
+.sliding .tranding_haye .card_template .btn_shaqo{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+
+}
+
+.sliding .tranding_haye .card_template .btn_shaqo button{
+  width: 100%;
+  height: 45px;
+  font-size: 18px;
+  font-family: "nooca_farta";
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  border: solid 1.50px var(--fonts);
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  color: var(--fonts);
+
+}
+
+.sliding .tranding_haye .card_template .macluumaad .qoraalo h2 ,P{
+  color: var(--main-2);
+  font-family: "nooca_farta";
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 3%;
+  text-transform: capitalize;
+  text-align: left;
+  margin: 2% 0px;
+}
+
+.sliding .tranding_haye .card_template .macluumaad P{
+  font-size: 16px;
+  color: var(--Font-color);
+  line-height: 1.6;
+  font-weight: normal;
+  width: 90%;
+}
+
+.sliding .tranding_haye .card_template .macluumaad P.i{
+  color: var(--main-2);
+}
+
+.card_template .over{
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  top: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:linear-gradient(to bottom, #ffffff00,#303030 ) ;
+  z-index: 10;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.sliding .tranding_haye .card_template:hover .over{
+  visibility: visible;
+  transition: all 3s ease-in-out;
+}
+
+
+
+.sliding .kala_qayb .filters{
+  width: 40%;
+  height: 100%;
+  background-color: var(--fonts);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  margin: 1.50% 0%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 3%;
+}
+
+.sliding .kala_qayb .filters .kalmado{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+.sliding .kala_qayb .filters h2{
+  color: var(--main-2);
+  font-size: 18px;
+  margin: 7% 5%;
+  font-family: "nooca_farta";
+}
+
+
+h2#Xayaysiis_title{
+  color: var(--main-2);
+  font-size: 18px;
+  margin: 0% 5%;
+  font-family: "nooca_farta";
+}
+
+.sliding .kala_qayb .filters .kalmado input{
+  width: 85%;
+  height: 50px;
+  outline: none;
+  border-radius: 5px;
+  border: solid 1.50px var(--main-2);
+  font-size: 17px;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  caret-color: var(--ciwaano);
+  padding-left: 15px ;
+  padding-right: 15px;
+  margin: 5% 2%;
+}
+
+
+.sliding .kala_qayb .filters .noocyo{
+  width: 100%;
+  height: 100%;
+  margin: 2% 0px;
+}
+
+.sliding .kala_qayb .filters .noocyo form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+.haye_checkh{
+  width: 100%;
+  margin: 10% 4%;
+}
+
+.haye_checkh form{
+  width: 100%;
+  height: 100%;
+}
+
+
+.sliding .kala_qayb .filters .noocyo label {
+  color: var(--ciwaano);
+  font-size: 18px;
+  font-family: "nooca_farta";
+  width: fit-content;
+  user-select: none;
+
+}
+
+
+
+
+.xayaysiis{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.xayaysiis .xa{
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  margin: 9% 0%;
+}
+
+.xayaysiis .xa img {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+
+footer{
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+}
+
+footer .my_footer{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  padding: 2% 0;
+}
+
+/*--footer 2aad ----*/
+footer .my_footer .socil_foter ,.links_footer{
+  width: 100%;
+  height: 100%;
+}
+
+footer .my_footer .logo_footer{
+  margin: 2% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+footer .my_footer .logo_footer img {
+  width: 40%;
+  height: 100%;
+}
+
+footer .my_footer .socil_foter ul.social,.links_footer ul.links {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .my_footer .socil_foter ul.social li ,.links_footer ul.links li  {
+  margin: 2% 1.50%;
+}
+
+footer .my_footer .socil_foter  ul.social li a{
+  font-size: 1.50em;
+  color: var(--fonts);
+  text-decoration: none;
+}
+
+footer .my_footer  .links_footer ul.links li a{
+  font-size: 17px;
+  font-family: "nooca_farta";
+  color: var(--fonts);
+  text-decoration: none;
+}
+
+footer .my_footer .socil_foter ul.social li a:hover{
+  color: var(--bacground-qaybo);
+}
+
+
+
+
+
+footer .my_footer .qayb{
+  width: calc(95% / 4);
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+footer .my_footer .qayb.midig{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  padding: 0% 0%;
+}
+
+footer .my_footer .qayb.midig .logo{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+footer .my_footer .qayb.midig .qoraal_about{
+  width: 100%;
+  height: 70%;
+}
+
+footer .my_footer .qayb.midig .qoraal_about p {
+  color: var(--bacground-qaybo);
+  font-size: 17px;
+  line-height: 32px;
+}
+
+footer .my_footer .qayb.midig img{
+  width: 53%;
+  height: 42%;
+}
+
+
+footer .my_footer .qayb.shaqooyin_link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+footer .my_footer .qayb.shaqooyin_link h2{
+  color: var(--bacground-qaybo);
+  font-size: 19px;
+  font-family: "nooca_farta";
+  margin: 3% 0;
+
+}
+
+footer .my_footer .qayb.shaqooyin_link ul {
+  width: 100%;
+  height: 100%;
+}
+
+footer .my_footer .qayb.shaqooyin_link ul li {
+  width: 100%;
+  height: calc(50% / 4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+footer .my_footer .qayb.shaqooyin_link ul li a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  color: var(--bacground-qaybo);
+  font-family: "nooca_farta";
+  font-size: 17px;
+  text-decoration: none;
+
+
+}
+
+
+
+/* ------------------------------qaybpage---------------------------- */
+.head.anther_page{
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+}
+
+.links_noocyo.an{
+  margin-top: 80px;
+}
+
+
+
+.qayb_name{
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+}
+
+.kala_qaybiye{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+}
+.qayb_name .qayb_name_page{
+  width: 50%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+.kala_qaybiye .sawir{
+  width: 30%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.kala_qaybiye .sawir img {
+  width: 100%;
+  height: 100%;
+}
+
+.qayb_name .qayb_name_page h2{
+  color: var(--bacground-qaybo);
+  font-size: 22px;
+  font-family: "nooca_farta";
+  width: 100%;
+}
+/* 
+.qayb_name .qayb_name_page h2 span.coun_shaqo{
+
+
+} */
+
+
+.qayb_name .qayb_name_page ul{
+  width: 100%;
+  height: 60%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+.qayb_name .qayb_name_page ul li {
+  width: 100%;
+  height: calc(80% / 4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+.qayb_name .qayb_name_page ul li a{
+  color: var(--fonts);
+  font-family: "nooca_farta";
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.qayb_name .qayb_name_page p{
+  padding: 0;
+  margin: 0;
+  color: var(--bacground-qaybo);
+  margin: 2% 1%;
+  font-weight: normal;
+}
+
+
+
+/* ---------------------- job details page -------------------- */
+.shaqo{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: var(--fonts);
+}
+
+.shaqo .links_shaqo{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: wrap row;
+  border-bottom: solid 3px #ebebeb;
+
+}
+
+.shaqo .links_shaqo ul {
+  width: 80%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  list-style: none;
+  padding: 0;
+  margin: 0.50% 0;
+}
+
+.shaqo .links_shaqo ul li {
+  width: calc(95% / 6);
+  height: 60px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  transition: all 0.4s ease-in-out;
+}
+
+
+.shaqo .links_shaqo ul li a{
+  text-decoration: none;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  font-size: 18px;
+  text-transform: capitalize;
+  transition: all ease-in-out 0.4s;
+}
+
+.shaqo .links_shaqo ul li a:hover{
+  color: var(--main-2);
+}
+
+.main_shaqo{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: var(--fonts);
+  margin-bottom: 5%;
+}
+
+.main_shaqo .shao_macluumad_dhan{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-flow: wrap row;
+  background-color: var(--bacground-qaybo);
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_{
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  background-color: var(--fonts);
+  margin-top: 2%;
+  border-radius: 5px;
+}
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro{
+  width: 65%;
+  padding: 3% 3%;
+  position: relative;
+}
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job{
+  width: 100%;
+  height: 100%;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .title{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-flow: wrap column;
+
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .title h2{
+  color: var(--ciwaano);
+  font-size: 28px;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  padding: 2% 3%;
+  color: var(--main-2);
+
+}
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-flow: wrap column;
+}
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  flex-flow: wrap row;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin: 2% 0;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li {
+  width: calc(90% / 4);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-flow: wrap column;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li p {
+  font-size: 16px;
+  font-family: "nooca_farta";
+  color: var(--Font-color);
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li p.qimayn .i{
+  color: var(--gaar);
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li p .i {
+  color: var(--main-2);
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li.img_iibiye{
+  flex-basis: content;
+  margin-top: -9px;
+  position: relative;
+
+}
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li.img_iibiye .ss_ibiye{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid 4px #bfbfbfc7;
+  position: relative;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li.img_iibiye .ss_ibiye img{
+  object-fit: cover;
+}
+
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li.img_iibiye > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+/* .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li.img_iibiye img::before{
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  color: #03ba1b;
+} */
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .sawir_shaqo{
+  width: 100%;
+  height: 530px;
+  margin: 3% 0;
+  overflow: hidden;
+  border-radius: 5px;
+  border-left: solid 4px var(--main-2);
+  border-right: solid 4px var(--main-2);
+}
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro  .faahfaahin_sho {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro  .faahfaahin_sho h2{
+  font-size: 20px;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  padding: 1% 3%;
+  margin-top: 6%;
+  color: var(--main-2);
+  text-transform: capitalize;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro  .faahfaahin_sho h2.order_details{
+  color: var(--main-2);
+  font-size: 18px;
+  text-transform: capitalize;
+  padding: 1% 0;
+  margin-top: 2%;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro  .faahfaahin_sho p{
+  font-size: 18px;
+  line-height: 1.9;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  padding: 2% 0;
+  color: var(--Font-color);
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .iibiye_info{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: wrap row;
+  margin-bottom: 0.50%;
+  background-color: var(--fonts);
+  border-bottom: solid 2px #e3e2e2;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .iibiye_info .sir{
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: solid 5px #f0f0f0;
+  align-self: flex-start;
+  margin-top: 1%;
+  margin-left: 2%;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .iibiye_info .sir img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .iibiye_info .info_seller{
+  width: 70%;
+  height: 100%;
+  position: relative;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .iibiye_info .info_seller h2{
+  font-size: 16px;
+  color: var(--main-2);
+  font-family: "nooca_farta";
+  margin-top: 4%;
+  margin-left: 3%;
+  text-transform: capitalize;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .iibiye_info .info_seller p{
+  font-size: 15px;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .iibiye_info .info_seller p.comments{
+  font-size: 16px;
+  line-height: 1.9;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  padding: 2% 2%;
+  color: var(--Font-color);
+  font-weight: normal;
+  text-transform: capitalize;
+
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .iibiye_info .info_seller p.qiimayn{
+  color: var(--gaar);
+}
+
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .iibiye_info .info_seller button {
+  width: 65%;
+  height: 45px;
+  margin: 1.50% 0%;
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--fonts);
+  font-size: 16px;
+  font-family: "nooca_farta";
+  align-self: center;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.4s ease-in-out;
+  margin: 3% 0;
+  margin-left: 5%;
+}
+
+
+
+
+
+
+
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo{
+  width: 30%;
+  height: 100%;
+  align-self: flex-start;
+  margin: 2% 0;
+  border: solid 2px var(--bacground-qaybo);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .top_mac{
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  border-bottom: solid 1.50px var(--main-2);
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .top_mac h2{
+  color: var(--fonts);
+  font-family: "nooca_farta";
+  font-size: 22px;
+  margin: 6% 4%;
+  text-transform: capitalize;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .basic_info{
+  width: 100%;
+  height: 100%;
+
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .basic_info h2{
+  color: var(--main-2);
+  font-size: 25px;
+  padding-top: 7%;
+  padding-left: 5%;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  font-weight: bold;
+
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .basic_info p{
+  line-height: 1.6;
+  color: var(--Font-color);
+  font-size: 15px;
+  font-family: "nooca_farta";
+  padding: 1% 3%;
+  text-transform: capitalize;
+  font-weight: normal;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info{
+  width: 100%;
+  height: 100%;
+  margin: 2% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info ul{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info ul li{
+  width: 100%;
+  height: 100%;
+  margin: 2% 5%;
+  color: var(--Font-color);
+  font-size: 17px;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info ul li span{
+  margin: 0% 1%;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info form{
+  width: 90%;
+  height: 100%;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info input,select{
+  width: 30%;
+  height: 35px;
+  outline: none;
+  border: solid 1.50px var(--main-2);
+  margin: 4% 0;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 18px;
+  font-family: "nooca_farta";
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info select{
+  width: 80%;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info select option{
+  text-transform: capitalize;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info form a {
+  height: 45px;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info form button {
+  width: 90%;
+  height: 45px;
+  margin: 1.50% 0%;
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--fonts);
+  font-size: 16px;
+  font-family: "nooca_farta";
+  align-self: center;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.4s ease-in-out;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info form button:hover{
+  background: var(--fonts);
+  border: solid 1.50px var(--main-2);
+  color: var(--main-2);
+}
+
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info label{
+  color: var(--Font-color);
+  font-size: 17px;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .more_info ul li .i {
+  margin: 0% 1.50%;
+  color: var(--main-2);
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .iibiye_info{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  margin: 6% 0;
+  position: relative;
+}
+
+.iibiye_info > img#la_xaqiijiyay{
+  position: absolute !important;
+  top: 50px;
+  bottom: 0;
+  left: 77px;
+  z-index: 5;
+  width: 25px;
+  height: 25px;
+}
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .iibiye_info .sir{
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 5px solid rgb(240, 240, 240);
+  align-self: flex-start;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .iibiye_info .sir img {
+  object-fit: cover;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .iibiye_info .info_seller{
+  width: 70%;
+  height: 100%;
+  position: relative;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .iibiye_info .info_seller h2{
+  font-size: 16px;
+  color: var(--Font-color);
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .iibiye_info .info_seller p{
+  font-size: 15px;
+}
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .iibiye_info .info_seller p.qiimayn{
+  color: var(--gaar);
+}
+
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .iibiye_info .info_seller button {
+  width: 80%;
+  height: 45px;
+  margin: 1.50% 0%;
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--fonts);
+  font-size: 16px;
+  font-family: "nooca_farta";
+  align-self: center;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.4s ease-in-out;
+}
+
+/*-- Qiyaas xaraf -----*/
+.qiyaas{
+  width: 90%;
+  height: 150px;
+  align-items: center;
+  margin: 2% 3%;
+  outline: none;
+  border: solid 1.50px var(--main-2);
+  border-radius: 5px;
+  padding: 15px 15px;
+  font-size: 18px;
+  font-weight: normal;
+  color: var(--Font-color);
+  text-transform: capitalize;
+  resize: vertical;
+  line-height: 1.6;
+  font-family: "nooca_farta";
+}
+
+.qiyaas::placeholder{
+  color: #d5d1d1;
+}
+
+.aria{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.aria .count{
+  width: calc(90% / 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+span.count_place{
+  width: 70px;
+  margin: 0% 2%;
+  margin-bottom: 5%;
+  height: 70px;
+  display: block;
+  padding: 3% 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  font-size: 17px;
+  font-weight: normal;
+  color: var(--fonts);
+  text-transform: capitalize;
+  font-family: "nooca_farta";
+  border-radius: 25%;
+  background-color: #2196f324;
+  margin: 5% auto;
+}
+
+span.count_place.active{
+  background-color: var(--main-2);
+}
+
+span.kalmad.active{
+  background-color: var(--main-2);
+}
+
+span.count_places span{
+  display: inline;
+}
+
+/*-- Qiyaas xaraf -----*/
+
+.falcelin_title{
+  align-self: flex-start;
+  font-size: 20px;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  
+}
+
+h2.flcelin{
+  margin-bottom: 2%;
+}
+
+
+.img_iibiye > img#la_xaqiijiyay{
+  position: absolute !important;
+  top: 26px;
+  right: -2px;
+  bottom: 0;
+  z-index: 5;
+  width: 20px;
+  height: 20px;
+}
+
+.Madhan{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+img#empty_side{
+  width: 55%;
+  height: 55%;
+  display: block;
+}
+
+
+/*-------------------checkh out page------------------------------*/
+.checkout{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.checkout .checkout2{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.checkout .checkout2 .tranding_haye{
+  height: 100%;
+  position: relative;
+}
+
+.checkout .checkout2 .tranding_haye{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.checkout .checkout2 .tranding_haye .card_template{
+  width: calc(85% / 1);
+  height: 100%;
+  margin: 2% 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: wrap row;
+  overflow: hidden;
+  background-color: var(--fonts);
+  position: relative;
+  padding: 1%;
+  border-bottom: solid 2px var(--main-2);
+  transition: all 0.4s ease-in-out;
+}
+.checkout .checkout2 .tranding_haye .card_template .imges{
+  width: 35%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  background-color: #ffffff;
+  padding: 0;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  object-fit: cover;
+  color: var(--main-2);
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad{
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-flow: wrap row;
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .qoraalo{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: wrap row;
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .qoraalo a{
+  text-decoration: none;
+  width: 100%;
+}
+
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad h2 ,P{
+  color: var(--ciwaano);
+  font-family: "nooca_farta";
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 3%;
+  text-transform: capitalize;
+  text-align: left;
+  margin: 2% 0px;
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad P{
+  font-size: 16px;
+  color: var(--Font-color);
+  line-height: 1.6;
+  font-weight: normal;
+  width: 90%;
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .tirakoob{
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: wrap row;
+  margin: 2% 0;
+  /* background-color: #573605; */
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .tirakoob ul {
+  width: 50%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: ce;
+  flex-flow: wrap row;
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .tirakoob ul li{
+  list-style: none;
+  width: calc(95% / 2);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--ciwaano);
+  font-size: 18px;
+  font-family: "nooca_farta";
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .check_last P >.i{
+  color: var(--main-2);
+}
+
+
+
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .tirakoob ul li.i{
+  margin: 0 4%;
+  color: var(--main-2);
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .tirakoob ul li:nth-child(2).i{
+  color: var(--gaar);
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .tirakoob ul li span{
+  margin-right: 2%;
+}
+.checkout .checkout2 .tranding_haye .card_template .btn_shaqo{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+
+}
+
+.checkout .checkout2 .tranding_haye .card_template .btn_shaqo button{
+  width: 100%;
+  height: 45px;
+  font-size: 18px;
+  font-family: "nooca_farta";
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  border: solid 1.50px var(--fonts);
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  color: var(--fonts);
+
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .check_last{
+  width: 100%;
+  height: 90%;
+  position: relative;
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .check_last P.Kharash{
+  font-weight: bold;
+  color: var(--main-2);
+}
+
+
+
+.main_shaqo.ceck{
+  background-color: var(--bacground-qaybo);
+}
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .check_last button{
+  width: 60%;
+  height: 45px;
+  margin: 1.50% 0%;
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--fonts);
+  font-size: 16px;
+  font-family: "nooca_farta";
+  align-self: flex-start;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.4s ease-in-out;
+}
+
+
+.checkout .checkout2 .tranding_haye .card_template .macluumaad .check_last button:hover {
+  background: var(--fonts);
+  border: solid 1.50px var(--main-2);
+  color: var(--main-2);
+}
+
+form.lacag_bixinta{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+  padding: 2% 2%;
+}
+form.lacag_bixinta a{
+  width: fit-content;
+  text-decoration: none;
+  color: var(--fonts);
+}
+
+form.lacag_bixinta a:hover{
+  color: var(--main-2);
+}
+
+form.lacag_bixinta input.lacag_bixin, select.lacag_bixin{
+  width: 90%;
+  height: 60px;
+  padding: 0% 15px;
+  margin: 1% 0;
+  outline: none;
+  border-radius: 5px;
+  border: solid 1px #e1e1e1;
+  font-size: 18px;
+  border-left: solid 2px var(--main-2);
+  border-right: solid 2px var(--main-2);
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  caret-color: var(--main-2);
+}
+
+form.lacag_bixinta select.lacag_bixin option {
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  background-color: var(--fonts);
+}
+
+
+form.lacag_bixinta label{
+  font-size: 18px;
+  color: var(--main-2);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+}
+
+
+
+/*------------------------complate-----------------------------*/
+.complate{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0% 0;
+}
+
+.complate > .xajiye{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+.complate .dhamaad{
+  width: 60%;
+  height: 100%;
+  margin: 2% 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  overflow: hidden;
+  background-color: var(--fonts);
+  position: relative;
+  padding: 1%;
+  transition: all 0.4s ease-in-out;
+}
+
+.complate .dhamaad svg {
+  width: 100px;
+  height: 100px;
+}
+
+
+
+/*------------------------------orders page ------------------------------*/
+/*--------sliding---------------------*/
+.orders{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 1% 0;
+}
+
+.orders .kala_qayb{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.orders .tranding_haye{
+  width: 70%;
+  height: 100%;
+  position: relative;
+}
+
+.orders .tranding_haye{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.orders .tranding_haye .card_template{
+  width: calc(90% / 1);
+  height: 220px;
+  margin: 2% 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  overflow: hidden;
+  background-color: var(--fonts);
+  position: relative;
+  padding: 1%;
+  border-bottom: solid 2px var(--main-2);
+  transition: all 0.4s ease-in-out;
+}
+
+.orders .tranding_haye .card_template.nativactions{
+  height: 100%;
+  flex-flow: nowrap;
+}
+
+
+.orders .tranding_haye .card_template:hover{
+  box-shadow: 0px 0px 20px 10px #a2c0fb81;
+  border-radius: 5px;
+}
+
+.orders .tranding_haye .card_template .imges{
+  width: 25%;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 0;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.orders .tranding_haye .card_template div.imges.massage{
+  width: 180px;
+}
+
+.orders .tranding_haye .card_template .macluumaad{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+.orders .tranding_haye .card_template .macluumaad .qoraalo{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: wrap row;
+}
+
+.orders .tranding_haye .card_template .macluumaad .qoraalo a{
+  text-decoration: none;
+}
+
+.orders .tranding_haye .card_template .macluumaad .tirakoob{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-flow: wrap row;
+  /* background-color: #573605; */
+}
+
+.orders .tranding_haye .card_template .macluumaad .tirakoob ul {
+  width: 50%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: ce;
+  flex-flow: wrap row;
+}
+
+.orders .tranding_haye .card_template .macluumaad .tirakoob ul li{
+  list-style: none;
+  width: calc(95% / 2);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--ciwaano);
+  font-size: 18px;
+  font-family: "nooca_farta";
+}
+
+
+
+.orders .tranding_haye .card_template .macluumaad .tirakoob ul li .i{
+  margin: 0 4%;
+  color: var(--main-2);
+}
+
+.orders .tranding_haye .card_template .macluumaad .tirakoob ul li .i.socda{
+  color: var(--gaar);
+}
+.orders .tranding_haye .card_template .macluumaad .tirakoob ul li .i.dhamaday{
+  color: var(--guul);
+}
+.orders .tranding_haye .card_template .macluumaad .tirakoob ul li .i.laabtay{
+  color: #b80000;
+}
+
+.orders .tranding_haye .card_template .macluumaad .tirakoob ul li:nth-child(2) .i{
+  color: var(--gaar);
+}
+
+.orders .tranding_haye .card_template .macluumaad .tirakoob ul li span{
+  margin-right: 2%;
+}
+.orders .tranding_haye .card_template .btn_shaqo{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+
+}
+
+.orders .tranding_haye .card_template .btn_shaqo button{
+  width: 100%;
+  height: 45px;
+  font-size: 18px;
+  font-family: "nooca_farta";
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  border: solid 1.50px var(--fonts);
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  color: var(--fonts);
+
+}
+
+/* .orders .tranding_haye .card_template .btn_shaqo button:hover{
+  border: solid 1.50px var(--main-2);
+  background-image: linear-gradient(205deg, #fff, #fff);
+  color: var(--main-2);
+} */
+.orders .tranding_haye .card_template .macluumaad .qoraalo h2 ,P.Complate{
+  color: var(--main-2);
+  font-family: "nooca_farta";
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 3%;
+  text-transform: capitalize;
+  text-align: left;
+  margin: 2% 0px;
+}
+
+img.svg_compl{
+  width: 100px;
+}
+
+.orders .tranding_haye .card_template .macluumaad .qoraalo h2 ,P.dajin_nafta{
+  color: var(--Font-color);
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.7;
+
+}
+
+.orders .tranding_haye .card_template .macluumaad .qoraalo h2 ,P.dajin_nafta span{
+  color: var(--main-2);
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.orders .tranding_haye .card_template .macluumaad P{
+  font-size: 16px;
+  color: var(--Font-color);
+  line-height: 1.6;
+  font-weight: normal;
+  width: 90%;
+}
+
+.orders .tranding_haye .card_template .macluumaad P.i{
+  color: var(--main-2);
+}
+
+.orders .card_template .over{
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  top: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:linear-gradient(to bottom, #ffffff00,#303030 ) ;
+  z-index: 10;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.orders .orders .tranding_haye .card_template:hover .over{
+  visibility: visible;
+  transition: all 3s ease-in-out;
+}
+
+
+
+.orders .kala_qayb .filters{
+  width: 40%;
+  height: 100%;
+  background-color: var(--fonts);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  margin: 1.50% 0%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.orders .kala_qayb .filters .kalmado{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+.orders .kala_qayb .filters h2{
+  color: var(--main-2);
+  font-size: 18px;
+  margin: 7% 5%;
+  font-family: "nooca_farta";
+}
+
+.orders .kala_qayb .filters .kalmado input{
+  width: 85%;
+  height: 50px;
+  outline: none;
+  border-radius: 5px;
+  border: solid 1.50px var(--main-2);
+  font-size: 17px;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  caret-color: var(--ciwaano);
+  padding-left: 15px ;
+  padding-right: 15px;
+  margin: 5% 2%;
+}
+
+
+.orders .kala_qayb .filters .noocyo{
+  width: 100%;
+  height: 100%;
+  margin: 2% 0px;
+}
+
+.orders .kala_qayb .filters .noocyo form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+h2.orders_title{
+  font-size: 25px;
+  text-align: center;
+}
+
+.haye_checkh{
+  width: 100%;
+  margin: 10% 4%;
+}
+
+.haye_checkh form{
+  width: 100%;
+  height: 100%;
+}
+
+
+.orders .kala_qayb .filters .noocyo label {
+  color: var(--ciwaano);
+  font-size: 18px;
+  font-family: "nooca_farta";
+  width: fit-content;
+  user-select: none;
+
+}
+
+.haye_checkh input{
+  width: 45px;
+  height: 20px;
+}
+
+
+.xayaysiis{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+}
+
+.xayaysiis .xa{
+  width: 85%;
+  height: 350px;
+  overflow: hidden;
+  margin: 6% 0%;
+  border-radius: 5px;
+  /* box-shadow: #d6d4d4 0px 0px 17px 3px; */
+}
+
+.xayaysiis .xa img {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+/*------------------------sinup page -----------------------------*/
+/* .sinup_page {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: var(--fonts);
+  overflow: hidden;
+
+}
+
+
+.sinup_page .samayso{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.sinup_page .samayso .sawir{
+  width: 50%;
+}
+
+.sinup_page .samayso form {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap row;
+  margin: 0px 0;
+  padding: 5% 5%;
+  background-color: var(--fonts);
+  border-radius: 5px;
+}
+
+.sinup_page .samayso form div {
+  width: calc(90% /1);
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-flow: wrap column;
+  /* background-color: var(--fonts); 
+
+}
+
+.sinup_page .samayso form div a{
+  color: var(--Font-color);
+  font-size: 18px;
+  font-family: "nooca_farta";
+  text-decoration: none;
+  margin: 2% 2%;
+}
+
+.sinup_page .samayso form div input,button{
+  width: 90%;
+  height: 55px;
+  outline: none;
+  border: none;
+  background-color: var(--bacground-qaybo);
+  border-radius: 5px;
+  padding: 15px;
+  margin: 2% 0;
+  color: var(--main-2);
+  /* border: solid 1.50px var(--Font-color); 
+  font-size: 18px;
+  font-family: "nooca_farta";
+  caret-color: var(--main-2);
+
+}
+
+
+.sinup_page .samayso form div button{
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  color: var(--fonts);
+  cursor: pointer;
+}
+
+.sinup_page .samayso form div input::placeholder{
+  color: #e2e2e2;
+}
+
+.sinup_page .samayso form div label{
+  font-size: 18px;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  margin: 1% 0;
+  color: var(--Font-color);
+
+} */
+
+
+
+/*------------------------ profile -------------------------*/
+.qayb_name_page.profile{
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.qayb_name_page.profile div.prof{
+  width: calc(90% / 2);
+  height: 100%;
+}
+
+.qayb_name_page.profile div.prof.sawir_user{
+  position: relative;
+
+}
+
+.qayb_name_page.profile div.prof.sawir_user img{
+  object-fit: cover;
+}
+
+.qayb_name_page.profile div.prof.macluumo_user #la_xaqiijiyay{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 200px;
+}
+
+.qayb_name_page.profile div.prof.sawir_user div{
+  width: 170px;
+  height: 170px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: solid 4px rgba(238, 238, 238, 0.52);
+  position: relative;
+
+}
+
+.qayb_name_page.profile div.prof.macluumo_user{
+  padding: 2% 0;
+
+}
+
+.qayb_name_page.profile div.prof.macluumo_user h2{
+  color: var(--bacground-qaybo);
+  font-size: 25px;
+  margin-left: 1%;
+  position: relative;
+  text-transform: capitalize;
+}
+
+.qayb_name_page.profile div.prof.macluumo_user P{
+  color: var(--fonts);
+  font-size: 15px;
+  margin: 4% 0;
+  font-weight: normal;
+}
+
+.qayb_name_page.profile div.prof.macluumo_user ul{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.qayb_name_page.profile div.prof.macluumo_user ul li {
+  width: calc(90% / 2);
+  height: 100%;
+  padding: 1% 0;
+}
+
+.qayb_name_page.profile div.prof.macluumo_user ul li p {
+  font-size: 19px;
+}
+
+
+.tranding_haye .rasiid_tamplate{
+  width: calc(90% / 1);
+  height: 100%;
+  margin: 2% 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  overflow: hidden;
+  background-color: var(--fonts);
+  position: relative;
+  padding: 1%;
+  border-bottom: solid 2px var(--main-2);
+  transition: all 0.4s ease-in-out;
+}
+
+.tranding_haye .rasiid_tamplate .rasiid{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.tranding_haye .rasiid_tamplate .rasiid div.lacag{
+  width: calc(90% /3);
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+.tranding_haye .rasiid_tamplate .rasiid div.lacag p {
+  font-size: 19px;
+  margin: 6% 0;
+  font-weight: normal;
+}
+
+.tranding_haye .rasiid_tamplate .rasiid div.lacag h2.all{
+  color: var(--Font-color);
+}
+.tranding_haye .rasiid_tamplate .rasiid div.lacag h2.bishan{
+  color: var(--gaar);
+}
+.tranding_haye .rasiid_tamplate .rasiid div.lacag h2.avalible{
+  color: var(--guul);
+}
+
+.tranding_haye .rasiid_tamplate .rasiid div.lacag h2{
+  color: var(--guul);
+  font-size: 2.50em;
+  font-family: "nooca_farta";
+
+}
+
+.orders.invocs ul {
+  width: 85%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+.orders.invocs .filters  ul li {
+  width: 95%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+  margin: 2% 5%;
+  padding: 5% 8%;
+  transition: all 0.4s ease-in-out;
+  border-radius: 5px;
+  border-left: solid 2px var(--fonts);
+  position: relative;
+}
+
+.orders.invocs .filters  ul li span {
+  width: 25px;
+  height: 25px;
+  background-color: var(--guul);
+  border-radius: 50%;
+  position: absolute;
+  margin-left: 1%;
+  color: var(--fonts);
+  font-size: 15px;
+  padding-left: 1%;
+  padding-top: 1.50%;
+}
+
+.orders.invocs .filters  ul li:hover{
+  background-color: var(--bacground-qaybo);
+  border-left: solid 2px var(--main-2);
+}
+
+.orders.invocs .filters  ul li a{
+  font-size: 19px;
+  font-weight: normal;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+}
+
+.orders.invocs .filters  ul li a .i {
+  color: var(--main-2);
+}
+
+
+div.pro_rasiid , div.pro_tirakoob{
+  width: 90%;
+  height: 100%;
+  margin: 2% 0;
+  display: flex;
+  background-color: var(--fonts);
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+  border-radius: 5px;
+  border-bottom: solid 2px var(--main-2);
+}
+
+div.pro_rasiid  .total,.pannding,.avalible{
+  width: calc(90% / 3);
+  height: 200px;
+  border-radius: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  /* box-shadow: rgb(238 238 238) 0px 0px 16px 0px; */
+  margin: 2% 0;
+}
+
+div.pro_rasiid  .total h2 ,.pannding h2,.avalible h2{
+  color: var(--main-2);
+  font-size: 3em;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+div.pro_rasiid .pannding h2{
+  color: var(--gaar);
+}
+
+div.pro_rasiid .avalible h2{
+  color: var(--guul);
+}
+
+div.pro_rasiid  .total p ,.pannding p,.avalible p{
+  color: var(--Font-color);
+  font-size: 18px;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  margin: 4% 0;
+  font-weight: normal;
+}
+
+div.pro_rasiid  .total p .i{
+  color: var(--main-2);
+}
+div.pro_rasiid  .pannding p .i{
+  color: var(--gaar);
+}
+div.pro_rasiid  .avalible p .i{
+  color: var(--guul);
+}
+
+
+/*---- tira koob ---*/
+div.pro_tirakoob .tr{
+  width: calc(85% / 3);
+  height: 160px;
+  margin: 5% 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap column;
+  border-radius: 10px;
+  background-color: var(--bacground-qaybo);
+}
+
+/* div.pro_tirakoob .tr.adeegyo{
+  background-color: #2196f333;
+  /* border-left: solid 2px var(--main-2); 
+}
+
+div.pro_tirakoob .tr.Macaamiil{
+  background-color: #ff99002b;
+  /* border-left: solid 2px var(--gaar); 
+}
+
+div.pro_tirakoob .tr.Qiimayn{
+  background-color: #06d7032b;
+  /* border-left: solid 2px var(--guul); 
+} */
+
+div.pro_tirakoob .tr .icon{
+  width: 30%;
+  height: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  border-radius: 50%;
+  border: solid 4px #ffffffe0;
+  background-color: var(--fonts);
+}
+
+/* div.pro_tirakoob .tr:nth-child(1) .icon{
+  background-color: var(--main-2);
+}
+div.pro_tirakoob .tr:nth-child(2) .icon{
+  background-color: var(--gaar);
+}
+div.pro_tirakoob .tr:nth-child(3) .icon{
+  background-color: var(--guul);
+}
+
+div.pro_tirakoob .tr:nth-child(1) .icon.i {
+  font-size: 2.50em;
+  color: var(--fonts);
+}
+div.pro_tirakoob .tr:nth-child(2) .icon.i {
+  font-size: 2.50em;
+  color: var(--fonts);
+}
+
+div.pro_tirakoob .tr:nth-child(3) .icon.i {
+  font-size: 2.50em;
+  color: var(--main-color);
+}
+*/
+
+
+div.pro_tirakoob .tr .icon .i {
+  font-size: 2.50em;
+  color: var(--main-2);
+}
+
+div.pro_tirakoob .tr .qoraal{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+div.pro_tirakoob .tr .qoraal h2{
+  color: var(--main-2);
+  font-size: 2em;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  font-weight: bold;
+}
+div.pro_tirakoob .tr .qoraal p{ 
+  color: var(--ciwaano);
+  font-size: 18px;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  font-weight: normal;
+}
+
+
+/*--------------------------cashout ----------------------------------*/
+.rasiid form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+  padding: 2%;  
+}
+
+.rasiid form input.la_bax , button.la_bax, select.la_bax,div#xadiga_nooca ,div#xadiga_nooca .xadiga{
+  width: 85%;
+  height: 55px;
+  padding: 5px 15px;
+  margin: 2% 0;
+  outline: none;
+  border-radius: 5px;
+  border: solid 1px #e1e1e1;
+  font-size: 18px;
+  border-left: solid 2px var(--main-2);
+  border-right: solid 2px var(--main-2);
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  caret-color: var(--main-2);
+}
+
+
+.rasiid form  select.la_bax option {
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  background-color: var(--fonts);
+}
+
+.rasiid form button.la_bax {
+  width: 65%;
+  height: 55px;
+  color: var(--fonts);
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+  font-size: 20px;
+  border: none;
+}
+
+.rasiid form button.la_bax:hover{
+  background: var(--fonts);
+  color: var(--main-2);
+  font-size: 20px;
+  border: solid 1.50px var(--main-2);
+}
+
+.rasiid form input::placeholder{
+  opacity: 0.3;
+}
+
+.rasiid form label{
+  font-size: 18px;
+  color: var(--main-2);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+}
+
+.rasiid form p.la_bax{
+  color: var(--main-2);
+  font-size: 18px;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+}
+
+div.sax{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  margin: 5% 0;
+}
+
+div.sax img {
+  width: 50%;
+  height: 50%;
+}
+
+div.sax > p{
+  color: var(--main-2);
+  font-size: 20px;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+
+}
+
+div#xadiga_nooca {
+  border: none;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+
+}
+
+div#xadiga_nooca .xadiga{
+  width: calc(90% / 2);
+
+}
+
+/*--------------------------cashout ----------------------------------*/
+.rasiid form textarea.add_serv{
+  width: 85%;
+  height: 200px;
+  padding: 15px 15px;
+  margin: 2% 0;
+  outline: none;
+  border-radius: 5px;
+  border: solid 1px #e1e1e1;
+  font-size: 18px;
+  border-left: solid 2px var(--main-2);
+  border-right: solid 2px var(--main-2);
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  caret-color: var(--main-2);
+   resize: vertical;
+}
+
+.rasiid form textarea.add_serv::placeholder{
+  opacity: 0.3;
+}
+
+
+.rasiid form div.sawir {
+  width: 85%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  margin: 2% 0;
+  padding: 2% 0;
+  border: dashed 2px var(--main-2);
+}
+
+/*--- image progess ------*/
+div.progress {
+  width: 90%;
+  height: 80px;
+  background-color: var(--bacground-qaybo);
+  border-radius: 5px;
+  margin: 2% 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+div.progress  .file_icon{
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap column;
+  color: var(--main-2);
+  font-size: 3.5em;
+}
+
+div.progress  .file_icon.delete{
+  height: fit-content;
+  font-size: 1.20em;
+  color: var(--main-2);
+  width: 10%;
+  cursor: pointer;
+}
+
+.upload{
+  display: none;
+}
+
+.upload.active{
+  display: block;
+}
+
+.file_icon.active{
+  visibility: hidden;
+}
+
+div.progress .file_name_and_zise{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap row;
+}
+
+div.progress .file_name_and_zise .macluumaad{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+div.progress .file_name_and_zise .macluumaad h2{
+  font-size: 17px;
+  font-weight: normal;
+  color: var(--main-2);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+}
+
+
+div.progress .progerss_two{
+  width: 80%;
+  height: 8%;
+  background-color: var(--fonts);
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+div.progress .progerss_two .line{
+  height: 100%;
+  display: block;
+  background-color: var(--main-2);
+}
+
+
+
+.rasiid form div.info_order {
+  width: 0%;
+  height: 0%;
+  margin: 2% 0;
+  padding: 2% 0;
+}
+
+.rasiid form div.info_order span{
+  width: 25%;
+  height: 45px;
+  background-color: var(--main-2);
+  border-radius: 5px;
+  color: var(--fonts);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.rasiid form div.sawir span{
+  width: 100px;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  color: #2196f3;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  font-size: 40px;
+  cursor: pointer;
+  border: dashed 2px var(--placeholder_color);
+}
+
+.rasiid form div.sawir p{
+  font-size: 16px;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  font-weight: normal;
+
+}
+
+.rasiid .ciwaan_bahanahay,.ciwaan_bahanahay2{
+  text-align: left;
+  font-size: 20px;
+  font-weight: normal;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  padding: 2% 2%;
+  width: 100%;
+
+}
+
+.rasiid .ciwaan_bahanahay2{
+  font-size: 16px;
+}
+
+.rasiid .link_mirfaq{
+  padding: 2% 2%;
+  text-decoration: none;
+  width: 75%;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: italic;
+  background-color: var(--main-2);
+  color: var(--fonts);
+  border-radius: 5px;
+  height: 52px;
+  margin: 3% 0%;
+  align-self: flex-start;
+}
+
+.rasiid .info_dalab_p{
+  font-size: 18px;
+  font-weight: normal;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  line-height: 1.7;
+  user-select: none;
+}
+
+h2.info_dalab_h2 {
+  font-size: 19px;
+  padding: 2% 0;
+  color: var(--main-2) !important;
+}
+
+.rasiid.info_raacsan{
+  background-color: var(--bacground-qaybo);
+}
+
+
+
+/*-----------------------add serv ------------------------------------*/
+
+
+/*---------login and singup --------------------------------------------*/
+.sinup_page{
+  width: 100%;
+  height: 515px;
+  position: relative;
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+}
+.samayso{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+.samayso .contaner{
+  width: 60%;
+  height: 100%;
+  padding-top: 3%;
+  /* background-color: #2196f3; */
+}
+
+
+.samayso .contaner .logo{
+  width: 20%;
+  height: 5%;
+  margin: 2% 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+.samayso .contaner .logo a{
+  width: 100%;
+  height: 100%;
+}
+
+.samayso .contaner .logo a .zise{
+  width: 100%;
+  height: 100%;
+}
+
+
+.samayso .contaner .qoraal{
+  width: 100%;
+  height: 100%;
+}
+
+.samayso .contaner .qoraal h2.log_sing ,p.log_sing{
+  color: var(--fonts);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  margin: 4% 0;
+  font-size: 22px;
+  padding-left: 3%;
+}
+
+.samayso .contaner .qoraal p.log_sing{
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.samayso .contaner form.akoon{
+  width: 100%;
+  height: 100%;
+  background-color: var(--fonts);
+  padding-top: 5%;
+  padding-bottom: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+  border-radius: 5px;
+  
+}
+
+.samayso .contaner form.akoon div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+  padding: 0% 5%;
+}
+
+.samayso .contaner form.akoon div input,button{
+  width: 95%;
+  height: 55px;
+  margin: 2% 0;
+  outline: none;
+  border-radius: 5px;
+  border: solid 1px #e1e1e1;
+  font-size: 16px;
+  padding: 0 15px;
+  border-left: solid 2px var(--main-2);
+  border-right: solid 2px var(--main-2);
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  caret-color: var(--main-2);
+}
+
+.samayso .contaner form.akoon div input::placeholder{
+  color: #e1e1e1;
+}
+.samayso .contaner form.akoon div button{
+  width: 65%;
+  height: 55px;
+  color: var(--fonts);
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  cursor: pointer;
+  font-size: 20px;
+  border: none;
+}
+
+
+.samayso .contaner form.akoon div button:hover{
+  transition: all 6s ease-in;
+  background-image: linear-gradient(205deg, #2196f3, #7400b8);
+}
+
+.samayso .contaner form.akoon div label{
+  font-size: 18px;
+    color: var(--main-2);
+    font-family: "nooca_farta";
+    text-transform: capitalize;
+}
+
+
+.samayso .contaner form.akoon div a{
+  color: var(--main-2);
+  font-size: 16px;
+  font-family: "nooca_farta";
+  margin-top: 2%;
+}
+
+
+
+/*---------------------------online chat ------------*/
+.massage_chat{
+  width: 95%;
+  height: 100px;
+  margin: 2% 0;
+  outline: none;
+  border-radius: 5px;
+  border: solid 1px #e1e1e1;
+  font-size: 16px;
+  padding: 15px 15px;
+  border-left: solid 2px var(--main-2);
+  border-right: solid 2px var(--main-2);
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  caret-color: var(--main-2);
+  resize: vertical;
+}
+
+.massages {
+  width: 100%;
+  height: 100%;
+  background-color: var(--fonts);
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.massages div.fariimo{
+  width: 100%;
+  padding: 5% 5%;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.massages div.fariimo::-webkit-scrollbar{
+  width: 0px;
+}
+
+.massages div.fariimo div.fariin{
+  width: 90%;
+  height: 100%;
+  background-color: var(--bacground-qaybo);
+  border-radius: 5px;
+  padding: 2% 2%;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+/* .massages div.fariimo div.fariin.freelancer{
+  background-color: var(--main-2);
+  color: var(--fonts);
+} */
+
+
+
+.massages div.fariimo div.fariin .macluumaad_fariin{
+  width: 100%;
+  height: 35px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+.massages div.fariimo div.fariin h2{
+  font-size: 20px;
+  color: var(--main-2);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  font-weight: normal;
+
+
+}
+
+.massages div.fariimo div.fariin p{
+  font-size: 17px;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  font-weight: normal;
+  line-height: 1.7;
+  text-transform: capitalize;
+
+}
+
+
+/*------------------------gudoon---------------------*/
+form.gudoon{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: wrap row;
+  margin: 2% 0%;
+
+}
+
+form.gudoon label {
+  font-size: 18px;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+}
+
+form.gudoon select{
+  width: 45%;
+  height: 45px;
+  font-size: 16px;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  margin-left: 2%;
+}
+
+form.gudoon textarea {
+  width: 90%;
+  height: 150px;
+  resize: none;
+  padding: 15px 15px;
+  border: solid 1px var(--main-2);
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  line-height: 1.6;
+}
+
+form.gudoon textarea::placeholder{
+  font-size: 16px;
+  color: #dad6d6;
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+}
+
+form.gudoon .gudoon_btn{
+  width: 65%;
+  height: 50px;
+  margin: 2% 0;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  padding: 0 15px;
+  background-image: linear-gradient(205deg, #2196f3, #7400b8);
+  color: var(--fonts);
+  font-family: "nooca_farta";
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all ease-in-out 0.4s ;
+}
+
+form.gudoon .gudoon_btn:hover{
+  background: var(--fonts);
+  color: var(--main-2);
+  border: solid 1.50px var(--main-2);
+}
+
+
+button.cancel_order{
+  width: 70%;
+  height: 45px;
+  border: none;
+  outline: none;
+  background-image: linear-gradient(205deg, #f321bb, #b80000);
+  color: var(--fonts);
+  font-size: 17px;
+  cursor: pointer;
+}
+
+div.faahfaahin_sho.Gudoon p.Gudoon_p{
+  line-height: 1.5 !important;
+  padding: 0% 0% !important;
+}
+
+
+
+div.xaalad1aad{
+  width: 100%;
+  height: 100px;
+  background-color: var(--fonts);
+  border-radius: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  overflow: hidden;
+  margin: 2% 0;
+  position: relative;
+}
+
+/* div.status{
+  position: relative;
+}
+
+div.status::after{
+  content: "";
+  width: 5px;
+  height: 94%;
+  background-color: var(--bacground-qaybo);
+  position: absolute;
+  left: -15px;
+  right: 0;
+  bottom: 20px;
+  border-radius: 25px;
+} */
+
+div.xaalad1aad.active{
+  height: 100%;
+  transition: all ease-in-out 0.5s;
+}
+
+div.xaalad1aad .madaxa{
+  width: 100%;
+  height: 100px;
+  background-color: var(--main-2);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: wrap row;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+
+
+div.xaalad1aad .madaxa.labaad{
+  background-color: var(--guul);
+}
+
+div.xaalad1aad .madaxa.sadexaad{
+  background-color: #b80000;
+}
+
+div.xaalad1aad .madaxa.defualt{
+  background-color: var(--gaar);
+}
+
+
+div.xaalad1aad.not_allowed .madaxa.koowaad{
+  background-color: #2195f38d;
+  cursor: not-allowed;
+  filter: blur(5px);
+}
+
+div.xaalad1aad.not_allowed .madaxa.labaad{
+  background-color: #07d70384;
+  cursor: not-allowed;
+  filter: blur(5px);
+}
+
+div.xaalad1aad.not_allowed .madaxa.sadexaad{
+  background-color: #b8000061;
+  cursor: not-allowed;
+  filter: blur(5px);
+}
+
+div.xaalad1aad.not_allowed .madaxa.defualt{
+  background-color: var(--gaar);
+  cursor: not-allowed;
+  filter: blur(5px);
+}
+div.xaalad1aad .madaxa .x_icon{
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  color: var(--fonts);
+  font-size: 2em;
+}
+
+div.xaalad1aad .madaxa .x_icon_arrow{
+  color: var(--bacground-qaybo);
+  font-size: 10px;
+}
+
+div.xaalad1aad .madaxa .x_ciwaaan{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+div.xaalad1aad .madaxa .x_ciwaaan > h2{
+  color: var(--fonts);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  font-size: 21px;
+  font-weight: normal;
+  user-select: none;
+}
+
+div.xaalad1aad .rasiid_tamplate.xaalad{
+  border: none;
+  width: 100%;
+  background-color: var(--fonts);
+  align-self: center;
+}
+
+.rasiid.info_raacsan.xxaalad{
+  background-color: var(--bacground-qaybo);
+}
+
+span.gudoon_fg{
+  display: block;
+  text-transform: capitalize;
+  font-weight: normal;
+  padding: 0% 3%;
+
+}
+
+/*----------------------- alert ----------------------*/
+div.alert{
+  position: absolute;
+  width: 400px;
+  height: 65px;
+  z-index: 20;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+
+}
+
+
+div.alert.pyment_succsuss{
+  background-color: var(--main-2);
+  top: 7%;
+  right: 5%;
+}
+
+div.alert.wrninig{
+  background-color: var(--gaar);
+  top: 15%;
+  right: 5%;
+  visibility: hidden;
+}
+
+div.alert .sawir{
+  width: 50px;
+  height: 50px;
+  background-color: var(--fonts);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+div.alert .sawir  svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+div.alert .macluumaad{
+  width: 80%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+
+}
+
+div.alert .macluumaad p{ 
+  color: var(--fonts);
+  font-family: "nooca_farta";
+  font-weight: normal;
+  font-size: 16px;
+  text-transform: capitalize;
+  line-height: 1.6;
+
+}
+
+
+/*---------------------------------404 page ------------*/
+.not_found_image{
+  padding-bottom: 0%;
+}
+
+div.not_found{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+div.not_found a{
+  width: 65%;
+  height: 100%;
+  cursor: pointer;
+}
+
+div.not_found > h2{
+  text-align: center;
+  font-size: 14em !important;
+}
+
+div.not_found  button{
+  width: 100%;
+  height: 55px;
+  margin: 1% 0;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  font-size: 19px;
+  padding: 0 15px;
+  color: var(--fonts);
+  font-family: "nooca_farta";
+  border: solid 1px var(--fonts);
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 0.4s ease-in-out;
+}
+
+div.not_found  button:hover{
+  background-color: var(--main-2);
+}
+
+
+
+/*---------------------------online chat ------------*/
+section.Chat{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+section.Chat .chathead{
+  width: 100%;
+  height:  80px;
+  background-color: var(--fonts);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: wrap row;
+  /* box-shadow: 0px 7px 11px 0px #a8a7a7; */
+  border-radius: 5px;
+
+}
+
+section.Chat .chathead p{
+  color: var(--main-2);
+}
+
+
+section.Chat .chatbody{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap row;
+
+}
+
+section.Chat .chatbody .chatleft{
+  width: 25%;
+  height: 100vh;
+  background-color: var(--fonts);
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+}
+
+section.Chat .chatbody .chatleft .logo{
+  padding: 5% 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  margin: 15px  0;
+  border-bottom: solid 1.50px var(--placeholder_color);
+}
+
+section.Chat .chatbody .chatleft .logo img{
+  width: 45%;
+  height: 100%;
+  padding: 30px 0%;
+}
+section.Chat .chatbody .chatleft .links {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+
+}
+
+section.Chat .chatbody .chatleft .links  .tablink{
+  width: 90%;
+  height: 70px;
+  border-radius: 5px;
+  margin: 1% 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+section.Chat .chatbody .chatleft .links  .tablink a{
+  text-decoration: none;
+  font-size: 17px;
+  color: var(--fonts);
+  text-transform: capitalize;
+  font-family: "nooca_farta";
+  padding-left: 30px;
+}
+
+section.Chat .chatbody .chatleft  .userinfo{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+
+}
+
+
+
+section.Chat .chatbody .chatleft  .userinfo .userimages{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 3% 0;
+}
+
+section.Chat .chatbody .chatleft  .userinfo img{
+  width: 100%;
+  height: 100%;
+}
+
+
+section.Chat .chatbody .chatleft  .userinfo .usermacluumaad{
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: wrap column;
+}
+
+section.Chat .chatbody .chatleft  .userinfo .usermacluumaad h2 ,p{
+  font-size: 20px;
+  color: var(--fonts);
+  text-transform: capitalize;
+  font-family: "nooca_farta";
+}
+
+section.Chat .chatbody .chatleft  .userinfo .usermacluumaad p{
+  font-size: 12px;
+  color: var(--placeholder_color);
+  text-transform: capitalize;
+  font-family: "nooca_farta";
+}
+
+
+
+section.Chat .chatbody .chatmassages{
+  width: 75%;
+  height: 100vh;
+  background-color: var(--fonts);
+  position: relative;
+}
+
+
+section.Chat .chatbody .chatmassages .forminput{
+  width: 100%;
+  height: 100px;
+  background-color: var(--bacground-qaybo);
+  position: absolute;
+  bottom: 0;
+}
+
+section.Chat .chatbody .chatmassages .forminput form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+
+section.Chat .chatbody .chatmassages .forminput form #Fariin_type{
+  width: 70%;
+  height: 60%;
+  outline: none;
+  border-radius: 30px;
+  border: solid 1.50px var(--main-2);
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 17px;
+  text-transform: capitalize;
+  font-family: "nooca_farta";
+  color: var(--Font-color);
+  font-weight: normal;
+  margin: 3% 0;
+}
+
+section.Chat .chatbody .chatmassages .forminput form .ditbtn{
+  width: 60px;
+  height: 60px;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--main-2);
+  font-size: 18px;
+  color: var(--fonts);
+  margin-left: 2%;
+
+}
+section.Chat .chatbody .chatmassages .forminput form  .ditbtn._attech{
+  background-color: var(--placeholder_color);
+  margin-right: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  color: var(--gaar);
+
+}
+
+section.Chat .chatbody .chatmassages .massages_list{
+  width: 100%;
+  height: 100vh;
+  /* background-color: #2196f3; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-flow: wrap column;
+  padding: 3% 3%;
+  padding-bottom: 110px;
+  overflow-y: scroll;
+}
+
+section.Chat .chatbody .chatmassages .massages_list .loadmassage{
+  width: 60%;
+  border-radius: 15px;
+  padding: 2% 2%;
+  margin: 1% 0;
+}
+
+section.Chat .chatbody .chatmassages .massages_list .loadmassage.you{
+  background-color: var(--bacground-qaybo);
+  align-self: flex-end;
+}
+
+section.Chat .chatbody .chatmassages .massages_list .loadmassage.his{
+  background: var(--placeholder_color);
+  align-self: flex-start;
+  margin-left: 25%;
+}
+
+section.Chat .chatbody .chatmassages .massages_list .loadmassage h2{
+  font-size: 12px;
+  color: var(--ciwaano);
+  text-transform: capitalize;
+  font-family: "nooca_farta";
+}
+
+section.Chat .chatbody .chatmassages .massages_list .loadmassage p{
+  font-size: 16px;
+  color: var(--Font-color);
+  text-transform: capitalize;
+  font-family: "nooca_farta";
+  font-weight: normal;
+  line-height: 1.9;
+}
+
+/* ------- skalton style ---------------------------*/
+.filters.skl{
+  background-color: var(--fonts);
+}
+
+.skl{
+  background-color: #dcdcdc;
+  animation-name: skolton;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.skl_chil{
+  width: 90%;
+  height: 30px;
+  margin: 3% 0;
+  border-radius: 5px;
+}
+
+
+@keyframes skolton {
+  100%{
+    background-color: #dcdcdc;
+  }
+
+  0%{
+    background-color: #f6f6f6;
+  }
+}
+
+.skl_chil.skl2{
+  height: 150px;
+}
+
+.skl_chil.skl1{
+  height: 100px;
+}
+
+.skl_chil.round1{
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  align-items: flex-start;
+
+}
+
+.haye_round{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.card_template div.sawir.skl {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 18px;
+}
+
+.qoraalo.skl{
+  height: 155px !important;
+  width: 95% !important;
+  margin-left: 5%;
+  border-radius: 5px;
+}
+
+.tiro.skl{
+  width: 95%;
+  height: 30px;
+  margin-left: 5%;
+  margin-top: 2%;
+  border-radius: 5px;
+}
+
+#sklman{
+  border: none;
+  box-shadow: none;
+
+}
+
+.links_noocyo#skllinks{
+  border: none;
+  margin-bottom: 1%;
+}
+
+.links_noocyo ul#sklul{
+  justify-content: space-evenly;
+}
+.links_noocyo ul#sklul li:hover{
+  background-image: none;
+}
+
+.qayb_name#sklside{
+  background-image: none;
+  background-color: var(--fonts);
+}
+
+.skl.ul{
+  margin: 1% 0;
+  border-radius: 10px;
+}
+
+.ciwaan.skl{
+  width: 55%;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.qoraalskl.skl{
+  width: 30%;
+  height: 20px;
+  margin-top: 2%;
+  border-radius: 10px;
+}
+.kala_qaybiye .sawir#sklqayb{
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+
+}
+/*--------all median -------------------------------*/
+
+@media (min-width: 100px) and (max-width: 460px) {
+  .sliding .tranding_haye .card_template{
+    height: 100%;
+    margin-bottom: 2%;
+  }
+
+  div.xaalad1aad .madaxa .x_ciwaaan > h2{
+    font-size: 14px;
+  }
+
+  div.not_found button{
+    font-size: 16px;
+  }
+
+  .Qayb.sawir {
+    height: 350px;
+  }
+
+  /* .sliding .tranding_haye .card_template .macluumaad .tirakoob ul{
+    display: none;
+  } */
+
+  .sliding .tranding_haye .card_template .btn_shaqo{
+    width: 100% !important;
+  }
+
+  div.xaalad1aad .rasiid_tamplate.xaalad{
+    width: 100%;
+  }
+
+  .sliding .tranding_haye .card_template .macluumaad .qoraalo h2, P{
+    margin: 5% 0px;
+    line-height: 1.6;
+  }
+
+  .qayb_name .qayb_name_page ul{
+    display: none;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 576px) {
+  .xajiye,
+  .haye {
+    max-width: 540px;
+  }
+
+
+
+  div.xaalad1aad .rasiid_tamplate.xaalad{
+    width: 100%;
+  }
+
+  div.not_found button{
+    font-size: 16px;
+  }
+
+
+  div.xaalad1aad .madaxa .x_ciwaaan > h2{
+    font-size: 17px;
+  }
+
+  .qof{
+    width: calc(90% / 1);
+  }
+
+  .head #nav_mobile ul div.qaybo_mobile{
+    width: 95%;
+  }
+
+  .sliding .tranding_haye .card_template .btn_shaqo{
+    width: 40%;
+  }
+
+  .sliding .tranding_haye .card_template .macluumaad .tirakoob ul {
+    width: 95%;
+  }
+
+  .head #nav_mobile{
+    height: 540px;
+  }
+
+  .sliding .tranding_haye .card_template .btn_shaqo{
+    width: 100% !important;
+  }
+  .Qayb.home_page2{
+    margin-top: 130px;
+  }
+
+  .head .header .nav_links ul {
+    justify-content: space-evenly;
+  }
+
+  .head .header{
+    flex-flow: wrap row-reverse;
+  }
+
+  .head .header .nav_links{
+    align-items: self-start;
+  }
+
+  .head .header .nav_links{
+    display: none;
+  }
+
+  .head .header .nav_links.mobile{
+    display: flex;
+  }
+
+  .nav_bar .home_page2 h2{
+    font-size: 3em;
+    line-height: 1.6;
+  }
+
+  .nav_bar .search input {
+    width: 82%;
+    display: none;
+  }
+
+  .nav_bar .search button{
+    display: none;
+  }
+  .nav_bar .home_page2 p{
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .links_noocyo ul li{
+    display: none;
+  }
+
+  .search .papular > ul > li{
+    height: 85%;
+  }
+
+  .search .papular > ul > li:nth-child(1){
+    display: none;
+  }
+
+  .search .papular > ul > li{
+    width: calc(90% / 2);
+  }
+
+  .search .papular > ul > li:nth-child(4) {
+    display: none;
+  }
+
+  .head .header .nav_links ul {
+    width: 95%;
+  }
+
+  .head .header .nav_links{
+    width: 60%;
+  }
+
+  .head .header .logo{
+    width: 40%;
+  }
+
+  .head #nav_mobile ul li{
+    width: 100%;
+  }
+
+  .Qayb.home_page2{
+    margin-top: 100px;
+  }
+
+  .Qayb {
+    width: calc(95% / 1);
+  }
+
+  .sliding .kala_qayb .filters{
+    display: none;
+  }
+
+  .sliding .tranding_haye .card_template .imges{
+    width: 100%;
+    height: 250px;
+  }
+
+  .iibiye_info > img#la_xaqiijiyay{
+    left: 63px;
+  }
+
+  .sliding .tranding_haye .card_template .macluumaad{
+    width: 100%;
+  }
+
+  .sliding .tranding_haye .card_template .macluumaad .tirakoob{
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .sliding .tranding_haye .card_template .btn_shaqo button{
+    font-size: 16px;
+  }
+
+  footer .my_footer .qayb{
+    width: calc(95% / 1);
+  }
+
+  .sliding .tranding_haye .card_template{
+    width: calc(100% / 1);
+    flex-flow: wrap column;
+  }
+
+  .complate{
+    margin: 35% 0;
+  }
+
+  .complate .dhamaad{
+    width: 100%;
+  }
+
+  .rasiid form div.sawir span{
+    width: 30%;
+  }
+
+  .rasiid form p.la_bax{
+    font-weight: normal;
+    font-size: 16px;
+  }
+
+
+  .Qayb.sawir {
+        height: 350px;
+  }
+
+
+    /*--------------------samayso_akoon----------------------*/
+    .samayso .contaner{
+      width: 100%;
+    } 
+
+    .samayso .contaner .logo{
+      width: 55%;
+      height: 13%;
+    }
+
+    .samayso .contaner form.akoon div input, button{
+      width: 100%;
+      margin: 10% 0;
+    }
+
+    .samayso .contaner form.akoon div button{
+      width: 95%;
+    }
+
+    .sinup_page{
+      height: 100%;
+    }
+
+    .samayso .contaner form.akoon{
+      padding-top: 5%;
+      padding-bottom: 45%;
+    }
+
+    /*---------------------qayb --------------*/
+    .kala_qaybiye .sawir{
+      width: 100%;
+      display: none;
+    }
+
+    .qayb_name .qayb_name_page{
+      width: 100%;
+    }
+
+
+    /*----ceckh out ----------*/
+    .checkout .checkout2 .tranding_haye .card_template{
+      width: calc(100% / 1);
+    }
+    form.lacag_bixinta input.lacag_bixin, select.lacag_bixin{
+      width: 90%;
+      margin: 3% 0;
+    }
+    .checkout .checkout2 .tranding_haye .card_template .macluumaad .check_last button{
+      width: 80%;
+    }
+    .checkout .checkout2 .tranding_haye .card_template .imges{
+      display: none;
+    }
+
+    .checkout .checkout2 .tranding_haye .card_template .macluumaad{
+      width: 100%;
+    }
+
+
+    /*------job details ----------------------------*/
+    .shaqo{
+      display: none;
+    }
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li.img_iibiye{
+      display: none;
+    }
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.sawiro{
+      width: 100%;
+      align-self: center;
+    }
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.macluumo{
+      width: 100%;
+      align-self: center;
+    }
+
+    .main_shaqo .shao_macluumad_dhan{
+      flex-flow: wrap column-reverse;
+    }
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .title h2{
+      line-height: 1.6;
+      font-size: 23px;
+    }
+
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li{
+      width: calc(90% / 1);
+    }
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul{
+      justify-content: center;
+      align-content: center;
+    }
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .sawir_shaqo{
+      width: 100%;
+      height: 250px;
+    }
+
+    /*--------------------- profile ---------------------------------*/
+    .qayb_name_page.profile div.prof{
+      width: calc(90% / 1);
+    }
+
+    .qayb_name_page.profile{
+      margin-top: 5%;
+    }
+
+
+    .orders .kala_qayb .filters{
+      display: none;
+    }
+
+    .orders .tranding_haye .card_template{
+      height: 100%;
+      width: calc(100% / 1);
+      margin: 8% 0;
+    }
+
+    .orders .tranding_haye .card_template .imges{
+      width: 100%;
+    }
+
+    .orders .tranding_haye .card_template .macluumaad .tirakoob ul{
+      width: 100%;
+    }
+
+    .orders .tranding_haye .card_template .btn_shaqo{
+      width: 100%;
+    }
+
+    .orders .tranding_haye .card_template .macluumaad .tirakoob ul li{
+      width: calc(100% / 2);
+    }
+
+
+    /*------------------- rasiid --------------------*/
+    .tranding_haye .rasiid_tamplate{
+      width: calc(100% / 1);
+    }
+
+    .tranding_haye .rasiid_tamplate .rasiid div.lacag{
+      width: calc(90% /1);
+      height: 100%;
+      margin-top: 10%;
+    }
+    .rasiid form input.la_bax, button.la_bax, select.la_bax{
+      width: 100%;
+    }
+
+    .rasiid form button.la_bax{
+      width: 100%;
+    }
+
+    .rasiid form div.sawir{
+      width: 100%;
+    }
+
+    .rasiid form textarea.add_serv{
+      width: 100%;
+    }
+
+    div.pro_tirakoob .tr{
+      width: calc(75% / 1);
+    }
+
+    div.pro_rasiid .total, .pannding, .avalible{
+      width: calc(90% / 1);
+    }
+
+    div.pro_tirakoob .tr .icon {
+      width: 30%;
+      height: 59%;
+    }
+
+
+    .orders .tranding_haye .card_template.nativactions{
+      height: 100%;
+      flex-flow: wrap column;
+    }
+    div.pro_rasiid, div.pro_tirakoob{
+      width: 100%;
+    }
+
+    div.not_found > h2 {
+      text-align: center;
+      font-size: 10em !important;
+  }
+
+      /*------------------------chat ------------------------------*/
+      section.Chat .chatbody .chatleft{
+        display: none;
+      }
+  
+      section.Chat .chatbody .chatmassages{
+        width: 100%;
+      }
+  
+      section.Chat .chatbody .chatmassages .massages_list .loadmassage{
+        width: 90%;
+      }
+  
+      section.Chat .chatbody .chatmassages .massages_list .loadmassage.his{
+        margin-left: 10%;
+      }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .xajiye{
+      max-width: 100%;
+    }
+    .haye {
+      max-width: 540px;
+    }
+
+    div.xaalad1aad .madaxa .x_ciwaaan > h2{
+      font-size: 17px;
+    }
+
+    .qof{
+      width: calc(75% / 1);
+    }
+
+    .head .header .nav_links ul{
+      justify-content: flex-start;
+    }
+
+    .head .header{
+      flex-flow: wrap row-reverse;
+    }
+
+    .head .header .nav_links{
+      align-items: self-start;
+    }
+
+    .head .header .nav_links{
+      display: none;
+    }
+
+    .head .header .nav_links.mobile{
+      display: flex;
+    }
+
+    .nav_bar .home_page2 h2{
+      font-size: 4em;
+      line-height: 1.6;
+    }
+    .nav_bar .home_page2 p{
+      font-size: 30px;
+      line-height: 1.6;
+    }
+
+    .links_noocyo ul li{
+      display: none;
+    }
+
+    .search .papular > ul > li{
+      height: 85%;
+    }
+
+    .Qayb.home_page2{
+      margin-top: 100px;
+    }
+
+    .Qayb {
+      width: calc(95% / 1);
+    }
+
+    .sliding .kala_qayb .filters{
+      display: none;
+    }
+
+    .sliding .tranding_haye .card_template .imges{
+      display: none;
+    }
+
+    .sliding .tranding_haye .card_template .macluumaad{
+      width: 100%;
+    }
+
+    .sliding .tranding_haye .card_template .macluumaad .tirakoob{
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .sliding .tranding_haye .card_template .btn_shaqo button{
+      font-size: 16px;
+    }
+
+    body::-webkit-scrollbar{
+      width: 0px;
+    }
+
+    footer .my_footer .qayb{
+      width: calc(95% / 2);
+    }
+
+    .sliding .tranding_haye .card_template{
+      width: calc(100% / 1);
+    }
+
+    .complate{
+      margin: 35% 0;
+    }
+  
+    .complate .dhamaad{
+      width: 100%;
+    }
+
+    /*--------------------samayso_akoon----------------------*/
+    .samayso .contaner{
+          width: 100%;
+    }
+    .checkout .checkout2 .tranding_haye .card_template{
+      width: calc(100% / 1);
+    }
+    form.lacag_bixinta input.lacag_bixin, select.lacag_bixin{
+      width: 90%;
+      margin: 3% 0;
+    }
+    .checkout .checkout2 .tranding_haye .card_template .macluumaad .check_last button{
+      width: 80%;
+    }
+
+    /*------job details ----------------------------*/
+    .shaqo{
+      display: none;
+    }
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li.img_iibiye{
+      display: none;
+    }
+
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.sawiro{
+      width: 70%;
+      align-self: center;
+    }
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.macluumo{
+      width: 70%;
+      align-self: center;
+    }
+
+    .main_shaqo .shao_macluumad_dhan{
+      flex-flow: wrap column-reverse;
+    }
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .title h2{
+      line-height: 1.6;
+      font-size: 23px;
+    }
+
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li{
+      width: calc(90% / 1);
+    }
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul{
+      justify-content: center;
+      align-content: center;
+    }
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .sawir_shaqo{
+      width: 100%;
+      height: 50%;
+    }
+
+    /*--------------------- profile ---------------------------------*/
+    .qayb_name_page.profile div.prof{
+      width: calc(90% / 1);
+    }
+
+    .kala_qaybiye .sawir {
+      width: 45%;
+    }
+
+    .orders .kala_qayb .filters{
+      display: none;
+    }
+
+    .orders .tranding_haye .card_template{
+      width: calc(100% / 1);
+    }
+
+    .orders .tranding_haye .card_template .imges{
+      display: none;
+    }
+
+    .orders .tranding_haye .card_template .macluumaad{
+      width: 100%;
+    }
+
+    /*--------------------- rasiid --------------------*/
+    .tranding_haye .rasiid_tamplate .rasiid div.lacag{
+      width: calc(90% /1);
+      height: 100%;
+      margin-top: 10%;
+    }
+
+
+    /*------------------------chat ------------------------------*/
+    section.Chat .chatbody .chatleft{
+      display: none;
+    }
+
+    section.Chat .chatbody .chatmassages{
+      width: 100%;
+    }
+
+    section.Chat .chatbody .chatmassages .massages_list .loadmassage{
+      width: 90%;
+    }
+
+    section.Chat .chatbody .chatmassages .massages_list .loadmassage.his{
+      margin-left: 10%;
+    }
+
+
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .xajiye{
+      max-width: 100%;
+    }
+    .haye {
+      max-width: 720px;
+    }
+
+    .qof{
+      width: calc(90% / 2);
+      background-color: #ff9900;
+    }
+
+
+    .head .header .nav_links ul {
+      width: 98%;
+    }
+
+    .search .papular > ul > li:nth-child(1){
+      display: none;
+    }
+
+    .search .papular > ul > li{
+      width: calc(90% / 2);
+    }
+
+    .nav_bar .search input{
+      width: 79%;
+    }
+
+    .nav_bar .home_page2 h2{
+      font-size: 2em;
+    }
+
+    .nav_bar .home_page2 p {
+      color: var(--fonts);
+      font-size: 16px;
+    }
+
+  .Qayb.sawir{
+    height: 460px;
+  }
+
+    .links_noocyo ul li{
+      width: calc(100% / 4);
+    }
+
+    .sliding .tranding_haye .card_template .macluumaad P{
+      font-size: 17px;
+    }
+
+    .sliding .tranding_haye .card_template .macluumaad .tirakoob{
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .sliding .tranding_haye .card_template .btn_shaqo{
+      width: 35%;
+    }
+
+    .sliding .tranding_haye .card_template .macluumaad .qoraalo h2, P{
+      font-size: 22px;
+    }
+
+    .sliding .tranding_haye .card_template{
+      width: calc(95% / 1);
+    }
+
+    .search .papular > ul > li:nth-child(4) {
+      display: none;
+    }
+
+    .Qayb {
+      margin-top: 22px;
+    }
+
+    .sliding .kala_qayb .filters{
+      display: none;
+    }
+
+    .head #nav_mobile{
+      display: none;
+    }
+
+    .sliding .tranding_haye .card_template .imges{
+      width: 25%;
+    }
+
+    .sliding .tranding_haye .card_template{
+      flex-flow: nowrap;
+    }
+
+    .complate{
+      margin: 35% 0;
+    }
+  
+    .complate .dhamaad{
+      width: 100%;
+    }
+
+    /*--------------------samayso_akoon----------------------*/
+        .samayso .contaner{
+          width: 85%;
+        }
+
+    .checkout .checkout2 .tranding_haye .card_template{
+          width: calc(100% / 1);
+    }
+
+      /*------job details ----------------------------*/
+      .shaqo{
+        display: none;
+      }
+  
+      .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li.img_iibiye{
+        display: none;
+      }
+
+      .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .title h2{
+        line-height: 1.6;
+        font-size: 20px;
+      }
+
+      .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul li{
+        width: calc(90% / 2);
+      }
+  
+      .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .head_job .ath_job ul{
+        justify-content: center;
+        align-content: center;
+      }
+
+      .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .sawir_shaqo{
+        width: 100%;
+        height: 70%;
+      }
+      
+      .main_shaqo .shao_macluumad_dhan .qayb_.sawiro {
+        width: 50%;
+    }
+
+    .main_shaqo .shao_macluumad_dhan .qayb_.macluumo{
+      width: 45%;
+    }
+
+        /*--------------------- profile ---------------------------------*/
+        .qayb_name_page.profile div.prof{
+          width: calc(90% / 1);
+        }
+    
+        .kala_qaybiye .sawir {
+          width: 45%;
+        }
+
+
+        .orders .kala_qayb .filters{
+          display: none;
+        }
+
+        .orders .tranding_haye .card_template{
+          width: calc(100% / 1);
+        }
+
+
+
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    .xajiye{
+      max-width: 100%;
+    }
+    .haye {
+      max-width: 960px;
+    }
+
+    .qof{
+      width: calc(92% / 3);
+    }
+
+    .head .header .nav_links ul {
+      width: 73%;
+    }
+
+    .search .papular > ul > li:nth-child(1){
+      display: none;
+    }
+
+    .search .papular > ul > li{
+      width: calc(90% / 3);
+    }
+
+    .nav_bar .search input{
+      width: 84%;
+    }
+
+    .nav_bar .home_page2 h2{
+      font-size: 2em;
+    }
+
+    .nav_bar .home_page2 p {
+      color: var(--fonts);
+      font-size: 22px;
+    }
+
+    .links_noocyo ul li{
+      width: calc(100% / 4);
+    }
+
+    .sliding .tranding_haye .card_template .macluumaad P{
+      font-size: 15px;
+    }
+
+    .sliding .tranding_haye .card_template .macluumaad .tirakoob{
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .sliding .tranding_haye .card_template .btn_shaqo{
+      width: 35%;
+    }
+
+    .sliding .tranding_haye .card_template .macluumaad .qoraalo h2, P{
+      font-size: 18px;
+    }
+
+    .sliding .tranding_haye .card_template{
+      width: calc(95% / 1);
+    }
+    .head #nav_mobile{
+      display: none;
+    }
+
+    .sliding .tranding_haye .card_template .imges{
+      width: 25%;
+    }
+
+    .sliding .tranding_haye .card_template{
+      flex-flow: nowrap;
+    }
+
+    /*--------------------samayso_akoon----------------------*/
+    .samayso .contaner{
+      width: 70%;
+    }
+
+    .checkout .checkout2 .tranding_haye .card_template{
+      width: calc(100% / 1);
+    }
+
+      /*------job details ----------------------------*/
+      .shaqo{
+        display: none;
+      }
+
+      .main_shaqo .shao_macluumad_dhan .qayb_.macluumo{
+        width: 35%;
+      }
+
+      .main_shaqo .shao_macluumad_dhan .qayb_.sawiro{
+        width: 60%;
+      }
+
+
+      
+        /*--------------------- profile ---------------------------------*/
+        .qayb_name_page.profile div.prof{
+          width: calc(90% / 1);
+        }
+    
+        .kala_qaybiye .sawir {
+          width: 45%;
+        }
+
+        .orders .tranding_haye .card_template{
+          width: calc(95% / 1);
+        }
+
+        .orders .tranding_haye .card_template .macluumaad .tirakoob ul{
+          width: 55%;
+        }
+
+        .orders .tranding_haye .card_template .btn_shaqo{
+          width: 35%;
+        }
+
+        .orders .tranding_haye .card_template .macluumaad .tirakoob{
+          justify-content: flex-start;
+        }
+}
+@media (min-width: 1200px) and (max-width:1400px) {
+    .xajiye{
+      max-width: 100%;
+    }
+    .haye {
+      max-width: 1140px;
+    }
+
+    .head #nav_mobile{
+      display: none;
+    }
+}
+@media (max-width: 1400px) {
+    .xajiye{
+      max-width: 100%;
+    }
+    .haye {
+      max-width: 1320px;
+    }
+}
+/*-------------- dhamaadka  all media -----------------*/
