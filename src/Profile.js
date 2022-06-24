@@ -42,7 +42,7 @@ function Profile(){
                 <div className="xajiye kala_qayb">
                     <Asideuser />
                     <div className="tranding_haye">
-                    <Rasiid />
+                    <Rasiid user_r={user}/>
                     <TiroKoob />
                 {j_user?  j_user.filter((data => data.UserId == id)).map(listdata => (
                  <div className="card_template" key={listdata.id}>
