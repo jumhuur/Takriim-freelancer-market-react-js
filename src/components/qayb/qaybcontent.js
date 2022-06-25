@@ -11,32 +11,26 @@ function Qaybcontent(){
     const [jobqayb, setJobqayb] = useState(null)
     const main = useRef(null)
     useEffect(() => {
-        fetch('http://localhost:800/Jobs')
-        .then((res) =>{
-            if(res.ok){
-                return res.json()
+
+        const get_part_data = async () => {
+            const Getdata = await fetch('/jobs')
+            const data = await Getdata.json()
+            if(Getdata.ok){
+                setJobqayb(data)
             }
-        })
-        .then((data) => {
-            setJobqayb(data)
-        })
+        }
+        get_part_data()
+
+        // fetch('/jobs')
+        // .then((res) =>{
+        //     if(res.ok){
+        //         return res.json()
+        //     }
+        // })
+        // .then((data) => {
+        //     setJobqayb(data)
+        // })
     }, [])
-    // setTimeout(() =>{
-    //     function Madhan(){
-    //         if(main.current.childNodes.length === 0){
-    //             console.log('Madan')
-    //             main.current.innerHTML =  `
-    //             <div className="Madhan">
-    //                 <img id="empty_side" src="/images/empty.svg" />
-    //                 <p>Qaybtan shaqo kuma jirto</p>
-    //             </div>;
-    //             `
-    //         } else{
-    //             main.current.innerHTML =  ``
-    //         }
-    //     }
-    //     Madhan()
-    // },2000)
      
     return(
         <section className="sliding">
@@ -45,13 +39,13 @@ function Qaybcontent(){
             {/* <!---------------biloga shaqooyinka -------------------> */}
             <div className="tranding_haye main" ref={main}>    
             {jobqayb ? jobqayb.filter((list => list.Qaybid == id)).map(listdata => (
-                 <div className="card_template" key={listdata.id}>
+                 <div className="card_template" key={listdata._id}>
                  <div className="imges">
                      <img src={listdata.image} alt="sawir_template" />
                  </div>
                  <div className="macluumaad">
                      <div className="qoraalo">
-                         <Link to={`/jobs/${listdata.id}/User/${listdata.UserId}`}>
+                         <Link to={`/jobs/${listdata._id}/User/${listdata.UserId}`}>
                              <h2>{listdata.title}</h2>
                              <p>{listdata.body}...</p>
                          </Link>

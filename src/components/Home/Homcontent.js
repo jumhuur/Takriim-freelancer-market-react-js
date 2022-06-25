@@ -5,15 +5,14 @@ import Jobskl from "../skaltons/Jobskalaton";
 function ContentHome(){
     const [JobsData, setDataJobs] = useState(null)
     useEffect((function(){
-        fetch('http://localhost:800/Jobs')
-        .then((res) =>{
-            if(res.ok){
-                return res.json()
+        const objects  = async () => {
+            const data =  await fetch('/jobs');
+            const object = await data.json()
+            if(data.ok){
+                setDataJobs(object)
             }
-        })
-        .then((data) => {
-            setDataJobs(data)
-        })
+        }
+        objects()
         //setDataJobs(listdata)
     }), [])
     return(

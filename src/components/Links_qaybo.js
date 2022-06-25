@@ -8,7 +8,7 @@ function LinksQaybo({margin,qaybdtl}){
     const {id}  = useParams()
     const [Qayb, setQayb] = useState(null)
     useEffect((function(){
-        fetch(`http://localhost:800/Qayb`)
+        fetch(`/qaybo`)
         .then((res) =>{
             if(res.ok){
                 return res.json()
@@ -24,8 +24,8 @@ function LinksQaybo({margin,qaybdtl}){
             <div className="xajiye">
             <ul style={margin}>
                 {Qayb ?  Qayb.map((Qaybo) =>(
-                <li key={Qaybo.id}>
-                    <Link to={`/Qayb/${Qaybo.id}`}>
+                <li key={Qaybo._id}>
+                    <Link to={`/Qayb/${Qaybo._id}`}>
                         <FontAwesomeIcon className='i' icon={faBarsStaggered} /> {Qaybo.Name}
                     </Link>
                 </li>

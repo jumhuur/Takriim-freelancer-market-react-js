@@ -11,7 +11,7 @@ function Qaybdetails(){
     const [Qaybdetails ,setQaybdetails] = useState()
 
     useEffect(function(){
-        fetch(`http://localhost:800/Qayb/${id}`)
+        fetch(`/qaybo/${id}`)
         .then((res) =>{
             if(res.ok){
                 return res.json()

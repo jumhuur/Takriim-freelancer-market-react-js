@@ -19,7 +19,7 @@ function Profile(){
         .then((response) =>{
             
             let crime = response.json()
-            fetch('http://localhost:800/Jobs')
+            fetch('/jobs')
             .then((res) => {
                 let db = res.json()
                 return db
@@ -45,13 +45,13 @@ function Profile(){
                     <Rasiid user_r={user}/>
                     <TiroKoob />
                 {j_user?  j_user.filter((data => data.UserId == id)).map(listdata => (
-                 <div className="card_template" key={listdata.id}>
+                 <div className="card_template" key={listdata._id}>
                  <div className="imges">
                      <img src={listdata.image} alt="sawir_template" />
                  </div>
                  <div className="macluumaad">
                      <div className="qoraalo">
-                         <Link to={`/jobs/${listdata.id}/User/${listdata.UserId}`}>
+                         <Link to={`/jobs/${listdata._id}/User/${listdata.UserId}`}>
                              <h2>{listdata.title}</h2>
                              <p>{listdata.body}...</p>
                          </Link>

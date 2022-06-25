@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
     const inputt = useRef()
-    const qiimaha =  qiimojob.toFixed(2)
+    const qiimaha =  qiimojob
     const [q_sax ,setqimosaxa] = useState(qiimaha)
     const Mudada = jobmudo
     const [mudayn , setmudayn] = useState(Mudada)
@@ -31,7 +31,6 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
         setmudayn(Math.floor(lastmuddo))
         xadi2 == NaN ? setxadiga(1) : console.log('wuu buuxaa');
     }
-
 
     function oninput(){
         count_place.current.textContent = qiyaas.current.value.length;

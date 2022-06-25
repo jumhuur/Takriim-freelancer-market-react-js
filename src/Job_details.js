@@ -19,28 +19,37 @@ function Job_details(){
     },3000)
     useEffect((function(){
         // soosaarida datada jobs
-            fetch(`http://localhost:800/Jobs/${id}`)
-            .then((res) =>{
-                if(res.ok){
-                    return res.json()
-                }
-            })
-            .then((data) => {
-                setJobdetails(data)
-                if(Jobdetails){
-                }
 
-            })
+        const getonejobs = async ()  => {
+            const  data =  await fetch(`/jobs/${id}`)
+            const response = await data.json()
+            if(data.ok){
+                setJobdetails(response)
+            }
+        }
+        getonejobs()
 
-            fetch(`http://localhost:800/User/${user}`)
-            .then((res) =>{
-                if(res.ok){
-                    return res.json()
-                }
-            })
-            .then((data) => {
-                setuserdetals(data)
-            })
+        fetch(`http://localhost:800/User/${user}`)
+        .then((res) =>{
+            if(res.ok){
+                return res.json()
+            }
+        })
+        .then((data) => {
+            setuserdetals(data)
+        })
+        // fetch(`/jobs/${id}`)
+        // .then((res) =>{
+        //     if(res.ok){
+        //         return res.json()
+        //     }
+        // })
+        // .then((data) => {
+        //     setJobdetails(data)
+        //     if(Jobdetails){
+        //     }
+
+        // })
 
     }),[])
     return (
