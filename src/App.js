@@ -20,6 +20,7 @@ import Add_servece from './components/Profile/Add_serv';
 import Lacag_La_bixid from './components/Profile/Cash_out';
 import Labxaday from './components/Profile/cashout_msg';
 import Upadate_job from './components/Profile/Update_Job';
+import Upadate_profile from './components/Profile/upadate_profile';
 
 
 function App(){
@@ -72,6 +73,9 @@ function App(){
           </Route>
           <Route exact path="/Acount/Add_Job">
             <Add_servece />
+          </Route>
+          <Route exact path="/Profile/update/:id">
+            <Upadate_profile />
           </Route>
           <Route exact path="/job/upadate/:id">
             <Upadate_job />

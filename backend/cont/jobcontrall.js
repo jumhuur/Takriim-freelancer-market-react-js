@@ -25,7 +25,6 @@ const Creatjob = async (req, res) => {
         qodob1aad,
         qodob2aad
      } = req.body
-     console.log(title)
      try{
         const jobs = await jobsmodel.create( {title,
             body,

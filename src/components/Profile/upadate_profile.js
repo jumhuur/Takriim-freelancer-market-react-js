@@ -8,7 +8,7 @@ import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortaw
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 
-function Upadate_job(){
+function Upadate_profile(){
     const [order, setorder] = useState(null)
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
@@ -160,17 +160,18 @@ function Upadate_job(){
                             <div id="xadiga_nooca">
                                 <input type="number" value={val && val.Xadiga} className="xadiga" required name="Xadiga"/>
                                 <select className="la_bax xadiga" value={val && val.Nooca} name="Nooca">
-                                    <option value="Bog">Bog(page)</option>
-                                    <option value="Daqiiqad">Daqiiqad(minute)</option>
-                                    <option value="ilbidhiqsi">ilbidhiqsi(seconds)</option>
-                                    <option value="Xaraf">Xaraf(lettar)</option>
-                                    <option value="Nashqad">nashqad(design)</option>
-                                    <option value="Kalmad">kalmad(word)</option>
-                                    <option value="Saacad">Saacad(Hour)</option>
-                                    <option value="Sawir">sawir(picture)</option>
-                                    <option value="Buug">Buug(Book)</option>
-                                    <option value="Muuqaal">muuqaal(video)</option>
-                                    <option value="Cod">cod(voice)</option>
+                                    <option value="Bog(page)">Bog(page)</option>
+                                    <option value="Daqiiqad(minute)">Daqiiqad(minute)</option>
+                                    <option value="ilbidhiqsi(seconds)">ilbidhiqsi(seconds)</option>
+                                    <option value="Xaraf(lettar)">Xaraf(lettar)</option>
+                                    <option value="nashqad(design)">nashqad(design)</option>
+                                    <option value="kalmad(word)">kalmad(word)</option>
+                                    <option value="20$">Saacad(Hour)</option>
+                                    <option value="Saacad(Hour)">Saacad(Hour)</option>
+                                    <option value="sawir(picture)">sawir(picture)</option>
+                                    <option value="Buug(Book)">Buug(Book)</option>
+                                    <option value="muuqaal(video)">muuqaal(video)</option>
+                                    <option value="muuqaal(video)">cod(voice)</option>
                                 </select>
                             </div>
                             <label htmlFor="qaab">Mudada adeegan aad ku qabanyso</label>
@@ -213,4 +214,4 @@ function Upadate_job(){
     )
 }
 
-export default Upadate_job
+export default Upadate_profile

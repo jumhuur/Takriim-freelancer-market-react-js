@@ -59,7 +59,13 @@ function Add_servece(){
     }
     const Adddata = async (e) =>{
         e.preventDefault()
-        const data_list = await fetch('/qaybo')
+        await fetch('/jobs', {
+            method: "POST",
+            headers : {"content-type": "application/json"}
+
+        }).then(() =>{
+            console.log('added')
+        })
  
     }
 
@@ -87,9 +93,9 @@ function Add_servece(){
             <div className="tranding_haye">
                 <div className="rasiid_tamplate">
                     <div className="rasiid">
-                        <form method="POST">
+                        <form method="POST" onSubmit={Adddata}>
                             <label htmlFor="name">Ciwaanka adegaaga</label>
-                            <input className="la_bax" type="text" name="title" placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={38} />
+                            <input  className="la_bax" type="text" name="title" placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={38} />
                             <label htmlFor="qaab">Qaybta Uu Ka Mid Yahay</label>
                             <select className="la_bax" name="Qaybid">
                                {list && list.map((listdata) =>(
@@ -99,7 +105,7 @@ function Add_servece(){
                             <label htmlFor="qaab">Sawirka 1aad</label>
                             <div className="sawir">
                                 <span name="image" ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
-                                <input ref={image01} onChange={onchange} className="img_01" type="file" name="sawir1aad" style={{visibility:"hidden"}} />
+                                <input ref={image01} onChange={onchange} className="img_01" type="file" name="image" style={{visibility:"hidden"}} />
                                 {/* <!----------upload file and image --> */}
                                 <div ref={progress} className="upload">
                                     <div ref={file_icon} className="file_icon active">
@@ -122,7 +128,7 @@ function Add_servece(){
                                 {/* <!----------upload file and image --> */}
                             </div>
                             <label htmlFor="qaab">Faahfaahinta Adeega</label>
-                            <textarea name="body" className="add_serv" placeholder="faahfaahin adeegaga" minLength={50} required maxLength={1000}></textarea>
+                            <textarea  name="body" className="add_serv" placeholder="faahfaahin adeegaga" minLength={50} required maxLength={1000}></textarea>
                             <label htmlFor="qaab">Qiimaha Adeega</label>
                             <select className="la_bax" name="Qiimaha">
                                 <option value="5">$</option>

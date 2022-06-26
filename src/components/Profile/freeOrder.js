@@ -1,6 +1,7 @@
 import Holder from "../NavHolder"
 import Footer from "../Footer"
-import  SklatonAll from '../skaltons/Jobskalaton';
+import Jobskl from "../skaltons/Jobskalaton";
+import Sklall from "../skaltons/sklAll";
 import { Link, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -141,7 +142,7 @@ function My_Orders(){
                     </div>
                 </div>
         </div>
-        : <SklatonAll />}
+        : <Sklall />}
         </div>
         </section>
         <Footer />
