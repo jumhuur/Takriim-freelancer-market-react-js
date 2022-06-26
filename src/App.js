@@ -19,6 +19,7 @@ import Gudbin_dalab from './components/Profile/Gudbin';
 import Add_servece from './components/Profile/Add_serv';
 import Lacag_La_bixid from './components/Profile/Cash_out';
 import Labxaday from './components/Profile/cashout_msg';
+import Upadate_job from './components/Profile/Update_Job';
 
 
 function App(){
@@ -71,6 +72,9 @@ function App(){
           </Route>
           <Route exact path="/Acount/Add_Job">
             <Add_servece />
+          </Route>
+          <Route exact path="/job/upadate/:id">
+            <Upadate_job />
           </Route>
           <Route exact path="/Acount/Cashout">
             <Lacag_La_bixid />
