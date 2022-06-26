@@ -56,7 +56,7 @@ function OrderDetailscheckh(){
         })
     }
     useEffect(function(){
-        fetch(`http://localhost:800/Jobs/${id}`)
+        fetch(`/jobs/${id}`)
         .then((res) =>{
             if(res.ok){
                 return res.json()

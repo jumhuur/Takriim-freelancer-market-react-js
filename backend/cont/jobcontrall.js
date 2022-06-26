@@ -25,6 +25,7 @@ const Creatjob = async (req, res) => {
         qodob1aad,
         qodob2aad
      } = req.body
+     console.log(title)
      try{
         const jobs = await jobsmodel.create( {title,
             body,
@@ -43,7 +44,6 @@ const Creatjob = async (req, res) => {
          })
          res.status(200).json(jobs)
      } catch (error) {
-        res.status(400).json({error: error.massage}) 
     }
 
 }

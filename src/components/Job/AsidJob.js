@@ -77,7 +77,7 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
                         <input ref={inputt} onChange={xisaabiye} className="xadiga_user" type="number" value={xadi2} name="xadiga" />
                         <label> {job.Nooca} </label>
                         {
-                        q_sax <= 0 || q_sax == NaN ? <p>dalab ma noqonayo wax ka yar 1 </p> :<Link to={`/Order/${job.id}`}>
+                        q_sax <= 0 || q_sax == NaN ? <p>dalab ma noqonayo wax ka yar 1 </p> :<Link to={`/Order/${job._id}`}>
                             <button>Gudbi Dalabka(<span className="qiimaha_lastiga">{q_sax}</span>$)</button>
                             </Link>
                         }

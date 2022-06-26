@@ -6,17 +6,20 @@ import { Link } from "react-router-dom"
 import {useRef, useState } from "react"
 import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect } from "react";
 
 function Add_servece(){
     const [order, setorder] = useState(null)
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
+    const [list , setlist] = useState(null)
 
     const image01 = useRef();
     const spn_img1 = useRef();
     const progress = useRef();
     const file_icon = useRef()
     const file_icon2 = useRef()
+    const btn_add =useRef()
 
     //spn_img1.current.addEventListener('click', image01_click)
     function image01_click(e){
@@ -54,6 +57,25 @@ function Add_servece(){
             console.log(e)
         })
     }
+    const Adddata = async (e) =>{
+        e.preventDefault()
+        const data_list = await fetch('/qaybo')
+ 
+    }
+
+    useEffect(() =>{
+        const getlist_qayb = async () =>{
+            const data_list = await fetch('/qaybo')
+            const respon = await data_list.json()
+            if(data_list.ok){
+                setlist(respon)
+            }
+        }
+
+
+
+        getlist_qayb()
+    },[])
     return(
         <div>
         <NavHolder />
@@ -65,23 +87,18 @@ function Add_servece(){
             <div className="tranding_haye">
                 <div className="rasiid_tamplate">
                     <div className="rasiid">
-                        <form method="get" action="">
+                        <form method="POST">
                             <label htmlFor="name">Ciwaanka adegaaga</label>
-                            <input className="la_bax" type="text" name="ciwaan_adeeg" placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={38} />
+                            <input className="la_bax" type="text" name="title" placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={38} />
                             <label htmlFor="qaab">Qaybta Uu Ka Mid Yahay</label>
-                            <select className="la_bax" name="qaybta_1aad">
-                                <option value="muuqaal">Muuqaal</option>
-                                <option value="nashqadayn">nashqadayn</option>
-                                <option value="Turjumaad">Turjumaad</option>
-                                <option value="Qorid">Qorid</option>
-                                <option value="cod">cod</option>
-                                <option value="Tifatir">Tifatir</option>
-                                <option value="Devalopment">Devalopment</option>
-                                <option value="waxkale">wax kale</option>
+                            <select className="la_bax" name="Qaybid">
+                               {list && list.map((listdata) =>(
+                                    <option key={listdata._id} value={listdata._id}>{listdata.Name}</option>
+                               ))}
                             </select>
                             <label htmlFor="qaab">Sawirka 1aad</label>
                             <div className="sawir">
-                                <span ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
+                                <span name="image" ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
                                 <input ref={image01} onChange={onchange} className="img_01" type="file" name="sawir1aad" style={{visibility:"hidden"}} />
                                 {/* <!----------upload file and image --> */}
                                 <div ref={progress} className="upload">
@@ -105,10 +122,10 @@ function Add_servece(){
                                 {/* <!----------upload file and image --> */}
                             </div>
                             <label htmlFor="qaab">Faahfaahinta Adeega</label>
-                            <textarea name="faahfaahin" className="add_serv" placeholder="faahfaahin adeegaga" minLength={50} required maxLength={1000}></textarea>
+                            <textarea name="body" className="add_serv" placeholder="faahfaahin adeegaga" minLength={50} required maxLength={1000}></textarea>
                             <label htmlFor="qaab">Qiimaha Adeega</label>
-                            <select className="la_bax" name="qiimaha">
-                                <option value="5">5$</option>
+                            <select className="la_bax" name="Qiimaha">
+                                <option value="5">$</option>
                                 <option value="6">6$</option>
                                 <option value="8$">8$</option>
                                 <option value="10">10$</option>
@@ -136,8 +153,8 @@ function Add_servece(){
                             </select>
                             <label htmlFor="qaab">Xadiga adeega & Nooca</label>
                             <div id="xadiga_nooca">
-                                <input type="number" className="xadiga" required />
-                                <select className="la_bax xadiga" name="qiimaha">
+                                <input type="number" className="xadiga" required name="Xadiga"/>
+                                <select className="la_bax xadiga" name="Nooca">
                                     <option value="Bog(page)">Bog(page)</option>
                                     <option value="Daqiiqad(minute)">Daqiiqad(minute)</option>
                                     <option value="ilbidhiqsi(seconds)">ilbidhiqsi(seconds)</option>
@@ -153,7 +170,7 @@ function Add_servece(){
                                 </select>
                             </div>
                             <label htmlFor="qaab">Mudada adeegan aad ku qabanyso</label>
-                            <select className="la_bax" name="mudada">
+                            <select className="la_bax" name="Mudada">
                                 <option value="0.25">6 Saacadood</option>
                                 <option value="0.50">12 Saacadood</option>
                                 <option value="1">Maalin</option>
@@ -169,12 +186,16 @@ function Add_servece(){
                                 <option value="60">laba Bilood</option>
                                 <option value="90">sadex Bilood</option>
                             </select>
-                            <label htmlFor="qaab">Maxaad Uga Baahantahay Iibsadaha</label>
-                            <textarea name="faahfaahin" className="add_serv" placeholder="Maxaad Ugu Baahantahay Iibsadaha" required minLength={30}></textarea>
+                            {/* <label htmlFor="qaab">Maxaad Uga Baahantahay Iibsadaha</label>
+                            <textarea name="faahfaahin" className="add_serv" placeholder="Maxaad Ugu Baahantahay Iibsadaha" required minLength={30}></textarea> */}
                             <label htmlFor="name">Maxaa Kamida Waxyaabah aad y qabanayso iibsadaha</label>
-                            <input className="la_bax" type="text" name="adeeg_dheeraad1" placeholder="waxaan kuu..."  maxLength={35}/>                            
-                            <input className="la_bax" type="text" name="adeeg_dheeraad2" placeholder="waxaan kuu ..." maxLength={35}/>
-                            <button className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon>  Ku Dar Adeega</button>
+                            <input className="la_bax" type="text" name="qodob1aad" placeholder="waxaan kuu..."  maxLength={35}/>                            
+                            <input className="la_bax" type="text" name="qodob2aad" placeholder="waxaan kuu ..." maxLength={35}/>
+                            <input type="text"  name="UserId" value="1" required  hidden/>
+                            <input type="text"  name="Qiimayn" value="0" required  hidden/>
+                            <input type="number"  name="xaalad" value="0" required  hidden/>
+                            <input type="text"  name="iibsade" value="0" required  hidden/>
+                            <button ref={btn_add} onClick={Adddata} className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon>  Ku Dar Adeega</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> lama Ardkay Waxaad Ugu Baahantahay Iibsadaha markuu dalbado mooyaane</p>
                         </form> 
                     </div>
