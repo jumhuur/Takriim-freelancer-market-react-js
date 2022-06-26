@@ -18,7 +18,7 @@ function Gudoon(){
 
 
     useEffect(() => {
-        fetch(`http://localhost:800/Orders/${id}`)
+        fetch(`/orders/${id}`)
         .then((response) =>{
             if(response){
                 return response.json()
@@ -187,7 +187,7 @@ function Gudoon(){
                                             </span> 
                                         </p>
                                         <h2 className="ciwaan_bahanahay2">Xagan Hoose K dejiso(download-garayso) dalabkaag <i className="fa-solid fa-angle-down arrow"></i> :</h2>
-                                        <a href={oneOrder && oneOrder.upload} download className="link_mirfaq">Dajiso Dalabkaaga ( Download Your Order ) <FontAwesomeIcon icon={faDownload} /> </a>
+                                        <a href={oneOrder && oneOrder.image} download className="link_mirfaq">Dajiso Dalabkaaga ( Download Your Order ) <FontAwesomeIcon icon={faDownload} /> </a>
                                     </div>
                                     <form className="gudoon" method="get" action="">
                                         <label>Sidee laguugu Adeegay ? </label>

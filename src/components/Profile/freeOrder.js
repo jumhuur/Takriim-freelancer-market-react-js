@@ -10,7 +10,7 @@ function My_Orders(){
     const [jobfree, setjobfree] = useState(null)
 
     useEffect(function(){
-        fetch(`http://localhost:800/Orders/${id}`)
+        fetch(`/orders/${id}`)
         .then((res) =>{
             if(res.ok){
                 return res.json()

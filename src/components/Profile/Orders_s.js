@@ -8,7 +8,7 @@ import Jobskl from "../skaltons/Jobskalaton";
 function OrderUsers(){
     const [order, setorder] = useState(null)
     useEffect((function(){
-        fetch('http://localhost:800/Orders')
+        fetch('/orders')
         .then((response) =>{
             if(response){
                 return response.json()
@@ -28,13 +28,13 @@ function OrderUsers(){
             {/* <!---------------biloga shaqooyinka -------------------> */}
             <div className="tranding_haye">
                 {order ? order.map((dat_order) => (
-                <div className="card_template" key={dat_order.id}>
+                <div className="card_template" key={dat_order._id}>
                 <div className="imges">
                     <img src={dat_order.image} alt="sawir_template" />
                 </div>
                 <div className="macluumaad">
                     <div className="qoraalo">
-                        <Link to={`/Acount/order/Info/${dat_order.id}/${dat_order.UserId}`}>
+                        <Link to={`/Acount/order/Info/${dat_order._id}/${dat_order.UserId}`}>
                             <h2>{dat_order.title}</h2>
                             <p>
                                 {dat_order.Loobahanyahay}...
