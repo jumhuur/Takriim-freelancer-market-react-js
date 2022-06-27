@@ -1107,6 +1107,7 @@ h2 a{
   justify-content: center;
   align-items: center;
   flex-flow: wrap column;
+  z-index: 10;
 }
 
 .upadate_job .i{

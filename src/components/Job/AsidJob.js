@@ -83,8 +83,8 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
                         }
                     </form>
                 </div>
-                                {/* <!-------if shaqo type == turjumid qorid iwm--> */}
-                                {job.Nooca == "Kalmad(word)" || job.Nooca == "Xaraf(letter)"?
+                {/* <!-------if shaqo type == turjumid qorid iwm--> */}
+                {job.Nooca == "kalmad(word)" || job.Nooca == "Xaraf(lettar)" ?
                 <div>
                 <textarea onInput={oninput} ref={qiyaas} className="qiyaas" placeholder="Halkan Ku Paste-Garee Qoraalkaaga(Paste Here Your Content)"></textarea>
                 <div className="aria">
@@ -97,8 +97,7 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
                         <span ref={kalmad_place} className="count_place kalmad">00</span>
                     </div>
                 </div>
-                </div>:''}
-
+                </div> :<p>lama hellin</p>}
                 {/* <!-------if shaqo type == turjumid qorid iwm--> */}
                 <div className="iibiye_info">
                     <img id="la_xaqiijiyay" src="/images/tawsiiq.svg" alt="tawqsiiq" title="Waa La Xaqiijiyay" />
@@ -126,9 +125,7 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
                     </div>
 
                 </div>
-
                 <Xayaysiis />
-
             </div>
         </div>
     )

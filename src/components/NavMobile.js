@@ -7,7 +7,7 @@ import {faBarsStaggered, faBars,faUserPlus, faNetworkWired, faToolbox , faChartS
 function NavMobile({nav_mb}){
     const [datnav , setdatnav] = useState(null)
     useEffect(() => {
-        fetch('http://localhost:800/Qayb')
+        fetch('/qaybo')
         .then((Response) => {
             //Response ? console.log(Response) : "";
             if(Response.ok){
@@ -28,8 +28,8 @@ function NavMobile({nav_mb}){
             <div className="qaybo_mobile">
                 <ul>
                     {datnav ? datnav.map((data) =>(
-                        <li key={data.id}>
-                        <Link to={`/Qayb/${data.id}`}>
+                        <li key={data._id}>
+                        <Link to={`/Qayb/${data._id}`}>
                             <FontAwesomeIcon  className="i" icon={faNetworkWired}/> {data.Name}
                         </Link>
                         </li>
@@ -57,9 +57,9 @@ function NavMobile({nav_mb}){
                         </a>
                     </li>
                     <li>
-                        <a href="/cashout.html">
+                        <Link to={"/Acount/Cashout"}>
                         <FontAwesomeIcon className="i" icon={faSackDollar} /> Lacag La Bax
-                        </a>
+                        </Link>
                     </li>
                     <li>
                         <a href="">

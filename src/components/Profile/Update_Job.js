@@ -9,11 +9,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 
 function Upadate_job(){
-    const [order, setorder] = useState(null)
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
     const [list , setlist] = useState(null)
     const [val , setval] = useState(null)
+    const [title , settitle] = useState(null)
     const {id} = useParams()
 
     const image01 = useRef();
@@ -36,7 +36,6 @@ function Upadate_job(){
         setfilename(null)
         setfilezise(null)
     }
-
     function onchange({target}){
         let file = target.files[0];
         if(file){
@@ -56,7 +55,7 @@ function Upadate_job(){
         let codsi = new XMLHttpRequest();
         codsi.open('POST' , "php/upload.php")
         codsi.upload.addEventListener('progress', (e) =>{
-            console.log(e)
+            //console.log(e)
         })
     }
 
@@ -94,7 +93,7 @@ function Upadate_job(){
                     <div className="rasiid">
                         <form method="POST">
                             <label htmlFor="name">Ciwaanka adegaaga</label>
-                            <input className="la_bax" type="text" name="title" value={val && val.title} placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={38} />
+                            <input  className="la_bax" type="text" name="title" value={val && val.title} placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={38} />
                             <label htmlFor="qaab">Qaybta Uu Ka Mid Yahay</label>
                             <select  value={val && val.Qaybid} className="la_bax" name="Qaybid">
                                {list && list.map((listdata) =>(
