@@ -14,6 +14,23 @@ function Add_servece(){
     const [filezise , setfilezise] = useState(null)
     const [list , setlist] = useState(null)
 
+    // states from 
+    const [title , settitle] = useState("")
+    const [Qiimaha , setQiimaha] = useState("")
+    const [Qaybid , setQaybid] = useState("")
+    const [Mudada , setMudada] = useState("")
+    const [UserId , setUserId] = useState("1")
+    const [Xadiga , setXadiga] = useState("")
+    const [Nooca , setNooca] = useState("")
+    const [xaalad , setxaalad] = useState(1)
+    const [qodob1aad , setqodob1aad] = useState("")
+    const [qodob2aad , setqodob2aad] = useState("")
+    const [body , setbody] = useState("")
+    const [iibsade , setiibsade] = useState("0")
+    const [Qiimayn , setQiimayn] = useState("0")
+    const [image , setimage] = useState("")
+    const [qalad, setqalad] = useState("")
+
     const image01 = useRef();
     const spn_img1 = useRef();
     const progress = useRef();
@@ -59,13 +76,37 @@ function Add_servece(){
     }
     const Adddata = async (e) =>{
         e.preventDefault()
-        await fetch('/jobs', {
+        const jobs = {
+            title,
+             body , 
+             Qiimaha ,
+             Qiimayn ,
+             Xadiga ,
+             Nooca,
+             Mudada , 
+             UserId ,
+             Qaybid, 
+             image,
+             iibsade,
+             xaalad,
+             qodob1aad,
+             qodob2aad,        
+        }
+        const response =  await fetch('/jobs', {
             method: "POST",
-            headers : {"content-type": "application/json"}
-
-        }).then(() =>{
-            console.log('added')
+            body: JSON.stringify(jobs),
+            headers : {"Content-Type": "application/json"}
         })
+        const json = await response.json()
+        if(!response.ok){
+            setqalad(json.error)
+            console.log(qalad)
+        }
+
+        if(response.ok){
+            setqalad(null)
+            console.log('shaqo cusub ayaa lagu daray', json)
+        }
  
     }
 
@@ -95,9 +136,15 @@ function Add_servece(){
                     <div className="rasiid">
                         <form method="POST" onSubmit={Adddata}>
                             <label htmlFor="name">Ciwaanka adegaaga</label>
-                            <input  className="la_bax" type="text" name="title" placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={38} />
+                            <input  className="la_bax" type="text" name="title" placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={38} 
+                            onChange={(e) => settitle(e.target.value)}
+                            value={title}
+                            />
                             <label htmlFor="qaab">Qaybta Uu Ka Mid Yahay</label>
-                            <select className="la_bax" name="Qaybid">
+                            <select className="la_bax" name="Qaybid" 
+                                onChange={(e) => setQaybid(e.target.value)}
+                                value={Qaybid}
+                            >
                                {list && list.map((listdata) =>(
                                     <option key={listdata._id} value={listdata._id}>{listdata.Name}</option>
                                ))}
@@ -105,7 +152,10 @@ function Add_servece(){
                             <label htmlFor="qaab">Sawirka 1aad</label>
                             <div className="sawir">
                                 <span name="image" ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
-                                <input ref={image01} onChange={onchange} className="img_01" type="file" name="image" style={{visibility:"hidden"}} />
+                                <input ref={image01} onInput={onchange} className="img_01" type="file" name="image" style={{visibility:"hidden"}} 
+                                onChange={(e) => setimage(e.target.value)}
+                                value={image}
+                                />
                                 {/* <!----------upload file and image --> */}
                                 <div ref={progress} className="upload">
                                     <div ref={file_icon} className="file_icon active">
@@ -128,9 +178,16 @@ function Add_servece(){
                                 {/* <!----------upload file and image --> */}
                             </div>
                             <label htmlFor="qaab">Faahfaahinta Adeega</label>
-                            <textarea  name="body" className="add_serv" placeholder="faahfaahin adeegaga" minLength={50} required maxLength={1000}></textarea>
+                            <textarea  name="body" className="add_serv" placeholder="faahfaahin adeegaga" minLength={50} required maxLength={1000}
+                            onChange={(e) => setbody(e.target.value)}
+                            value={body}
+                            ></textarea>
                             <label htmlFor="qaab">Qiimaha Adeega</label>
-                            <select className="la_bax" name="Qiimaha">
+                            <select className="la_bax" name="Qiimaha" 
+                            onChange={(e) => setQiimaha(e.target.value)}
+                            value={Qiimaha}
+                            
+                            >
                                 <option value="5.00">5$</option>
                                 <option value="6.00">6$</option>
                                 <option value="8.00">8$</option>
@@ -159,8 +216,14 @@ function Add_servece(){
                             </select>
                             <label htmlFor="qaab">Xadiga adeega & Nooca</label>
                             <div id="xadiga_nooca">
-                                <input type="number" className="xadiga" required name="Xadiga"/>
-                                <select className="la_bax xadiga" name="Nooca">
+                                <input type="text" className="xadiga" required name="Xadiga"
+                                onChange={(e) => setXadiga(e.target.value)}
+                                value={Xadiga}
+                                />
+                                <select className="la_bax xadiga" name="Nooca"
+                                onChange={(e) => setNooca(e.target.value)}
+                                value={Nooca}
+                                >
                                     <option value="Bog(page)">Bog(page)</option>
                                     <option value="Daqiiqad(minute)">Daqiiqad(minute)</option>
                                     <option value="ilbidhiqsi(seconds)">ilbidhiqsi(seconds)</option>
@@ -176,7 +239,11 @@ function Add_servece(){
                                 </select>
                             </div>
                             <label htmlFor="qaab">Mudada adeegan aad ku qabanyso</label>
-                            <select className="la_bax" name="Mudada">
+                            <select className="la_bax" name="Mudada"
+                                onChange={(e) => setMudada(e.target.value)}
+                                value={Mudada}
+                            
+                            >
                                 <option value="0.25">6 Saacadood</option>
                                 <option value="0.50">12 Saacadood</option>
                                 <option value="1">Maalin</option>
@@ -195,13 +262,28 @@ function Add_servece(){
                             {/* <label htmlFor="qaab">Maxaad Uga Baahantahay Iibsadaha</label>
                             <textarea name="faahfaahin" className="add_serv" placeholder="Maxaad Ugu Baahantahay Iibsadaha" required minLength={30}></textarea> */}
                             <label htmlFor="name">Maxaa Kamida Waxyaabah aad y qabanayso iibsadaha</label>
-                            <input className="la_bax" type="text" name="qodob1aad" placeholder="waxaan kuu..."  maxLength={35}/>                            
-                            <input className="la_bax" type="text" name="qodob2aad" placeholder="waxaan kuu ..." maxLength={35}/>
-                            <input type="text"  name="UserId" value="1" required  hidden/>
-                            <input type="text"  name="Qiimayn" value="0" required  hidden/>
-                            <input type="number"  name="xaalad" value="0" required  hidden/>
-                            <input type="text"  name="iibsade" value="0" required  hidden/>
-                            <button ref={btn_add} onClick={Adddata} className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon>  Ku Dar Adeega</button>
+                            <input className="la_bax" type="text" name="qodob1aad" placeholder="waxaan kuu..."  maxLength={35} 
+                             onChange={(e) => setqodob1aad(e.target.value)}
+                             value={qodob1aad}
+                            />                            
+                            <input className="la_bax" type="text" name="qodob2aad" placeholder="waxaan kuu ..." maxLength={35}
+                            
+                            onChange={(e) => setqodob2aad(e.target.value)}
+                            value={qodob2aad}
+                            />
+                            <input type="text"  name="UserId" value={UserId} required  hidden 
+                            onChange={(e) => setUserId(e.target.value)}
+                            />
+                            <input type="text"  name="Qiimayn" value={Qiimayn} required  hidden
+                            onChange={(e) => setQiimayn(e.target.value)}
+                             />
+                            <input type="number"  name="xaalad" value={xaalad} required  hidden
+                            onChange={(e) => setxaalad(e.target.value)}
+                            />
+                            <input type="text"  name="iibsade" value={iibsade} required  hidden
+                            onChange={(e) => setiibsade(e.target.value)}
+                            />
+                            <button ref={btn_add} className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon>  Ku Dar Adeega</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> lama Ardkay Waxaad Ugu Baahantahay Iibsadaha markuu dalbado mooyaane</p>
                         </form> 
                     </div>
