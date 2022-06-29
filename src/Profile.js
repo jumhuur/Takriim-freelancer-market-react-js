@@ -14,14 +14,6 @@ function Profile(){
     const {id} = useParams()
     const [user , setuser] =useState(null)
     const [j_user , setj_user] =useState(null)
-    const [active , setactive] = useState(false)
-
-    function settings_handle(e){
-        !active ? setactive(true) : setactive(false)
-    }
-
-
-
     useEffect(() =>{
         fetch(`http://localhost:800/User/${id}`)
         .then((response) =>{
@@ -54,24 +46,6 @@ function Profile(){
                     <TiroKoob />
                 {j_user?  j_user.filter((data => data.UserId == id)).map(listdata => (
                  <div className="card_template" key={listdata._id}>
-                    <div onClick={settings_handle} className="upadate_job">
-                        <FontAwesomeIcon icon={faGear} className={listdata._id} id="i" />
-                    </div>
-                    <div  className={active ? 'nav_job active' : "nav_job"} data={listdata._id}>
-                        <ul id='nav_jobs'>
-                            <li>
-                                <Link to={`/job/upadate/${listdata._id}`}>
-                                     <FontAwesomeIcon icon={faPenToSquare} /> Cusbonaysii
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={listdata._id}>
-                                <FontAwesomeIcon icon={faTrashCanArrowUp} /> Masax
-                                </Link>
-                            </li>
-                        </ul>
-
-                    </div>
                  <div className="imges">
                      <img src={listdata.image} alt="sawir_template" />
                  </div>

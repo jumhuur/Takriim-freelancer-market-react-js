@@ -52,7 +52,7 @@ function My_Orders(){
                                 {/* <!-- <p className="info_dalab_p">
                                 </p> --> */}
                                 <h2 className="ciwaan_bahanahay2">File Ama Sawir La Soo Raaciyay <FontAwesomeIcon icon={faAngleDown}/> :</h2>
-                                <a href={jobfree.upload} download className="link_mirfaq">(Download Now) dajiso Hada  <FontAwesomeIcon icon={faDownload} /></a>
+                                <a href={jobfree.image} download className="link_mirfaq">(Download Now) dajiso Hada  <FontAwesomeIcon icon={faDownload} /></a>
                             </div>
                         </div>
                     </div>

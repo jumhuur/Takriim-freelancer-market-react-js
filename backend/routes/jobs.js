@@ -3,7 +3,8 @@ const router = express.Router()
 const {
     Creatjob,
     GetAlljobs,
-    GetJob
+    GetJob,
+    delete_job
 } = require('../cont/jobcontrall')
 
 
@@ -18,9 +19,7 @@ router.get('/:id', GetJob)
 router.post("/", Creatjob)
 
 // delete job 
-router.delete("/:id", (req, res) =>{
-    res.json({msg: "delete job"})
-})
+router.delete("/:id", delete_job)
 
 // update job 
 router.patch("/:id", (req, res) =>{

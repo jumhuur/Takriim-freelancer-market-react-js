@@ -3,14 +3,52 @@ import Comment from "./comments";
 // import {useEffect ,useState} from "react";
 // import { useParams } from "react-router-dom";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import {faSpinner, faStar , faUserGroup , faUserTie} from "@fortawesome/free-solid-svg-icons";
+import {faSpinner, faStar , faUserGroup , faUserTie ,faSliders, faTrashCanArrowUp , faGear, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
+import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
 function JobContent({jobdetails ,user}){
+    const {id} = useParams()
+    const [active , setactive] = useState (false)
+
+    function settings_handle(e){
+        !active ? setactive(true) : setactive(false)
+    }
+
+    const deletemasax = async () => {
+            const response = await fetch(`/jobs/${id}`, {
+            method: "DELETE",
+        })
+
+        const json = response.json()
+        if(response.ok){
+            console.log('waa la masaxay')
+        }
+
+    }
     return(
         <section className="main_shaqo">
             <div className="xajiye">
                 <div className="shao_macluumad_dhan">
                     <div className="qayb_ sawiro">
                         <div className="head_job">
+                        <div onClick={settings_handle} className="upadate_job">
+                        <FontAwesomeIcon icon={faGear} className={jobdetails._id} id="i" />
+                    </div>
+                    <div  className={active ? 'nav_job active' : "nav_job"} data={jobdetails._id}>
+                        <ul id='nav_jobs'>
+                            <li>
+                                <Link to={`/job/upadate/${jobdetails._id}`}>
+                                     <FontAwesomeIcon icon={faPenToSquare} /> Cusbonaysii
+                                </Link>
+                            </li>
+                            <li>
+                                <Link onClick={deletemasax}>
+                                <FontAwesomeIcon icon={faTrashCanArrowUp} /> Masax
+                                </Link>
+                            </li>
+                        </ul>
+
+                    </div>
                             <div className="title">
                                 <h2>{jobdetails.title}</h2>
                             </div> 

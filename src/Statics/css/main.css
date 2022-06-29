@@ -1312,7 +1312,7 @@ div.nav_job ul#nav_jobs  li:hover a{
   margin-right: 2%;
 }
 .sliding .tranding_haye .card_template .btn_shaqo{
-  width: 30%;
+  width: auto;
   height: 100%;
   display: flex;
   justify-content: center;
