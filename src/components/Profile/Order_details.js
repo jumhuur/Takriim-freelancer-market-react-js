@@ -12,12 +12,42 @@ function OrderDetailscheckh(){
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
     const path = `/Order/Complated/${id}`;
+    
 
     const image01 = useRef();
     const spn_img1 = useRef();
     const progress = useRef();
     const file_icon = useRef()
     const file_icon2 = useRef()
+
+    useEffect(function(){
+        fetch(`/jobs/${id}`)
+        .then((res) =>{
+            if(res.ok){
+                return res.json()
+            }
+        })
+        .then((data) => {
+            setorder(data)
+        })
+
+    }, [])
+
+
+        // states from 
+        const [title , settitle] = useState("")
+        const [Qiimaha , setQiimaha] = useState(order && order.Qiimaha)
+        const [Dalbade_id , setDalbade_id] = useState("1")
+        const [Mudada , setMudada] = useState(order && order.Mudada)
+        const [UserId , setUserId] = useState(order && order.UserId)
+        const [Xadiga , setXadiga] = useState(order && order.Nooca)
+        const [Nooca , setNooca] = useState(order && order.xaalad)
+        const [xaalad , setxaalad] = useState(order && order.xaalad)
+        const [body , setbody] = useState(order && order.body)
+        const [iibsade , setiibsade] = useState("0")
+        const [lanbarka , setlanbarka] = useState("")
+        const [gudoomay , setgudoomay] = useState('false')
+        const [image , setimage] = useState("/images/order_user.svg")
 
     //spn_img1.current.addEventListener('click', image01_click)
     function image01_click(e){
@@ -55,18 +85,6 @@ function OrderDetailscheckh(){
             console.log(e)
         })
     }
-    useEffect(function(){
-        fetch(`/jobs/${id}`)
-        .then((res) =>{
-            if(res.ok){
-                return res.json()
-            }
-        })
-        .then((data) => {
-            setorder(data)
-        })
-
-    }, [])
     return(
         <div>
         <Holder />
@@ -95,11 +113,17 @@ function OrderDetailscheckh(){
                         </p>
                         <form className="lacag_bixinta" method="GET" action={path}>
                             <label htmlFor="qaab">Faahfaahinta Adeega</label>
-                            <textarea name="faahfaahin" className="add_serv" placeholder="Macluumadka Oo Dhan Halkan Ku Qor" required></textarea>
+                            <textarea name="Loobahanyahay" className="add_serv" placeholder="Macluumadka Oo Dhan Halkan Ku Qor" required
+                            onChange={(e) => setbody(e.target.value)}
+                            value={body}
+                            ></textarea>
                             <label htmlFor="qaab">Hadii file ama sawir iwm aad raacinayso</label>
                             <div className="sawir">
                                 <span ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
-                                <input ref={image01} onChange={onchange} className="img_01" type="file" name="sawir1aad" style={{visibility:"hidden"}} />
+                                <input ref={image01} onInput={onchange} className="img_01" type="file" name="sawir1aad" style={{visibility:"hidden"}} 
+                                        onChange={(e) => setimage(e.target.files[0].name)}
+                                        value={image}
+                                />
                                 {/* <!----------upload file and image --> */}
                                 <div ref={progress} className="upload">
                                     <div ref={file_icon} className="file_icon active">
@@ -121,7 +145,7 @@ function OrderDetailscheckh(){
                                 </div>
                                 {/* <!----------upload file and image --> */}
                                 <label>Dooro Qaabka Lacag Bixinta</label>
-                                    <select className="lacag_bixin" name="shirkad">
+                                    <select   className="lacag_bixin" name="shirkad">
                                         <option value="zaad">
                                             zaad service
                                         </option>
@@ -129,8 +153,22 @@ function OrderDetailscheckh(){
                                             edahab service
                                         </option>
                                     </select>
-                                <input className="lacag_bixin" type="text" required placeholder="Lanbaraakag" name="lanbarka_lacag_bixinta" />
+                                <input className="lacag_bixin" type="text" required placeholder="Lanbaraakag" name="lanbarka"
+                                onChange={(e) => setlanbarka(e.target.value)}
+                                value={lanbarka}
+                                />
                             </div>
+                            <input type="hidden" value={Mudada}  name="Mudada"/>
+                            <input type="hidden" value={Xadiga}  name="xadiga"/>
+                            <input type="hidden" value={Qiimaha}  name="Qiimaha"/>
+                            <input type="hidden" value={title}  name="title"
+                            onChange={(e) => settitle(e.target.value)}
+                            />
+                            <input type="hidden" value={Dalbade_id}  name="Dalbade_id"/>
+                            <input type="hidden" value={UserId}  name="UserId"/>
+                            <input type="hidden" value={Nooca}  name="Nooca"/>
+                            <input type="hidden" value={xaalad}  name="xaalad"/>
+                            <input type="hidden" value={gudoomay}  name="gudoomay"/>
                             <button className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus} />  Bixi Lacagta ({order.Qiimaha}$)</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> Macluumaadkan waa u muhiim qofka shaqada kuu qabanaya fadalan buuxi</p>
                         </form>

@@ -33,21 +33,21 @@ const orders = new schema ({
         type: String,
         require: true
     },
+    Mudada: {
+        type: String,
+        require: true
+    },
     Nooca: {
         type: String,
         require: true
     },
-    qodob1aad: {
-        type: String,
-        require: true
-    },
-    qodob2aad: {
-        type: String,
-        require: true
-    },
-
     xaalad: {
-        type: Number,
+        type: String,
+        require: true,
+        
+    },
+    lanbarka: {
+        type: String,
         require: true,
         
     },
@@ -56,7 +56,6 @@ const orders = new schema ({
         type: Boolean,
         require: true,
     },
-
 
 
 },{timestamps: true})

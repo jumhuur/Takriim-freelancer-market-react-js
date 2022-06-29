@@ -13,7 +13,7 @@ function Jobs({Jobsset}){
                      <div className="qoraalo">
                          <Link to={`/jobs/${listdata._id}/User/${listdata.UserId}`}>
                              <h2>{listdata.title}</h2>
-                             <p>{listdata.body}...</p>
+                             <p>{listdata.body.substr(1,170)}...</p>
                          </Link>
                      </div>
                      <div className="tirakoob">

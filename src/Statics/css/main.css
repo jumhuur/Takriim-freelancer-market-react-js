@@ -1110,7 +1110,7 @@ h2 a{
   z-index: 10;
 }
 
-.upadate_job .i{
+.upadate_job #i{
   color: var(--fonts);
 }
 
@@ -1175,7 +1175,7 @@ div.nav_job ul#nav_jobs  li a{
 }
 
 div.nav_job ul#nav_jobs  li:hover a{
-  color: var(--fonts);
+  color: var(--bacground-qaybo);
 }
 
 /*--------sliding---------------------*/
@@ -4370,7 +4370,7 @@ span.gudoon_fg{
 
 /*----------------------- alert ----------------------*/
 div.alert{
-  position: absolute;
+  position: fixed;
   width: 400px;
   height: 65px;
   z-index: 20;
@@ -4384,16 +4384,25 @@ div.alert{
 
 
 div.alert.pyment_succsuss{
-  background-color: var(--main-2);
-  top: 7%;
+  background-color: var(--guul);
+  top: 100;
   right: 5%;
+  visibility: hidden;
+}
+
+div.alert.pyment_succsuss.active{
+  visibility: visible;
 }
 
 div.alert.wrninig{
   background-color: var(--gaar);
-  top: 15%;
+  top: 100;
   right: 5%;
   visibility: hidden;
+}
+
+div.alert.wrninig.active{
+  visibility: visible;
 }
 
 div.alert .sawir{

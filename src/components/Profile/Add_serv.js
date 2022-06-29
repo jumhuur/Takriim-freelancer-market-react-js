@@ -2,6 +2,8 @@ import  NavHolder from "../NavHolder";
 import  Footer from "../Footer";
 import AsideUser from "./Aside_Profile"
 import  SklatonAll from '../skaltons/Jobskalaton';
+import Alert_sucsess from "../Alert";
+import Alert_wrong from "../Alert2";
 import { Link } from "react-router-dom"
 import {useRef, useState } from "react"
 import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
@@ -9,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 
 function Add_servece(){
+    const [good, setgood] = useState()
     const [order, setorder] = useState(null)
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
@@ -19,7 +22,7 @@ function Add_servece(){
     const [Qiimaha , setQiimaha] = useState("")
     const [Qaybid , setQaybid] = useState("")
     const [Mudada , setMudada] = useState("")
-    const [UserId , setUserId] = useState("1")
+    const [UserId , setUserId] = useState("5")
     const [Xadiga , setXadiga] = useState("")
     const [Nooca , setNooca] = useState("")
     const [xaalad , setxaalad] = useState(1)
@@ -30,13 +33,16 @@ function Add_servece(){
     const [Qiimayn , setQiimayn] = useState("0")
     const [image , setimage] = useState("")
     const [qalad, setqalad] = useState("")
+    const [alert , setalert] = useState(false);
+    const [alertw , setalertw] = useState(false);
 
     const image01 = useRef();
     const spn_img1 = useRef();
     const progress = useRef();
     const file_icon = useRef()
     const file_icon2 = useRef()
-    const btn_add =useRef()
+    const btn_add = useRef()
+    const foomka = useRef()
 
     //spn_img1.current.addEventListener('click', image01_click)
     function image01_click(e){
@@ -93,22 +99,36 @@ function Add_servece(){
              qodob2aad,        
         }
         const response =  await fetch('/jobs', {
-            method: "POST",
+            method: 'POST',
             body: JSON.stringify(jobs),
-            headers : {"Content-Type": "application/json"}
+            headers : {'Content-Type': 'application/json'}
         })
         const json = await response.json()
         if(!response.ok){
             setqalad(json.error)
             console.log(qalad)
+            setgood('Waan Ka Xumahay Laguma Guulaysan hawshan')
+            setalertw(true)
+            setalert(false)
+            console.log("alert sax",alert)
+            console.log("alert qalad",alertw)
         }
 
         if(response.ok){
             setqalad(null)
-            console.log('shaqo cusub ayaa lagu daray', json)
+            setgood('Hanbalyo ! shaqadaada waa lagu daray')
+            setalertw(false)
+            setalert(true)
+
         }
- 
+        console.log(jobs)
     }
+
+
+    setTimeout(() => {
+        setalert(false)
+        setalertw(false)
+    } , 80000)
 
     useEffect(() =>{
         const getlist_qayb = async () =>{
@@ -119,8 +139,6 @@ function Add_servece(){
             }
         }
 
-
-
         getlist_qayb()
     },[])
     return(
@@ -128,17 +146,19 @@ function Add_servece(){
         <NavHolder />
         <section className="orders invocs">
         <div className="xajiye kala_qayb">
+        <Alert_sucsess alert={alert} add={good}/>
+        <Alert_wrong alertw={alertw} add={good} />
             {/* aside is here */}
             <AsideUser />
             {/* <!---------------biloga foomka labixida -------------------> */}
             <div className="tranding_haye">
                 <div className="rasiid_tamplate">
                     <div className="rasiid">
-                        <form method="POST" onSubmit={Adddata}>
+                        <form ref={foomka} method="POST" onSubmit={Adddata}>
                             <label htmlFor="name">Ciwaanka adegaaga</label>
-                            <input  className="la_bax" type="text" name="title" placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={38} 
+                            <input  className="la_bax" type="text" name="title" placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={40} 
                             onChange={(e) => settitle(e.target.value)}
-                            value={title}
+                            //value={title}
                             />
                             <label htmlFor="qaab">Qaybta Uu Ka Mid Yahay</label>
                             <select className="la_bax" name="Qaybid" 
@@ -153,8 +173,8 @@ function Add_servece(){
                             <div className="sawir">
                                 <span name="image" ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
                                 <input ref={image01} onInput={onchange} className="img_01" type="file" name="image" style={{visibility:"hidden"}} 
-                                onChange={(e) => setimage(e.target.value)}
-                                value={image}
+                                onChange={(e) => setimage(`/images/${e.target.files[0].name}`)}
+                                //value={image}
                                 />
                                 {/* <!----------upload file and image --> */}
                                 <div ref={progress} className="upload">
@@ -230,9 +250,9 @@ function Add_servece(){
                                     <option value="Xaraf(lettar)">Xaraf(lettar)</option>
                                     <option value="nashqad(design)">nashqad(design)</option>
                                     <option value="kalmad(word)">kalmad(word)</option>
-                                    <option value="20$">Saacad(Hour)</option>
+                                    <option value="Saacad(Saacad(Hour)">Saacad(Hour)</option>
                                     <option value="Saacad(Hour)">Saacad(Hour)</option>
-                                    <option value="sawir(picture)">sawir(picture)</option>
+                                    <option value="Sawir(picture)">sawir(picture)</option>
                                     <option value="Buug(Book)">Buug(Book)</option>
                                     <option value="muuqaal(video)">muuqaal(video)</option>
                                     <option value="muuqaal(video)">cod(voice)</option>
@@ -244,7 +264,7 @@ function Add_servece(){
                                 value={Mudada}
                             
                             >
-                                <option value="0.25">6 Saacadood</option>
+                                <option  value="0.25">6 Saacadood</option>
                                 <option value="0.50">12 Saacadood</option>
                                 <option value="1">Maalin</option>
                                 <option value="2">laba Maalmood</option>

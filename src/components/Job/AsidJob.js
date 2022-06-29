@@ -69,7 +69,7 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
                         <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> {job.qodob1aad} </li>
                         <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> {job.qodob2aad} </li>
                     </ul>
-                    <form action="" method="GET">
+                    <form action={`/Order/${job._id}`} method="GET">
                         <input type="hidden" value={mudayn}  name="Mudada"/>
                         <input type="hidden" value={xadi2}  name="xadiga"/>
                         <input type="hidden" value={q_sax}  name="qiimaha"/>
