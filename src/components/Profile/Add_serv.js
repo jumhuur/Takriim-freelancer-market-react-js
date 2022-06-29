@@ -25,7 +25,7 @@ function Add_servece(){
     const [UserId , setUserId] = useState("5")
     const [Xadiga , setXadiga] = useState("")
     const [Nooca , setNooca] = useState("")
-    const [xaalad , setxaalad] = useState(1)
+    const [xaalad , setxaalad] = useState(0)
     const [qodob1aad , setqodob1aad] = useState("")
     const [qodob2aad , setqodob2aad] = useState("")
     const [body , setbody] = useState("")
@@ -119,7 +119,6 @@ function Add_servece(){
             setgood('Hanbalyo ! shaqadaada waa lagu daray')
             setalertw(false)
             setalert(true)
-
         }
         console.log(jobs)
     }

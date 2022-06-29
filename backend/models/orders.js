@@ -51,6 +51,15 @@ const orders = new schema ({
         require: true,
         
     },
+    Qodobka1aad: {
+        type: String,
+        require: true,
+        
+    },
+    Qodobka2aad: {
+        type: String,
+        require: true,
+    },
 
     gudoomay: {
         type: Boolean,

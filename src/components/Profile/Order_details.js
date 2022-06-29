@@ -11,7 +11,24 @@ function OrderDetailscheckh(){
     const [order, setorder] = useState(null)
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
-    const path = `/Order/Complated/${id}`;
+    const path = `/Order/Complated/${id}`
+
+    // foomka 
+    const title = order && order.title
+    const Qiimaha =  order && order.Qiimaha
+    const Dalbade_id =  "2"
+    const Mudada =  order && order.Mudada
+    const UserId =  order && order.UserId
+    const Xadiga =  order && order.Xadiga
+    const Nooca =  order && order.Nooca
+    const xaalad =  order && order.xaalad
+    const Qodobka1aad =  order && order.qodob1aad
+    const Qodobka2aad =  order && order.qodob2aad
+    const jobid =  id
+    const [Loobahanyahay , setLoobahanyahay] = useState("")
+    const [lanbarka , setlanbarka] = useState("")
+    const [gudoomay , setgudoomay] = useState(false)
+    const [image , setimage] = useState("")
     
 
     const image01 = useRef();
@@ -30,24 +47,8 @@ function OrderDetailscheckh(){
         .then((data) => {
             setorder(data)
         })
-
     }, [])
 
-
-        // states from 
-        const [title , settitle] = useState("")
-        const [Qiimaha , setQiimaha] = useState(order && order.Qiimaha)
-        const [Dalbade_id , setDalbade_id] = useState("1")
-        const [Mudada , setMudada] = useState(order && order.Mudada)
-        const [UserId , setUserId] = useState(order && order.UserId)
-        const [Xadiga , setXadiga] = useState(order && order.Nooca)
-        const [Nooca , setNooca] = useState(order && order.xaalad)
-        const [xaalad , setxaalad] = useState(order && order.xaalad)
-        const [body , setbody] = useState(order && order.body)
-        const [iibsade , setiibsade] = useState("0")
-        const [lanbarka , setlanbarka] = useState("")
-        const [gudoomay , setgudoomay] = useState('false')
-        const [image , setimage] = useState("/images/order_user.svg")
 
     //spn_img1.current.addEventListener('click', image01_click)
     function image01_click(e){
@@ -85,6 +86,43 @@ function OrderDetailscheckh(){
             console.log(e)
         })
     }
+
+
+    const add_your_order = async (e) =>{
+        e.preventDefault()
+        const order = {
+            Loobahanyahay,
+            lanbarka,
+            image,
+            gudoomay,
+            title,
+            Qiimaha,
+            Dalbade_id,
+            UserId,
+            Mudada,
+            Xadiga,
+            Nooca,
+            xaalad,
+            Qodobka1aad,
+            Qodobka2aad,
+        }
+
+        const response = await fetch('/orders', {
+            method: "POST",
+            body: JSON.stringify(order),
+            headers : {'Content-Type': 'application/json'}
+        })
+
+        const json = await response.json()
+        if(!response.ok){
+            console.log("qalad")
+        }
+
+        if(response.ok){
+            console.log('order complated')
+        }
+        console.log(order)
+    }
     return(
         <div>
         <Holder />
@@ -111,18 +149,18 @@ function OrderDetailscheckh(){
                             waxaan kaaga 
 
                         </p>
-                        <form className="lacag_bixinta" method="GET" action={path}>
+                        <form className="lacag_bixinta" method="POST" onSubmit={add_your_order} action={path}>
                             <label htmlFor="qaab">Faahfaahinta Adeega</label>
                             <textarea name="Loobahanyahay" className="add_serv" placeholder="Macluumadka Oo Dhan Halkan Ku Qor" required
-                            onChange={(e) => setbody(e.target.value)}
-                            value={body}
+                            onChange={(e) => setLoobahanyahay(e.target.value)}
+                            value={Loobahanyahay}
                             ></textarea>
                             <label htmlFor="qaab">Hadii file ama sawir iwm aad raacinayso</label>
                             <div className="sawir">
                                 <span ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
                                 <input ref={image01} onInput={onchange} className="img_01" type="file" name="sawir1aad" style={{visibility:"hidden"}} 
-                                        onChange={(e) => setimage(e.target.files[0].name)}
-                                        value={image}
+                                        onChange={(e) => setimage(`/images/${e.target.files[0].name}`)}
+                                        //value={image}
                                 />
                                 {/* <!----------upload file and image --> */}
                                 <div ref={progress} className="upload">
@@ -158,16 +196,17 @@ function OrderDetailscheckh(){
                                 value={lanbarka}
                                 />
                             </div>
-                            <input type="hidden" value={Mudada}  name="Mudada"/>
-                            <input type="hidden" value={Xadiga}  name="xadiga"/>
-                            <input type="hidden" value={Qiimaha}  name="Qiimaha"/>
-                            <input type="hidden" value={title}  name="title"
-                            onChange={(e) => settitle(e.target.value)}
-                            />
-                            <input type="hidden" value={Dalbade_id}  name="Dalbade_id"/>
-                            <input type="hidden" value={UserId}  name="UserId"/>
-                            <input type="hidden" value={Nooca}  name="Nooca"/>
-                            <input type="hidden" value={xaalad}  name="xaalad"/>
+                            <input type="hidden" value={order.Mudada}   name="Mudada"/>
+                            <input type="hidden" value={order.Xadiga}  name="xadiga"/>
+                            <input type="hidden" value={order.Qiimaha}  name="Qiimaha"/>
+                            <input type="hidden" value={order.title} name="title"/>
+                            <input type="hidden" value={order.Dalbade_id}  name="Dalbade_id"/>
+                            <input type="hidden" value={order.UserId} name="UserId"/>
+                            <input type="hidden" value={order.Nooca}  name="Nooca"/>
+                            <input type="hidden" value={order.xaalad} name="xaalad"/>
+                            <input type="hidden" value={jobid}  name="Jobid"/>
+                            <input type="hidden" value={order.qodob2aad}  name="Qodobka2aad"/>
+                            <input type="hidden" value={order.qodob1aad}  name="Qodobka1aad"/>
                             <input type="hidden" value={gudoomay}  name="gudoomay"/>
                             <button className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus} />  Bixi Lacagta ({order.Qiimaha}$)</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> Macluumaadkan waa u muhiim qofka shaqada kuu qabanaya fadalan buuxi</p>

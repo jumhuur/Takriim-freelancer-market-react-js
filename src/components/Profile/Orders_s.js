@@ -30,14 +30,16 @@ function OrderUsers(){
                 {order ? order.map((dat_order) => (
                 <div className="card_template" key={dat_order._id}>
                 <div className="imges">
-                    <img src={dat_order.image} alt="sawir_template" />
+                    <img src="/images/order_user.svg" alt="sawir_template" />
                 </div>
                 <div className="macluumaad">
                     <div className="qoraalo">
                         <Link to={`/Acount/order/Info/${dat_order._id}/${dat_order.UserId}`}>
                             <h2>{dat_order.title}</h2>
                             <p>
-                                {dat_order.Loobahanyahay}...
+                            Dalabkaaga waad gudbisay macmiil waxaanan rajaynaynaa inaad ku qancid doonta 
+                            shaqada laguu qabtay marka laguu dhameeyo dalabkaag .
+                            La soco Mar kasta  xaalada dalabkaagu marayo kolba Mahadsanid
                             </p>
                         </Link>
                     </div>

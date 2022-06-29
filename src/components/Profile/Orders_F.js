@@ -31,14 +31,16 @@ function Orders_Free(){
                 {order ? order.map((dat_order) => (
                 <div className="card_template" key={dat_order._id}>
                 <div className="imges">
-                    <img src={dat_order.image} alt="sawir_template" />
+                    <img src="/images/order_user.svg" alt="sawir_template" />
                 </div>
                 <div className="macluumaad">
                     <div className="qoraalo">
                         <Link to={`/Acount/Myorder/info/${dat_order._id}`}>
                             <h2>{dat_order.title}</h2>
                             <p>
-                                {dat_order.Loobahanyahay}...
+                                Dalabkan waxa uu kaaga yimid mid ka mida macaamiisha shabakada 
+                                waxaana uu la socdaa xalaada dalabkan fadlan si aad shaqadaada horu mar uga 
+                                gaadho shabakada aad sumcadeeda kor uqaado ugu adeeg degdesiimo ...
                             </p>
                         </Link>
                     </div>

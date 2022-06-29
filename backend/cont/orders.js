@@ -22,8 +22,10 @@ const neworder = async (req, res) =>{
         Dalbade_id,
         Xadiga,
         Nooca,
-        qodob1aad,
-        qodob2aad,
+        Qodobka1aad,
+        Qodobka2aad,
+        lanbarka,
+        Mudada,
         xaalad,
         gudoomay
     } = req.body
@@ -38,8 +40,10 @@ const neworder = async (req, res) =>{
             Dalbade_id,
             Xadiga,
             Nooca,
-            qodob1aad,
-            qodob2aad,
+            Qodobka1aad,
+            Qodobka2aad,
+            lanbarka,
+            Mudada,
             xaalad,
             gudoomay
         })
