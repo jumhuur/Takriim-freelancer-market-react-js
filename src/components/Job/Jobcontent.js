@@ -3,7 +3,7 @@ import Comment from "./comments";
 // import {useEffect ,useState} from "react";
 // import { useParams } from "react-router-dom";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import {faSpinner, faStar , faUserGroup , faUserTie ,faSliders, faTrashCanArrowUp , faGear, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
+import {faSpinner, faStar , faUserGroup , faUserTie , faTrashCanArrowUp , faGear, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 function JobContent({jobdetails ,user}){
