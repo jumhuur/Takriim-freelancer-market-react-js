@@ -1,5 +1,6 @@
 // import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 // import {faFacebook,} from "@fortawesome/free-solid-svg-icons";
+import {FaFacebook , FaTwitter ,FaWhatsapp} from "react-icons/fa"
 function Footer(){
     return (
         <footer>
@@ -12,16 +13,17 @@ function Footer(){
                     <ul className="social">
                         <li>
                             <a href="">
+                                <FaFacebook />
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <i className="fa-brands fa-twitter"></i>
+                               <FaTwitter />
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <i className="fa-brands fa-whatsapp"></i>
+                                <FaWhatsapp />
                             </a>
                         </li>
                     </ul>

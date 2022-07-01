@@ -5,6 +5,7 @@ import {faGears,faClockRotateLeft ,faCreditCard ,faClock, faCircleCheck ,faCircl
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Jobskl from "../skaltons/Jobskalaton";
+import formatDistanceToNow  from "date-fns/formatDistanceToNow"
 function OrderUsers(){
     const [order, setorder] = useState(null)
     useEffect((function(){
@@ -67,7 +68,7 @@ function OrderUsers(){
                                 </li>
                             }
                             <li>
-                            <FontAwesomeIcon className="i" icon={faClock} /> <span>28-04-2022</span>
+                            <FontAwesomeIcon className="i" icon={faClock} /> <span>{formatDistanceToNow(new Date(dat_order.createdAt))}</span>
                             </li>
                         </ul>
                         <div className="btn_shaqo">

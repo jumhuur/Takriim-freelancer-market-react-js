@@ -24,7 +24,7 @@ function OrderDetailscheckh(){
     const xaalad =  order && order.xaalad
     const Qodobka1aad =  order && order.qodob1aad
     const Qodobka2aad =  order && order.qodob2aad
-    const jobid =  id
+    const Jobid =  id
     const [Loobahanyahay , setLoobahanyahay] = useState("")
     const [lanbarka , setlanbarka] = useState("")
     const [gudoomay , setgudoomay] = useState(false)
@@ -99,6 +99,7 @@ function OrderDetailscheckh(){
             Qiimaha,
             Dalbade_id,
             UserId,
+            Jobid,
             Mudada,
             Xadiga,
             Nooca,
@@ -204,7 +205,7 @@ function OrderDetailscheckh(){
                             <input type="hidden" value={order.UserId} name="UserId"/>
                             <input type="hidden" value={order.Nooca}  name="Nooca"/>
                             <input type="hidden" value={order.xaalad} name="xaalad"/>
-                            <input type="hidden" value={jobid}  name="Jobid"/>
+                            <input type="hidden" value={Jobid}  name="Jobid"/>
                             <input type="hidden" value={order.qodob2aad}  name="Qodobka2aad"/>
                             <input type="hidden" value={order.qodob1aad}  name="Qodobka1aad"/>
                             <input type="hidden" value={gudoomay}  name="gudoomay"/>

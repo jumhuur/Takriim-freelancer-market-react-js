@@ -109,9 +109,9 @@ function JobContent({jobdetails ,user}){
                         </div>
                         {/* <!-------------------commentiga dadka------------------------------> */}
                         <div className="faahfaahin_sho">
-                            <h2 className="flcelin"><i className="fa-solid fa-face-smile"></i>  Falcelinta Dadaka Iibsaday (12) </h2>
+                            <h2 className="flcelin"><i className="fa-solid fa-face-smile"></i>  Falcelinta Dadaka Iibsaday </h2>
                         </div>
-                        <Comment />
+                        <Comment thisid={jobdetails._id}/>
                         {/* <!---------dhamaadka commentiga ----------------------------> */}
                         {/* <!---------Bilowga shaqooyin lamid ----------------------------> */}
 

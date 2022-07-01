@@ -5,12 +5,56 @@ import { faCalendarDays,faSpinner ,faCircleCheck , faAngleDown , faCircleXmark ,
 import Xayaysiis from "../Saponsered_Ads";
 import { useParams , Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import formatDistanceToNow  from "date-fns/formatDistanceToNow"
 
 function Gudoon(){
     const {id} = useParams()
     const {userid} = useParams()
     const [oneOrder , setoneOrder] = useState()
     const [user , setuser] = useState()
+
+    // comments state 
+    const [Rate, setRate] = useState("5")
+    const [Comment, setComment] = useState()
+    const Jobid = oneOrder && oneOrder.Jobid
+    const Username = user && user.Name
+    const UserId = userid
+    // const [datacom, setdatacom] = useState({
+    //     Rate: "",
+    //     Comment: "",
+    //     Jobid: oneOrder && oneOrder.Jobid,
+    //     UserId: userid,
+    // })
+
+
+    const submitHandale  = async (e) =>{
+        e.preventDefault()
+        const Commentobj = {
+            Rate,
+            Comment,
+            Jobid,
+            UserId,
+            Username
+        }
+
+        const fetchdata = await fetch('/Comments', {
+            method: 'POST',
+            body: JSON.stringify(Commentobj),
+            headers : {'Content-Type': 'application/json'}
+        })
+
+        const json = await fetchdata.json()
+        if(!fetchdata.ok){
+            console.log('qalad')
+            json.status(400).json({qalad: "qalad"})
+        }
+
+        if(fetchdata.ok){
+            console.log("comment added")
+        }
+
+        console.log(Commentobj)
+    }
     const xaalad0aad = useRef();
     const xaalad1aad = useRef();
     const xaalad2aad = useRef();
@@ -83,6 +127,11 @@ function Gudoon(){
         }
     }
     test()
+
+
+    // create comments 
+
+
     return(
         <div>
         <Holder />
@@ -140,7 +189,11 @@ function Gudoon(){
                                     <FontAwesomeIcon icon={faSpinner} />
                                 </div>
                                 <div className="x_ciwaaan">
-                                    <h2>Dalabkaaga waa laguu wadaa (13) Maalin </h2>
+                                    {oneOrder &&
+
+                                        <h2>Dalabkaaga waxa uu socdaa ({formatDistanceToNow(new Date(oneOrder.createdAt))} ) </h2>
+                                    }
+                                    
                                 </div>
                                 <div className="x_icon_arrow">
                                 <FontAwesomeIcon icon={faAngleDown} />
@@ -189,16 +242,19 @@ function Gudoon(){
                                         <h2 className="ciwaan_bahanahay2">Xagan Hoose K dejiso(download-garayso) dalabkaag <i className="fa-solid fa-angle-down arrow"></i> :</h2>
                                         <a href={oneOrder && oneOrder.image} download className="link_mirfaq">Dajiso Dalabkaaga ( Download Your Order ) <FontAwesomeIcon icon={faDownload} /> </a>
                                     </div>
-                                    <form className="gudoon" method="get" action="">
+                                    <form className="gudoon" method="POST" action="" onSubmit={submitHandale}>
                                         <label>Sidee laguugu Adeegay ? </label>
-                                        <select name="qiimayn">
+                                        <select name="Rate" onChange={(e) => setRate(e.target.value)} value={Rate}>
                                             <option value="5">Si Aad Fiican</option>
                                             <option value="4">Si Fiican</option>
                                             <option value="3">Ma Xuma</option>
                                             <option value="2">Si Liidata</option>
                                             <option value="1">Si Aad u Liidata</option>
                                         </select>
-                                        <textarea name="comment" spellCheck="false" required placeholder="Sideed U Aragtaa Adeegayga"></textarea>
+                                        <textarea  onChange={(e) => setComment(e.target.value)} value={Comment} name="Comment" spellCheck="false" required placeholder="Sideed U Aragtaa Adeegayga"></textarea>
+                                        <input  type="hidden" value={oneOrder && oneOrder.Jobid} name="Jobid"/>
+                                        <input  type="hidden" value={UserId} name="Userid"/>
+                                        <input  type="hidden" value={Username} name="Username"/>
                                         <button className="gudoon_btn" type="submit">Gudoon Dalabka</button>
                                     </form>
                                 </div>
