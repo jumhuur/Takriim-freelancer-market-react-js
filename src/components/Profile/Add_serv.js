@@ -153,7 +153,7 @@ function Add_servece(){
             <div className="tranding_haye">
                 <div className="rasiid_tamplate">
                     <div className="rasiid">
-                        <form ref={foomka} method="POST" onSubmit={Adddata}>
+                        <form action="/" ref={foomka} method="post" onSubmit={Adddata} encType="multipart/form-data">
                             <label htmlFor="name">Ciwaanka adegaaga</label>
                             <input  className="la_bax" type="text" name="title" placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={40} 
                             onChange={(e) => settitle(e.target.value)}

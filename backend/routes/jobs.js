@@ -1,5 +1,16 @@
 const express = require('express');
 const router = express.Router()
+//const multer = require("multer")
+
+// const filestorage = multer.diskStorage({
+//     destination : (req, file, cb) => {
+//         cb(null, "images")
+//     },
+//     filename: (req, file, cb) => {
+//         cb(null, Date.now() + ".." + file.originalname )
+//     }
+// })
+// const upload =  multer({storage: filestorage}) 
 const {
     Creatjob,
     GetAlljobs,

@@ -7,7 +7,7 @@ function Jobs({Jobsset}){
             {Jobsset.map(listdata => (
                  <div className="card_template" key={listdata._id}>
                  <div className="imges">
-                     <img src={listdata.image} alt="sawir_template" />
+                     <img src={listdata.image ? listdata.image : "/images/asalahaan.png"} alt="sawir_template" />
                  </div>
                  <div className="macluumaad">
                      <div className="qoraalo">

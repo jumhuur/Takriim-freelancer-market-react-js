@@ -46,6 +46,8 @@ const Creatjob = async (req, res) => {
         res.status(400).json({error: error.massage})
     }
 
+    console.log(req.file)
+
 }
 
 
