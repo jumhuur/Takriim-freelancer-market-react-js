@@ -20,6 +20,7 @@ function Commenst({thisid}){
             setcomments(data)
 
         })
+        
     })
     return(
         <div>

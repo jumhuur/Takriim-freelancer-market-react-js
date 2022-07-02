@@ -7,6 +7,14 @@ import {useState} from "react";
 
 
 function Homepage(){
+
+    const setup = (user) => {
+        if(user){
+            console.log('sax')
+        }
+    }
+
+    setup()
     const [hassclass , setHasclass] = useState(false);
     function headscrol(){
         if(window.scrollY > 50){

@@ -174,7 +174,7 @@ a {
 }
 
 .head .header .nav_links.normal{
-  display: none;
+  display: flex;
 }
 
 .head .header .nav_links ul {
@@ -285,7 +285,6 @@ a {
 .nav_links.user ul li a span.active{
   visibility: visible;
 }
-
 
 
 
@@ -2890,7 +2889,7 @@ form.lacag_bixinta label{
 }
 
 .orders .tranding_haye .card_template .macluumaad .tirakoob ul {
-  width: 50%;
+  width: 54%;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -2910,6 +2909,7 @@ form.lacag_bixinta label{
   color: var(--ciwaano);
   font-size: 18px;
   font-family: "nooca_farta";
+  margin-top: 15px;
 }
 
 
@@ -2935,6 +2935,7 @@ form.lacag_bixinta label{
 
 .orders .tranding_haye .card_template .macluumaad .tirakoob ul li span{
   margin-right: 2%;
+  text-transform: capitalize;
 }
 .orders .tranding_haye .card_template .btn_shaqo{
   width: 30%;
@@ -4936,6 +4937,10 @@ section.Chat .chatbody .chatmassages .massages_list .loadmassage p{
     max-width: 540px;
   }
 
+  .orders .tranding_haye .card_template .macluumaad .tirakoob ul li{
+    width: calc(100% / 1);
+  }
+
 
 
   div.xaalad1aad .rasiid_tamplate.xaalad{
@@ -5253,7 +5258,7 @@ section.Chat .chatbody .chatmassages .massages_list .loadmassage p{
     }
 
     .orders .tranding_haye .card_template .macluumaad .tirakoob ul li{
-      width: calc(100% / 2);
+      width: calc(100% / 1);
     }
 
 

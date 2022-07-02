@@ -2,6 +2,7 @@ import { useState ,useEffect } from "react"
 import Aside from "../Aside";
 import Jobs from "../Jobs";
 import Jobskl from "../skaltons/Jobskalaton";
+import auth from "../Acount/Sinup";
 function ContentHome(){
     const [JobsData, setDataJobs] = useState(null)
     useEffect((function(){

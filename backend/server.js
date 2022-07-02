@@ -4,6 +4,7 @@ const Jobroutes = require("./routes/jobs")
 const qaybroutes = require("./routes/qayboroutes")
 const orderroute = require("./routes/Orders")
 const commentRoute = require("./routes/Comments")
+const usersroute = require("./routes/users")
 require("dotenv").config()
 
 const Port = 4000 
@@ -27,6 +28,8 @@ app.use('/qaybo',qaybroutes)
 app.use('/orders',orderroute)
 
 app.use("/Comments", commentRoute)
+
+app.use('/users', usersroute)
 
 mongose.connect(Mongo_Url)
 .then(()=>{

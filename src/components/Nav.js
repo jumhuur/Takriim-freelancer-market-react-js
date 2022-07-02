@@ -6,6 +6,7 @@ import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import { faAngleDown, faBars, faBell, faEarthAfrica, faEnvelope, faRightToBracket ,faToolbox} from "@fortawesome/free-solid-svg-icons";
 import NavMobile from "./NavMobile";
 import Drop_nav from "./Drop_nav";
+import {FaAngleDown , FaGlobeAfrica} from "react-icons/fa"
 
 function Nav(){
     const [isactive, setisactive] = useState(false)
@@ -47,12 +48,12 @@ function Nav(){
             <ul className="ul_nav">
                 <li>
                     <a href="#">
-                    <FontAwesomeIcon className="i" icon={faEarthAfrica} /> So  <FontAwesomeIcon className="i" icon={faAngleDown}/>
+                    <FontAwesomeIcon className="i" icon={faEarthAfrica} /> So  <FaAngleDown />
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        more  <FontAwesomeIcon className="i" icon={faAngleDown}/>
+                        more  <FaAngleDown />
                     </a>
                 </li>
                 <li>
@@ -61,14 +62,9 @@ function Nav(){
                     </a>
                 </li>
                 <li className="btn">
-                    <a href="/login.html">
+                    <Link to={"/Acount/Login"}>
                     <FontAwesomeIcon className="i" icon={faRightToBracket}/> Gal Akoon
-                    </a>
-                </li>
-                <li className="user_nav">
-                    <div className="user_">
-                        <img src="/images/avatar.png" />
-                    </div>
+                    </Link>
                 </li>
             </ul>
 
