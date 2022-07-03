@@ -174,7 +174,7 @@ a {
 }
 
 .head .header .nav_links.normal{
-  display: flex;
+  display: none;
 }
 
 .head .header .nav_links ul {

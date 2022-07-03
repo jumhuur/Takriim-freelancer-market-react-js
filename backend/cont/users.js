@@ -1,4 +1,7 @@
 const usersmodel = require("../models/users")
+//const bcrypt = require("bcrypt")
+
+
 // sinup user 
 const sinup = async (req, res) => {
     const {
@@ -7,7 +10,8 @@ const sinup = async (req, res) => {
         password
 
     } = req.body
-
+    //const salt = await bcrypt.genSalt();
+    //const pass = await bcrypt.hash(password)
     try {
         const users = await usersmodel.create({
             name,
