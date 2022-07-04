@@ -2,7 +2,7 @@ import AsideUser from "./Aside_Profile"
 import Holder from "../NavHolder"
 import Footer from "../Footer"
 import  SklatonAll from '../skaltons/Jobskalaton';
-import { Link, useParams } from "react-router-dom"
+import { Link, useHistory, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +12,7 @@ function OrderDetailscheckh(){
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
     const path = `/Order/Complated/${id}`
+    const mypath = useHistory()
 
     // foomka 
     const title = order && order.title
@@ -121,6 +122,7 @@ function OrderDetailscheckh(){
 
         if(response.ok){
             console.log('order complated')
+            mypath.push(`/Order/Complated/${id}`)
         }
         console.log(order)
     }

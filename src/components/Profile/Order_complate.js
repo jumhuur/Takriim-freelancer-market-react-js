@@ -20,7 +20,7 @@ function ComplatedOrder(){
         <section className="complate">
         <section className="xajiye">
             <div className="dhamaad">
-                <img src='/images/taw.svg' className='svg_compl'  alt='complate'/>
+                <img src='/images/taw_seccse.svg' className='svg_compl'  alt='complate'/>
                 <p className='Complate'>Dalabkaaga waa lagu guulaystay</p>
                 <p className="dajin_nafta">
                     Lacagata aad ku bixisay dalabkan  waxaa masuul kaaga ah shabkada

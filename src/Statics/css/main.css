@@ -1096,7 +1096,7 @@ h2 a{
   position: absolute;
   width: 30px;
   height: 30px;
-  background-color: var(--gaar);
+  background-color: var(--main-2);
   border-radius: 5px;
   top: 10px;
   right: 9px;
@@ -1122,7 +1122,7 @@ h2 a{
 .nav_job{
   width: 140px;
   height: 100px;
-  background-color: var(--gaar);
+  background-color: var(--main-2);
   position: absolute;
   right: 10px;
   z-index: 10;
@@ -1159,7 +1159,7 @@ div.nav_job ul#nav_jobs  li {
 
 
 div.nav_job ul#nav_jobs  li:hover{
-  background-color: var(--Font-color);
+  background-color: #00569d;
 }
 
 
@@ -1174,7 +1174,7 @@ div.nav_job ul#nav_jobs  li a{
 }
 
 div.nav_job ul#nav_jobs  li:hover a{
-  color: var(--bacground-qaybo);
+  color: var(--fonts);
 }
 
 /*--------sliding---------------------*/

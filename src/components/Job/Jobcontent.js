@@ -4,11 +4,12 @@ import Comment from "./comments";
 // import { useParams } from "react-router-dom";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faSpinner, faStar , faUserGroup , faUserTie , faTrashCanArrowUp , faGear, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { useState } from "react";
 function JobContent({jobdetails ,user}){
     const {id} = useParams()
     const [active , setactive] = useState (false)
+    const myparth = useHistory()
 
     function settings_handle(e){
         !active ? setactive(true) : setactive(false)
@@ -22,6 +23,7 @@ function JobContent({jobdetails ,user}){
         const json = response.json()
         if(response.ok){
             console.log('waa la masaxay')
+            myparth.push('/Acount/maxamad dayib/1')
         }
 
     }
@@ -93,18 +95,7 @@ function JobContent({jobdetails ,user}){
                         <div className="faahfaahin_sho">
                             <h2> Warbixinta shaqadan aan kuu qabanayo</h2>
                             <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took a galley of type and scrambled it to make a type
-                                specimen book. It has survived not only five centuries, but also the leap into
-                                electronic typesetting, remaining essentially unchanged. It was popularised in 
-                                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                and more recently with desktop publishing software 
-                                like Aldus PageMaker including versions of Lorem Ipsum.
-                                electronic typesetting, remaining essentially unchanged. It was popularised in 
-                                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                and more recently with desktop publishing software 
-                            like Aldus PageMaker including versions of Lorem Ipsum.
+                                {jobdetails && jobdetails.body}
                             </p>
                         </div>
                         {/* <!-------------------commentiga dadka------------------------------> */}

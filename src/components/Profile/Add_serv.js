@@ -4,7 +4,7 @@ import AsideUser from "./Aside_Profile"
 import  SklatonAll from '../skaltons/Jobskalaton';
 import Alert_sucsess from "../Alert";
 import Alert_wrong from "../Alert2";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import {useRef, useState } from "react"
 import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,15 +16,16 @@ function Add_servece(){
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
     const [list , setlist] = useState(null)
+    const history = useHistory()
 
     // states from 
     const [title , settitle] = useState("")
-    const [Qiimaha , setQiimaha] = useState("")
+    const [Qiimaha , setQiimaha] = useState("5.00")
     const [Qaybid , setQaybid] = useState("")
-    const [Mudada , setMudada] = useState("")
-    const [UserId , setUserId] = useState("5")
+    const [Mudada , setMudada] = useState("0.25")
+    const [UserId , setUserId] = useState("1")
     const [Xadiga , setXadiga] = useState("")
-    const [Nooca , setNooca] = useState("")
+    const [Nooca , setNooca] = useState("Bog(page)")
     const [xaalad , setxaalad] = useState(0)
     const [qodob1aad , setqodob1aad] = useState("")
     const [qodob2aad , setqodob2aad] = useState("")
@@ -119,6 +120,8 @@ function Add_servece(){
             setgood('Hanbalyo ! shaqadaada waa lagu daray')
             setalertw(false)
             setalert(true)
+            history.push('/')
+            
         }
         console.log(jobs)
     }
@@ -127,7 +130,7 @@ function Add_servece(){
     setTimeout(() => {
         setalert(false)
         setalertw(false)
-    } , 80000)
+    } , 8000)
 
     useEffect(() =>{
         const getlist_qayb = async () =>{

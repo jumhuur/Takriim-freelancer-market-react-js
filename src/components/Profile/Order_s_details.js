@@ -3,7 +3,7 @@ import Footer from "../Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays,faSpinner ,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faRotate, faStar , faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import Xayaysiis from "../Saponsered_Ads";
-import { useParams , Link } from "react-router-dom";
+import { useParams , Link, useHistory } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import formatDistanceToNow  from "date-fns/formatDistanceToNow"
 
@@ -12,6 +12,7 @@ function Gudoon(){
     const {userid} = useParams()
     const [oneOrder , setoneOrder] = useState()
     const [user , setuser] = useState()
+    const mypath = useHistory()
 
     // comments state 
     const [Rate, setRate] = useState("5")
@@ -51,6 +52,8 @@ function Gudoon(){
 
         if(fetchdata.ok){
             console.log("comment added")
+            mypath.push('/Acount/orders')
+
         }
 
         console.log(Commentobj)
