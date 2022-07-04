@@ -38,5 +38,5 @@ const NewComment = async (req, res) =>{
 
 module.exports ={
     GetComments,
-    NewComment
+    NewComment,
 }

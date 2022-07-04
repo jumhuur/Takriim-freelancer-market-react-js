@@ -2070,8 +2070,10 @@ footer .my_footer .qayb.shaqooyin_link ul li a{
 }
 
 p.wakhti_com{
-  color: var(--Font-color);
+  font-size: 13px !important;
+  color: var(--Font-color) !important;
   text-transform: capitalize;
+  line-height: 1.5 !important;
 }
 
 .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .iibiye_info .info_seller p.comments{

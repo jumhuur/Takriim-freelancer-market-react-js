@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // get all qayb 
 
 const getallqayb = async (req, res) => {
-    const data = await qaybmodels.find({}).sort({createdAt: -1})
+    const data = await qaybmodels.find({}).sort({createdAt: -1}).limit(8)
     res.status(200).json(data)
 } 
 
@@ -35,8 +35,19 @@ const addqayb = async (req, res) =>{
 }
 
 
+// get qayb gaar 
+const getpapular = async (req, res) => {
+    const papular = await qaybmodels.find({}).limit(3)
+    res.status(200).json(papular)
+    //res.status(200).json({"msg": "fariin"})
+}
+
+
+
+
 module.exports = {
     getallqayb,
     getqayb_kaliya,
     addqayb,
+    getpapular
 }

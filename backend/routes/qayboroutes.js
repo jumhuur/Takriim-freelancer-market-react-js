@@ -4,8 +4,12 @@ const {
     getallqayb,
     getqayb_kaliya,
     addqayb,
+    getpapular
 
 } = require("../cont/qayb")
+
+// get papular 
+router.get("/gaar/api", getpapular ) 
 
 
 // get all qayb 
@@ -18,6 +22,8 @@ router.get("/:id", getqayb_kaliya)
 // add qayb 
 
 router.post("/" , addqayb)
+
+
 
 // // delete qayb 
 // router.delete("/:id" , deleteqayb)

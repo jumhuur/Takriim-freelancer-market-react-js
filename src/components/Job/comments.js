@@ -1,14 +1,13 @@
 import { faStar} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import {FaRegStar} from "react-icons/fa"
+import {FaRegStar , FaSpinner} from "react-icons/fa"
 import formatDistanceToNow  from "date-fns/formatDistanceToNow"
 
 function Commenst({thisid}){
-
     const [comments , setcomments] = useState(null)
 
-
+    
     useEffect(() =>{
         fetch("/Comments")
         .then((response) =>{
@@ -31,7 +30,7 @@ function Commenst({thisid}){
                           </div>
                           <div className="info_seller">
                               <h2>{data.Username}</h2>
-                              <p className="wakhti_com">{formatDistanceToNow(new Date(data.createdAt))}</p>
+                              <p className="wakhti_com">{formatDistanceToNow(new Date(data.createdAt))} Ka Hor</p>
                               {data.Rate == '5' ? 
                                 <p className="qiimayn">
                                     <FontAwesomeIcon icon={faStar} />
