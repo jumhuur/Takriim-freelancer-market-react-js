@@ -14,8 +14,9 @@ const {
     Creatjob,
     GetAlljobs,
     GetJob,
-    delete_job
-} = require('../cont/jobcontrall')
+    delete_job,
+    update_job
+} = require('../cont/jobcontrall');
 
 
 // get all jobs 
@@ -32,9 +33,7 @@ router.post("/", Creatjob)
 router.delete("/:id", delete_job)
 
 // update job 
-router.patch("/:id", (req, res) =>{
-    res.json({msg: "update job"})
-})
+router.patch("/:id", update_job)
 
 module.exports = router
 

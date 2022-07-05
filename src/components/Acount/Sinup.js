@@ -1,32 +1,41 @@
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
-import { areIntervalsOverlappingWithOptions } from "date-fns/fp";
+import {UseAuth } from "../context/authcontext"
 
 function SingUp(){
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [name, setname] = useState('')
 
+    // gaar 
+    const {sinup} = UseAuth()
+
     // bilowga samaynrta 
-    const sinup = async (e) => {
+    const handelsubmit = async (e) => {
         e.preventDefault()
-        const data = {email, password , name}
-        const response = await fetch('/users', {
-            method: "post",
-            body: JSON.stringify(data),
-            headers : {'Content-Type': 'application/json'}
-        })
+        try {
+            await sinup()
+        } catch(err) {
+            console.log(err)
+        }
+        
+        // const data = {email, password , name}
+        // const response = await fetch('/users', {
+        //     method: "post",
+        //     body: JSON.stringify(data),
+        //     headers : {'Content-Type': 'application/json'}
+        // })
 
-        const json = await response.json()
-        if(!response.ok){
-            console.log('qalad')
+        // const json = await response.json()
+        // if(!response.ok){
+        //     console.log('qalad')
             
-        }
+        // }
 
-        if(response.ok){
-            console.log('added')
-            console.log(data)
-        }
+        // if(response.ok){
+        //     console.log('added')
+        //     console.log(data)
+        // }
         
         
     }
@@ -43,7 +52,7 @@ function SingUp(){
                             dhamaystiran ugua wada faaidaysato shabakada takriim
                         </p>
                     </div>
-                    <form className="akoon" method="post" onSubmit={sinup}>
+                    <form className="akoon" method="post" onSubmit={handelsubmit}>
                         <div>
                             <label>Magacaga :</label>
                             <input type="tex" name="name" required placeholder="Magacaga"

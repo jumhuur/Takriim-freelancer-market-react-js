@@ -83,10 +83,22 @@ const delete_job = async (req , res) => {
 }
 
 // upadate shaqo 
+const update_job = async (req, res) => {
+    const {id} = req.params
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({Qalad: "lama helin shaqo"})
+    }
+    const data = await jobsmodel.findOneAndUpdate({_id:id})
+    if(!data){
+        res.status(400).json({qalad: "qalad ayaa jira"})
+    }
+    res.status(200).json(data)
+}
 
 module.exports  = {
     Creatjob,
     GetAlljobs,
     GetJob,
-    delete_job
+    delete_job,
+    update_job
 }

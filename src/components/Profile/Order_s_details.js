@@ -245,21 +245,25 @@ function Gudoon(){
                                         <h2 className="ciwaan_bahanahay2">Xagan Hoose K dejiso(download-garayso) dalabkaag <i className="fa-solid fa-angle-down arrow"></i> :</h2>
                                         <a href={oneOrder && oneOrder.image} download className="link_mirfaq">Dajiso Dalabkaaga ( Download Your Order ) <FontAwesomeIcon icon={faDownload} /> </a>
                                     </div>
-                                    <form className="gudoon" method="POST" action="" onSubmit={submitHandale}>
-                                        <label>Sidee laguugu Adeegay ? </label>
-                                        <select name="Rate" onChange={(e) => setRate(e.target.value)} value={Rate}>
-                                            <option value="5">Si Aad Fiican</option>
-                                            <option value="4">Si Fiican</option>
-                                            <option value="3">Ma Xuma</option>
-                                            <option value="2">Si Liidata</option>
-                                            <option value="1">Si Aad u Liidata</option>
-                                        </select>
-                                        <textarea  onChange={(e) => setComment(e.target.value)} value={Comment} name="Comment" spellCheck="false" required placeholder="Sideed U Aragtaa Adeegayga"></textarea>
-                                        <input  type="hidden" value={oneOrder && oneOrder.Jobid} name="Jobid"/>
-                                        <input  type="hidden" value={UserId} name="Userid"/>
-                                        <input  type="hidden" value={Username} name="Username"/>
-                                        <button className="gudoon_btn" type="submit">Gudoon Dalabka</button>
-                                    </form>
+                                    {oneOrder && oneOrder.gudoomay == false ?
+                                        <form className="gudoon" method="POST" action="" onSubmit={submitHandale}>
+                                            <label>Sidee laguugu Adeegay ? </label>
+                                            <select name="Rate" onChange={(e) => setRate(e.target.value)} value={Rate}>
+                                                <option value="5">Si Aad Fiican</option>
+                                                <option value="4">Si Fiican</option>
+                                                <option value="3">Ma Xuma</option>
+                                                <option value="2">Si Liidata</option>
+                                                <option value="1">Si Aad u Liidata</option>
+                                            </select>
+                                            <textarea  onChange={(e) => setComment(e.target.value)} value={Comment} name="Comment" spellCheck="false" required placeholder="Sideed U Aragtaa Adeegayga"></textarea>
+                                            <input  type="hidden" value={oneOrder && oneOrder.Jobid} name="Jobid"/>
+                                            <input  type="hidden" value={UserId} name="Userid"/>
+                                            <input  type="hidden" value={Username} name="Username"/>
+                                            <button className="gudoon_btn" type="submit">Gudoon Dalabka</button>
+                                        </form>
+                                    :""
+                                    }
+
                                 </div>
                             </div>
 
