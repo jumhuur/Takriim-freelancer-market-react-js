@@ -21,7 +21,6 @@ import Lacag_La_bixid from './components/Profile/Cash_out';
 import Labxaday from './components/Profile/cashout_msg';
 import Upadate_job from './components/Profile/Update_Job';
 import Upadate_profile from './components/Profile/upadate_profile';
-import { AuthProvader } from './components/context/authcontext';
 
 
 function App(){
@@ -52,9 +51,7 @@ function App(){
             <Login />
           </Route>
           <Route exact path="/Acount/Singup">
-          <AuthProvader>
             <SingUp />
-            </AuthProvader>
           </Route>
           <Route exact path="/Acount/Online/chat/:id">
             <ChatOnline />

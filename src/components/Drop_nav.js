@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom"
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faCirclePlus,faRightFromBracket,faToolbox , faUser,faSackDollar} from "@fortawesome/free-solid-svg-icons";
+import {UseAuth } from "../components/context/authcontext"
 
 function Drop_nav({drop}){
+    const {Logout} =  UseAuth()
+
+    const logouthanle = async (e) => {
+        e.preventDefault()
+        try {
+            await Logout()
+        } catch(error){
+            console.log(error)
+        }
+    }
     return(
         <div id="Drop_nav"  className={drop ? "active" : ""}>
            <div> 
@@ -28,7 +39,7 @@ function Drop_nav({drop}){
                     </Link>
                 </li>
                 <li id="Dr">
-                    <Link to={'*'}>
+                    <Link onClick={logouthanle}>
                     <FontAwesomeIcon className="i" icon={faRightFromBracket} /> Xidho
                     </Link>
                 </li>

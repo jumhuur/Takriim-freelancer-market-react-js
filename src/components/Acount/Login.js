@@ -1,8 +1,22 @@
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { useState } from "react";
+import { UseAuth } from "../context/authcontext"
 function Login(){
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
+    const {Login} = UseAuth()
+    const navigator = useHistory()
+
+    const hanlaelogin = async (e) => {
+        e.preventDefault()
+        try{
+            await Login(email, password)
+            navigator.push('/')
+
+        } catch (error){
+            console.log(error)
+        }
+    }
 
     return(
         <section className="sinup_page">
@@ -15,7 +29,7 @@ function Login(){
                             dib u gal akoonkaaga si aad hawalaagii u sii wadato mahadsanid
                         </p>
                     </div>
-                    <form className="akoon" method="post">
+                    <form className="akoon" method="post" onSubmit={hanlaelogin} >
                         <div>
                             <label>Email-kaaga :</label>
                             <input type="email" name="email" required placeholder="Qor Email-kaaga" 

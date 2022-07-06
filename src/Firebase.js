@@ -1,5 +1,5 @@
 import  {initializeApp} from "firebase/app"
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import {getAuth } from "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyDruChhiTK-mmUNLQ0WyfOPNeiF2iYhYhs",
     authDomain: "market-43c38.firebaseapp.com",
@@ -13,11 +13,6 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 const myauth = getAuth()
 
-const createUsers = () => {
-    return createUserWithEmailAndPassword()
-}
 
-
-export const createUser = createUsers
 export const Auth = myauth
 

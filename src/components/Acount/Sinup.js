@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom"
-import { useEffect, useState } from "react";
-import {UseAuth } from "../context/authcontext"
+import { useContext, useEffect, useState } from "react";
+import { UseAuth } from "../context/authcontext";
+
 
 function SingUp(){
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [name, setname] = useState('')
+    const  { sinup , crentuser } = UseAuth()
+    
 
     // gaar 
-    const {sinup} = UseAuth()
 
     // bilowga samaynrta 
     const handelsubmit = async (e) => {
         e.preventDefault()
         try {
-            await sinup()
+            await sinup(email,password)
         } catch(err) {
             console.log(err)
         }
@@ -35,11 +37,8 @@ function SingUp(){
         // if(response.ok){
         //     console.log('added')
         //     console.log(data)
-        // }
-        
-        
+        // } 
     }
-
     return(
         <section className="sinup_page">
         <div className="xajiye">
@@ -48,7 +47,7 @@ function SingUp(){
                     <div className="qoraal">
                         <h2 className="log_sing">Samayso akoon </h2>
                         <p className="log_sing">
-                            kaa caawinaysaa inaad si 
+                            {crentuser && crentuser.email} 
                             dhamaystiran ugua wada faaidaysato shabakada takriim
                         </p>
                     </div>

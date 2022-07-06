@@ -7,12 +7,17 @@ import { faAngleDown, faBars, faBell, faEarthAfrica, faEnvelope, faRightToBracke
 import NavMobile from "./NavMobile";
 import Drop_nav from "./Drop_nav";
 import {FaAngleDown , FaGlobeAfrica} from "react-icons/fa"
+import { UseAuth } from "./context/authcontext";
 
 function Nav(){
     const [isactive, setisactive] = useState(false)
     const [massage, setmagessa] = useState(false)
     const [drop, setdrop] = useState(false)
     const [Navmobile, setnavMobile] = useState(false)
+    const {crentuser , active} = UseAuth()
+
+
+    console.log(crentuser && crentuser)
     function HandelOgaysiis(){
         isactive ? setisactive(false): setisactive(true);
         setmagessa(false)
@@ -35,15 +40,15 @@ function Nav(){
         Navmobile ? setnavMobile(false): setnavMobile(true);
     }
     return (
-        <div>
-                <div className="xajiye">
+    <div>
+        <div className="xajiye">
         <div className='header hoos'>
         <div className="logo">
             <Link to='/'>
                 <img src="/images/SVGL.svg" alt="logo" />
             </Link>
         </div>
-        {/* <!---------nav normal-----------------------------> */}
+        {crentuser === null ?
         <div className="nav_links normal">
             <ul className="ul_nav">
                 <li>
@@ -69,7 +74,7 @@ function Nav(){
             </ul>
 
         </div>
-        {/* <!--------- end nav normal-----------------------------> */}
+        :
         <div className="nav_links user">
             <ul>
                 <li>
@@ -101,6 +106,9 @@ function Nav(){
 
 
         </div>
+        }
+        {/* <!---------nav normal-----------------------------> */}
+        {/* <!--------- end nav normal-----------------------------> */}
         {/* <!--------- nav mobile-----------------------------> */}
         <div className="nav_links mobile">
             <ul>

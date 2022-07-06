@@ -1,6 +1,6 @@
 import React ,{ useContext, useEffect, useState} from "react"
-import { Auth , createUser } from "../../Firebase"
-
+import { Auth} from "../../Firebase"
+import { createUserWithEmailAndPassword , signInWithEmailAndPassword , signOut} from "firebase/auth";
 const AuthContext = React.createContext()
 
 
@@ -8,12 +8,22 @@ export function UseAuth() {
     return useContext(AuthContext)
 }
 
-export function AuthProvader({childern}){
+export function AuthProvader({children}){
     const [crentuser , setcrentuser] = useState(null)
 
     function  sinup(email, password){
-        return  createUser(Auth, email, password)
+        return  createUserWithEmailAndPassword(Auth, email, password)
     }
+
+    function  Login(email, password){
+        return  signInWithEmailAndPassword(Auth, email, password)
+    }
+
+
+    function  Logout(email, password){
+        return  signOut(Auth)
+    }
+
 
     useEffect(() =>{
         const unsubs =  Auth.onAuthStateChanged(user => {
@@ -23,12 +33,14 @@ export function AuthProvader({childern}){
     },[])
     const value = {
         crentuser,
-        sinup
+        sinup,
+        Login,
+        Logout,
     }
 
     return(
         <AuthContext.Provider value={value}>
-            {childern}
+            {children}
         </AuthContext.Provider>
     )
 }
