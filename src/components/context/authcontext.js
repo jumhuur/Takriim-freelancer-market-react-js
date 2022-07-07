@@ -20,7 +20,7 @@ export function AuthProvader({children}){
     }
 
 
-    function  Logout(email, password){
+    function  Logout(){
         return  signOut(Auth)
     }
 
