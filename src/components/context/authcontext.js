@@ -10,6 +10,7 @@ export function UseAuth() {
 
 export function AuthProvader({children}){
     const [crentuser , setcrentuser] = useState(null)
+    const [active , setactive] = useState(false)
 
     function  sinup(email, password){
         return  createUserWithEmailAndPassword(Auth, email, password)
@@ -30,6 +31,7 @@ export function AuthProvader({children}){
             setcrentuser(user)
         })
         return unsubs
+
     },[])
     const value = {
         crentuser,

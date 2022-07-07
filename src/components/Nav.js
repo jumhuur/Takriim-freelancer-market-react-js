@@ -14,10 +14,11 @@ function Nav(){
     const [massage, setmagessa] = useState(false)
     const [drop, setdrop] = useState(false)
     const [Navmobile, setnavMobile] = useState(false)
-    const {crentuser , active} = UseAuth()
+    const {crentuser} = UseAuth()
 
 
-    console.log(crentuser && crentuser)
+
+    console.log(crentuser && crentuser.uid)
     function HandelOgaysiis(){
         isactive ? setisactive(false): setisactive(true);
         setmagessa(false)
@@ -48,33 +49,7 @@ function Nav(){
                 <img src="/images/SVGL.svg" alt="logo" />
             </Link>
         </div>
-        {!crentuser ?
-        <div className="nav_links normal">
-            <ul className="ul_nav">
-                <li>
-                    <a href="#">
-                    <FontAwesomeIcon className="i" icon={faEarthAfrica} /> So  <FaAngleDown />
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        more  <FaAngleDown />
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Takriim Org
-                    </a>
-                </li>
-                <li className="btn">
-                    <Link to={"/Acount/Login"}>
-                    <FontAwesomeIcon className="i" icon={faRightToBracket}/> Gal Akoon
-                    </Link>
-                </li>
-            </ul>
-
-        </div>
-        :
+        {crentuser && crentuser.uid !== "null" ?
         <div className="nav_links user">
             <ul>
                 <li>
@@ -104,6 +79,32 @@ function Nav(){
                 <Drop_nav drop={drop}/>
             </ul>
 
+
+        </div>
+        :
+        <div className="nav_links normal">
+            <ul className="ul_nav">
+                <li>
+                    <a href="#">
+                    <FontAwesomeIcon className="i" icon={faEarthAfrica} /> So  <FaAngleDown />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        more  <FaAngleDown />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Takriim Org
+                    </a>
+                </li>
+                <li className="btn">
+                    <Link to={"/Acount/Login"}>
+                    <FontAwesomeIcon className="i" icon={faRightToBracket}/> Gal Akoon
+                    </Link>
+                </li>
+            </ul>
 
         </div>
         }

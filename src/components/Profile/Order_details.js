@@ -7,12 +7,14 @@ import { useEffect, useRef, useState } from "react"
 import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {UseAuth} from "../context/authcontext"
+import {useDatacontext} from "../context/dataContext"
 function OrderDetailscheckh(){
     const {id} = useParams()
     const [order, setorder] = useState(null)
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
     const {crentuser} = UseAuth()
+    const {xadiga} = useDatacontext()
     const path = `/Order/Complated/${id}`
     const mypath = useHistory()
 
@@ -33,7 +35,7 @@ function OrderDetailscheckh(){
     const [gudoomay , setgudoomay] = useState(false)
     const [image , setimage] = useState("")
     
-
+    console.log(xadiga && xadiga)
     const image01 = useRef();
     const spn_img1 = useRef();
     const progress = useRef();
@@ -138,7 +140,7 @@ function OrderDetailscheckh(){
             {order ? <div className="tranding_haye">
                 <div className="rasiid_tamplate">
                     <div className="rasiid">
-                        <h2 className="ciwaan_bahanahay">{order.title} {id} :</h2>
+                        <h2 className="ciwaan_bahanahay">{order.title}:</h2>
                         <p className="info_dalab_p">
                             waxaan kaaga baahanahay inaad ii soo dirto waxayabahan hoose 
                             fadalan ii soo raaci dalbkaaga 
