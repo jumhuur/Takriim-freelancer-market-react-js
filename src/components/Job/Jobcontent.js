@@ -6,9 +6,11 @@ import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faSpinner, faStar , faUserGroup , faUserTie , faTrashCanArrowUp , faGear, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useState } from "react";
+import {UseAuth} from "../context/authcontext"
 function JobContent({jobdetails ,user}){
     const {id} = useParams()
     const [active , setactive] = useState (false)
+    const {crentuser }  = UseAuth()
     const myparth = useHistory()
 
     function settings_handle(e){
@@ -33,24 +35,29 @@ function JobContent({jobdetails ,user}){
                 <div className="shao_macluumad_dhan">
                     <div className="qayb_ sawiro">
                         <div className="head_job">
+                        {crentuser && crentuser.uid == jobdetails.UserId ?
+                        <>
                         <div onClick={settings_handle} className="upadate_job">
                         <FontAwesomeIcon icon={faGear} className={jobdetails._id} id="i" />
-                    </div>
-                    <div  className={active ? 'nav_job active' : "nav_job"} data={jobdetails._id}>
-                        <ul id='nav_jobs'>
-                            <li>
-                                <Link to={`/job/upadate/${jobdetails._id}`}>
-                                     <FontAwesomeIcon icon={faPenToSquare} /> Cusbonaysii
-                                </Link>
-                            </li>
-                            <li>
-                                <Link onClick={deletemasax}>
-                                <FontAwesomeIcon icon={faTrashCanArrowUp} /> Masax
-                                </Link>
-                            </li>
-                        </ul>
+                        </div>
+                        <div  className={active ? 'nav_job active' : "nav_job"} data={jobdetails._id}>
+                            <ul id='nav_jobs'>
+                                <li>
+                                    <Link to={`/job/upadate/${jobdetails._id}`}>
+                                        <FontAwesomeIcon icon={faPenToSquare} /> Cusbonaysii
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link onClick={deletemasax}>
+                                    <FontAwesomeIcon icon={faTrashCanArrowUp} /> Masax
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                        </>
+                        : ""
+                        }
 
-                    </div>
                             <div className="title">
                                 <h2>{jobdetails.title}</h2>
                             </div> 

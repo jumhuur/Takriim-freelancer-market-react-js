@@ -1,9 +1,12 @@
-import { Link, useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
-import { UseAuth } from "../context/authcontext"
+import { UseAuth } from "../context/authcontext";
+import Alert_wrong from "../Alert2";
 function Login(){
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
+    const [log, setlog] = useState(false)
+    const [wrongmsg , setwrongmsg] = useState('')
     const {Login} = UseAuth()
     const navigator = useHistory()
 
@@ -14,8 +17,14 @@ function Login(){
             navigator.push('/')
 
         } catch (error){
+            setlog(true)
             console.log(error)
+            setwrongmsg('Fadlan Emailka Ama Passworka Iska Sax')
         }
+
+        setTimeout(() => {
+            setlog(false)
+        } , 10000)
     }
 
     return(
@@ -23,6 +32,7 @@ function Login(){
         <div className="xajiye">
             <div className="samayso">
                 <div className="contaner">
+                    <Alert_wrong alert={log} msg={wrongmsg}/>
                     <div className="qoraal">
                         <h2 className="log_sing">Soo dhawaaw Markale</h2>
                         <p className="log_sing">

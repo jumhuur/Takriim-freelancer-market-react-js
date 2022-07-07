@@ -48,7 +48,7 @@ function Nav(){
                 <img src="/images/SVGL.svg" alt="logo" />
             </Link>
         </div>
-        {crentuser === null ?
+        {!crentuser ?
         <div className="nav_links normal">
             <ul className="ul_nav">
                 <li>

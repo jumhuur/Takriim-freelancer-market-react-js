@@ -7,8 +7,12 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Jobskl from "../skaltons/Jobskalaton";
 import formatDistanceToNow  from "date-fns/formatDistanceToNow"
+import {UseAuth} from "../context/authcontext"
 function Orders_Free(){
     const [order, setorder] = useState(null)
+    const {crentuser} = UseAuth()
+
+
     useEffect((function(){
         fetch('/orders')
         .then((response) =>{
@@ -29,7 +33,7 @@ function Orders_Free(){
                     <AsideUser />
             {/* <!---------------biloga shaqooyinka -------------------> */}
             <div className="tranding_haye">
-                {order ? order.map((dat_order) => (
+                {order && crentuser ? order.filter((ord => ord.UserId ==  crentuser.uid)).map(dat_order => (
                 <div className="card_template" key={dat_order._id}>
                 <div className="imges">
                     <img src="/images/order_user.svg" alt="sawir_template" />

@@ -6,18 +6,20 @@ import { Link, useHistory, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {UseAuth} from "../context/authcontext"
 function OrderDetailscheckh(){
     const {id} = useParams()
     const [order, setorder] = useState(null)
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
+    const {crentuser} = UseAuth()
     const path = `/Order/Complated/${id}`
     const mypath = useHistory()
 
     // foomka 
     const title = order && order.title
     const Qiimaha =  order && order.Qiimaha
-    const Dalbade_id =  "2"
+    const Dalbade_id =  crentuser && crentuser.uid
     const Mudada =  order && order.Mudada
     const UserId =  order && order.UserId
     const Xadiga =  order && order.Xadiga

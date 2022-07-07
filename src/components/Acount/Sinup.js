@@ -1,13 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { useContext, useEffect, useState } from "react";
 import { UseAuth } from "../context/authcontext";
+import Alert_wrong from "../Alert2";
 
 
 function SingUp(){
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [name, setname] = useState('')
+    const [alert, setalert] = useState(false)
+    const [msg, semsg] = useState(false)
     const  { sinup , crentuser } = UseAuth()
+    const toHomepage = useHistory()
     
 
     // gaar 
@@ -17,9 +21,16 @@ function SingUp(){
         e.preventDefault()
         try {
             await sinup(email,password)
+            toHomepage.push('/')
         } catch(err) {
+            setalert(true)
+            semsg('Emailkan Horaa Loo Qatay')
             console.log(err)
         }
+
+        setTimeout(() => {
+            setalert(false)
+        } , 10000)
         
         // const data = {email, password , name}
         // const response = await fetch('/users', {
@@ -44,6 +55,7 @@ function SingUp(){
         <div className="xajiye">
             <div className="samayso">
                 <div className="contaner">
+                    <Alert_wrong  msg={msg} alert={alert}/>
                     <div className="qoraal">
                         <h2 className="log_sing">Samayso akoon </h2>
                         <p className="log_sing">
@@ -67,7 +79,7 @@ function SingUp(){
                         <div>
                             <label>password :</label>
                             <input type="password" name="password" required  placeholder="Qor password-ka"
-                            onChange={(e) => setpassword(e.target.value)}
+                            onChange={(e) => setpassword(e.target.value)} minLength={6}
                             />
                         </div>
                         <div>

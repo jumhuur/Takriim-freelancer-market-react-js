@@ -2,13 +2,13 @@ import  NavHolder from "../NavHolder";
 import  Footer from "../Footer";
 import AsideUser from "./Aside_Profile"
 import  SklatonAll from '../skaltons/Jobskalaton';
-import Alert_sucsess from "../Alert";
 import Alert_wrong from "../Alert2";
 import { Link, useHistory } from "react-router-dom"
 import {useRef, useState } from "react"
 import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
+import {UseAuth } from '../context/authcontext'
 
 function Add_servece(){
     const [good, setgood] = useState()
@@ -17,13 +17,14 @@ function Add_servece(){
     const [filezise , setfilezise] = useState(null)
     const [list , setlist] = useState(null)
     const history = useHistory()
+    const {crentuser } = UseAuth()
 
     // states from 
     const [title , settitle] = useState("")
     const [Qiimaha , setQiimaha] = useState("5.00")
-    const [Qaybid , setQaybid] = useState("")
+    const [Qaybid , setQaybid] = useState("62b6cf1b1ef353ae79459850")
     const [Mudada , setMudada] = useState("0.25")
-    const [UserId , setUserId] = useState("1")
+    const UserId = crentuser && crentuser.uid
     const [Xadiga , setXadiga] = useState("")
     const [Nooca , setNooca] = useState("Bog(page)")
     const [xaalad , setxaalad] = useState(0)
@@ -34,7 +35,6 @@ function Add_servece(){
     const [Qiimayn , setQiimayn] = useState("0")
     const [image , setimage] = useState("")
     const [qalad, setqalad] = useState("")
-    const [alert , setalert] = useState(false);
     const [alertw , setalertw] = useState(false);
 
     const image01 = useRef();
@@ -110,27 +110,23 @@ function Add_servece(){
             console.log(qalad)
             setgood('Waan Ka Xumahay Laguma Guulaysan hawshan')
             setalertw(true)
-            setalert(false)
-            console.log("alert sax",alert)
-            console.log("alert qalad",alertw)
         }
 
         if(response.ok){
             setqalad(null)
-            setgood('Hanbalyo ! shaqadaada waa lagu daray')
-            setalertw(false)
-            setalert(true)
             history.push('/')
-            
         }
+
+        setTimeout(() => {
+            setalertw(false)
+        } , 10000)
+
         console.log(jobs)
+        
     }
 
 
-    setTimeout(() => {
-        setalert(false)
-        setalertw(false)
-    } , 8000)
+
 
     useEffect(() =>{
         const getlist_qayb = async () =>{
@@ -148,8 +144,7 @@ function Add_servece(){
         <NavHolder />
         <section className="orders invocs">
         <div className="xajiye kala_qayb">
-        <Alert_sucsess alert={alert} add={good}/>
-        <Alert_wrong alertw={alertw} add={good} />
+        <Alert_wrong alert={alertw} msg={good} />
             {/* aside is here */}
             <AsideUser />
             {/* <!---------------biloga foomka labixida -------------------> */}
@@ -293,9 +288,10 @@ function Add_servece(){
                             onChange={(e) => setqodob2aad(e.target.value)}
                             value={qodob2aad}
                             />
-                            <input type="text"  name="UserId" value={UserId} required  hidden 
-                            onChange={(e) => setUserId(e.target.value)}
-                            />
+                            { crentuser && 
+                            <input type="text"  name="UserId" value={UserId} required  hidden />
+                            }
+
                             <input type="text"  name="Qiimayn" value={Qiimayn} required  hidden
                             onChange={(e) => setQiimayn(e.target.value)}
                              />
