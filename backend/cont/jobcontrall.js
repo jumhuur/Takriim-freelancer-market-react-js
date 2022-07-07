@@ -3,6 +3,11 @@ const mongoose = require('mongoose');
 
 // dhamaan shaqoyinka
 const GetAlljobs = async (req, res) =>{
+    const shaqooyin = await jobsmodel.find({}).sort({createdAt: -1})
+    res.status(200).json(shaqooyin)
+}
+
+const GetAlljobsHome = async (req, res) =>{
     const shaqooyin = await jobsmodel.find({}).limit(6).sort({createdAt: -1})
     res.status(200).json(shaqooyin)
 }
@@ -100,5 +105,6 @@ module.exports  = {
     GetAlljobs,
     GetJob,
     delete_job,
-    update_job
+    update_job,
+    GetAlljobsHome
 }

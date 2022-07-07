@@ -7,7 +7,7 @@ function ContentHome(){
     const [JobsData, setDataJobs] = useState(null)
     useEffect((function(){
         const objects  = async () => {
-            const data =  await fetch('/jobs');
+            const data =  await fetch('/jobs/Home');
             const object = await data.json()
             if(data.ok){
                 setDataJobs(object)

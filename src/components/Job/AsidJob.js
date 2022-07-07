@@ -84,7 +84,7 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
                     </form>
                 </div>
                 {/* <!-------if shaqo type == turjumid qorid iwm--> */}
-                {job.Nooca == "kalmad(word)" || job.Nooca == "Xaraf(lettar)" ?
+                {job.Nooca === "kalmad" || job.Nooca === "Xaraf" ?
                 <div>
                 <textarea onInput={oninput} ref={qiyaas} className="qiyaas" placeholder="Halkan Ku Paste-Garee Qoraalkaaga(Paste Here Your Content)"></textarea>
                 <div className="aria">

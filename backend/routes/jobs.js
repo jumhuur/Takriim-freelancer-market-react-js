@@ -15,12 +15,18 @@ const {
     GetAlljobs,
     GetJob,
     delete_job,
-    update_job
+    update_job,
+    GetAlljobsHome
 } = require('../cont/jobcontrall');
 
 
 // get all jobs 
 router.get('/', GetAlljobs)
+
+
+
+// get all jobs 
+router.get('/Home', GetAlljobsHome)
 
 // get one jobs 
 router.get('/:id', GetJob)
