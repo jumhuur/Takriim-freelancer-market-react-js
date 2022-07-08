@@ -4167,7 +4167,7 @@ h2.info_dalab_h2 {
 
 }
 */
-
+/*------------ online chat ------------------------*/
 div.chat_conte{
   width: 95%;
   min-height: 970px;
@@ -4183,7 +4183,8 @@ div.chat_conte .massages_chat{
   border-radius: 5px;
   margin-top: 15px;
   padding: 3% 3%;
-  border-bottom: solid 2px var(--bacground-qaybo);
+  /* border-left: solid 2px var(--bacground-qaybo);
+  border-right: solid 2px var(--bacground-qaybo); */
 }
 
 div.chat_conte .massages_chat .msg{
@@ -4264,6 +4265,7 @@ form.chat textarea{
   font-family: "nooca_farta";
   caret-color: var(--main-2);
   resize: vertical;
+  text-transform: capitalize;
  
 }
 
@@ -4277,6 +4279,8 @@ form.chat button{
   cursor: pointer;
 
 }
+
+/*------------ online chat ------------------------*/
 
 /*------------------------gudoon---------------------*/
 form.gudoon{

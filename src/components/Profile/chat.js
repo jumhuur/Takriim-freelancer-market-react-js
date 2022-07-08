@@ -82,7 +82,7 @@ function Chat(){
                     </div>
                     <div className="dirida">
                         <form className="chat">
-                            <textarea type="text" required placeholder="Qor Fariintaada ..."  name="massage"></textarea>
+                            <textarea spellCheck="false" type="text" required placeholder="Qor Fariintaada ..."  name="massage"></textarea>
                             <button type="submit"><FaPaperPlane /> Dir</button>
                         </form>
                     </div>
