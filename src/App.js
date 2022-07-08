@@ -21,6 +21,7 @@ import Lacag_La_bixid from './components/Profile/Cash_out';
 import Labxaday from './components/Profile/cashout_msg';
 import Upadate_job from './components/Profile/Update_Job';
 import Upadate_profile from './components/Profile/upadate_profile';
+import Chat from './components/Profile/chat';
 
 
 function App(){
@@ -85,6 +86,9 @@ function App(){
           </Route>
           <Route exact path="/Acount/Cashout_sax">
             <Labxaday />
+          </Route>
+          <Route exact path={"/Chat"}>
+            <Chat />
           </Route>
           <Route path="*">
             <Notfound />

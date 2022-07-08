@@ -4078,7 +4078,7 @@ h2.info_dalab_h2 {
 
 
 
-/*---------------------------online chat ------------*/
+/*---------------------------online chat ------------
 .massage_chat{
   width: 95%;
   height: 100px;
@@ -4133,7 +4133,7 @@ h2.info_dalab_h2 {
 /* .massages div.fariimo div.fariin.freelancer{
   background-color: var(--main-2);
   color: var(--fonts);
-} */
+} 
 
 
 
@@ -4166,7 +4166,117 @@ h2.info_dalab_h2 {
   text-transform: capitalize;
 
 }
+*/
 
+div.chat_conte{
+  width: 95%;
+  min-height: 970px;
+  background-color: var(--fonts);
+  margin-top: 20px;
+  padding: 3% 3%;
+}
+
+div.chat_conte .massages_chat{
+  width: 100%;
+  height: 100%;
+  background: var(--bacground-qaybo);
+  border-radius: 5px;
+  margin-top: 15px;
+  padding: 3% 3%;
+  border-bottom: solid 2px var(--bacground-qaybo);
+}
+
+div.chat_conte .massages_chat .msg{
+  font-size: 16px;
+  color: var(--Font-color);
+  font-weight: normal;
+  line-height: 1.9;
+  text-transform: capitalize;
+
+}
+
+div.chat_conte .massages_chat .userinfo{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: wrap row;
+  padding: 10px 4%;
+}
+
+div.chat_conte .massages_chat .userinfo .image{
+  width: 65px;
+  height: 65px;
+  background-color: var(--fonts);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+div.chat_conte .massages_chat .userinfo .image p {
+  color: var(--main-2);
+}
+
+div.chat_conte .massages_chat .userinfo .maclumaad_user {
+  width: 90%;
+  height: 80px;
+  padding: 10px 20px;
+}
+
+div.chat_conte .massages_chat .content_massage{
+  width: 100%;
+
+}
+
+div.chat_conte .massages_chat .sender_name {
+  text-transform: capitalize;
+  margin: 5px 2px;
+  font-size: 16px;
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+}
+
+div.chat_conte .massages_chat  span.Time{
+  font-size: 13px;
+  color: var(--main-2);
+  font-family: "nooca_farta";
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+
+form.chat textarea{
+  width: 100%;
+  height: 150px;
+  margin: 2% 0;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  border: solid 1px #e1e1e1;
+  font-size: 16px;
+  padding: 15px 15px;
+  border-left: solid 2px var(--main-2);
+  border-right: solid 2px var(--main-2);
+  color: var(--Font-color);
+  font-family: "nooca_farta";
+  caret-color: var(--main-2);
+  resize: vertical;
+ 
+}
+
+form.chat button{
+  border: none;
+  width: 40%;
+  height: 55px;
+  background-image: linear-gradient(205deg, #2196f3, #7400b8);
+  color: var(--fonts);
+  font-size: 18px;
+  cursor: pointer;
+
+}
 
 /*------------------------gudoon---------------------*/
 form.gudoon{
