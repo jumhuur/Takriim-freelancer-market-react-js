@@ -5015,6 +5015,10 @@ section.Chat .chatbody .chatmassages .massages_list .loadmassage p{
     margin-bottom: 2%;
   }
 
+  div.alert.wrninig {
+    right: 1%;
+  }
+
   div.xaalad1aad .madaxa .x_ciwaaan > h2{
     font-size: 14px;
   }
@@ -5059,7 +5063,9 @@ section.Chat .chatbody .chatmassages .massages_list .loadmassage p{
     width: calc(100% / 1);
   }
 
-
+  div.alert.wrninig {
+    right: 1%;
+  }
 
   div.xaalad1aad .rasiid_tamplate.xaalad{
     width: 100%;

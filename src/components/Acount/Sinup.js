@@ -21,7 +21,6 @@ function SingUp(){
         e.preventDefault()
         try {
             await sinup(email,password)
-            toHomepage.push('/')
         const data = {email, password , name}
         const response = await fetch('/users', {
             method: "post",
@@ -31,12 +30,12 @@ function SingUp(){
         const json = await response.json()
         if(!response.ok){
             console.log('qalad')
-            
         }
 
         if(response.ok){
             console.log('added')
             console.log(data)
+            toHomepage.push('/')
         } 
 
         } catch(err) {

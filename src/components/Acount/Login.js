@@ -14,6 +14,33 @@ function Login(){
         e.preventDefault()
         try{
             await Login(email, password)
+            // const data = {email, password}
+            // const response = await fetch('/users/log', {
+            //     method: "post",
+            //     body: JSON.stringify(data),
+            //     headers : {'Content-Type': 'application/json'}
+            // })
+
+           
+            // const json = await response.json()
+            // const thiuser = fetch(`/users/${json._id}`)
+            // .then((response) => {
+            //     if(response.ok){
+            //         return response.json()
+            //     }
+            // })
+            // .then((data) => {
+            //     console.log(data)
+            // })
+            // console.log(thiuser)
+            // if(!response.ok){
+            //     console.log('qalad')
+            // }
+    
+            // if(response.ok){
+            //     console.log('added')
+            //     console.log(data)
+            // } 
             navigator.push('/')
 
         } catch (error){

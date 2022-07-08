@@ -20,7 +20,7 @@ function Commenst({thisid}){
 
         })
         
-    })
+    }, [])
     return(
         <div>
             {comments && comments.filter((faalo => faalo.Jobid == thisid)).map((data => 
