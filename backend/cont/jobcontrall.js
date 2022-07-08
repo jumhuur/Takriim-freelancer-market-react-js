@@ -93,7 +93,8 @@ const update_job = async (req, res) => {
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({Qalad: "lama helin shaqo"})
     }
-    const data = await jobsmodel.findOneAndUpdate({_id:id})
+    const data = await jobsmodel.findByIdAndUpdate({_id:id})
+    
     if(!data){
         res.status(400).json({qalad: "qalad ayaa jira"})
     }

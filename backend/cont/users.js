@@ -1,5 +1,5 @@
 const usersmodel = require("../models/users")
-//const bcrypt = require("bcrypt")
+const bcrypt = require('bcrypt');
 
 
 // sinup user 
@@ -8,11 +8,15 @@ const sinup = async (req, res) => {
         name,
         email,
         password
-
     } = req.body
-    //const salt = await bcrypt.genSalt();
-    //const pass = await bcrypt.hash(password)
+
+    const saltRounds = 10;
+    const myPlaintextPassword = password;
+
+    const salt = bcrypt.genSaltSync(saltRounds);
+    const Hashed = bcrypt.hashSync(myPlaintextPassword, salt);
     try {
+        const password = Hashed
         const users = await usersmodel.create({
             name,
             email,

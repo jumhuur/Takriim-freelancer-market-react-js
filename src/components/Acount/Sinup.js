@@ -22,6 +22,23 @@ function SingUp(){
         try {
             await sinup(email,password)
             toHomepage.push('/')
+        const data = {email, password , name}
+        const response = await fetch('/users', {
+            method: "post",
+            body: JSON.stringify(data),
+            headers : {'Content-Type': 'application/json'}
+        })
+        const json = await response.json()
+        if(!response.ok){
+            console.log('qalad')
+            
+        }
+
+        if(response.ok){
+            console.log('added')
+            console.log(data)
+        } 
+
         } catch(err) {
             setalert(true)
             semsg('Emailkan Horaa Loo Qatay')
