@@ -117,9 +117,9 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
                             <FontAwesomeIcon className="i" icon={faStar} />
                             (<span>23</span>) qof
                         </p>
-                        {user ? <Link to={`/Acount/Online/chat/${user.id}`}>
+                        {user ? <Link to={`/Chat`}>
                             <button><FontAwesomeIcon icon={faEnvelope} /> ila soo xidhiidh</button>
-                        </Link> :"/"}
+                        </Link> :""}
 
                     </div>
 

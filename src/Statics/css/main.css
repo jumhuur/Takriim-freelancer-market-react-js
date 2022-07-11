@@ -838,13 +838,13 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
   outline: none;
   border: none;
   cursor: pointer;
-  background-color: var(--main-color);
+  background-color: #2196F3;
   /* background-image: linear-gradient(205deg, #7400b8,#2196f3); */
   color: var(--fonts);
 }
 
 .nav_bar .search button:hover{
-  background-color: var(--main-color);
+  background-color: #2196F3;
   /* background-image: linear-gradient(205deg, #7400b8,#2196f3); */
 }
 

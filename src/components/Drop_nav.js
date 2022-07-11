@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faCirclePlus,faRightFromBracket,faToolbox , faUser,faSackDollar} from "@fortawesome/free-solid-svg-icons";
 import {UseAuth } from "../components/context/authcontext"
 
 function Drop_nav({drop}){
     const {Logout} =  UseAuth()
-
+    const home = useHistory()
     const logouthanle = async (e) => {
         e.preventDefault()
         try {
             await Logout()
+            home.push('/')
         } catch(error){
             console.log(error)
         }

@@ -21,7 +21,7 @@ app.use((req, res, next) =>{
     next()
 })
 
-app.use(cookieParser())
+
 //routes
 app.use('/jobs',Jobroutes)
 
@@ -33,7 +33,7 @@ app.use("/Comments", commentRoute)
 
 app.use('/users', usersroute)
 
-
+app.use(cookieParser())
 
 mongose.connect(Mongo_Url)
 .then(()=>{
@@ -45,3 +45,5 @@ mongose.connect(Mongo_Url)
 .catch((Error) =>{
     console.log(Error)
 })
+
+
