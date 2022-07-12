@@ -202,3 +202,17 @@
             {/* <!---------------dhamaadka shaqooyinka -------------------> */}
         </div>
     </section>
+
+
+
+
+            const upadatevalu = async () =>{
+            const data_list = await fetch(`/jobs/${id}`)
+            const respon = await data_list.json()
+            if(data_list.ok){
+                setval(respon)
+            }
+            onchange()
+            setfilename(val.image)
+        }
+        upadatevalu()

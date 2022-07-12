@@ -5,7 +5,7 @@ import { faCalendarDays,faSpinner ,faCircleCheck , faAngleDown , faCircleXmark ,
 import Xayaysiis from "../Saponsered_Ads";
 import { useParams , Link, useHistory } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import formatDistanceToNow  from "date-fns/formatDistanceToNow"
+import {format}  from "timeago.js"
 
 function Gudoon(){
     const {id} = useParams()
@@ -152,7 +152,11 @@ function Gudoon(){
                             Xagan Hoose Kala Soco Kolba Xalladaha Dalabkaaga
                         </p>
                         <p className="Gudoon_p">
-                            Taariikhada La Rajaynayo In Laguu dhameeyo <span>30/05/2022</span>
+                            Dalabkan waxaad samaysay muda hada laga joogo <span>({format(oneOrder && oneOrder.createdAt)})</span>
+                           
+                        </p>
+                        <p className="Gudoon_p">
+                            <span> Waxayna balantu Ahayd inuu kuu dhamaado ({oneOrder ? oneOrder.Mudada : ''} Maalin</span>)
                         </p>
                     </div>
                     <div className="status">
@@ -194,7 +198,7 @@ function Gudoon(){
                                 <div className="x_ciwaaan">
                                     {oneOrder &&
 
-                                        <h2>Dalabkaaga waxa uu socdaa ({formatDistanceToNow(new Date(oneOrder.createdAt))} ) </h2>
+                                        <h2>Shaqadan Waxaad Dalbatay ({format(oneOrder.createdAt)} ) </h2>
                                     }
                                     
                                 </div>

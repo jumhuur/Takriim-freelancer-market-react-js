@@ -12,7 +12,6 @@ import {UseAuth } from '../context/authcontext'
 
 function Add_servece(){
     const [good, setgood] = useState()
-    const [order, setorder] = useState(null)
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
     const [list , setlist] = useState(null)
