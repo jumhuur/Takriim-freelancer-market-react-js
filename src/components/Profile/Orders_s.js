@@ -33,7 +33,15 @@ function OrderUsers(){
                 {order && crentuser  ? order.filter((or => or.Dalbade_id ==  crentuser.uid )).map(dat_order => (
                 <div className="card_template" key={dat_order._id}>
                 <div className="imges">
-                    <img src="/images/order_user.svg" alt="sawir_template" />
+                    {dat_order.xaalad == 0 ? 
+                    <img src="/images/o_u0.svg" alt="sawir_template" />
+                    :dat_order.xaalad == 1 ?  
+                    <img src="/images/o_u1.svg" alt="sawir_template" />
+                    : dat_order.xaalad == 2 ? 
+                    <img src="/images/o_u2.svg" alt="sawir_template" />
+                    :
+                    <img src="/images/o_u.svg" alt="sawir_template" />
+                    }
                 </div>
                 <div className="macluumaad">
                     <div className="qoraalo">

@@ -36,7 +36,7 @@ function Orders_Free(){
                 {order && crentuser ? order.filter((ord => ord.UserId ==  crentuser.uid)).map(dat_order => (
                 <div className="card_template" key={dat_order._id}>
                 <div className="imges">
-                    <img src="/images/order_user.svg" alt="sawir_template" />
+                    <img src="/images/Order_free.svg" alt="sawir_template" />
                 </div>
                 <div className="macluumaad">
                     <div className="qoraalo">

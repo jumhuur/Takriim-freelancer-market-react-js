@@ -11,6 +11,7 @@ require("dotenv").config()
 const Port = 4000 
 const Mongo_Url =('mongodb+srv://jumhuur:jum0404@cluster0.uctjw.mongodb.net/my-data?retryWrites=true&w=majority')
 const app = express()
+app.use(cookieParser())
 
 
 // middalware
@@ -33,7 +34,7 @@ app.use("/Comments", commentRoute)
 
 app.use('/users', usersroute)
 
-app.use(cookieParser())
+
 
 mongose.connect(Mongo_Url)
 .then(()=>{

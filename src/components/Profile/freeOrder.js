@@ -5,7 +5,6 @@ import Sklall from "../skaltons/sklAll";
 import { Link, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {} from ""
 import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faMessage, faStar , faEnvelope} from "@fortawesome/free-solid-svg-icons";
 function My_Orders(){
     const {id} = useParams()
