@@ -56,6 +56,9 @@ const neworder = async (req, res) =>{
 
 
 
+
+
+
 // get a sigal order 
 
 const getorder = async (req, res) =>{
@@ -71,8 +74,38 @@ const getorder = async (req, res) =>{
     res.status(200).json(order)
 }
 
+
+
+// update xaalad dalab
+
+// upadate shaqo 
+const update_Order_xaalad = async (req, res) => {
+    const {id} = req.params
+    const {
+        xaalad,
+    } = req.body
+    try{ 
+        if(!mongoose.Types.ObjectId.isValid(id)){
+            return res.status(404).json({Qalad: "lama helin shaqo"})
+        }
+        const data = await ordermodel.findByIdAndUpdate({_id:id}, {
+            xaalad: xaalad,
+        })
+    
+        res.status(200).json(data)
+
+    } catch(err){
+        console.log(err)
+    }
+
+
+    //res.json({msg:"update ipa"})
+}
+
+
 module.exports = {
     GetOrders,
     neworder,
-    getorder
+    getorder,
+    update_Order_xaalad
 }

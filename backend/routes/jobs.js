@@ -39,7 +39,7 @@ router.post("/", Creatjob)
 router.delete("/:id", delete_job)
 
 // update job 
-router.put("/:id", update_job)
+router.put("/update/:id", update_job)
 
 module.exports = router
 

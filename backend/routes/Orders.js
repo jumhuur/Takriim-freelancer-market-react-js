@@ -3,7 +3,8 @@ const router = express.Router()
 const {
     neworder,
     GetOrders,
-    getorder
+    getorder,
+    update_Order_xaalad
 } = require('../cont/orders')
 
 
@@ -18,6 +19,9 @@ router.post('/', neworder)
 
 // get a sigal order 
 router.get("/:id",getorder )
+
+// update xaalad
+router.put("/xaalad/:id",update_Order_xaalad )
 
 
 

@@ -2,13 +2,15 @@ import Holder from "../NavHolder"
 import Footer from "../Footer"
 import Jobskl from "../skaltons/Jobskalaton";
 import Sklall from "../skaltons/sklAll";
-import { Link, useParams } from "react-router-dom"
+import { Link, useHistory, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faMessage, faStar , faEnvelope} from "@fortawesome/free-solid-svg-icons";
 function My_Orders(){
     const {id} = useParams()
     const [jobfree, setjobfree] = useState(null)
+    const [xaalad, setxaalad] = useState('')
+    const history = useHistory()
 
     useEffect(function(){
         fetch(`/orders/${id}`)
@@ -24,8 +26,32 @@ function My_Orders(){
     }, [])
 
 
-    function OnchangeHandler(){
-        console.log(jobfree.xaalad)
+    const update_xaalad = async (e) => {
+        e.preventDefault()
+        const xaalad_dalab = {
+            xaalad,       
+        }
+
+        const response =  await fetch(`/orders/xaalad/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(xaalad_dalab),
+            headers : {'Content-Type': 'application/json'}
+        })
+
+        const json = await response.json()
+        if(!response.ok){
+            console.log("qalad")
+        }
+
+        if(response.ok){
+            console.log('waa la badalay')
+            //history.push('/Acount/Myorder')
+        }
+
+        // setTimeout(() => {
+        //     setalertw(false)
+        // } , 10000)
+
     }
     return(
     <div>
@@ -83,34 +109,30 @@ function My_Orders(){
                                 }
                                 
                             </ul>
-                            <form action="/order_end.html" method="get">
-                                {jobfree.xaalad == 0 ?
+                            <form method="put" onSubmit={update_xaalad}>
+                                {jobfree.xaalad == "0" ?
                                 <div>
-                                <select name="Xaalad_dalabka" onChange={OnchangeHandler}>
-                                <option value={1}>
+                                <select name="xaalad" value={'1'} onChange={(e => setxaalad(e.target.value))}>
+                                <option value={"1"}>
                                     Waan Bilabay Shaqada
                                 </option>
-                                <option value={3}>
+                                <option value={"3"}>
                                     Waan Ka Laabtay Dalabkan
                                 </option>
                                 </select>
-                                <Link to={`/Acount/Myorder/info/${jobfree.id}`}>
-                                    <button>Cusbonaysii Xaalada</button>
-                                </Link>
+                                    <button type="submit">Cusbonaysii Xaalada</button>
                                 </div>
                         
-                                :jobfree.xaalad == 1 ?
+                                :jobfree.xaalad == "1" ?
                                 <div>
-                                <select name="Xaalad_dalabka" onChange={OnchangeHandler}>
-                                <option value={2}>
+                                <select name="xaalad" value={'2'} onChange={(e => setxaalad(e.target.value))}>
+                                <option value={"2"}>
                                     Waan Udhameeyay Dalabka
                                 </option>
                                 </select>
-                                <Link to={`/Acount/gudbi`}>
-                                    <button>Gudbi Dalabka</button>
-                                </Link>
+                                    <button  type="submit">Gudbi Dalabka</button>
                                 </div>
-                                :jobfree.xaalad == 2 ?
+                                :jobfree.xaalad == "2" ?
                                 <di>
                                 <p><FontAwesomeIcon icon={faCircleCheck} /> Waad Dhamaysay dalabkan</p>
                                 </di>

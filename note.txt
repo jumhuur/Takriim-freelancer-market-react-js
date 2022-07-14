@@ -216,3 +216,18 @@
             setfilename(val.image)
         }
         upadatevalu()
+
+
+
+        {
+    "title": "Ciwaan Cusub",
+    "body": "Ciwaan Cusub",
+    "Qiimaha": "150.50",
+    "image": "images/o_u.svg",
+    "Qaybid": "62b6cecf1ef353ae79459844",
+    "Mudada": "12",
+    "Xadiga": "5", 
+    "Nooca": "saac",
+    "qodob1aad": "qodob1aad",
+    "qodob2aad" :"qodob2aad"
+}

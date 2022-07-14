@@ -20,21 +20,23 @@ function Upadate_job(){
     const history = useHistory()
     const {crentuser } = UseAuth()
 
+    if(!crentuser){
+        history.push('/')
+    }
+
     // states from 
-    const [title , settitle] = useState(val && val.title);
-    const [Qiimaha , setQiimaha] = useState(val && val.Qiimaha);
-    const [Qaybid , setQaybid] = useState("62b6cf1b1ef353ae79459850");
-    const [Mudada , setMudada] = useState("0.25");
-    const UserId = crentuser && crentuser.uid
+    const [title , settitle] = useState("");
+    const [Qiimaha , setQiimaha] = useState("");
+    const [Qaybid , setQaybid] = useState("");
+    const [Mudada , setMudada] = useState("");
     const [Xadiga , setXadiga] = useState("");
-    const [Nooca , setNooca] = useState("Bog(page)");
-    const [xaalad , setxaalad] = useState(0);
+    const [Nooca , setNooca] = useState("");
     const [qodob1aad , setqodob1aad] = useState("");
     const [qodob2aad , setqodob2aad] = useState("");
     const [body , setbody] = useState("");
-    const [iibsade , setiibsade] = useState("0");
-    const [Qiimayn , setQiimayn] = useState("0");
     const [image , setimage] = useState("");
+
+
     const [qalad, setqalad] = useState("");
     const [alertw , setalertw] = useState(false);
 
@@ -88,20 +90,16 @@ function Upadate_job(){
             title,
              body , 
              Qiimaha ,
-             Qiimayn ,
              Xadiga ,
              Nooca,
              Mudada , 
-             UserId ,
              Qaybid, 
              image,
-             iibsade,
-             xaalad,
              qodob1aad,
              qodob2aad,        
         }
-        const response =  await fetch('/jobs', {
-            method: 'POST',
+        const response =  await fetch(`/jobs/update/${id}`, {
+            method: 'PUT',
             body: JSON.stringify(jobs),
             headers : {'Content-Type': 'application/json'}
         })
@@ -121,8 +119,6 @@ function Upadate_job(){
         setTimeout(() => {
             setalertw(false)
         } , 10000)
-
-        console.log(jobs)
         
     }
 
@@ -146,7 +142,6 @@ function Upadate_job(){
             const respon = await data_list.json()
             if(data_list.ok){
                 setval(respon)
-                settitle(val.title)
             }
             onchange()
             setfilename(val.image)
@@ -165,7 +160,7 @@ function Upadate_job(){
             <div className="tranding_haye">
                 <div className="rasiid_tamplate">
                     <div className="rasiid">
-                        <form action="/" ref={foomka} method="post" onSubmit={Adddata} encType="multipart/form-data">
+                        <form ref={foomka} method="put" onSubmit={Adddata} encType="multipart/form-data">
                             <label htmlFor="name">Ciwaanka adegaaga</label>
                             <input  className="la_bax" type="text" name="title" value={title} placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={40} 
                             onChange={(e) => settitle(e.target.value)}
@@ -300,19 +295,6 @@ function Upadate_job(){
                             
                             onChange={(e) => setqodob2aad(e.target.value)}
                             value={qodob2aad}
-                            />
-                            { crentuser && 
-                            <input type="text"  name="UserId" value={UserId} required  hidden />
-                            }
-
-                            <input type="text"  name="Qiimayn" value={Qiimayn} required  hidden
-                            onChange={(e) => setQiimayn(e.target.value)}
-                             />
-                            <input type="number"  name="xaalad" value={xaalad} required  hidden
-                            onChange={(e) => setxaalad(e.target.value)}
-                            />
-                            <input type="text"  name="iibsade" value={iibsade} required  hidden
-                            onChange={(e) => setiibsade(e.target.value)}
                             />
                             <button ref={btn_add} className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon>  Ku Dar Adeega</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> lama Ardkay Waxaad Ugu Baahantahay Iibsadaha markuu dalbado mooyaane</p>

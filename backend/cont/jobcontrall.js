@@ -90,15 +90,43 @@ const delete_job = async (req , res) => {
 // upadate shaqo 
 const update_job = async (req, res) => {
     const {id} = req.params
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({Qalad: "lama helin shaqo"})
-    }
-    const data = await jobsmodel.findByIdAndUpdate({_id:id})
+    const {
+        title,
+        body,
+        Qiimaha,
+        image,
+        Qaybid,
+        Mudada,
+        Xadiga,
+        Nooca,
+        qodob1aad,
+        qodob2aad
+    } = req.body
+    try{ 
+        if(!mongoose.Types.ObjectId.isValid(id)){
+            return res.status(404).json({Qalad: "lama helin shaqo"})
+        }
+        const data = await jobsmodel.findByIdAndUpdate({_id:id}, {
+            title: title,
+            body: body,
+            Qiimaha: Qiimaha,
+            image: image,
+            Qaybid: Qaybid,
+            Mudada: Mudada,
+            Xadiga: Xadiga, 
+            Nooca: Nooca,
+            qodob1aad: qodob1aad,
+            qodob2aad :qodob2aad,
+        })
     
-    if(!data){
-        res.status(400).json({qalad: "qalad ayaa jira"})
+        res.status(200).json(data)
+
+    } catch(err){
+        console.log(err)
     }
-    res.status(200).json(data)
+
+
+    //res.json({msg:"update ipa"})
 }
 
 module.exports  = {
