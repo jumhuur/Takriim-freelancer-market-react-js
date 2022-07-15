@@ -49,7 +49,7 @@ function Nav(){
                 <img src="/images/SVGL.svg" alt="logo" />
             </Link>
         </div>
-        {crentuser && crentuser.uid !== "null" ?
+        {crentuser ?
         <div className="nav_links user">
             <ul>
                 <li>

@@ -87,6 +87,20 @@ function Gudoon(){
     }, [])
 
 
+    useEffect(() => {
+        fetch(`/orders/${id}`)
+        .then((response) =>{
+            if(response){
+                return response.json()
+            }
+        })
+        .then((data) =>{
+            setoneOrder(data)
+        })
+
+    }, [oneOrder])
+
+
     function Changestatus(){
        const xaalad = document.querySelectorAll('.xaalad1aad');
         xaalad.forEach(function(xalad_kaliya){
@@ -103,18 +117,18 @@ function Gudoon(){
 
     function test(){
         if(oneOrder){
-            if(oneOrder.xaalad ==  1 ){
+            if(oneOrder.xaalad ==  "1" ){
                 xaalad1aad.current.classList.remove('not_allowed')
                 xaalad2aad.current.classList.add('not_allowed')
                 xaalad3aad.current.classList.add('not_allowed')
                 xaalad0aad.current.classList.add('not_allowed')
 
-            } else if(oneOrder.xaalad ==  2){
+            } else if(oneOrder.xaalad ==  "2"  || oneOrder.xaalad ==  "Done"){
                 xaalad2aad.current.classList.remove('not_allowed')
                 xaalad1aad.current.classList.add('not_allowed')
                 xaalad3aad.current.classList.add('not_allowed')
                 xaalad0aad.current.classList.add('not_allowed')
-            } else if(oneOrder.xaalad ==  0){
+            } else if(oneOrder.xaalad ==  "0"){
                 xaalad0aad.current.classList.remove('not_allowed')
                 xaalad2aad.current.classList.add('not_allowed')
                 xaalad1aad.current.classList.add('not_allowed')

@@ -5007,6 +5007,25 @@ section.Chat .chatbody .chatmassages .massages_list .loadmassage p{
   border-radius: 50%;
 
 }
+
+
+div.done_order{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+div.done_order h2 {
+  font-size: 22px;
+  font-weight: normal;
+  color: var(--main-2);
+  text-transform: capitalize;
+  font-family: "nooca_farta";
+  padding-bottom: 10%;
+}
+
 /*--------all median -------------------------------*/
 
 @media (min-width: 100px) and (max-width: 460px) {

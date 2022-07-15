@@ -83,13 +83,16 @@ const update_Order_xaalad = async (req, res) => {
     const {id} = req.params
     const {
         xaalad,
+        image
     } = req.body
     try{ 
         if(!mongoose.Types.ObjectId.isValid(id)){
             return res.status(404).json({Qalad: "lama helin shaqo"})
         }
         const data = await ordermodel.findByIdAndUpdate({_id:id}, {
-            xaalad: xaalad,
+            xaalad,
+            image
+
         })
     
         res.status(200).json(data)

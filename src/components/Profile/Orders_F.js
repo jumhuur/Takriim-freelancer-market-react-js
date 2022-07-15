@@ -2,7 +2,7 @@ import Holder from "../NavHolder";
 import AsideUser from "./Aside_Profile";
 import Footer from "../Footer";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import {faGears,faClockRotateLeft ,faCreditCard ,faClock, faCircleCheck ,faCircleXmark} from "@fortawesome/free-solid-svg-icons";
+import {faGears,faClockRotateLeft ,faCreditCard ,faClock, faCircleCheck ,faCircleXmark, faRotate} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Jobskl from "../skaltons/Jobskalaton";
@@ -62,10 +62,15 @@ function Orders_Free(){
                                 socdaa 
                                 </li>
                             : dat_order.xaalad == 2 ? 
-                                <li>
-                                <span> <FontAwesomeIcon className="i dhamaday" icon={faCircleCheck} /> </span>
-                                Dhamaaday 
-                                </li>
+                            <li>
+                            <span> <FontAwesomeIcon className="i dhamaday" icon={faRotate} /> </span>
+                            La Diyaarinaya
+                            </li>
+                            :dat_order.xaalad == "Done" ? 
+                            <li>
+                            <span> <FontAwesomeIcon className="i dhamaday" icon={faCircleCheck} /> </span>
+                            Dhamaaday
+                            </li>
                             :
                                 <li>
                                 <span> <FontAwesomeIcon className="i laabtay" icon={faCircleXmark} /> </span>

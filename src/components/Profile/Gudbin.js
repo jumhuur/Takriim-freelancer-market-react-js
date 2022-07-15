@@ -65,39 +65,10 @@ function Gudbin_dalab(){
             <div className="tranding_haye">
                 <div className="rasiid_tamplate">
                     <div className="rasiid">
-                        <h2 className="ciwaan_bahanahay end_order"><i className="fa-solid fa-face-smile"></i> Mahadsanid mudane/Marwo</h2>
-                        <p className="info_dalab_p">
-                            Xaga Hoose ugu upload-garee mashruuca aad u dhamaysay si uu ula dago macmiilku Waxaana Fiican inaad isticmaasho zip file
-                        </p>
-                        <form className="lacag_bixinta" method="GET" action={path}>
-                            <label htmlFor="qaab">File - Image - Doc - Voice - Zip File - Iyo Shay Kasta Waad Galin Kartaa Xagan Hoose</label>
-                            <div className="sawir">
-                                <span ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
-                                <input ref={image01} onChange={onchange} className="img_01" type="file" name="sawir1aad" style={{visibility:"hidden"}} />
-                                {/* <!----------upload file and image --> */}
-                                <div ref={progress} className="upload">
-                                    <div ref={file_icon} className="file_icon active">
-                                        <FontAwesomeIcon icon={faFileCircleCheck} />
-                                    </div>
-                                    <div className="file_name_and_zise">
-                                        <div className="macluumaad">
-                                            <h2>{filename}  {filezise}</h2>
-                                        </div>
-                                        <div className="progerss_two">
-                                            <div className="line" style={{width: '56%'}}>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div ref={file_icon2} className="file_icon delete active" onClick={xidh}>
-                                            <FontAwesomeIcon icon={faTrashCan} />
-                                    </div>
-                                </div>
-                                {/* <!----------upload file and image --> */}
-                            </div>
-                            <textarea name="faahfaahin" className="add_serv" placeholder="Macluumadka Oo Dhan Halkan Ku Qor" required></textarea>
-                            <button className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus} /> Gudbi Dalabka </button>
-                        </form>
+                        <div className="done_order">
+                        <img src="/images/taw_seccse.svg" />
+                        <h2>Dalabkan waad dhamaysay <span>5 days ago</span></h2>
+                        </div>
                     </div>
                 </div>
             </div>

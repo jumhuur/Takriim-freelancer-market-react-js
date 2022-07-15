@@ -1,7 +1,7 @@
 import Aside from "../Aside";
 import Holder from "../NavHolder";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import {faGears,faClockRotateLeft ,faCreditCard ,faClock, faCircleCheck ,faCircleXmark} from "@fortawesome/free-solid-svg-icons";
+import {faGears,faClockRotateLeft ,faCreditCard ,faClock, faCircleCheck ,faCircleXmark , faRotate} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Jobskl from "../skaltons/Jobskalaton";
@@ -33,11 +33,11 @@ function OrderUsers(){
                 {order && crentuser  ? order.filter((or => or.Dalbade_id ==  crentuser.uid )).map(dat_order => (
                 <div className="card_template" key={dat_order._id}>
                 <div className="imges">
-                    {dat_order.xaalad == 0 ? 
+                    {dat_order.xaalad == "0" ? 
                     <img src="/images/o_u0.svg" alt="sawir_template" />
-                    :dat_order.xaalad == 1 ?  
+                    :dat_order.xaalad == "1" ?  
                     <img src="/images/o_u1.svg" alt="sawir_template" />
-                    : dat_order.xaalad == 2 ? 
+                    :dat_order.xaalad == "2" || dat_order.xaalad == "Done"? 
                     <img src="/images/o_u2.svg" alt="sawir_template" />
                     :
                     <img src="/images/o_u.svg" alt="sawir_template" />
@@ -68,8 +68,13 @@ function OrderUsers(){
                                 </li>
                             : dat_order.xaalad == 2 ? 
                                 <li>
+                                <span> <FontAwesomeIcon className="i dhamaday" icon={faRotate} /> </span>
+                                La Diyaarinaya
+                                </li>
+                            :dat_order.xaalad == "Done" ? 
+                                <li>
                                 <span> <FontAwesomeIcon className="i dhamaday" icon={faCircleCheck} /> </span>
-                                Dhamaaday 
+                                Dhamaaday
                                 </li>
                             :
                                 <li>
