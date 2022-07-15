@@ -260,8 +260,16 @@ function Gudoon(){
                                                 adna aanad wali gudoomin lacagta dalabkaaga dalabka  waxaa loo fasaxayaa iibiyaha adeegan kuu qabtay Si iskuu ahna wuu isku gudoomayaa dalabku
                                             </span> 
                                         </p>
-                                        <h2 className="ciwaan_bahanahay2">Xagan Hoose K dejiso(download-garayso) dalabkaag <i className="fa-solid fa-angle-down arrow"></i> :</h2>
-                                        <a href={oneOrder && oneOrder.image} download className="link_mirfaq">Dajiso Dalabkaaga ( Download Your Order ) <FontAwesomeIcon icon={faDownload} /> </a>
+                                        {oneOrder && oneOrder.xaalad == "Done" ?
+                                        <>
+                                                <h2 className="ciwaan_bahanahay2">Waxaa socota Diyaarinta Dalabkaaga <i className="fa-solid fa-angle-down arrow"></i> :</h2>
+                                        </>
+                                        :
+                                        <>
+                                                <h2 className="ciwaan_bahanahay2">Xagan Hoose K dejiso(download-garayso) dalabkaag <i className="fa-solid fa-angle-down arrow"></i> :</h2>
+                                                <a href={oneOrder && oneOrder.image} download className="link_mirfaq">Dajiso Dalabkaaga ( Download Your Order ) <FontAwesomeIcon icon={faDownload} /> </a>
+                                        </>
+                                        }
                                     </div>
                                     {oneOrder && oneOrder.gudoomay == false ?
                                         <form className="gudoon" method="POST" action="" onSubmit={submitHandale}>

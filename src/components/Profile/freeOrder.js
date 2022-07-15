@@ -250,7 +250,7 @@ function My_Orders(){
                                 <li>  <FontAwesomeIcon className="i" icon={faCircleCheck} /> {jobfree && jobfree.Qodobka1aad} </li>
                                 <li>  <FontAwesomeIcon className="i" icon={faCircleCheck} /> {jobfree && jobfree.Qodobka2aad} </li>
                                 {
-                                    jobfree.xaalad == 2 ?
+                                    jobfree.xaalad == "Done" ?
                                     <li> <FontAwesomeIcon className="i" icon={faShieldHalved} /> Ma Gudoomay ? : {jobfree.gudoomay? "Haa" : "Maya"} </li>
                                     :
                                     ""
