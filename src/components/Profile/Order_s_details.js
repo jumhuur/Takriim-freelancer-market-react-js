@@ -20,6 +20,7 @@ function Gudoon(){
     const Jobid = oneOrder && oneOrder.Jobid
     const Username = user && user.Name
     const UserId = '4';
+    const gudoomay = true
     // const [datacom, setdatacom] = useState({
     //     Rate: "",
     //     Comment: "",
@@ -38,11 +39,34 @@ function Gudoon(){
             Username
         }
 
+        const Gobjs = {
+            gudoomay
+        }
+
         const fetchdata = await fetch('/Comments', {
             method: 'POST',
             body: JSON.stringify(Commentobj),
             headers : {'Content-Type': 'application/json'}
         })
+
+        const GudoomayUpdate = await fetch(`/orders/xaalad/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(Gobjs),
+            headers: {'Content-Type': 'application/json'}
+        })
+
+        const data = await GudoomayUpdate.json()
+        if(!GudoomayUpdate.ok){
+            console.log('qalad')
+            data.status(400).json({qalad: "qalad"})
+        }
+
+        if(GudoomayUpdate.ok){
+            console.log("gudoomay  added")
+        }
+
+
+
 
         const json = await fetchdata.json()
         if(!fetchdata.ok){
@@ -146,7 +170,17 @@ function Gudoon(){
     test()
 
 
-    // create comments 
+    // outo gudoomid 
+    const outo_accept = () => {
+        if(oneOrder && oneOrder.gudoomay === false){
+            if(format(oneOrder.updatedAt) === "18 Minutes Ago"){
+                console.log("accepted")
+            }
+        }
+
+    }
+
+    outo_accept()
 
 
     return(
@@ -262,16 +296,16 @@ function Gudoon(){
                                         </p>
                                         {oneOrder && oneOrder.xaalad == "Done" ?
                                         <>
-                                                <h2 className="ciwaan_bahanahay2">Waxaa socota Diyaarinta Dalabkaaga <i className="fa-solid fa-angle-down arrow"></i> :</h2>
-                                        </>
-                                        :
-                                        <>
                                                 <h2 className="ciwaan_bahanahay2">Xagan Hoose K dejiso(download-garayso) dalabkaag <i className="fa-solid fa-angle-down arrow"></i> :</h2>
                                                 <a href={oneOrder && oneOrder.image} download className="link_mirfaq">Dajiso Dalabkaaga ( Download Your Order ) <FontAwesomeIcon icon={faDownload} /> </a>
                                         </>
+                                        :
+                                        <>
+                                                <h2 className="ciwaan_bahanahay2">Waxaa socota Diyaarinta Dalabkaaga <i className="fa-solid fa-angle-down arrow"></i> :</h2>
+                                        </>
                                         }
                                     </div>
-                                    {oneOrder && oneOrder.gudoomay == false ?
+                                    {oneOrder && oneOrder.gudoomay == false && oneOrder && oneOrder.xaalad == "Done"  ?
                                         <form className="gudoon" method="POST" action="" onSubmit={submitHandale}>
                                             <label>Sidee laguugu Adeegay ? </label>
                                             <select name="Rate" onChange={(e) => setRate(e.target.value)} value={Rate}>
@@ -285,6 +319,9 @@ function Gudoon(){
                                             <input  type="hidden" value={oneOrder && oneOrder.Jobid} name="Jobid"/>
                                             <input  type="hidden" value={UserId} name="Userid"/>
                                             <input  type="hidden" value={Username} name="Username"/>
+                                            <form onSubmit={submitHandale} method="put">
+                                            <input  type="hidden" value={gudoomay} name="gudoomay"/>
+                                            </form>
                                             <button className="gudoon_btn" type="submit">Gudoon Dalabka</button>
                                         </form>
                                     :""

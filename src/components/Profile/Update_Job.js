@@ -148,6 +148,23 @@ function Upadate_job(){
         }
         upadatevalu()
     },[])
+
+
+    useEffect(() => {
+        if(crentuser){
+            settitle(`${val && val.title}`)
+            setbody(`${val && val.body}`) 
+            setQiimaha(`${val && val.Qiimaha}`)
+            setXadiga(`${val && val.Xadiga}`) 
+            setNooca(`${val && val.Nooca}`) 
+            setMudada(`${val && val.Mudada}`)  
+            setQaybid(`${val && val.Qaybid}`) 
+            setimage(`${val && val.image}`) 
+            setqodob1aad(`${val && val.qodob1aad}`) 
+            setqodob2aad(`${val && val.qodob2aad}`) 
+        }
+
+    },[val, crentuser])
     return(
         <div>
         <NavHolder />

@@ -6,7 +6,7 @@ import {faGears,faClockRotateLeft ,faCreditCard ,faClock, faCircleCheck ,faCircl
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Jobskl from "../skaltons/Jobskalaton";
-import {format, register} from "timeago.js";
+import {format} from "timeago.js";
 import {UseAuth} from "../context/authcontext"
 function Orders_Free(){
     const [order, setorder] = useState(null)
@@ -25,6 +25,19 @@ function Orders_Free(){
         })
 
     }), [])
+
+    useEffect((function(){
+        fetch('/orders')
+        .then((response) =>{
+            if(response){
+                return response.json()
+            }
+        })
+        .then((data) =>{
+            setorder(data)
+        })
+
+    }), [order])
     return(
         <div>
             <Holder />

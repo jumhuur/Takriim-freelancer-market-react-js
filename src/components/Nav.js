@@ -18,7 +18,7 @@ function Nav(){
 
 
 
-    console.log(crentuser && crentuser.uid)
+    //console.log(crentuser && crentuser.uid)
     function HandelOgaysiis(){
         isactive ? setisactive(false): setisactive(true);
         setmagessa(false)

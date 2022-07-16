@@ -20,8 +20,7 @@ function OrderUsers(){
         .then((data) =>{
             setorder(data)
         })
-
-    }), [])
+    }), [order])
     return(
         <div>
             <Holder />
