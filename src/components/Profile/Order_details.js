@@ -34,6 +34,7 @@ function OrderDetailscheckh(){
     const [lanbarka , setlanbarka] = useState("")
     const [gudoomay , setgudoomay] = useState(false)
     const [image , setimage] = useState("")
+    const path_kale = useHistory()
     
     console.log(xadiga && xadiga)
     const image01 = useRef();
@@ -52,6 +53,10 @@ function OrderDetailscheckh(){
         .then((data) => {
             setorder(data)
         })
+
+        if(!crentuser){
+            path_kale.push("/Acount/login")
+        }
     }, [])
 
 
