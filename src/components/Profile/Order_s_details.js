@@ -376,7 +376,7 @@ function Gudoon(){
                         {oneOrder ? oneOrder.Mudada < 1 ? <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> Mudada : <span className="mudada">12</span> Saacadood</li> : <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> Mudada : <span className="mudada">{oneOrder.Mudada}</span> Maalin</li> : ""}
                         <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> Xadiga : <span className="xadiga_adeeg">{oneOrder && oneOrder.Xadiga}</span> {oneOrder && oneOrder.Nooca}</li>
                         <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> {oneOrder?  oneOrder.Qodobka1aad : ""} </li>
-                        <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> {oneOrder? oneOrder.Qodobka1aad : ""} </li>
+                        <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> {oneOrder? oneOrder.Qodobka2aad : ""} </li>
                     </ul>
                 </div>
                 <div className="iibiye_info">
