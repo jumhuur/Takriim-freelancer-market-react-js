@@ -24,7 +24,7 @@ function OrderDetailscheckh(){
     const Dalbade_id =  crentuser && crentuser.uid
     const Mudada =  window.localStorage.getItem('M')
     const UserId =  order && order.UserId
-    const Xadiga =  window.localStorage.getItem('X')
+    const Xadiga = window.localStorage.getItem('X')
     const Nooca =  order && order.Nooca
     const xaalad =  order && order.xaalad
     const Qodobka1aad =  order && order.qodob1aad
@@ -53,6 +53,10 @@ function OrderDetailscheckh(){
             // })
 
         */
+
+        if(!crentuser){
+            path_kale.push("/Acount/login")
+        }
     useEffect(function(){
         fetch(`/jobs/${id}`)
         .then((res) =>{
@@ -63,10 +67,6 @@ function OrderDetailscheckh(){
         .then((data) => {
             setorder(data)
         })
-
-        if(!crentuser){
-            path_kale.push("/Acount/login")
-        }
 
     }, [])
 
@@ -159,6 +159,7 @@ function OrderDetailscheckh(){
         if(response.ok){
             console.log('order complated')
             mypath.push(`/Order/Complated/${id}`)
+            window.localStorage.clear()
         }
         console.log(order)
     }
@@ -235,9 +236,9 @@ function OrderDetailscheckh(){
                                 value={lanbarka}
                                 />
                             </div>
-                            <input type="hidden" value={order.Mudada}   name="Mudada"/>
-                            <input type="hidden" value={order.Xadiga}  name="xadiga"/>
-                            <input type="hidden" value={order.Qiimaha}  name="Qiimaha"/>
+                            <input type="hidden" value={Mudada}   name="Mudada"/>
+                            <input type="hidden" value={Xadiga}  name="xadiga"/>
+                            <input type="hidden" value={Qiimaha}  name="Qiimaha"/>
                             <input type="hidden" value={order.title} name="title"/>
                             <input type="hidden" value={order.Dalbade_id}  name="Dalbade_id"/>
                             <input type="hidden" value={order.UserId} name="UserId"/>

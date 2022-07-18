@@ -17,16 +17,19 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
     const kalmad_place  = useRef()
 
 
-    // cnaasir 
-    // const m = useRef()
-    // const x = useRef()
-    // const q = useRef()
+    // waxii la xidhiidh localstroge
+    const m = useRef()
+    const x = useRef()
+    const q = useRef()
 
-    // const setlocal = () => {
-    //     window.localStorage.setItem('Q', q.current.value)
-    //     window.localStorage.setItem('M', m.current.value)
-    //     window.localStorage.setItem('X', x.current.value)
-    // }
+    const setlocal = () => {
+        window.localStorage.setItem('Q', q.current.value)
+        window.localStorage.setItem('M', m.current.value)
+        window.localStorage.setItem('X', x.current.value)
+    }
+
+
+
     const [qi_toin, setqitoin] = useState(null)
     const [xa_toin, setxatoin] = useState(null)
 
@@ -83,16 +86,16 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
                         <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> {job.qodob2aad} </li>
                     </ul>
                     <form>
-                        <input  type="hidden" value={mudayn}  name="Mudada"/>
-                        <input  type="hidden" value={xadi2}  name="xadiga"/>
-                        <input  type="hidden" value={q_sax}  name="qiimaha"/>
+                        <input  ref={m} type="hidden" value={mudayn}  name="Mudada"/>
+                        <input  ref={x} type="hidden" value={xadi2}  name="xadiga"/>
+                        <input  ref={q} type="hidden" value={q_sax}  name="qiimaha"/>
                         <label><FontAwesomeIcon  icon={faRotate}/> Xadiga : </label>
                         <input ref={inputt} onChange={xisaabiye} className="xadiga_user" type="number" value={xadi2} name="xadiga" />
                         <label> {job.Nooca} </label>
                         {
                         q_sax <= 0 || q_sax == NaN ? <p>dalab ma noqonayo wax ka yar 1 </p> :
                         <Link to={`/Order/${job._id}`} >
-                            <button type="submit">Gudbi Dalabka(<span className="qiimaha_lastiga">{q_sax}</span>$)</button>
+                            <button onClick={setlocal} type="submit">Gudbi Dalabka(<span className="qiimaha_lastiga">{q_sax}</span>$)</button>
                         </Link>
                         }
                     </form>
