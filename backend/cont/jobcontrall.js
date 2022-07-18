@@ -100,7 +100,9 @@ const update_job = async (req, res) => {
         Xadiga,
         Nooca,
         qodob1aad,
-        qodob2aad
+        qodob2aad,
+        iibsade,
+        Qiimayn
     } = req.body
     try{ 
         if(!mongoose.Types.ObjectId.isValid(id)){
@@ -117,6 +119,8 @@ const update_job = async (req, res) => {
             Nooca: Nooca,
             qodob1aad: qodob1aad,
             qodob2aad :qodob2aad,
+            iibsade: iibsade,
+            Qiimayn: Qiimayn
         })
     
         res.status(200).json(data)

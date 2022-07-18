@@ -21,8 +21,8 @@ function My_Orders(){
     const image01 = useRef();
     const spn_img1 = useRef();
     const progress = useRef();
-    const file_icon = useRef()
-    const file_icon2 = useRef()
+    const file_icon = useRef();
+    const file_icon2 = useRef();
 
 
     const history = useHistory()

@@ -15,8 +15,22 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
     const qiyaas = useRef()
     const count_place = useRef()
     const kalmad_place  = useRef()
+
+
+    // cnaasir 
+    // const m = useRef()
+    // const x = useRef()
+    // const q = useRef()
+
+    // const setlocal = () => {
+    //     window.localStorage.setItem('Q', q.current.value)
+    //     window.localStorage.setItem('M', m.current.value)
+    //     window.localStorage.setItem('X', x.current.value)
+    // }
     const [qi_toin, setqitoin] = useState(null)
     const [xa_toin, setxatoin] = useState(null)
+
+
     function xisaabiye(){
         const xadiga_hore = qiimaha / xadiga
         const xadiga_inputka = parseInt(inputt.current.value);
@@ -68,17 +82,18 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
                         <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> {job.qodob1aad} </li>
                         <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> {job.qodob2aad} </li>
                     </ul>
-                    <form action={`/Order/${job._id}`} method="POST">
-                        <input type="hidden" value={mudayn}  name="Mudada"/>
-                        <input type="hidden" value={xadi2}  name="xadiga"/>
-                        <input type="hidden" value={q_sax}  name="qiimaha"/>
+                    <form>
+                        <input  type="hidden" value={mudayn}  name="Mudada"/>
+                        <input  type="hidden" value={xadi2}  name="xadiga"/>
+                        <input  type="hidden" value={q_sax}  name="qiimaha"/>
                         <label><FontAwesomeIcon  icon={faRotate}/> Xadiga : </label>
                         <input ref={inputt} onChange={xisaabiye} className="xadiga_user" type="number" value={xadi2} name="xadiga" />
                         <label> {job.Nooca} </label>
                         {
-                        q_sax <= 0 || q_sax == NaN ? <p>dalab ma noqonayo wax ka yar 1 </p> :<Link to={`/Order/${job._id}`}>
-                            <button>Gudbi Dalabka(<span className="qiimaha_lastiga">{q_sax}</span>$)</button>
-                            </Link>
+                        q_sax <= 0 || q_sax == NaN ? <p>dalab ma noqonayo wax ka yar 1 </p> :
+                        <Link to={`/Order/${job._id}`} >
+                            <button type="submit">Gudbi Dalabka(<span className="qiimaha_lastiga">{q_sax}</span>$)</button>
+                        </Link>
                         }
                     </form>
                 </div>

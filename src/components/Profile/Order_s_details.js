@@ -13,20 +13,27 @@ function Gudoon(){
     const [oneOrder , setoneOrder] = useState()
     const [user , setuser] = useState()
     const mypath = useHistory()
+    const jobid = oneOrder && oneOrder.Jobid
+
 
     // comments state 
     const [Rate, setRate] = useState("5")
     const [Comment, setComment] = useState()
     const Jobid = oneOrder && oneOrder.Jobid
-    const Username = user && user.Name
+    const Username = user && user.Name 
     const UserId = '4';
+
+    // update order in la gudoomay 
     const gudoomay = true
-    // const [datacom, setdatacom] = useState({
-    //     Rate: "",
-    //     Comment: "",
-    //     Jobid: oneOrder && oneOrder.Jobid,
-    //     UserId: userid,
-    // })
+
+    // updarete iibsade iyo qiimayn
+    const [job ,setjob] = useState(null)
+    // const iib_numb = parseInt(job && job.iibsade) + 1
+    // const Qiim_numb = parseInt(job && job.Qiimayn) + 1
+    const iibsade = parseInt(job && job.iibsade) + 1
+    const Qiimayn = parseInt(job && job.Qiimayn) + 1
+
+
 
 
     const submitHandale  = async (e) =>{
@@ -43,11 +50,34 @@ function Gudoon(){
             gudoomay
         }
 
+        const iib_qiimaYN = {
+            iibsade,
+            Qiimayn
+        }
+
+        // bilowga commentiga post
+
         const fetchdata = await fetch('/Comments', {
             method: 'POST',
             body: JSON.stringify(Commentobj),
             headers : {'Content-Type': 'application/json'}
         })
+
+
+        const json = await fetchdata.json()
+        if(!fetchdata.ok){
+            console.log('qalad')
+            json.status(400).json({qalad: "qalad"})
+        }
+
+        if(fetchdata.ok){
+            console.log("comment added")
+            mypath.push('/Acount/orders')
+
+        }
+
+
+        // bilowga update xaalad
 
         const GudoomayUpdate = await fetch(`/orders/xaalad/${id}`, {
             method: 'PUT',
@@ -66,21 +96,22 @@ function Gudoon(){
         }
 
 
+        // bilowga update iibsade & qiimayn
 
+        const update_ib_qii = await fetch(`/jobs/update/${job._id}`, {
+            method: 'PUT',
+            body: JSON.stringify(iib_qiimaYN),
+            headers: {'Content-Type': 'application/json'}
+        })
 
-        const json = await fetchdata.json()
-        if(!fetchdata.ok){
-            console.log('qalad')
-            json.status(400).json({qalad: "qalad"})
+        if(!update_ib_qii.ok){
+            console.log('qalad shaqo update')
+            data.status(400).json({qalad: "qalad"})
         }
 
-        if(fetchdata.ok){
-            console.log("comment added")
-            mypath.push('/Acount/orders')
-
+        if(update_ib_qii.ok){
+            console.log("qiimayn iyo iibsade  added")
         }
-
-        console.log(Commentobj)
     }
     const xaalad0aad = useRef();
     const xaalad1aad = useRef();
@@ -109,6 +140,19 @@ function Gudoon(){
             setuser(data)
         })        
     }, [])
+
+
+    useEffect(() => {
+        fetch(`/jobs/${oneOrder && oneOrder.Jobid}`)
+        .then((response) => {
+            if(response){
+                return response.json()
+            }
+        })
+        .then((data) => {
+            setjob(data)
+        })
+    }, [oneOrder])
 
 
     useEffect(() => {
@@ -321,6 +365,10 @@ function Gudoon(){
                                             <input  type="hidden" value={Username} name="Username"/>
                                             <form onSubmit={submitHandale} method="put">
                                             <input  type="hidden" value={gudoomay} name="gudoomay"/>
+                                            </form>
+                                            <form onSubmit={submitHandale} method="put">
+                                            <input  type="hidden" value={iibsade} name="Iibsade"/>
+                                            <input  type="hidden" value={Qiimayn} name="Qiimayn"/>
                                             </form>
                                             <button className="gudoon_btn" type="submit">Gudoon Dalabka</button>
                                         </form>

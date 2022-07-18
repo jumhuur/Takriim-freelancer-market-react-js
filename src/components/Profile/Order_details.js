@@ -20,11 +20,11 @@ function OrderDetailscheckh(){
 
     // foomka 
     const title = order && order.title
-    const Qiimaha =  order && order.Qiimaha
+    const Qiimaha =  window.localStorage.getItem('Q')
     const Dalbade_id =  crentuser && crentuser.uid
-    const Mudada =  order && order.Mudada
+    const Mudada =  window.localStorage.getItem('M')
     const UserId =  order && order.UserId
-    const Xadiga =  order && order.Xadiga
+    const Xadiga =  window.localStorage.getItem('X')
     const Nooca =  order && order.Nooca
     const xaalad =  order && order.xaalad
     const Qodobka1aad =  order && order.qodob1aad
@@ -35,14 +35,24 @@ function OrderDetailscheckh(){
     const [gudoomay , setgudoomay] = useState(false)
     const [image , setimage] = useState("")
     const path_kale = useHistory()
-    
-    console.log(xadiga && xadiga)
+
+
     const image01 = useRef();
     const spn_img1 = useRef();
     const progress = useRef();
     const file_icon = useRef()
     const file_icon2 = useRef()
+        /*
+            // window.addEventListener("scroll", () => {
+            //     console.log('saz')
+            //     const params = (new URL(document.location)).searchParams
+            //     const Xa = params.get("Xadiga")
+            //     const Qi = params.get("qiimaha")
+            //     const Mu = params.get("Mudada")
+            //     console.log(Xa, Qi, Mu)
+            // })
 
+        */
     useEffect(function(){
         fetch(`/jobs/${id}`)
         .then((res) =>{
@@ -57,7 +67,24 @@ function OrderDetailscheckh(){
         if(!crentuser){
             path_kale.push("/Acount/login")
         }
+
     }, [])
+
+    // useEffect(()=> {
+    //     const getprams = () => {
+    //         console.log('saz')
+    //         const params = (new URL(document.location)).searchParams
+    //         const Xa = params.get("xadiga")
+    //         const Qi = params.get("qiimaha")
+    //         const Mu = params.get("Mudada")
+    //         console.log(Xa, Qi, Mu)
+    //     }
+    
+    //     getprams()
+    // },[])
+
+
+
 
 
     //spn_img1.current.addEventListener('click', image01_click)
@@ -220,7 +247,7 @@ function OrderDetailscheckh(){
                             <input type="hidden" value={order.qodob2aad}  name="Qodobka2aad"/>
                             <input type="hidden" value={order.qodob1aad}  name="Qodobka1aad"/>
                             <input type="hidden" value={gudoomay}  name="gudoomay"/>
-                            <button className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus} />  Bixi Lacagta ({order.Qiimaha}$)</button>
+                            <button className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus} />  Bixi Lacagta ({Qiimaha}$)</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> Macluumaadkan waa u muhiim qofka shaqada kuu qabanaya fadalan buuxi</p>
                         </form>
                         
