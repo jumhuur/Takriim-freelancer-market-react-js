@@ -1,15 +1,32 @@
+const { request, response } = require('express');
 const express = require('express');
 const router = express.Router()
-//const multer = require("multer")
-// const filestorage = multer.diskStorage({
-//     destination : (req, file, cb) => {
-//         cb(null, "images")
-//     },
-//     filename: (req, file, cb) => {
-//         cb(null, Date.now() + ".." + file.originalname )
-//     }
+// const multer = require("multer")
+
+
+// diyaarinta multer 
+
+// const strorage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         console.log(file)
+//         cb(null, './uploades')
+        
+//       },
+
+//       filename: function (req, file, cb) {
+//         cb(null, file.originalname + '-' + Date.now())
+//       }
 // })
-// const upload =  multer({storage: filestorage}) 
+
+// const uploadfile = multer({storage:strorage }).single('image')
+//     uploadfile(request, response, (err) => {
+//         if(err){
+//             return response.json({msg:'qalad'})
+//         } else {
+//             return response.json({msg:"Waa lagu upload garayey"})
+//         }
+//     })
+
 const {
     Creatjob,
     GetAlljobs,

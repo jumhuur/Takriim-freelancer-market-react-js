@@ -8,7 +8,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Jobskl from './components/skaltons/Jobskalaton';
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import {faMoneyCheck, faPeopleGroup, faStar,faSliders, faTrashCanArrowUp , faGear, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
+import {faMoneyCheck, faPeopleGroup, faStar,faWallet ,faChartLine ,faSackXmark} from "@fortawesome/free-solid-svg-icons";
 
 function Profile(){
     const {id} = useParams()
@@ -42,7 +42,20 @@ function Profile(){
                 <div className="xajiye kala_qayb">
                     <Asideuser />
                     <div className="tranding_haye">
-                    <Rasiid user_r={user}/>
+                    <div className="pro_rasiid">
+                    <div className="total">
+                        <h2>{j_user && j_user.m_total}$</h2>
+                        <p><FontAwesomeIcon className="i" icon={faChartLine} /> Totalkaaga</p>
+                    </div>
+                    <div className="pannding">
+                        <h2>{j_user && j_user.m_pandding}$</h2>
+                        <p><FontAwesomeIcon className="i" icon={faSackXmark} /> Lacagta Kaa Xidhan</p>
+                    </div>
+                    <div className="avalible">
+                        <h2>{j_user && j_user.m_avalible}$</h2>
+                        <p> <FontAwesomeIcon className="i" icon={faWallet} /> Lacagta kuu furan</p>
+                    </div>
+                    </div>
                     <TiroKoob />
                 {j_user?  j_user.filter((data => data.UserId == id)).map(listdata => (
                  <div className="card_template" key={listdata._id}>

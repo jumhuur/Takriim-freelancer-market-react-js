@@ -1,5 +1,6 @@
 const express = require('express');
 const mongose = require('mongoose');
+const multer = require('multer')
 const Jobroutes = require("./routes/jobs")
 const qaybroutes = require("./routes/qayboroutes")
 const orderroute = require("./routes/Orders")
@@ -7,6 +8,9 @@ const commentRoute = require("./routes/Comments")
 const usersroute = require("./routes/users")
 const cookieParser  = require('cookie-parser');
 require("dotenv").config()
+
+
+
 
 const Port = 4000 
 const Mongo_Url =('mongodb+srv://jumhuur:jum0404@cluster0.uctjw.mongodb.net/my-data?retryWrites=true&w=majority')

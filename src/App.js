@@ -22,6 +22,7 @@ import Labxaday from './components/Profile/cashout_msg';
 import Upadate_job from './components/Profile/Update_Job';
 import Upadate_profile from './components/Profile/upadate_profile';
 import Chat from './components/Profile/chat';
+import Rasiid from './components/Profile/Rasiid';
 
 
 function App(){
@@ -89,6 +90,9 @@ function App(){
           </Route>
           <Route exact path={"/Chat"}>
             <Chat />
+          </Route>
+          <Route exact path={"/Acount/Rasiid"}>
+            <Rasiid />
           </Route>
           <Route path="*">
             <Notfound />

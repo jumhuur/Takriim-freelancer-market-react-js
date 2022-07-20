@@ -1,6 +1,8 @@
 const jobsmodel = require('../models/jobsmodel');
 const mongoose = require('mongoose');
 
+
+
 // dhamaan shaqoyinka
 const GetAlljobs = async (req, res) =>{
     const shaqooyin = await jobsmodel.find({}).sort({createdAt: -1})
@@ -14,7 +16,7 @@ const GetAlljobsHome = async (req, res) =>{
 
 
 // galin shaqo 
-const Creatjob = async (req, res) => {
+const Creatjob = async(req, res) => {
     const {title,
         body,
         iibsade,

@@ -38,6 +38,12 @@ function My_Orders(){
             setjobfree(data)
         })
 
+        // if(jobfree && jobfree.xaalad == "0" ){
+        //     setxaalad("0")
+        // } else if(jobfree && jobfree.xaalad == "1"){
+        //     setxaalad("1")
+        // }
+
     }, [])
 
     useEffect(() => {
@@ -110,6 +116,8 @@ function My_Orders(){
         //     setalertw(false)
         // } , 10000)
     }
+
+
 
     //spn_img1.current.addEventListener('click', image01_click)
     function image01_click(e){
