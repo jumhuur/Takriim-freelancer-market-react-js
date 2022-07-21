@@ -290,7 +290,7 @@ function Gudoon(){
                                 <div className="x_ciwaaan">
                                     {oneOrder &&
 
-                                        <h2>Shaqadan Waxaad Dalbatay ({format(oneOrder.createdAt)} ) </h2>
+                                        <h2>Waa La Wadaa Dalabkaaga  ({format(oneOrder.updatedAt)} ) </h2>
                                     }
                                     
                                 </div>
@@ -446,7 +446,7 @@ function Gudoon(){
                             <FontAwesomeIcon className="i" icon={faStar} />
                             (<span>23</span>) qof
                         </p>
-                        {user ? <Link to={`/Acount/Online/chat/${user.id}`}>
+                        {user ? <Link to={`/Chat`}>
                             <button><FontAwesomeIcon icon={faEnvelope} /> ila soo xidhiidh</button>
                         </Link> :"/"}
 

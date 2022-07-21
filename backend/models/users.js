@@ -5,6 +5,7 @@ const users = new schema({
     name: {
         type: String,
         require: true,
+        unique: true
     },
     email: {
         type: String,
