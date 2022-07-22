@@ -20,7 +20,7 @@ function SingUp(){
     const handelsubmit = async (e) => {
         e.preventDefault()
         try {
-            await sinup(email,password)
+        await sinup(email,password)
         const data = {email, password , name}
         const response = await fetch('/users', {
             method: "post",
@@ -28,11 +28,11 @@ function SingUp(){
             headers : {'Content-Type': 'application/json'}
         })
         const json = await response.json()
-        if(!response.ok){
+        if(!json.ok){
             console.log('qalad')
         }
 
-        if(response.ok){
+        if(json.ok){
             console.log('added')
             console.log(data)
             toHomepage.push('/')

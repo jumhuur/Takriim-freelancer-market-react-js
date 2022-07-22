@@ -4,7 +4,6 @@ import JobContent from "./components/Job/Jobcontent";
 import {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import Sklall from "./components/skaltons/sklAll";
-import LinksQaybo from "./components/Links_qaybo";
 import Footer from "./components/Footer";
 
 
@@ -12,7 +11,7 @@ function Job_details(){
     const {id} = useParams();
     const {user} = useParams()
     const [Jobdetails, setJobdetails] = useState(null)
-    const [userdetails, setuserdetals] = useState(null)
+    const [userdetails, setuserdetails] = useState(null)
 
     setTimeout(function(){
 
@@ -36,7 +35,7 @@ function Job_details(){
             }
         })
         .then((data) => {
-            setuserdetals(data)
+            setuserdetails(data)
         })
         // fetch(`/jobs/${id}`)
         // .then((res) =>{

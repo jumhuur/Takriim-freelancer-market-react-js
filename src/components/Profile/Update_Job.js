@@ -144,7 +144,7 @@ function Upadate_job(){
                 setval(respon)
             }
             onchange()
-            setfilename(val.image)
+            //setfilename(val.image)
         }
         upadatevalu()
     },[])

@@ -2,11 +2,12 @@ import { Link, useHistory } from "react-router-dom"
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faCirclePlus,faRightFromBracket,faToolbox , faUser,faSackDollar ,faFileInvoiceDollar} from "@fortawesome/free-solid-svg-icons";
 import {UseAuth } from "../components/context/authcontext"
-import {FaMoneyCheckAlt} from "react-icons/fa"
 
 function Drop_nav({drop}){
-    const {Logout} =  UseAuth()
+    const {Logout , crentuser} =  UseAuth()
     const home = useHistory()
+
+
     const logouthanle = async (e) => {
         e.preventDefault()
         try {
@@ -21,7 +22,7 @@ function Drop_nav({drop}){
            <div> 
             <ul id="Drop_items">
                 <li id="Dr" data="dd">
-                    <Link to={'/Acount/maxamad dayib/1'}>
+                    <Link to={`/Acount/user/${crentuser.uid}`}>
                     <FontAwesomeIcon className="i" icon={faUser} /> Akoonkaaga
                     </Link>
                 </li>

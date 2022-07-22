@@ -36,7 +36,9 @@ const sinup = async (req, res) => {
 
         const token =  createToken(users._id)
         console.log(token)
-        res.cookie('Jwtoken',token, {httpOnly: true, maxAge: dhicid * 1000, signed: true}).send('Cookie-Parser');
+        res.cookie('Jwtoken',token, {
+            httpOnly: true,
+        })
         res.status(200).json({users:users._id})
         res.coo
     

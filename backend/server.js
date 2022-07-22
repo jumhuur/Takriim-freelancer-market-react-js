@@ -15,10 +15,11 @@ require("dotenv").config()
 const Port = 4000 
 const Mongo_Url =('mongodb+srv://jumhuur:jum0404@cluster0.uctjw.mongodb.net/my-data?retryWrites=true&w=majority')
 const app = express()
-app.use(cookieParser())
+
 
 
 // middalware
+app.use(cookieParser())
 app.use(express.json())
 app.use((req, res, next) =>{
     console.log(req.path)

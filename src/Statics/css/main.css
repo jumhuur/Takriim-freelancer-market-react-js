@@ -8,7 +8,6 @@
     --gaar: #ff9900;
     --guul: #06d703;
     --placeholder_color :  #ced4da;
-
 }
 
 @font-face {
@@ -20,6 +19,22 @@
   background-color: var(--main-color);
   color: var(--fonts);
 }
+
+button{
+  font-family: sans-serif;
+  font-family: "nooca_farta";
+}
+
+select {
+  font-family: sans-serif;
+  font-family: "nooca_farta";
+}
+
+select option{
+  font-family: sans-serif;
+  font-family: "nooca_farta";
+}
+
 
 body{
   position: relative;
@@ -4833,7 +4848,6 @@ section.Chat .chatbody .chatmassages .forminput form  .ditbtn._attech{
   align-items: center;
   flex-flow: wrap column;
   color: var(--gaar);
-
 }
 
 section.Chat .chatbody .chatmassages .massages_list{
@@ -5025,6 +5039,93 @@ div.done_order h2 {
   font-family: "nooca_farta";
   padding-bottom: 10%;
 }
+
+
+
+/*---------------- all admin stayles ----------------*/
+/* .admin_nav{
+  height: 100px;
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+}
+
+.admin_nav .nav_bar_admin{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.admin_nav .nav_bar_admin .Logo_admin{
+  width: 10%;
+  height: 100%;
+}
+
+.admin_nav .nav_bar_admin .searc_admin{
+  width: 35%;
+  height: 100%;
+}
+
+.admin_nav .nav_bar_admin .searc_admin .admin_search_f{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.admin_nav .nav_bar_admin .searc_admin input {
+  width: 85%;
+  height: 45px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  border: solid 1.50px var(--main_colo-2);
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  padding-left: 15px;
+  padding-right: 15px;
+  color: var(--fonts);
+  font-size: 16px;
+  font-family: sans-serif;
+  font-family: "nooca_farta";
+  font-weight: normal;
+  caret-color: var(--fonts);
+  text-transform: capitalize;
+}
+
+.admin_nav .nav_bar_admin .searc_admin input::placeholder{
+  color: var(--fonts);
+}
+
+.admin_nav .nav_bar_admin .btn_and_icons_admin{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
+}
+
+.admin_nav .nav_bar_admin .btn_and_icons_admin button{
+  width: 50%;
+  height: 45px;
+  background-color: var(--color-3);
+  font-size: 18px;
+  font-family: sans-serif;
+  font-family: "nooca_farta";
+  outline: none;
+  border: none;
+  color: var(--fonts);
+  cursor: pointer;
+}
+
+.admin_nav .nav_bar_admin  .user_admin{
+  width: 20%;
+  height: 100%;
+} */
+/*---------------- all admin stayles ----------------*/
 
 /*--------all median -------------------------------*/
 

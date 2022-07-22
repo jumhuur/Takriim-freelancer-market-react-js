@@ -23,6 +23,7 @@ import Upadate_job from './components/Profile/Update_Job';
 import Upadate_profile from './components/Profile/upadate_profile';
 import Chat from './components/Profile/chat';
 import Rasiid from './components/Profile/Rasiid';
+import Tob_Nav from './components/Admin/Tob_nav';
 
 
 function App(){
@@ -94,6 +95,12 @@ function App(){
           <Route exact path={"/Acount/Rasiid"}>
             <Rasiid />
           </Route>
+
+          {/* admin routes Bilow  */}
+          <route exact path={"/Acount/Admin"}>
+            <Tob_Nav />
+          </route>
+           {/* admin routes dhamaad  */}
           <Route path="*">
             <Notfound />
           </Route>
