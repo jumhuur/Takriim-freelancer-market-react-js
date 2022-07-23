@@ -11,23 +11,23 @@ export function UseAuth() {
 export function AuthProvader({children}){
     const [crentuser , setcrentuser] = useState(null)
     const [thiuser , setthiuser] = useState(null)
-    const [active , setactive] = useState(false)
+    const [active , setactive] = useState("")
 
     function  sinup(email, password){
+        setactive(true)
         return  createUserWithEmailAndPassword(Auth, email, password)
     }
 
     function  Login(email, password){
+        setactive(true)
         return  signInWithEmailAndPassword(Auth, email, password)
-    }
-
-    function loginMdb(email, password){
-        
     }
 
 
     function  Logout(){
+        setactive(false)
         return  signOut(Auth)
+
     }
     
     useEffect(() =>{
@@ -41,6 +41,7 @@ export function AuthProvader({children}){
         sinup,
         Login,
         Logout,
+        active
     }
 
     return(

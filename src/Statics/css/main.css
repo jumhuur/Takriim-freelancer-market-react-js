@@ -189,7 +189,7 @@ a {
 }
 
 .head .header .nav_links.normal{
-  display: none;
+  display: flex;
 }
 
 .head .header .nav_links ul {
@@ -299,6 +299,10 @@ a {
 
 .nav_links.user ul li a span.active{
   visibility: visible;
+}
+
+.head .header .nav_links.mobile{
+  display: none;
 }
 
 
@@ -5611,6 +5615,10 @@ div.done_order h2 {
 
     .head .header .nav_links.mobile{
       display: flex;
+    }
+
+    .head .header .nav_links.normal{
+      display: none;
     }
 
     .nav_bar .home_page2 h2{

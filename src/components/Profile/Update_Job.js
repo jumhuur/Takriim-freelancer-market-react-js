@@ -286,7 +286,6 @@ function Upadate_job(){
                                 value={Mudada}
                             
                             >
-                                <option  value="0.25">6 Saacadood</option>
                                 <option value="0.50">12 Saacadood</option>
                                 <option value="1">Maalin</option>
                                 <option value="2">laba Maalmood</option>

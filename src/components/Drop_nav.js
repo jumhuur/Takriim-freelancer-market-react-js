@@ -22,7 +22,7 @@ function Drop_nav({drop}){
            <div> 
             <ul id="Drop_items">
                 <li id="Dr" data="dd">
-                    <Link to={`/Acount/user/${crentuser.uid}`}>
+                    <Link to={`/Acount/user/${crentuser && crentuser.uid}`}>
                     <FontAwesomeIcon className="i" icon={faUser} /> Akoonkaaga
                     </Link>
                 </li>

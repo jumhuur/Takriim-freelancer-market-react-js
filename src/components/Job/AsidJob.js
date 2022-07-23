@@ -45,6 +45,7 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
         setxadiga(xadiga_inputka)
         setqimosaxa(last_qii.toFixed(2))
         setmudayn(Math.floor(lastmuddo))
+        console.log(mudayn)
         xadi2 == NaN ? setxadiga(1) : console.log('ok');
     }
 
@@ -78,8 +79,10 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user}){
                     <ul>
                         {mudayn < 1 ?
                         <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> Mudada : <span className="mudada">12</span> Saacadood</li> 
+                        // :mudayn < 0.25 && mudayn > 0 ?
+                        // <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> Mudada : <span className="mudada">06</span> Saacadood</li> 
                         :
-                        <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> Mudada : <span className="mudada">{mudayn}</span> Maalin</li>  
+                        <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> Mudada : <span className="mudada">{mudayn}</span> Maalin</li>   
                         }
                         <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> Xadiga : <span className="xadiga_adeeg">{xadi2}</span> {job.Nooca}</li>
                         <li> <FontAwesomeIcon icon={faCircleCheck} className="i" /> {job.qodob1aad} </li>

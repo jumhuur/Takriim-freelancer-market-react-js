@@ -14,11 +14,11 @@ function Nav(){
     const [massage, setmagessa] = useState(false)
     const [drop, setdrop] = useState(false)
     const [Navmobile, setnavMobile] = useState(false)
-    const {crentuser} = UseAuth()
+    const {crentuser , active} = UseAuth()
 
 
 
-    //console.log(crentuser && crentuser.uid)
+    console.log(active && active)
     function HandelOgaysiis(){
         isactive ? setisactive(false): setisactive(true);
         setmagessa(false)
@@ -78,34 +78,30 @@ function Nav(){
                 </li>
                 <Drop_nav drop={drop}/>
             </ul>
-
-
         </div>
-        :
-        <div className="nav_links normal">
-            <ul className="ul_nav">
-                <li>
-                    <a href="#">
-                    <FontAwesomeIcon className="i" icon={faEarthAfrica} /> So  <FaAngleDown />
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        more  <FaAngleDown />
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Takriim Org
-                    </a>
-                </li>
-                <li className="btn">
-                    <Link to={"/Acount/Login"}>
-                    <FontAwesomeIcon className="i" icon={faRightToBracket}/> Gal Akoon
-                    </Link>
-                </li>
-            </ul>
-
+        :<div className="nav_links normal">
+        <ul className="ul_nav">
+            <li>
+                <a href="#">
+                <FontAwesomeIcon className="i" icon={faEarthAfrica} /> So  <FaAngleDown />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    more  <FaAngleDown />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Takriim Org
+                </a>
+            </li>
+            <li className="btn">
+                <Link to={"/Acount/Login"}>
+                <FontAwesomeIcon className="i" icon={faRightToBracket}/> Gal Akoon
+                </Link>
+            </li>
+        </ul>
         </div>
         }
         {/* <!---------nav normal-----------------------------> */}
@@ -113,7 +109,6 @@ function Nav(){
         {/* <!--------- nav mobile-----------------------------> */}
         <div className="nav_links mobile">
             <ul>
-
                 <li onClick={ HandelNavMobile}>
                     <a href="#mobile">
                     <FontAwesomeIcon className="barmobile i" icon={faBars}/>
