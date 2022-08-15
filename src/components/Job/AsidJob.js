@@ -122,21 +122,21 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
                 <div className="iibiye_info">
                     <img id="la_xaqiijiyay" src="/images/tawsiiq.svg" alt="tawqsiiq" title="Waa La Xaqiijiyay" />
                     <div className="sir">
-                        <img src={user? user.image :"/images/avatar.jpg"} />
+                        <img src={user? user.Image :"/images/avatar.jpg"} />
                     </div>
                     <div className="info_seller">
                         {user ?  <Link to={`/Acount/${user.Name}/${user.id}`}>
                             <h2> {user? user.Name :"unknown user"}</h2>
                         </Link> : ""}
                         
-                        <p>  {user ? user.Job :  "unknown Description"}</p>
+                        <p>  {user ? user.info :  "unknown Description"}</p>
                         <p className="qiimayn">
+                            {/* <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
-                            <FontAwesomeIcon className="i" icon={faStar} />
-                            (<span>23</span>) qof
+                            (<span>23</span>) qof */}
                         </p>
                         {user ? <Link to={`/Chat`}>
                             <button><FontAwesomeIcon icon={faEnvelope} /> ila soo xidhiidh</button>

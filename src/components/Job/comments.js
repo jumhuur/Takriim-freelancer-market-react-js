@@ -2,33 +2,39 @@ import { faStar} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import {FaRegStar , FaSpinner} from "react-icons/fa"
-import formatDistanceToNow  from "date-fns/formatDistanceToNow"
+import {format} from "timeago.js";
+import { collection,getFirestore, query, onSnapshot, limit, orderBy, where } from "firebase/firestore";
 
 function Commenst({thisid}){
     const [comments , setcomments] = useState(null)
-    useEffect(() =>{
-        fetch("/Comments")
-        .then((response) =>{
-            if(response.ok){
-                return response.json()
-            }
-        })
-        .then((data) =>{
-            setcomments(data)
 
-        })
-        
+        //get data ordrer frelancer 
+        const db = getFirestore()
+        const commentref = collection(db, "Comments")
+        const q = query(commentref, orderBy('CreatedAt'), where("Jobid" , "==" , thisid.id) , limit(50))    
+        //hellida docs 
+        async function  get_comm(){
+            onSnapshot (q, (snapshot) => {
+                const Dhaq1aad = []
+                snapshot.docs.forEach((doc) => {
+                    Dhaq1aad.push({...doc.data(), id:doc.id})
+                })
+                setcomments(Dhaq1aad)
+            })
+        }
+    useEffect(() =>{
+        get_comm()
     }, [])
     return(
         <div>
-            {comments && comments.filter((faalo => faalo.Jobid == thisid)).map((data => 
-                          <div className="iibiye_info" key={data._id}>
+            {comments && comments.map((data => 
+                          <div className="iibiye_info" key={data.id}>
                           <div className="sir">
                               <img src="/images/avatar.jpg" />
                           </div>
                           <div className="info_seller">
                               <h2>{data.Username}</h2>
-                              <p className="wakhti_com">{formatDistanceToNow(new Date(data.createdAt))} Ka Hor</p>
+                              <p className="wakhti_com">{format(data.CreatedAt)} Ka Hor</p>
                               {data.Rate == '5' ? 
                                 <p className="qiimayn">
                                     <FontAwesomeIcon icon={faStar} />

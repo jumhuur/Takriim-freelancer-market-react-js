@@ -6,7 +6,8 @@ import Xayaysiis from "../Saponsered_Ads";
 import { useParams , Link, useHistory } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import {format}  from "timeago.js"
-import {getFirestore,getDoc, doc } from "firebase/firestore";
+import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
+import { UseAuth } from "../context/authcontext";
 
 function Gudoon(){
     const {id} = useParams()
@@ -14,7 +15,9 @@ function Gudoon(){
     const [oneOrder , setoneOrder] = useState()
     const [user , setuser] = useState()
     const mypath = useHistory()
-    const jobid = oneOrder && oneOrder.Jobid
+    const [job ,setjob] = useState(null)
+    //const jobid = oneOrder && oneOrder.Jobid
+    const {Add_Comments} = UseAuth()
 
 
     // comments state 
@@ -22,15 +25,12 @@ function Gudoon(){
     const [Comment, setComment] = useState()
     const Jobid = oneOrder && oneOrder.Jobid
     const Username = user && user.Name 
-    const UserId = '4';
+    const UserId = userid
 
     // update order in la gudoomay 
     const gudoomay = true
 
     // updarete iibsade iyo qiimayn
-    const [job ,setjob] = useState(null)
-    // const iib_numb = parseInt(job && job.iibsade) + 1
-    // const Qiim_numb = parseInt(job && job.Qiimayn) + 1
     const iibsade = parseInt(job && job.iibsade) + 1
     const Qiimayn = parseInt(job && job.Qiimayn) + 1
 
@@ -39,88 +39,29 @@ function Gudoon(){
 
     const submitHandale  = async (e) =>{
         e.preventDefault()
-        const Commentobj = {
-            Rate,
-            Comment,
-            Jobid,
-            UserId,
-            Username
-        }
+        try{
+            await Add_Comments(
+                Rate,
+                Comment,
+                Jobid,
+                UserId,
+                Username
+            )
+            update_q_ib()
 
-        const Gobjs = {
-            gudoomay
-        }
-
-        const iib_qiimaYN = {
-            iibsade,
-            Qiimayn
-        }
-
-        // bilowga commentiga post
-
-        const fetchdata = await fetch('/Comments', {
-            method: 'POST',
-            body: JSON.stringify(Commentobj),
-            headers : {'Content-Type': 'application/json'}
-        })
-
-
-        const json = await fetchdata.json()
-        if(!fetchdata.ok){
-            console.log('qalad')
-            json.status(400).json({qalad: "qalad"})
-        }
-
-        if(fetchdata.ok){
-            console.log("comment added")
-            mypath.push('/Acount/orders')
-
-        }
-
-
-        // bilowga update xaalad
-
-        const GudoomayUpdate = await fetch(`/orders/xaalad/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify(Gobjs),
-            headers: {'Content-Type': 'application/json'}
-        })
-
-        const data = await GudoomayUpdate.json()
-        if(!GudoomayUpdate.ok){
-            console.log('qalad')
-            data.status(400).json({qalad: "qalad"})
-        }
-
-        if(GudoomayUpdate.ok){
-            console.log("gudoomay  added")
-        }
-
-
-        // bilowga update iibsade & qiimayn
-
-        const update_ib_qii = await fetch(`/jobs/update/${job._id}`, {
-            method: 'PUT',
-            body: JSON.stringify(iib_qiimaYN),
-            headers: {'Content-Type': 'application/json'}
-        })
-
-        if(!update_ib_qii.ok){
-            console.log('qalad shaqo update')
-            data.status(400).json({qalad: "qalad"})
-        }
-
-        if(update_ib_qii.ok){
-            console.log("qiimayn iyo iibsade  added")
+        }catch(Err){
+            console.log(Err)
         }
     }
+
+
     const xaalad0aad = useRef();
     const xaalad1aad = useRef();
     const xaalad2aad = useRef();
     const xaalad3aad = useRef();
 
 
-    // get data job 
+    // get order
     const db = getFirestore()
     const docref = doc(db, "Orders" , id)
     //const q = query(colref)    
@@ -130,36 +71,29 @@ function Gudoon(){
             setoneOrder({...doc.data(), id:doc.id})
         })
     }
-    useEffect(() => {
-        getsingaleorder()     
-    }, [])
 
 
-    // useEffect(() => {
-    //     fetch(`/jobs/${oneOrder && oneOrder.Jobid}`)
-    //     .then((response) => {
-    //         if(response){
-    //             return response.json()
-    //         }
-    //     })
-    //     .then((data) => {
-    //         setjob(data)
-    //     })
-    // }, [oneOrder])
-
-
-    useEffect(() => {
-        fetch(`/orders/${id}`)
-        .then((response) =>{
-            if(response){
-                return response.json()
-            }
+    // update xaalad gudoomay dalab
+    function update_q_ib(){
+        const ordref =  doc(db, "Orders", id)
+        updateDoc(ordref, {
+            gudoomay
         })
-        .then((data) =>{
-            setoneOrder(data)
+    }
+    //get user 
+    const Userref = doc(db, "Users" , userid)
+    //const q = query(colref)    
+    function  get_user(){
+        getDoc(Userref)
+        .then((doc) => {
+            setuser({...doc.data(), id:doc.id})
         })
-
+    }
+    useEffect(() => {
+        getsingaleorder() 
+        get_user()
     }, [oneOrder])
+
 
 
     function Changestatus(){
@@ -423,22 +357,22 @@ function Gudoon(){
                 <div className="iibiye_info">
                     <img id="la_xaqiijiyay" src="/images/tawsiiq.svg" alt="tawqsiiq" title="Waa La Xaqiijiyay" />
                     <div className="sir">
-                        <img src={user? user.image :"/images/avatar.jpg"} />
+                        <img src={user? user.Image :"/images/avatar.jpg"} />
                     </div>
                     <div className="info_seller">
                         {user ?  <Link to={`/Acount/${user.Name}/${user.id}`}>
                             <h2> {user? user.Name :"unknown user"}</h2>
-                        </Link> : ""}
+                        </Link> : <></>}
                         
-                        <p>  {user ? user.Job :  "unknown Description"}</p>
-                        <p className="qiimayn">
+                        <p>  {user ? user.info :  "unknown Description"}</p>
+                        {/* <p className="qiimayn">
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             (<span>23</span>) qof
-                        </p>
+                        </p> */}
                         {user ? <Link to={`/Chat`}>
                             <button><FontAwesomeIcon icon={faEnvelope} /> ila soo xidhiidh</button>
                         </Link> :"/"}

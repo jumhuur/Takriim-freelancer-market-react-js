@@ -6,7 +6,7 @@ import { Link, useHistory, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {format} from 'timeago.js'
-import {getFirestore,getDoc, doc } from "firebase/firestore";
+import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faMessage, faStar , faEnvelope , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 function My_Orders(){
     const {id} = useParams()
@@ -41,61 +41,32 @@ function My_Orders(){
         useEffect(() => {
             getonorder()     
         }, [jobfree])
-    const update_xaalad = async (e) => {
-        e.preventDefault()
-        const xaalad_dalab = {
-            xaalad,   
-        }
 
-        const response =  await fetch(`/orders/xaalad/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify(xaalad_dalab),
-            headers : {'Content-Type': 'application/json'}
+
+    // udate job (qiimayn & iibsade)
+    function update_Order(){
+        const jobref =  doc(db, "Orders", id)
+        updateDoc (jobref, {
+            xaalad ,
         })
-
-        const json = await response.json()
-        if(!response.ok){
-            console.log("qalad")
-        }
-
-        if(response.ok){
-            //history.push('/Acount/Myorder')
-            console.log('waa la badalay wax walba')
-        }
-
-        // setTimeout(() => {
-        //     setalertw(false)
-        // } , 10000)
     }
 
+    function update_done(){
+        const jobref =  doc(db, "Orders", id)
+        const xaalad = done
+        updateDoc (jobref, {
+            xaalad,
+            image
+        })
+    }
+    const update_xaalad = async (e) => {
+        e.preventDefault()
+        update_Order()
+    }
 
     const update_xaalad_done = async (e) => {
-        const xaalad = done
         e.preventDefault()
-        const xaalad_dalab = {
-            xaalad,
-            image  
-        }
-
-        const response =  await fetch(`/orders/xaalad/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify(xaalad_dalab),
-            headers : {'Content-Type': 'application/json'}
-        })
-
-        const json = await response.json()
-        if(!response.ok){
-            console.log("qalad")
-        }
-
-        if(response.ok){
-            //history.push('/Acount/Myorder')
-            console.log('waa la badalay wax walba')
-        }
-
-        // setTimeout(() => {
-        //     setalertw(false)
-        // } , 10000)
+        update_done()
     }
 
 
@@ -136,6 +107,10 @@ function My_Orders(){
             console.log(e)
         })
     }
+     const xaalad1aad = "1"
+     const xaalad2aad = "2"
+     const xaalad3aad = "3"
+
     return(
     <div>
         <Holder />
@@ -249,30 +224,33 @@ function My_Orders(){
                             <form method="put" onSubmit={update_xaalad}>
                                 {jobfree.xaalad == "0" ?
                                 <div>
-                                <select name="xaalad" value={xaalad} onInput={(e => setxaalad(e.target.value))}>
-                                <option value={"0"}>
-                                    Dooro Xaalada
-                                </option>
-                                <option value={"1"}>
-                                    Waan Bilabay Shaqada
-                                </option>
-                                <option value={"3"}>
-                                    Waan Ka Laabtay Dalabkan
-                                </option>
-                                </select>
+                                <div className="xaalad">
+                                    <div className="x_1aad">
+                                    <input value="1" id="Bilaabay" type="radio" required name="xaalad"
+                                    onClick={(e) => setxaalad(xaalad1aad, console.log(xaalad))}
+                                    />
+                                    <label htmlFor="Bilaabay">Waan Bilaabay</label>
+                                    </div>
+                                    <div className="x_1aad">
+                                    <input value="3" id="laabtay" type="radio" required name="xaalad" 
+                                    onClick={(e) => setxaalad(xaalad3aad ,  console.log(xaalad))}
+                                    />
+                                    <label htmlFor="laabtay">Ka Laabo Shaqada</label>
+                                    </div>
+                                </div>
                                     <button type="submit">Cusbonaysii Xaalada</button>
                                 </div>
                         
                                 :jobfree.xaalad == "1" ?
                                 <div>
-                                <select name="xaalad" value={xaalad} onInput={(e => setxaalad(e.target.value))}>
-                                <option value={"1"}>
-                                Dooro Xaalada
-                                </option>
-                                <option value={"2"}>
-                                    Waan Udhameeyay Dalabka
-                                </option>
-                                </select>
+                                <div className="xaalad">
+                                    <div className="x_1aad">
+                                    <input value="2" id="Bilaabay" type="radio" required name="xaalad"
+                                    onClick={(e) => setxaalad(xaalad2aad, console.log(xaalad))}
+                                    />
+                                    <label htmlFor="Bilaabay">Waan Dhameeyay</label>
+                                    </div>
+                                </div>
                                 <button  type="submit">Cusbonaysii Xalada</button>
                                 </div>
                                 :jobfree.xaalad == "2" ||  jobfree.xaalad == "Done" ?
