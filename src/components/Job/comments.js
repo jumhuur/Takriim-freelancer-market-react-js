@@ -6,8 +6,6 @@ import formatDistanceToNow  from "date-fns/formatDistanceToNow"
 
 function Commenst({thisid}){
     const [comments , setcomments] = useState(null)
-
-    
     useEffect(() =>{
         fetch("/Comments")
         .then((response) =>{

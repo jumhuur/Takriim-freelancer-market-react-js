@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import {faCarSide, faIdCard, faMoneyCheck, faPeopleGroup, faSdCard, faStar,} from "@fortawesome/free-solid-svg-icons";
+import {faCarSide, faIdCard, faMoneyCheck, faPeopleGroup, faStar,} from "@fortawesome/free-solid-svg-icons";
 function Jobs({Jobsset}){
     return(
         <div className="tranding_haye main">
-            {Jobsset.map(listdata => (
+            {Jobsset && Jobsset.map(listdata => (
                  <div className="card_template" key={listdata._id}>
                  <div className="imges">
                      <img src={listdata.image ? listdata.image : "/images/asalahaan.png"} alt="sawir_template" />

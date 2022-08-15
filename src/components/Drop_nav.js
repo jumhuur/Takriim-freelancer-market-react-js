@@ -1,10 +1,10 @@
 import { Link, useHistory } from "react-router-dom"
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import {faCirclePlus,faRightFromBracket,faToolbox , faUser,faSackDollar ,faFileInvoiceDollar} from "@fortawesome/free-solid-svg-icons";
+import {faCirclePlus,faRightFromBracket,faToolbox , faUser,faSackDollar ,faFileInvoiceDollar,faGear} from "@fortawesome/free-solid-svg-icons";
 import {UseAuth } from "../components/context/authcontext"
 
 function Drop_nav({drop}){
-    const {Logout , crentuser} =  UseAuth()
+    const {Logout , crentuser , user_data} =  UseAuth()
     const home = useHistory()
 
 
@@ -46,6 +46,11 @@ function Drop_nav({drop}){
                         <FontAwesomeIcon className="i" icon={faSackDollar} />  Lacag La Bax
                     </Link>
                 </li>
+                {/* <li id="Dr">
+                    <Link to={'/Acount/Cashout'}>
+                        <FontAwesomeIcon className="i" icon={faGear} /> Maarayn
+                    </Link>
+                </li> */}
                 <li id="Dr">
                     <Link onClick={logouthanle}>
                     <FontAwesomeIcon className="i" icon={faRightFromBracket} /> Xidho

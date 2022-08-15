@@ -3,8 +3,26 @@ import Aside from "../Aside";
 import Jobs from "../Jobs";
 import Jobskl from "../skaltons/Jobskalaton";
 import auth from "../Acount/Sinup";
+//import { collection,getFirestore, query, onSnapshot } from "firebase/firestore";
 function ContentHome(){
     const [JobsData, setDataJobs] = useState(null)
+    // //get data user 
+    // const db = getFirestore()
+    // const colref = collection(db, "Jobs")
+    // const q = query(colref)    
+    // //hellida docs 
+    // async function  getdaata_user(){
+    //     onSnapshot (q, (snapshot) => {
+    //         const Dhaq1aad = []
+    //         snapshot.docs.forEach((doc) => {
+    //             Dhaq1aad.push({...doc.data(), id:doc.id})
+    //         })
+    //         setDataJobs(Dhaq1aad)
+    //         JobsData.json()
+    //     })
+    // }
+
+
     useEffect((function(){
         const objects  = async () => {
             const data =  await fetch('/jobs/Home');
@@ -14,7 +32,8 @@ function ContentHome(){
             }
         }
         objects()
-        //setDataJobs(listdata)
+        //getdaata_user()
+        console.log(JobsData)
     }), [])
     return(
         <section className="sliding">

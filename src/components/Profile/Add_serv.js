@@ -82,6 +82,22 @@ function Add_servece(){
     }
     const Adddata = async (e) =>{
         e.preventDefault()
+        // await Add_job(
+        //     title,
+        //      body , 
+        //      Qiimaha ,
+        //      Qiimayn ,
+        //      Xadiga ,
+        //      Nooca,
+        //      Mudada , 
+        //      Qaybid, 
+        //      image,
+        //      iibsade,
+        //      xaalad,
+        //      qodob1aad,
+        //      qodob2aad,
+        //      UserId 
+        // )
         const jobs = {
             title,
              body , 
@@ -119,8 +135,6 @@ function Add_servece(){
         setTimeout(() => {
             setalertw(false)
         } , 10000)
-
-        console.log(jobs)
         
     }
 

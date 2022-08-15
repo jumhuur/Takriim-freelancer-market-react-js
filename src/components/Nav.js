@@ -92,8 +92,8 @@ function Nav(){
                 </a>
             </li>
             <li>
-                <a href="#">
-                    Takriim Org
+                <a href="https://e-sako.web.app/">
+                    E-sako Web
                 </a>
             </li>
             <li className="btn">

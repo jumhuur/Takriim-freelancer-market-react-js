@@ -7,11 +7,13 @@ import Jobskl from '../skaltons/Jobskalaton';
 import NavHolder  from '../NavHolder';
 import Asideuser from '../Profile/Aside_Profile';
 import AllDatUser from '../Profile/UserData';
-
-function Rasiid({user_r}){
+import { UseAuth } from "../context/authcontext";
+function Rasiid(){
     const {id} = useParams()
     const [user , setuser] =useState(null)
     const [j_user , setj_user] =useState(null)
+    const {user_data , crentuser} = UseAuth()
+
     useEffect(() =>{
         fetch(`http://localhost:800/User/${id}`)
         .then((response) =>{
@@ -33,25 +35,28 @@ function Rasiid({user_r}){
         })
     },[])
 
+    console.log(user_data)
+
 
     return(
         <>
         <NavHolder />
+        {user_data && user_data.map((cash) => 
         <section className="orders invocs"> 
             <div className="xajiye kala_qayb">
                 <Asideuser />
                 <div className="tranding_haye">
                 <div className="pro_rasiid">
                 <div className="total">
-                    <h2>{user_r && user_r.m_total}$</h2>
+                    <h2>{cash.r_Total} $</h2>
                     <p><FontAwesomeIcon className="i" icon={faChartLine} /> Totalkaaga</p>
                 </div>
                 <div className="pannding">
-                    <h2>{user_r && user_r.m_pandding}$</h2>
+                    <h2>{cash.r_Xidhan} $</h2>
                     <p><FontAwesomeIcon className="i" icon={faSackXmark} /> Lacagta Kaa Xidhan</p>
                 </div>
                 <div className="avalible">
-                    <h2>{user_r && user_r.m_avalible}$</h2>
+                    <h2>{cash.r_Furan} $</h2>
                     <p> <FontAwesomeIcon className="i" icon={faWallet} /> Lacagta kuu furan</p>
                 </div>
                 </div>
@@ -98,7 +103,9 @@ function Rasiid({user_r}){
             )) : <Jobskl />}
                 </div>
             </div>
-    </section>
+        </section>
+        )}
+
         </>
     )
 }
