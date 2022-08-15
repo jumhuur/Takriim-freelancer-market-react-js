@@ -18,29 +18,63 @@ export function AuthProvader({children}){
     const [user_data , setuser_data] = useState(null)
     const [active , setactive] = useState("")
     const useruid = crentuser && crentuser.uid
-    // data user 
-
+    
+    // add job 
     const db = getFirestore()
-    function Add_job(title, body , image , Qiimaha , Qiimayn, Xadiga, Nooca ,Qaybid, Mudada,iibsade,xaalad,qodob1aad,qodob2aad,  UserId){
-        return setDoc(doc(db, "Jobs", UserId), {
+    function Add_job(title, body , image , Qiimaha , Qiimayn, Xadiga, Nooca ,Qaybid, Mudada,iibsade,xaalad,qodob1aad,qodob2aad,  UserId,){
+        return setDoc(doc(db, "Jobs", `job${Date.now()}`), {
             title,
-             body , 
+             body ,
+             image,
              Qiimaha ,
              Qiimayn ,
              Xadiga ,
              Nooca,
-             Mudada , 
              Qaybid, 
-             image,
+             Mudada , 
              iibsade,
              xaalad,
              qodob1aad,
-             qodob2aad,  
+             qodob2aad, 
+             UserId,
+             CreatedAt:Date.now()
         })
     }
 
 
-    function Add_userdata(Name, Nooc , Image , Heerka , Magaalada, info, r_Total ,r_Xidhan, r_Furan,  user_id){
+
+    // add order
+
+    function add_order(Loobahanyahay,lanbarka,image,gudoomay,title,Qiimaha,Dalbade_id,UserId,Jobid,Mudada,Xadiga,Nooca,xaalad,Qodobka1aad,Qodobka2aad){
+        return setDoc(doc(db, 'Orders',`order${Date.now()}`), {
+            Loobahanyahay,
+            lanbarka,
+            image,
+            gudoomay,
+            title,
+            Qiimaha,
+            Dalbade_id,
+            UserId,
+            Jobid,
+            Mudada,
+            Xadiga,
+            Nooca,
+            xaalad,
+            Qodobka1aad,
+            Qodobka2aad,
+            CreatedAt:Date.now()
+        })
+    }
+
+
+
+
+    //aad comment 
+
+
+
+    //add user info
+    function Add_userdata(Name, Nooc , Image , Heerka , Magaalada, info, r_Total ,r_Xidhan, r_Furan, uid,  user_id){
         return setDoc(doc(db, "Users", user_id), {
             Name,
             Image,
@@ -51,6 +85,7 @@ export function AuthProvader({children}){
             r_Total,
             r_Xidhan,
             r_Furan,
+            uid
         })
     }
 
@@ -86,7 +121,8 @@ export function AuthProvader({children}){
         Add_userdata,
         user_data,
         setuser_data,
-        Add_job
+        Add_job,
+        add_order
     }
 
     return(

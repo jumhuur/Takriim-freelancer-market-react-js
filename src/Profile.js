@@ -10,7 +10,7 @@ import Jobskl from './components/skaltons/Jobskalaton';
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faMoneyCheck, faPeopleGroup, faStar,faWallet ,faChartLine ,faSackXmark} from "@fortawesome/free-solid-svg-icons";
 import {UseAuth} from "./components/context/authcontext"
-import { collection, onSnapshot , query, getFirestore } from 'firebase/firestore';
+import { collection, onSnapshot , query, getFirestore , where} from 'firebase/firestore';
 
 function Profile(){
     const {id} = useParams()
@@ -23,38 +23,53 @@ function Profile(){
     // get data user 
     const db = getFirestore()
     const colref = collection (db, "Users")
-    const q = query(colref)    
+    const q = query(colref, where('uid', "==" , id_user))    
     //hellida docs 
     function getdaata_user(){
         onSnapshot (q, (snapshot) => {
             const Dhaq1aad = []
             snapshot.docs.forEach((doc) => {
-                if(doc.id == id_user){
                     Dhaq1aad.push({...doc.data(), id:doc.id})
-                }
             })
             setuser_data(Dhaq1aad)
         })
     }
+
+        //get data user 
+        const colref_jobs = collection(db, "Jobs")
+        const jobsq = query(colref_jobs , where('UserId' , "==" ,id_user ))    
+        //hellida docs 
+        async function get_jobs(){
+            onSnapshot (jobsq, (snapshot) => {
+                const Dhaq1aad = []
+                snapshot.docs.forEach((doc) => {
+                    Dhaq1aad.push({...doc.data(), id:doc.id})
+                })
+                setj_user(Dhaq1aad)
+            })
+        }
+
+    console.log(user_data)
     useEffect(() =>{
-        fetch(`http://localhost:800/User/${id}`)
-        .then((response) =>{
-            let crime = response.json()
-            fetch('/jobs')
-            .then((res) => {
-                let db = res.json()
-                return db
-            })
-            .then((data_db) =>{
-                setj_user(data_db)
-            })
-            return crime
-        })
-        .then((data) => {
-            setuser(data)
-        })
+        // fetch(`http://localhost:800/User/${id}`)
+        // .then((response) =>{
+        //     let crime = response.json()
+        //     fetch('/jobs')
+        //     .then((res) => {
+        //         let db = res.json()
+        //         return db
+        //     })
+        //     .then((data_db) =>{
+        //         setj_user(data_db)
+        //     })
+        //     return crime
+        // })
+        // .then((data) => {
+        //     setuser(data)
+        // })
 
         getdaata_user()
+        get_jobs()
     },[crentuser])
     return(
         <div>
@@ -82,13 +97,13 @@ function Profile(){
                 )}
                 <TiroKoob />
             {j_user?  j_user.filter((data => data.UserId == id)).map(listdata => (
-             <div className="card_template" key={listdata._id}>
+             <div className="card_template" key={listdata.id}>
              <div className="imges">
                  <img src={listdata.image} alt="sawir_template" />
              </div>
              <div className="macluumaad">
                  <div className="qoraalo">
-                     <Link to={`/jobs/${listdata._id}/User/${listdata.UserId}`}>
+                     <Link to={`/jobs/${listdata.id}/User/${listdata.UserId}`}>
                          <h2>{listdata.title}</h2>
                          <p>{listdata.body.substr(1,170)}...</p>
                      </Link>

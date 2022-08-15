@@ -5,13 +5,13 @@ function Jobs({Jobsset}){
     return(
         <div className="tranding_haye main">
             {Jobsset && Jobsset.map(listdata => (
-                 <div className="card_template" key={listdata._id}>
+                 <div className="card_template" key={listdata.id}>
                  <div className="imges">
                      <img src={listdata.image ? listdata.image : "/images/asalahaan.png"} alt="sawir_template" />
                  </div>
                  <div className="macluumaad">
                      <div className="qoraalo">
-                         <Link to={`/jobs/${listdata._id}/User/${listdata.UserId}`}>
+                         <Link to={`/jobs/${listdata.id}/User/${listdata.UserId}`}>
                              <h2>{listdata.title}</h2>
                              <p>{listdata.body.substr(1,170)}...</p>
                          </Link>

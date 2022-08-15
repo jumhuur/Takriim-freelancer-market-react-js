@@ -7,19 +7,29 @@ import { useEffect, useState } from "react";
 import Jobskl from "../skaltons/Jobskalaton";
 import {format} from "timeago.js";
 import {UseAuth} from "../context/authcontext"
+import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
 function OrderUsers(){
     const [order, setorder] = useState(null)
     const {crentuser } = UseAuth()
+
+    //get data ordrer frelancer 
+    const db = getFirestore()
+    const colref = collection(db, "Orders")
+    const q = query(colref,  orderBy('CreatedAt'))    
+    //hellida docs 
+    async function  getdaata_order(){
+        onSnapshot (q, (snapshot) => {
+            const Dhaq1aad = []
+            snapshot.docs.forEach((doc) => {
+                Dhaq1aad.push({...doc.data(), id:doc.id})
+            })
+            setorder(Dhaq1aad)
+        })
+    }
+
     useEffect((function(){
-        fetch('/orders')
-        .then((response) =>{
-            if(response){
-                return response.json()
-            }
-        })
-        .then((data) =>{
-            setorder(data)
-        })
+        getdaata_order()
+
     }), [order])
     return(
         <div>
@@ -44,7 +54,7 @@ function OrderUsers(){
                 </div>
                 <div className="macluumaad">
                     <div className="qoraalo">
-                        <Link to={`/Acount/order/Info/${dat_order._id}/${dat_order.UserId}`}>
+                        <Link to={`/Acount/order/Info/${dat_order.id}/${dat_order.UserId}`}>
                             <h2>{dat_order.title}</h2>
                             <p>
                             Dalabkaaga waad gudbisay macmiil waxaanan rajaynaynaa inaad ku qancid doonta 
@@ -82,7 +92,7 @@ function OrderUsers(){
                                 </li>
                             }
                             <li>
-                            <FontAwesomeIcon className="i" icon={faClock} /> <span>{format(dat_order.createdAt)}</span>
+                            <FontAwesomeIcon className="i" icon={faClock} /> <span>{format(dat_order.CreatedAt)}</span>
                             </li>
                         </ul>
                         <div className="btn_shaqo">

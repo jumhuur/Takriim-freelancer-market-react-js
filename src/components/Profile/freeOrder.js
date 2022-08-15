@@ -6,6 +6,7 @@ import { Link, useHistory, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {format} from 'timeago.js'
+import {getFirestore,getDoc, doc } from "firebase/firestore";
 import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faMessage, faStar , faEnvelope , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 function My_Orders(){
     const {id} = useParams()
@@ -27,39 +28,19 @@ function My_Orders(){
 
     const history = useHistory()
 
-    useEffect(function(){
-        fetch(`/orders/${id}`)
-        .then((res) =>{
-            if(res.ok){
-                return res.json()
-            }
-        })
-        .then((data) => {
-            setjobfree(data)
-        })
-
-        // if(jobfree && jobfree.xaalad == "0" ){
-        //     setxaalad("0")
-        // } else if(jobfree && jobfree.xaalad == "1"){
-        //     setxaalad("1")
-        // }
-
-    }, [])
-
-    useEffect(() => {
-        fetch(`/orders/${id}`)
-        .then((res) =>{
-            if(res.ok){
-                return res.json()
-            }
-        })
-        .then((data) => {
-            setjobfree(data)
-        })
-    }, [jobfree])
-
-
-
+        // get data job 
+        const db = getFirestore()
+        const docref = doc(db, "Orders" , id)
+        //const q = query(colref)    
+        function  getonorder(){
+            getDoc(docref)
+            .then((doc) => {
+                setjobfree({...doc.data(), id:doc.id})
+            })
+        }
+        useEffect(() => {
+            getonorder()     
+        }, [jobfree])
     const update_xaalad = async (e) => {
         e.preventDefault()
         const xaalad_dalab = {

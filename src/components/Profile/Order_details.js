@@ -8,12 +8,13 @@ import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortaw
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {UseAuth} from "../context/authcontext"
 import {useDatacontext} from "../context/dataContext"
+import {getFirestore,getDoc, doc } from "firebase/firestore";
 function OrderDetailscheckh(){
     const {id} = useParams()
     const [order, setorder] = useState(null)
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
-    const {crentuser} = UseAuth()
+    const {crentuser , add_order} = UseAuth()
     const {xadiga} = useDatacontext()
     const path = `/Order/Complated/${id}`
     const mypath = useHistory()
@@ -57,16 +58,28 @@ function OrderDetailscheckh(){
         if(!crentuser){
             path_kale.push("/Acount/login")
         }
+
+    // get data job 
+    const db = getFirestore()
+    const docref = doc(db, "Jobs" , id)
+    //const q = query(colref)    
+    function  getsingalejob(){
+        getDoc(docref)
+        .then((doc) => {
+            setorder(doc.data())
+        })
+    }
     useEffect(function(){
-        fetch(`/jobs/${id}`)
-        .then((res) =>{
-            if(res.ok){
-                return res.json()
-            }
-        })
-        .then((data) => {
-            setorder(data)
-        })
+        // fetch(`/jobs/${id}`)
+        // .then((res) =>{
+        //     if(res.ok){
+        //         return res.json()
+        //     }
+        // })
+        // .then((data) => {
+        //     setorder(data)
+        // })
+        getsingalejob()
 
     }, [])
 
@@ -127,41 +140,66 @@ function OrderDetailscheckh(){
 
     const add_your_order = async (e) =>{
         e.preventDefault()
-        const order = {
-            Loobahanyahay,
-            lanbarka,
-            image,
-            gudoomay,
-            title,
-            Qiimaha,
-            Dalbade_id,
-            UserId,
-            Jobid,
-            Mudada,
-            Xadiga,
-            Nooca,
-            xaalad,
-            Qodobka1aad,
-            Qodobka2aad,
-        }
+        try{
 
-        const response = await fetch('/orders', {
-            method: "POST",
-            body: JSON.stringify(order),
-            headers : {'Content-Type': 'application/json'}
-        })
+            await add_order(
+                Loobahanyahay,
+                lanbarka,
+                image,
+                gudoomay,
+                title,
+                Qiimaha,
+                Dalbade_id,
+                UserId,
+                Jobid,
+                Mudada,
+                Xadiga,
+                Nooca,
+                xaalad,
+                Qodobka1aad,
+                Qodobka2aad,
+            )
 
-        const json = await response.json()
-        if(!response.ok){
-            console.log("qalad")
-        }
-
-        if(response.ok){
-            console.log('order complated')
             mypath.push(`/Order/Complated/${id}`)
-            window.localStorage.clear()
+
+
+        } catch(err){
+            console.log(err)
         }
-        console.log(order)
+        // const order = {
+            // Loobahanyahay,
+            // lanbarka,
+            // image,
+            // gudoomay,
+            // title,
+            // Qiimaha,
+            // Dalbade_id,
+            // UserId,
+            // Jobid,
+            // Mudada,
+            // Xadiga,
+            // Nooca,
+            // xaalad,
+            // Qodobka1aad,
+            // Qodobka2aad,
+        // }
+
+        // const response = await fetch('/orders', {
+        //     method: "POST",
+        //     body: JSON.stringify(order),
+        //     headers : {'Content-Type': 'application/json'}
+        // })
+
+        // const json = await response.json()
+        // if(!response.ok){
+        //     console.log("qalad")
+        // }
+
+        // if(response.ok){
+        //     mypath.push(`/Order/Complated/${id}`)
+        //     window.localStorage.clear()
+        // }
+        // console.log(order)
     }
     return(
         <div>

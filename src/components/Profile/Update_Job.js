@@ -9,6 +9,7 @@ import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortaw
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import {UseAuth } from '../context/authcontext'
+import { collection,getFirestore, query, onSnapshot, limit, orderBy, doc, getDoc, updateDoc } from "firebase/firestore";
 
 function Upadate_job(){
     const {id} = useParams()
@@ -84,69 +85,59 @@ function Upadate_job(){
             console.log(e)
         })
     }
+
+
+    function update_job(){
+        const dcolref =  doc(db, "Jobs", id)
+        updateDoc(dcolref, {
+            title,
+            body , 
+            Qiimaha ,
+            Xadiga ,
+            Nooca,
+            Mudada , 
+            Qaybid, 
+            image,
+            qodob1aad,
+            qodob2aad,
+        })
+
+        history.push("/")
+    }
     const Adddata = async (e) =>{
         e.preventDefault()
-        const jobs = {
-            title,
-             body , 
-             Qiimaha ,
-             Xadiga ,
-             Nooca,
-             Mudada , 
-             Qaybid, 
-             image,
-             qodob1aad,
-             qodob2aad,        
-        }
-        const response =  await fetch(`/jobs/update/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify(jobs),
-            headers : {'Content-Type': 'application/json'}
-        })
-        const json = await response.json()
-        if(!response.ok){
-            setqalad(json.error)
-            console.log(qalad)
-            setgood('Waan Ka Xumahay Laguma Guulaysan hawshan')
-            setalertw(true)
-        }
-
-        if(response.ok){
-            setqalad(null)
-            history.push('/')
-        }
-
-        setTimeout(() => {
-            setalertw(false)
-        } , 10000)
-        
+        update_job()
     }
 
 
+    //get data user 
+    const db = getFirestore()
+    const docref = doc(db, "Jobs" , id)
+    //const q = query(colref)    
+    function  get_on_job(){
+        getDoc(docref)
+        .then((doc) => {
+            setval({...doc.data(), id:doc.id})
+        })
+    }
 
+        //get data user 
+        const qaybref = collection(db, "Qaybo")
+        const q_qayb = query(qaybref, orderBy("CreatedAt"))    
+        //hellida docs 
+        async function  get_qaybo_list(){
+            onSnapshot (q_qayb, (snapshot) => {
+                const Dhaq1aad = []
+                snapshot.docs.forEach((doc) => {
+                    Dhaq1aad.push({...doc.data(), id:doc.id})
+                })
+                setlist(Dhaq1aad)
+            })
+        }
 
     useEffect(() =>{
-        const getlist_qayb = async () =>{
-            const data_list = await fetch('/qaybo')
-            const respon = await data_list.json()
-            if(data_list.ok){
-                setlist(respon)
-            }
-        }
-
-        getlist_qayb()
-
-
-        const upadatevalu = async () =>{
-            const data_list = await fetch(`/jobs/${id}`)
-            const respon = await data_list.json()
-            if(data_list.ok){
-                setval(respon)
-            }
-            onchange()
-            //setfilename(val.image)
-        }
-        upadatevalu()
+        get_on_job()
+        get_qaybo_list()
     },[])
 
 
@@ -188,7 +179,7 @@ function Upadate_job(){
                                 value={Qaybid}
                             >
                                {list && list.map((listdata) =>(
-                                    <option key={listdata._id} value={listdata._id}>{listdata.Name}</option>
+                                    <option key={listdata.id} value={listdata.id}>{listdata.Name}</option>
                                ))}
                             </select>
                             <label htmlFor="qaab">Sawirka 1aad</label>

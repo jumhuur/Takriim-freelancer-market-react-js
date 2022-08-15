@@ -5,21 +5,33 @@ import Holder from "./components/NavHolder";
 import Qaybcontent from "./components/qayb/qaybcontent";
 import QaybUbuc from "./components/qayb/qaybUbuc";
 import Qaybdetailsskl from "./components/skaltons/Qaybubuxskl";
-
+import {getFirestore,getDoc, doc } from "firebase/firestore";
 function Qaybdetails(){
     const {id} = useParams()
     const [Qaybdetails ,setQaybdetails] = useState()
 
+    // get data job 
+    const db = getFirestore()
+    const docref = doc(db, "Qaybo" , id)
+    //const q = query(colref)    
+    function  get_qaybo(){
+        getDoc(docref)
+        .then((doc) => {
+            setQaybdetails({...doc.data(), id:doc.id})
+        })
+    }
     useEffect(function(){
-        fetch(`/qaybo/${id}`)
-        .then((res) =>{
-            if(res.ok){
-                return res.json()
-            }
-        })
-        .then((data) => {
-            setQaybdetails(data)
-        })
+        // fetch(`/qaybo/${id}`)
+        // .then((res) =>{
+        //     if(res.ok){
+        //         return res.json()
+        //     }
+        // })
+        // .then((data) => {
+        //     setQaybdetails(data)
+        // })
+
+        get_qaybo()
 
     } ,[])
     return(

@@ -5,31 +5,28 @@ import { Link, useParams } from "react-router-dom";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faMoneyCheck, faPeopleGroup, faStar,} from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
+import { collection,getFirestore, query, onSnapshot, orderBy } from "firebase/firestore";
 
 function Qaybcontent(){
     const {id} = useParams()
     const [jobqayb, setJobqayb] = useState(null)
     const main = useRef(null)
-    useEffect(() => {
-
-        const get_part_data = async () => {
-            const Getdata = await fetch('/jobs')
-            const data = await Getdata.json()
-            if(Getdata.ok){
-                setJobqayb(data)
-            }
+        //get data user 
+        const db = getFirestore()
+        const colref = collection(db, "Jobs")
+        const q = query(colref, orderBy("CreatedAt"))    
+        //hellida docs 
+        async function  get_content(){
+            onSnapshot (q, (snapshot) => {
+                const Dhaq1aad = []
+                snapshot.docs.forEach((doc) => {
+                    Dhaq1aad.push({...doc.data(), id:doc.id})
+                })
+                setJobqayb(Dhaq1aad)
+            })
         }
-        get_part_data()
-
-        // fetch('/jobs')
-        // .then((res) =>{
-        //     if(res.ok){
-        //         return res.json()
-        //     }
-        // })
-        // .then((data) => {
-        //     setJobqayb(data)
-        // })
+    useEffect(() => {
+        get_content()
     }, [])
      
     return(
@@ -39,13 +36,13 @@ function Qaybcontent(){
             {/* <!---------------biloga shaqooyinka -------------------> */}
             <div className="tranding_haye main" ref={main}>    
             {jobqayb ? jobqayb.filter((list => list.Qaybid == id)).map(listdata => (
-                 <div className="card_template" key={listdata._id}>
+                 <div className="card_template" key={listdata.id}>
                  <div className="imges">
                      <img src={listdata.image} alt="sawir_template" />
                  </div>
                  <div className="macluumaad">
                      <div className="qoraalo">
-                         <Link to={`/jobs/${listdata._id}/User/${listdata.UserId}`}>
+                         <Link to={`/jobs/${listdata.id}/User/${listdata.UserId}`}>
                              <h2>{listdata.title}</h2>
                              <p>{listdata.body.substr(1,170)}...</p>
                          </Link>

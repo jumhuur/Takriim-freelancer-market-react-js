@@ -7,6 +7,7 @@ import {faSpinner, faStar , faUserGroup , faUserTie , faTrashCanArrowUp , faGear
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useState } from "react";
 import {UseAuth} from "../context/authcontext"
+import { useEffect } from "react";
 function JobContent({jobdetails ,user}){
     const {id} = useParams()
     const [active , setactive] = useState (false)
@@ -16,6 +17,9 @@ function JobContent({jobdetails ,user}){
     function settings_handle(e){
         !active ? setactive(true) : setactive(false)
     }
+
+
+    // delete data job 
 
     const deletemasax = async () => {
             const response = await fetch(`/jobs/${id}`, {
@@ -29,6 +33,9 @@ function JobContent({jobdetails ,user}){
         }
 
     }
+
+
+
     return(
         <section className="main_shaqo">
             <div className="xajiye">
@@ -38,12 +45,12 @@ function JobContent({jobdetails ,user}){
                         {crentuser && crentuser.uid == jobdetails.UserId ?
                         <>
                         <div onClick={settings_handle} className="upadate_job">
-                        <FontAwesomeIcon icon={faGear} className={jobdetails._id} id="i" />
+                        <FontAwesomeIcon icon={faGear} className={jobdetails.id} id="i" />
                         </div>
                         <div  className={active ? 'nav_job active' : "nav_job"} data={jobdetails._id}>
                             <ul id='nav_jobs'>
                                 <li>
-                                    <Link to={`/job/upadate/${jobdetails._id}`}>
+                                    <Link to={`/job/upadate/${jobdetails.id}`}>
                                         <FontAwesomeIcon icon={faPenToSquare} /> Cusbonaysii
                                     </Link>
                                 </li>
@@ -66,7 +73,7 @@ function JobContent({jobdetails ,user}){
                                     <li className="img_iibiye">
                                         <img id="la_xaqiijiyay" src="/images/tawsiiq.svg" alt="tawqsiiq" title="Waa La Xaqiijiyay" />
                                         <div className="ss_ibiye">
-                                            <img src={user ? user.image : "/images/avatar.jpg"} title="sawirka iibiyaha" alt="sawie_iibiye" />
+                                            <img src={user ? user.Image : "/images/avatar.jpg"} title="sawirka iibiyaha" alt="sawie_iibiye" />
                                         </div>
                                     </li>
                                     <li>
@@ -117,7 +124,7 @@ function JobContent({jobdetails ,user}){
 
                     </div>
                     {/* <!----------- aside card -----> */}
-                    <AsideJob jobmudo={jobdetails.Mudada} qiimojob={jobdetails.Qiimaha} Jobxadiga={jobdetails.Xadiga} job={jobdetails} user={user}/>
+                    <AsideJob jobmudo={jobdetails.Mudada} qiimojob={jobdetails.Qiimaha} Jobxadiga={jobdetails.Xadiga} job={jobdetails} jobid={jobdetails.id} user={user}/>
                 </div>
             </div>
         </section>

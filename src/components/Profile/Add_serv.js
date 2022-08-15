@@ -9,6 +9,7 @@ import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortaw
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import {UseAuth } from '../context/authcontext'
+import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
 
 function Add_servece(){
     const [good, setgood] = useState()
@@ -16,7 +17,7 @@ function Add_servece(){
     const [filezise , setfilezise] = useState(null)
     const [list , setlist] = useState(null)
     const history = useHistory()
-    const {crentuser } = UseAuth()
+    const {crentuser,Add_job } = UseAuth()
 
     // states from 
     const [title , settitle] = useState("")
@@ -82,7 +83,29 @@ function Add_servece(){
     }
     const Adddata = async (e) =>{
         e.preventDefault()
-        // await Add_job(
+        try {
+        await Add_job(
+            title,
+             body ,
+             image,
+             Qiimaha ,
+             Qiimayn ,
+             Xadiga ,
+             Nooca,
+             Qaybid, 
+             Mudada , 
+             iibsade,
+             xaalad,
+             qodob1aad,
+             qodob2aad, 
+             UserId,
+        )
+        history.push('/')
+        } catch(err){
+            console.log(err)
+        }
+
+        // const jobs = {
         //     title,
         //      body , 
         //      Qiimaha ,
@@ -90,66 +113,55 @@ function Add_servece(){
         //      Xadiga ,
         //      Nooca,
         //      Mudada , 
+        //      UserId ,
         //      Qaybid, 
         //      image,
         //      iibsade,
         //      xaalad,
         //      qodob1aad,
-        //      qodob2aad,
-        //      UserId 
-        // )
-        const jobs = {
-            title,
-             body , 
-             Qiimaha ,
-             Qiimayn ,
-             Xadiga ,
-             Nooca,
-             Mudada , 
-             UserId ,
-             Qaybid, 
-             image,
-             iibsade,
-             xaalad,
-             qodob1aad,
-             qodob2aad,        
-        }
-        const response =  await fetch('/jobs', {
-            method: 'POST',
-            body: JSON.stringify(jobs),
-            headers : {'Content-Type': 'application/json'}
-        })
-        const json = await response.json()
-        if(!response.ok){
-            setqalad(json.error)
-            console.log(qalad)
-            setgood('Waan Ka Xumahay Laguma Guulaysan hawshan')
-            setalertw(true)
-        }
+        //      qodob2aad,        
+        // }
+        // const response =  await fetch('/jobs', {
+        //     method: 'POST',
+        //     body: JSON.stringify(jobs),
+        //     headers : {'Content-Type': 'application/json'}
+        // })
+        // const json = await response.json()
+        // if(!response.ok){
+        //     setqalad(json.error)
+        //     console.log(qalad)
+        //     setgood('Waan Ka Xumahay Laguma Guulaysan hawshan')
+        //     setalertw(true)
+        // }
 
-        if(response.ok){
-            setqalad(null)
-            history.push('/')
-        }
+        // if(response.ok){
+        //     setqalad(null)
+        //     history.push('/')
+        // }
 
-        setTimeout(() => {
-            setalertw(false)
-        } , 10000)
+        // setTimeout(() => {
+        //     setalertw(false)
+        // } , 10000)
         
+    }
+    //get data user 
+    const db = getFirestore()
+    const colref = collection(db, "Qaybo")
+    const q = query(colref, limit(8), orderBy("CreatedAt"))    
+    //hellida docs 
+    async function  getlist_qayb(){
+        onSnapshot (q, (snapshot) => {
+            const Dhaq1aad = []
+            snapshot.docs.forEach((doc) => {
+                Dhaq1aad.push({...doc.data(), id:doc.id})
+            })
+            setlist(Dhaq1aad)
+        })
     }
 
 
 
-
     useEffect(() =>{
-        const getlist_qayb = async () =>{
-            const data_list = await fetch('/qaybo')
-            const respon = await data_list.json()
-            if(data_list.ok){
-                setlist(respon)
-            }
-        }
-
         getlist_qayb()
     },[])
     return(
@@ -166,7 +178,7 @@ function Add_servece(){
                     <div className="rasiid">
                         <form action="/" ref={foomka} method="post" onSubmit={Adddata} encType="multipart/form-data">
                             <label htmlFor="name">Ciwaanka adegaaga</label>
-                            <input  className="la_bax" type="text" name="title" placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={40} 
+                            <input  value={title} className="la_bax" type="text" name="title" placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={40} 
                             onChange={(e) => settitle(e.target.value)}
                             //value={title}
                             />
@@ -176,7 +188,7 @@ function Add_servece(){
                                 value={Qaybid}
                             >
                                {list && list.map((listdata) =>(
-                                    <option key={listdata._id} value={listdata._id}>{listdata.Name}</option>
+                                    <option key={listdata.id} value={listdata.id}>{listdata.Name}</option>
                                ))}
                             </select>
                             <label htmlFor="qaab">Sawirka 1aad</label>

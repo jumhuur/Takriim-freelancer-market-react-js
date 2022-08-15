@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import Sklall from "./components/skaltons/sklAll";
 import Footer from "./components/Footer";
-
+import {getFirestore,getDoc, doc } from "firebase/firestore";
 
 function Job_details(){
     const {id} = useParams();
@@ -16,41 +16,34 @@ function Job_details(){
     setTimeout(function(){
 
     },3000)
-    useEffect((function(){
-        // soosaarida datada jobs
 
-        const getonejobs = async ()  => {
-            const  data =  await fetch(`/jobs/${id}`)
-            const response = await data.json()
-            if(data.ok){
-                setJobdetails(response)
-            }
-        }
-        getonejobs()
-
-        fetch(`http://localhost:800/User/${user}`)
-        .then((res) =>{
-            if(res.ok){
-                return res.json()
-            }
+    // get data job 
+    const db = getFirestore()
+    const docref = doc(db, "Jobs" , id)
+    //const q = query(colref)    
+    function  getsingalejob(){
+        getDoc(docref)
+        .then((doc) => {
+            setJobdetails({...doc.data(), id:doc.id})
         })
-        .then((data) => {
-            setuserdetails(data)
+    }
+
+
+    //get data user     
+    //hellida docs 
+    const Usercref = doc(db, "Users" , user)
+    //const q = query(colref)    
+    function  getsinleuser(){
+        getDoc(Usercref)
+        .then((doc) => {
+            setuserdetails(doc.data())
         })
-        // fetch(`/jobs/${id}`)
-        // .then((res) =>{
-        //     if(res.ok){
-        //         return res.json()
-        //     }
-        // })
-        // .then((data) => {
-        //     setJobdetails(data)
-        //     if(Jobdetails){
-        //     }
+    }
 
-        // })
-
-    }),[])
+    useEffect(() => {
+        getsingalejob()
+        getsinleuser()
+    },[])
     return (
         <div>
             <Holder />

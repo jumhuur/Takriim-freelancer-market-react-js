@@ -8,34 +8,28 @@ import { useEffect, useState } from "react";
 import Jobskl from "../skaltons/Jobskalaton";
 import {format} from "timeago.js";
 import {UseAuth} from "../context/authcontext"
+import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
 function Orders_Free(){
     const [order, setorder] = useState(null)
     const {crentuser} = UseAuth()
 
+    //get data ordrer frelancer 
+    const db = getFirestore()
+    const colref = collection(db, "Orders")
+    const q = query(colref, orderBy('CreatedAt'))    
+    //hellida docs 
+    async function  getdaata_order(){
+        onSnapshot (q, (snapshot) => {
+            const Dhaq1aad = []
+            snapshot.docs.forEach((doc) => {
+                Dhaq1aad.push({...doc.data(), id:doc.id})
+            })
+            setorder(Dhaq1aad)
+        })
+    }
 
     useEffect((function(){
-        fetch('/orders')
-        .then((response) =>{
-            if(response){
-                return response.json()
-            }
-        })
-        .then((data) =>{
-            setorder(data)
-        })
-
-    }), [])
-
-    useEffect((function(){
-        fetch('/orders')
-        .then((response) =>{
-            if(response){
-                return response.json()
-            }
-        })
-        .then((data) =>{
-            setorder(data)
-        })
+        getdaata_order()
 
     }), [order])
     return(
@@ -53,7 +47,7 @@ function Orders_Free(){
                 </div>
                 <div className="macluumaad">
                     <div className="qoraalo">
-                        <Link to={`/Acount/Myorder/info/${dat_order._id}`}>
+                        <Link to={`/Acount/Myorder/info/${dat_order.id}`}>
                             <h2>{dat_order.title}</h2>
                             <p>
                                 Dalabkan waxa uu kaaga yimid mid ka mida macaamiisha shabakada 
@@ -91,7 +85,7 @@ function Orders_Free(){
                                 </li>
                             }
                             <li>
-                            <FontAwesomeIcon className="i" icon={faClock} /> <span>{ format(dat_order.createdAt , "zh-CN")} </span>
+                            <FontAwesomeIcon className="i" icon={faClock} /> <span>{ format(dat_order.CreatedAt , "zh-CN")} </span>
                             </li>
                         </ul>
                         <div className="btn_shaqo">

@@ -6,6 +6,7 @@ import Xayaysiis from "../Saponsered_Ads";
 import { useParams , Link, useHistory } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import {format}  from "timeago.js"
+import {getFirestore,getDoc, doc } from "firebase/firestore";
 
 function Gudoon(){
     const {id} = useParams()
@@ -119,40 +120,32 @@ function Gudoon(){
     const xaalad3aad = useRef();
 
 
+    // get data job 
+    const db = getFirestore()
+    const docref = doc(db, "Orders" , id)
+    //const q = query(colref)    
+    function  getsingaleorder(){
+        getDoc(docref)
+        .then((doc) => {
+            setoneOrder({...doc.data(), id:doc.id})
+        })
+    }
     useEffect(() => {
-        fetch(`/orders/${id}`)
-        .then((response) =>{
-            if(response){
-                return response.json()
-            }
-        })
-        .then((data) =>{
-            setoneOrder(data)
-        })
-
-        fetch(`http://localhost:800/User/${userid}`)
-        .then((response) =>{
-            if(response){
-                return response.json()
-            }
-        })
-        .then((data) =>{
-            setuser(data)
-        })        
+        getsingaleorder()     
     }, [])
 
 
-    useEffect(() => {
-        fetch(`/jobs/${oneOrder && oneOrder.Jobid}`)
-        .then((response) => {
-            if(response){
-                return response.json()
-            }
-        })
-        .then((data) => {
-            setjob(data)
-        })
-    }, [oneOrder])
+    // useEffect(() => {
+    //     fetch(`/jobs/${oneOrder && oneOrder.Jobid}`)
+    //     .then((response) => {
+    //         if(response){
+    //             return response.json()
+    //         }
+    //     })
+    //     .then((data) => {
+    //         setjob(data)
+    //     })
+    // }, [oneOrder])
 
 
     useEffect(() => {
