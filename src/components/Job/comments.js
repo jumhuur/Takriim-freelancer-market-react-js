@@ -1,7 +1,7 @@
 import { faStar} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import {FaRegStar , FaSpinner} from "react-icons/fa"
+import {FaRegStar,} from "react-icons/fa"
 import {format} from "timeago.js";
 import { collection,getFirestore, query, onSnapshot, limit, orderBy, where } from "firebase/firestore";
 
@@ -26,7 +26,7 @@ function Commenst({thisid}){
         get_comm()
     }, [])
     return(
-        <div>
+        <div className="comm">
             {comments && comments.map((data => 
                           <div className="iibiye_info" key={data.id}>
                           <div className="sir">

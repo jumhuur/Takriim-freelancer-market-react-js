@@ -47,7 +47,7 @@ function My_Orders(){
     function update_Order(){
         const jobref =  doc(db, "Orders", id)
         updateDoc (jobref, {
-            xaalad ,
+            xaalad,
         })
     }
 

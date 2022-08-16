@@ -15,17 +15,17 @@ function Gudoon(){
     const [oneOrder , setoneOrder] = useState()
     const [user , setuser] = useState()
     const mypath = useHistory()
+    const [c_user, setc_user] = useState()
     const [job ,setjob] = useState(null)
     //const jobid = oneOrder && oneOrder.Jobid
-    const {Add_Comments} = UseAuth()
-
-
+    const {Add_Comments ,crentuser} = UseAuth()
     // comments state 
     const [Rate, setRate] = useState("5")
     const [Comment, setComment] = useState()
     const Jobid = oneOrder && oneOrder.Jobid
     const Username = user && user.Name 
     const UserId = userid
+    const qiimaha = oneOrder && oneOrder.Qiimaha
 
     // update order in la gudoomay 
     const gudoomay = true
@@ -47,7 +47,8 @@ function Gudoon(){
                 UserId,
                 Username
             )
-            update_q_ib()
+            update_gudoon()
+            update_rasiid()
 
         }catch(Err){
             console.log(Err)
@@ -74,7 +75,7 @@ function Gudoon(){
 
 
     // update xaalad gudoomay dalab
-    function update_q_ib(){
+    function update_gudoon(){
         const ordref =  doc(db, "Orders", id)
         updateDoc(ordref, {
             gudoomay
@@ -89,9 +90,31 @@ function Gudoon(){
             setuser({...doc.data(), id:doc.id})
         })
     }
+
+    const Userref_r = doc(db, "Users" , userid)
+    //const q = query(colref)    
+    function  get_user_cren(){
+        getDoc(Userref_r)
+        .then((doc) => {
+            setc_user({...doc.data(), id:doc.id})
+        })
+    }
+
+
+
+    function update_rasiid(){
+        const ordref =  doc(db, "Users", userid)
+        const total = parseInt(c_user.r_Total) + parseInt(qiimaha) 
+        const Xidhan = parseInt(c_user.r_Xidhan)  + parseInt(qiimaha) 
+        updateDoc(ordref, {
+            r_Total:total.toFixed(2),
+            r_Xidhan:Xidhan.toFixed(2)
+        })
+    }
     useEffect(() => {
         getsingaleorder() 
         get_user()
+        get_user_cren()
     }, [oneOrder])
 
 
