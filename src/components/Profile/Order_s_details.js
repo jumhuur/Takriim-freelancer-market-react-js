@@ -17,15 +17,18 @@ function Gudoon(){
     const mypath = useHistory()
     const [c_user, setc_user] = useState()
     const [job ,setjob] = useState(null)
-    //const jobid = oneOrder && oneOrder.Jobid
-    const {Add_Comments ,crentuser} = UseAuth()
+    const {Add_Comments ,Userinfo , Add_Rasiid , } = UseAuth()
     // comments state 
     const [Rate, setRate] = useState("5")
     const [Comment, setComment] = useState()
     const Jobid = oneOrder && oneOrder.Jobid
-    const Username = user && user.Name 
+    const Username = user && Userinfo.Name 
     const UserId = userid
-    const qiimaha = oneOrder && oneOrder.Qiimaha
+    const qiimaha = oneOrder && oneOrder.Qiimaha 
+    const Khidmad = 15 / 100 * parseFloat(qiimaha)
+    const Last_qiimo = Number(qiimaha) - Khidmad
+
+    console.log(Khidmad)
 
     // update order in la gudoomay 
     const gudoomay = true
@@ -33,9 +36,6 @@ function Gudoon(){
     // updarete iibsade iyo qiimayn
     const iibsade = parseInt(job && job.iibsade) + 1
     const Qiimayn = parseInt(job && job.Qiimayn) + 1
-
-
-
 
     const submitHandale  = async (e) =>{
         e.preventDefault()
@@ -47,6 +47,12 @@ function Gudoon(){
                 UserId,
                 Username
             )
+
+            await Add_Rasiid (
+                Last_qiimo,
+                userid
+            )
+
             update_gudoon()
             update_rasiid()
 
@@ -104,8 +110,8 @@ function Gudoon(){
 
     function update_rasiid(){
         const ordref =  doc(db, "Users", userid)
-        const total = parseInt(c_user.r_Total) + parseInt(qiimaha) 
-        const Xidhan = parseInt(c_user.r_Xidhan)  + parseInt(qiimaha) 
+        const total = parseFloat(c_user.r_Total)   + parseFloat(Last_qiimo) 
+        const Xidhan = parseFloat(c_user.r_Xidhan) +  parseFloat(Last_qiimo) 
         updateDoc(ordref, {
             r_Total:total.toFixed(2),
             r_Xidhan:Xidhan.toFixed(2)
@@ -115,7 +121,7 @@ function Gudoon(){
         getsingaleorder() 
         get_user()
         get_user_cren()
-    }, [oneOrder])
+    }, [])
 
 
 

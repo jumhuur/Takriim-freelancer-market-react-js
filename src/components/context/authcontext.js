@@ -4,6 +4,8 @@ import {
     getFirestore,
     doc,
     setDoc,
+    serverTimestamp,
+    getDoc,
 } from "firebase/firestore";
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword , signOut} from "firebase/auth";
 const AuthContext = React.createContext()
@@ -16,6 +18,7 @@ export function UseAuth() {
 export function AuthProvader({children}){
     const [crentuser , setcrentuser] = useState(null)
     const [user_data , setuser_data] = useState(null)
+    const [Userinfo, setUserinfo] = useState(null)
     const [active , setactive] = useState("")
     const useruid = crentuser && crentuser.uid
     
@@ -37,7 +40,7 @@ export function AuthProvader({children}){
              qodob1aad,
              qodob2aad, 
              UserId,
-             CreatedAt:Date.now()
+             CreatedAt: serverTimestamp()
         })
     }
 
@@ -62,7 +65,7 @@ export function AuthProvader({children}){
             xaalad,
             Qodobka1aad,
             Qodobka2aad,
-            CreatedAt:Date.now()
+            CreatedAt: Date.now()
         })
     }
 
@@ -80,6 +83,15 @@ export function AuthProvader({children}){
             CreatedAt:Date.now()
         })
     }
+
+        //add comment 
+        function Add_Rasiid(Qiimaha,g_id){
+            return setDoc(doc(db, "Rasiid", `order${Date.now()}`), {
+                Qiimaha,
+                g_id,
+                CreatedAt:serverTimestamp()
+            })
+        }
 
 
     //add user info
@@ -99,6 +111,10 @@ export function AuthProvader({children}){
     }
 
 
+
+
+
+
     function  sinup(email, password){
         setactive(true)
         return  createUserWithEmailAndPassword(Auth, email, password)
@@ -114,14 +130,23 @@ export function AuthProvader({children}){
         setactive(false)
         return  signOut(Auth)
     }
-    
     useEffect(() =>{
         const unsubs =  Auth.onAuthStateChanged(user => {
             setcrentuser(user)
+            const docref = doc(db, "Users" , user.uid)
+            //const q = query(colref)    
+            function  getsingaleorder(){
+                getDoc (docref)
+                .then((doc) => {
+                    setUserinfo({...doc.data(), id:doc.id})
+                })
+            }
+            getsingaleorder()
         })
         return unsubs
     },[])
     const value = {
+        Userinfo,
         crentuser,
         sinup,
         Login,
@@ -132,7 +157,8 @@ export function AuthProvader({children}){
         setuser_data,
         Add_job,
         add_order,
-        Add_Comments
+        Add_Comments,
+        Add_Rasiid
     }
 
     return(

@@ -3494,6 +3494,15 @@ div.pro_rasiid  .total,.pannding,.avalible{
   margin: 2% 0;
 }
 
+div.pro_rasiid.hellay  .total,.pannding,.avalible{
+  height: 100px;
+  margin: 1% 0;
+}
+
+div.pro_rasiid.hellay  .total h2 ,.pannding h2,.avalible h2{
+  font-size: 1.70em;
+}
+
 div.pro_rasiid  .total h2 ,.pannding h2,.avalible h2{
   color: var(--main-2);
   font-size: 3em;

@@ -11,7 +11,7 @@ function Commenst({thisid}){
         //get data ordrer frelancer 
         const db = getFirestore()
         const commentref = collection(db, "Comments")
-        const q = query(commentref, orderBy('CreatedAt'), where("Jobid" , "==" , thisid.id) , limit(50))    
+        const q = query(commentref, orderBy('CreatedAt', "asc"), where("Jobid" , "==" , thisid.id) , limit(50))    
         //hellida docs 
         async function  get_comm(){
             onSnapshot (q, (snapshot) => {

@@ -8,104 +8,73 @@ import NavHolder  from '../NavHolder';
 import Asideuser from '../Profile/Aside_Profile';
 import AllDatUser from '../Profile/UserData';
 import { UseAuth } from "../context/authcontext";
+import { collection,getFirestore, query, onSnapshot, limit, orderBy, where } from "firebase/firestore";
 function Rasiid(){
-    const {id} = useParams()
-    const [user , setuser] =useState(null)
-    const [j_user , setj_user] =useState(null)
-    const {user_data , crentuser} = UseAuth()
+    const [dh_rasiid, setdh_rasiid] = useState()
+    const {Userinfo} = UseAuth()
+    const u_id = Userinfo && Userinfo.uid
+
+    //get data ordrer frelancer 
+    const db = getFirestore()
+    const colref = collection(db, "Rasiid")
+    const q = query(colref,where("g_id" , "==", u_id))    
+    //hellida docs 
+    async function get_dhaqaaq_rasiid(){
+        onSnapshot (q, (snapshot) => {
+            const Dhaq1aad = []
+            snapshot.docs.forEach((doc) => {
+                Dhaq1aad.push({...doc.data(), id:doc.id})
+            })
+            setdh_rasiid(Dhaq1aad)
+        })
+    }
 
     useEffect(() =>{
-        fetch(`http://localhost:800/User/${id}`)
-        .then((response) =>{
-            
-            let crime = response.json()
-            fetch('/jobs')
-            .then((res) => {
-                let db = res.json()
-                return db
-            })
-            .then((data_db) =>{
-                setj_user(data_db)
-            })
-            return crime
-        })
-        .then((data) => {
-            setuser(data)
-            
-        })
-    },[])
-
-    console.log(user_data)
-
-
+        get_dhaqaaq_rasiid()
+        console.log(Userinfo)
+    },[Userinfo])
     return(
         <>
         <NavHolder />
-        {user_data && user_data.map((cash) => 
         <section className="orders invocs"> 
             <div className="xajiye kala_qayb">
                 <Asideuser />
+                {Userinfo ? 
                 <div className="tranding_haye">
-                <div className="pro_rasiid">
-                <div className="total">
-                    <h2>{cash.r_Total} $</h2>
-                    <p><FontAwesomeIcon className="i" icon={faChartLine} /> Totalkaaga</p>
-                </div>
-                <div className="pannding">
-                    <h2>{cash.r_Xidhan} $</h2>
-                    <p><FontAwesomeIcon className="i" icon={faSackXmark} /> Lacagta Kaa Xidhan</p>
-                </div>
-                <div className="avalible">
-                    <h2>{cash.r_Furan} $</h2>
-                    <p> <FontAwesomeIcon className="i" icon={faWallet} /> Lacagta kuu furan</p>
-                </div>
-                </div>
-
-                {/* lacag la bixid cadan */}
-                <div className="pro_rasiid">
-                <div className="total">
-                    <h2><span>7845ED</span></h2>
-                    <p><FontAwesomeIcon className="i" icon={faToolbox} /> Dalabka Id</p>
-                </div>
-                <div className="total">
-                    <h2> + 42.75$</h2>
-                    <p><FontAwesomeIcon className="i" icon={faChartLine} /> Lacagta Aad Heshay</p>
-                </div>
-                </div>
-
-                {j_user?  j_user.filter((data => data.UserId == id)).map(listdata => (
-                <div className="card_template" key={listdata._id}>
-                <div className="imges">
-                    <img src={listdata.image} alt="sawir_template" />
-                </div>
-                <div className="macluumaad">
-                    <div className="qoraalo">
-                        <Link to={`/jobs/${listdata._id}/User/${listdata.UserId}`}>
-                            <h2>{listdata.title}</h2>
-                            <p>{listdata.body.substr(1,170)}...</p>
-                        </Link>
+                    {Userinfo && 
+                    <div className="pro_rasiid">
+                    <div className="total">
+                        <h2>{Userinfo.r_Total} $</h2>
+                        <p><FontAwesomeIcon className="i" icon={faChartLine} /> Totalkaaga</p>
                     </div>
-                    <div className="tirakoob">
-                        <ul>
-                            <li>
-                                <FontAwesomeIcon className="i" icon={faPeopleGroup}/>  <span>{listdata.iibsade}</span> iibsade
-                            </li>
-                            <li>
-                            <FontAwesomeIcon className="i" icon={faStar}/>  <span>{listdata.Qiimayn}</span>Qiimayn
-                            </li>
-                        </ul>
-                        <div className="btn_shaqo">
-                            <button><FontAwesomeIcon className="i" icon={faMoneyCheck}/>   Qiimaha: <span> {listdata.Qiimaha}$ </span> </button>
-                        </div>
+                    <div className="pannding">
+                        <h2>{Userinfo.r_Xidhan} $</h2>
+                        <p><FontAwesomeIcon className="i" icon={faSackXmark} /> Lacagta Kaa Xidhan</p>
                     </div>
+                    <div className="avalible">
+                        <h2>{Userinfo.r_Furan} $</h2>
+                        <p> <FontAwesomeIcon className="i" icon={faWallet} /> Lacagta kuu furan</p>
+                    </div>
+                    </div>
+                    }
+                    {/* lacag la bixid cadan */}
+                    {dh_rasiid && dh_rasiid.map((rasiid_tr) => 
+                    <div className="pro_rasiid hellay">
+                    <div className="total">
+                        <h2><span>{rasiid_tr.id.substr(6,6).toUpperCase()}</span></h2>
+                        <p><FontAwesomeIcon className="i" icon={faToolbox} /> Dalabka Id</p>
+                    </div>
+                    <div className="total">
+                        <h2> + {rasiid_tr && rasiid_tr.Qiimaha}$</h2>
+                        <p><FontAwesomeIcon className="i" icon={faChartLine} /> Lacagta Aad Heshay</p>
+                    </div>
+                    </div>
+                    )}
+
                 </div>
-            </div>
-            )) : <Jobskl />}
-                </div>
+                : <Jobskl />}
             </div>
         </section>
-        )}
-
         </>
     )
 }
