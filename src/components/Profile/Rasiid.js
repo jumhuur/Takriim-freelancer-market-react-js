@@ -31,7 +31,6 @@ function Rasiid(){
 
     useEffect(() =>{
         get_dhaqaaq_rasiid()
-        console.log(Userinfo)
     },[Userinfo])
     return(
         <>

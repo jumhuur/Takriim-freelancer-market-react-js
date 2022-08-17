@@ -21,16 +21,6 @@ function Qaybdetails(){
         })
     }
     useEffect(function(){
-        // fetch(`/qaybo/${id}`)
-        // .then((res) =>{
-        //     if(res.ok){
-        //         return res.json()
-        //     }
-        // })
-        // .then((data) => {
-        //     setQaybdetails(data)
-        // })
-
         get_qaybo()
 
     } ,[])

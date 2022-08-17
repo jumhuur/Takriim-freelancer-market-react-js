@@ -43,17 +43,6 @@ function OrderDetailscheckh(){
     const progress = useRef();
     const file_icon = useRef()
     const file_icon2 = useRef()
-        /*
-            // window.addEventListener("scroll", () => {
-            //     console.log('saz')
-            //     const params = (new URL(document.location)).searchParams
-            //     const Xa = params.get("Xadiga")
-            //     const Qi = params.get("qiimaha")
-            //     const Mu = params.get("Mudada")
-            //     console.log(Xa, Qi, Mu)
-            // })
-
-        */
 
         if(!crentuser){
             path_kale.push("/Acount/login")
@@ -70,35 +59,9 @@ function OrderDetailscheckh(){
         })
     }
     useEffect(function(){
-        // fetch(`/jobs/${id}`)
-        // .then((res) =>{
-        //     if(res.ok){
-        //         return res.json()
-        //     }
-        // })
-        // .then((data) => {
-        //     setorder(data)
-        // })
         getsingalejob()
 
     }, [])
-
-    // useEffect(()=> {
-    //     const getprams = () => {
-    //         console.log('saz')
-    //         const params = (new URL(document.location)).searchParams
-    //         const Xa = params.get("xadiga")
-    //         const Qi = params.get("qiimaha")
-    //         const Mu = params.get("Mudada")
-    //         console.log(Xa, Qi, Mu)
-    //     }
-    
-    //     getprams()
-    // },[])
-
-
-
-
 
     //spn_img1.current.addEventListener('click', image01_click)
     function image01_click(e){
