@@ -8,7 +8,9 @@ import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortaw
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import {UseAuth } from '../context/authcontext'
+import {Storage} from "../../Firebase";
 import { collection,getFirestore, query, onSnapshot, limit, orderBy, doc, getDoc, updateDoc } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from "firebase/storage";
 function Upadate_profile(){
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
@@ -17,6 +19,8 @@ function Upadate_profile(){
     const {id} = useParams()
     const {crentuser} = UseAuth()
     const history = useHistory()
+    const [prog, setprog] = useState();
+
 
 
     // akoon info
@@ -39,7 +43,7 @@ function Upadate_profile(){
     const [Nooc, setNooc] = useState('')
     const [Magaalada, setMagaalada] = useState('')
     const [Image, setImage] = useState('')
-    const [Info, setInfo] = useState('')
+    const [info, setInfo] = useState('')
     const [Talefan, setTalefan] = useState('')
     const [Jinsi, setJinsi] = useState('')
 
@@ -76,6 +80,7 @@ function Upadate_profile(){
             //progress.current.innerHTM
             file_icon.current.classList.remove('active')
             file_icon2.current.classList.remove('active')
+            setImage(file)
         }
     }
 
@@ -105,7 +110,7 @@ function Upadate_profile(){
             Nooc, 
             Image, 
             Magaalada, 
-            Info,
+            info,
             Talefan,
             Jinsi
         })
@@ -116,6 +121,36 @@ function Upadate_profile(){
         e.preventDefault()
         update_Akoon()
     }
+
+    //upload image 
+    const upload_image_progile = async () => {
+        const storageRef = ref(Storage, `${val.uid}${Image}`);
+
+        const uploadTask = uploadBytesResumable(storageRef, Image);
+        uploadTask.on('state_changed', 
+        (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + progress + '% done');
+            setprog(progress)
+            switch (snapshot.state) {
+            case 'paused':
+                break;
+            case 'running':
+                break;
+            }
+        }, 
+        (error) => {
+            console.log(error)
+        }, 
+        () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            console.log('File available at', downloadURL);
+            setImage(downloadURL)
+            });
+        }
+        );
+    }
+    
 
     useEffect(() => {
         get_on_user()
@@ -150,14 +185,22 @@ function Upadate_profile(){
                             onChange ={(e) => setTalefan(e.target.value)}
                             /> 
                             <label htmlFor="name">Shaqadaad</label>
-                            <input className="la_bax" type="text" value={Info} name="qodob2aad" placeholder="Designer" maxLength={35}
+                            <input className="la_bax" type="text" value={info} name="qodob2aad" placeholder="Designer" maxLength={35}
                             onChange ={(e) => setInfo(e.target.value)}
+                            
                             />
                             <label htmlFor="qaab">Sawirka Akoonkaag</label>
                             <div className="sawir">
                                 <span name="image" ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
                                 <input ref={image01} onInput={onchange} className="img_01" type="file" name="sawir1aad" style={{visibility:"hidden"}} 
-                                onChange={(e) => setImage(`/images/${e.target.files[0].name}`)}
+                                onChange={
+                                function(e){
+                                    setImage(e.target.files[0].name)
+                                    upload_image_progile()
+                                }
+                                }
+
+
                                 />
                                 {/* <!----------upload file and image --> */}
                                 <div ref={progress} className="upload">
@@ -169,7 +212,7 @@ function Upadate_profile(){
                                             <h2>{filename}  {filezise}</h2>
                                         </div>
                                         <div className="progerss_two">
-                                            <div className="line" style={{width: '100%'}}>
+                                            <div className="line" style={{width: `${prog}%`}}>
 
                                             </div>
                                         </div>
