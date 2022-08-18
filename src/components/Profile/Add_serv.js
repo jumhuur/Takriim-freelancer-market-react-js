@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import {UseAuth } from '../context/authcontext'
 import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import {Storage} from "../../Firebase";
 
 function Add_servece(){
     const [good, setgood] = useState()
@@ -36,6 +38,7 @@ function Add_servece(){
     const [image , setimage] = useState("")
     const [qalad, setqalad] = useState("")
     const [alertw , setalertw] = useState(false);
+    const [prog,setprog] = useState()
 
     const image01 = useRef();
     const spn_img1 = useRef();
@@ -72,6 +75,7 @@ function Add_servece(){
             file_icon.current.classList.remove('active')
             file_icon2.current.classList.remove('active')
         }
+        setimage(file)
     }
 
     function uploadFile(name){
@@ -104,44 +108,6 @@ function Add_servece(){
         } catch(err){
             console.log(err)
         }
-
-        // const jobs = {
-        //     title,
-        //      body , 
-        //      Qiimaha ,
-        //      Qiimayn ,
-        //      Xadiga ,
-        //      Nooca,
-        //      Mudada , 
-        //      UserId ,
-        //      Qaybid, 
-        //      image,
-        //      iibsade,
-        //      xaalad,
-        //      qodob1aad,
-        //      qodob2aad,        
-        // }
-        // const response =  await fetch('/jobs', {
-        //     method: 'POST',
-        //     body: JSON.stringify(jobs),
-        //     headers : {'Content-Type': 'application/json'}
-        // })
-        // const json = await response.json()
-        // if(!response.ok){
-        //     setqalad(json.error)
-        //     console.log(qalad)
-        //     setgood('Waan Ka Xumahay Laguma Guulaysan hawshan')
-        //     setalertw(true)
-        // }
-
-        // if(response.ok){
-        //     setqalad(null)
-        //     history.push('/')
-        // }
-
-        // setTimeout(() => {
-        //     setalertw(false)
-        // } , 10000)
         
     }
     //get data user 
@@ -157,6 +123,32 @@ function Add_servece(){
             })
             setlist(Dhaq1aad)
         })
+    }
+
+    const upload_image_progile = async () => {
+        const storageRef = ref(Storage, `${Date.now()}${image}`);
+
+        const uploadTask = uploadBytesResumable(storageRef, image);
+        uploadTask.on('state_changed', 
+        (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            setprog(progress)
+            switch (snapshot.state) {
+            case 'paused':
+                break;
+            case 'running':
+                break;
+            }
+        }, 
+        (error) => {
+            console.log(error)
+        }, 
+        () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                setimage(downloadURL)
+            });
+        }
+        );
     }
 
 
@@ -195,7 +187,13 @@ function Add_servece(){
                             <div className="sawir">
                                 <span name="image" ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
                                 <input ref={image01} onInput={onchange} className="img_01" type="file" name="image" style={{visibility:"hidden"}} 
-                                onChange={(e) => setimage(`/images/${e.target.files[0].name}`)}
+                                onChange={
+                                    function(e){
+                                        setimage(`${e.target.files[0].name}`)
+                                        upload_image_progile()
+                                    }
+
+                                }
                                 //value={image}
                                 />
                                 {/* <!----------upload file and image --> */}
@@ -208,7 +206,7 @@ function Add_servece(){
                                             <h2>{filename}  {filezise}</h2>
                                         </div>
                                         <div className="progerss_two">
-                                            <div className="line" style={{width: '85%'}}>
+                                            <div className="line" style={{width: `${prog}%`}}>
 
                                             </div>
                                         </div>
@@ -278,6 +276,7 @@ function Add_servece(){
                                     <option value="Buug(Book)">Buug(Book)</option>
                                     <option value="muuqaal(video)">muuqaal(video)</option>
                                     <option value="muuqaal(video)">cod(voice)</option>
+                                    <option value="Mushkilad(Proplem)">Mushkilad(Proplem)</option>
                                 </select>
                             </div>
                             <label htmlFor="qaab">Mudada adeegan aad ku qabanyso</label>

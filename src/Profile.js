@@ -10,7 +10,7 @@ import Jobskl from './components/skaltons/Jobskalaton';
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faMoneyCheck, faPeopleGroup, faStar,faWallet ,faChartLine ,faSackXmark} from "@fortawesome/free-solid-svg-icons";
 import {UseAuth} from "./components/context/authcontext"
-import { collection, onSnapshot , query, getFirestore , where} from 'firebase/firestore';
+import { collection, onSnapshot , query, getFirestore , where, limit, orderBy} from 'firebase/firestore';
 
 function Profile(){
     const {id} = useParams()
@@ -37,7 +37,7 @@ function Profile(){
 
         //get data user 
         const colref_jobs = collection(db, "Jobs")
-        const jobsq = query(colref_jobs , where('UserId' , "==" ,id_user ))    
+        const jobsq = query(colref_jobs , where('UserId' , "==" ,id_user ),orderBy('CreatedAt', "desc"))    
         //hellida docs 
         async function get_jobs(){
             onSnapshot (jobsq, (snapshot) => {

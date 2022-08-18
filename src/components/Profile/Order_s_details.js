@@ -23,6 +23,7 @@ function Gudoon(){
     const [Comment, setComment] = useState()
     const Jobid = oneOrder && oneOrder.Jobid
     const Username = user && Userinfo.Name 
+    const Image = Userinfo &&  Userinfo.Image
     const UserId = userid
     const qiimaha = oneOrder && oneOrder.Qiimaha 
     const Khidmad = 15 / 100 * parseFloat(qiimaha)
@@ -43,7 +44,8 @@ function Gudoon(){
                 Comment,
                 Jobid,
                 UserId,
-                Username
+                Username,
+                Image
             )
 
             await Add_Rasiid (

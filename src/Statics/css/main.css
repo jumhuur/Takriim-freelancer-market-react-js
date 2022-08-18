@@ -243,6 +243,7 @@ a {
 .head .header .nav_links ul  li.user_nav .user_ img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .head .header .nav_links ul  li.btn:hover{

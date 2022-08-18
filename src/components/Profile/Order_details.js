@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {UseAuth} from "../context/authcontext"
 import {useDatacontext} from "../context/dataContext"
 import {getFirestore,getDoc, doc } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import {Storage} from "../../Firebase";
 function OrderDetailscheckh(){
     const {id} = useParams()
     const [order, setorder] = useState(null)
@@ -35,6 +37,7 @@ function OrderDetailscheckh(){
     const [lanbarka , setlanbarka] = useState("")
     const [gudoomay , setgudoomay] = useState(false)
     const [image , setimage] = useState("")
+
     const path_kale = useHistory()
 
 
@@ -89,6 +92,7 @@ function OrderDetailscheckh(){
             //progress.current.innerHTM
             file_icon.current.classList.remove('active')
             file_icon2.current.classList.remove('active')
+            setimage(file)
         }
     }
 
@@ -129,41 +133,36 @@ function OrderDetailscheckh(){
         } catch(err){
             console.log(err)
         }
-        // const order = {
-            // Loobahanyahay,
-            // lanbarka,
-            // image,
-            // gudoomay,
-            // title,
-            // Qiimaha,
-            // Dalbade_id,
-            // UserId,
-            // Jobid,
-            // Mudada,
-            // Xadiga,
-            // Nooca,
-            // xaalad,
-            // Qodobka1aad,
-            // Qodobka2aad,
-        // }
-
-        // const response = await fetch('/orders', {
-        //     method: "POST",
-        //     body: JSON.stringify(order),
-        //     headers : {'Content-Type': 'application/json'}
-        // })
-
-        // const json = await response.json()
-        // if(!response.ok){
-        //     console.log("qalad")
-        // }
-
-        // if(response.ok){
-        //     mypath.push(`/Order/Complated/${id}`)
-        //     window.localStorage.clear()
-        // }
-        // console.log(order)
     }
+
+    const [prog,setprog] = useState()
+
+    const upload_image_progile = async () => {
+        const storageRef = ref(Storage, `items/${Date.now()}${image}`);
+
+        const uploadTask = uploadBytesResumable(storageRef, image);
+        uploadTask.on('state_changed', 
+        (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            setprog(progress)
+            switch (snapshot.state) {
+            case 'paused':
+                break;
+            case 'running':
+                break;
+            }
+        }, 
+        (error) => {
+            console.log(error)
+        }, 
+        () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                setimage(downloadURL)
+            });
+        }
+        );
+    }
+
     return(
         <div>
         <Holder />
@@ -200,7 +199,13 @@ function OrderDetailscheckh(){
                             <div className="sawir">
                                 <span ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
                                 <input ref={image01} onInput={onchange} className="img_01" type="file" name="sawir1aad" style={{visibility:"hidden"}} 
-                                        onChange={(e) => setimage(`/images/${e.target.files[0].name}`)}
+                                        onChange={
+                                            function(e){
+                                                setimage(`${e.target.files[0].name}`)
+                                                upload_image_progile()
+
+                                            }
+                                        }
                                         //value={image}
                                 />
                                 {/* <!----------upload file and image --> */}
@@ -213,7 +218,7 @@ function OrderDetailscheckh(){
                                             <h2>{filename}  {filezise}</h2>
                                         </div>
                                         <div className="progerss_two">
-                                            <div className="line" style={{width: '56%'}}>
+                                            <div className="line" style={{width: `${prog}%`}}>
 
                                             </div>
                                         </div>

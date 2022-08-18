@@ -130,7 +130,6 @@ function Upadate_profile(){
         uploadTask.on('state_changed', 
         (snapshot) => {
             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log('Upload is ' + progress + '% done');
             setprog(progress)
             switch (snapshot.state) {
             case 'paused':
@@ -144,7 +143,6 @@ function Upadate_profile(){
         }, 
         () => {
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log('File available at', downloadURL);
             setImage(downloadURL)
             });
         }

@@ -30,7 +30,7 @@ function Commenst({thisid}){
             {comments && comments.map((data => 
                           <div className="iibiye_info" key={data.id}>
                           <div className="sir">
-                              <img src="/images/avatar.jpg" />
+                              <img src={data.Image} />
                           </div>
                           <div className="info_seller">
                               <h2>{data.Username}</h2>

@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {format} from 'timeago.js'
 import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faMessage, faStar , faEnvelope , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import {Storage} from "../../Firebase";
 function My_Orders(){
     const {id} = useParams()
     const [jobfree, setjobfree] = useState(null)
@@ -97,6 +99,7 @@ function My_Orders(){
             //progress.current.innerHTM
             file_icon.current.classList.remove('active')
             file_icon2.current.classList.remove('active')
+            setimage(file)
         }
     }
 
@@ -111,6 +114,33 @@ function My_Orders(){
      const xaalad2aad = "2"
      const xaalad3aad = "3"
 
+     const [prog,setprog] = useState()
+
+    const upload_image_progile = async () => {
+         const storageRef = ref(Storage, `Orders/${Date.now()}${image}.zip`);
+ 
+         const uploadTask = uploadBytesResumable(storageRef, image);
+         uploadTask.on('state_changed', 
+         (snapshot) => {
+             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+             setprog(progress)
+             switch (snapshot.state) {
+             case 'paused':
+                 break;
+             case 'running':
+                 break;
+             }
+         }, 
+         (error) => {
+             console.log(error)
+         }, 
+         () => {
+             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                 setimage(downloadURL)
+             });
+         }
+         );
+    }
     return(
     <div>
         <Holder />
@@ -160,11 +190,16 @@ function My_Orders(){
                             Xaga Hoose ugu upload-garee mashruuca aad u dhamaysay si uu ula dago macmiilku Waxaana Fiican inaad isticmaasho zip file
                         </p>
                         <form className="lacag_bixinta" method="put" onSubmit={update_xaalad_done}>
-                            <label htmlFor="qaab">File - Image - Doc - Voice - Zip File - Iyo Shay Kasta Waad Galin Kartaa Xagan Hoose</label>
+                            <label htmlFor="qaab">Fileka Aad Usoo Qaadaysaa Ha Noqodo Zip file </label>
                             <div className="sawir">
                                 <span ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
                                 <input ref={image01} onInput={onchange} className="img_01" type="file" name="image" style={{visibility:"hidden"}} required 
-                                onChange={(e => setimage(`/images/${e.target.files[0].name}`))}
+                                onChange={
+                                    function(e){
+                                        setimage(`${e.target.files[0].name}`)
+                                        upload_image_progile()
+                                    }
+                                }
                                 />
                                 <input type={"text"} required value={done} name="xaalad" style={{visibility:"hidden"}}/>
                                 {/* <!----------upload file and image --> */}
@@ -174,10 +209,10 @@ function My_Orders(){
                                     </div>
                                     <div className="file_name_and_zise">
                                         <div className="macluumaad">
-                                            <h2>{filename}  {filezise}</h2>
+                                            <h2>{filename}  {filezise} - {prog && prog.toFixed(1)}%</h2>
                                         </div>
                                         <div className="progerss_two">
-                                            <div className="line" style={{width: '56%'}}>
+                                            <div className="line" style={{width: `${prog}%`}}>
 
                                             </div>
                                         </div>

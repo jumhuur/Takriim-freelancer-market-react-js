@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import {UseAuth } from '../context/authcontext'
 import { collection,getFirestore, query, onSnapshot, limit, orderBy, doc, getDoc, updateDoc } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import {Storage} from "../../Firebase";
 
 function Upadate_job(){
     const {id} = useParams()
@@ -36,6 +38,7 @@ function Upadate_job(){
     const [qodob2aad , setqodob2aad] = useState("");
     const [body , setbody] = useState("");
     const [image , setimage] = useState("");
+    const [prog,setprog] = useState()
 
 
     const [qalad, setqalad] = useState("");
@@ -75,6 +78,7 @@ function Upadate_job(){
             //progress.current.innerHTM
             file_icon.current.classList.remove('active')
             file_icon2.current.classList.remove('active')
+            setimage(file)
         }
     }
 
@@ -135,6 +139,33 @@ function Upadate_job(){
             })
         }
 
+
+        const upload_image_progile = async () => {
+            const storageRef = ref(Storage, `${id}${image}`);
+    
+            const uploadTask = uploadBytesResumable(storageRef, image);
+            uploadTask.on('state_changed', 
+            (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                setprog(progress)
+                switch (snapshot.state) {
+                case 'paused':
+                    break;
+                case 'running':
+                    break;
+                }
+            }, 
+            (error) => {
+                console.log(error)
+            }, 
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    setimage(downloadURL)
+                });
+            }
+            );
+        }
+
     useEffect(() =>{
         get_on_job()
         get_qaybo_list()
@@ -186,7 +217,12 @@ function Upadate_job(){
                             <div className="sawir">
                                 <span name="image" ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
                                 <input ref={image01} onInput={onchange} className="img_01" type="file" name="image" style={{visibility:"hidden"}} 
-                                onChange={(e) => setimage(`/images/${e.target.files[0].name}`)}
+                                onChange={
+                                    function(e){
+                                        setimage(`${e.target.files[0].name}`)
+                                        upload_image_progile()
+                                    }
+                                }
                                 //value={image}
                                 />
                                 {/* <!----------upload file and image --> */}
@@ -199,7 +235,7 @@ function Upadate_job(){
                                             <h2>{filename}  {filezise}</h2>
                                         </div>
                                         <div className="progerss_two">
-                                            <div className="line" style={{width: '85%'}}>
+                                            <div className="line" style={{width: `${prog}%`}}>
 
                                             </div>
                                         </div>

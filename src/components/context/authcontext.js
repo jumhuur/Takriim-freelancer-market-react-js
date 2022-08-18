@@ -73,13 +73,14 @@ export function AuthProvader({children}){
 
 
     //aad comment 
-    function Add_Comments(Rate, Comment , Jobid , UserId , Username){
+    function Add_Comments(Rate, Comment , Jobid , UserId , Username, Image){
         return setDoc(doc(db, "Comments", `order${Date.now()}`), {
             Rate,
             Comment,
             Jobid,
             UserId,
             Username,
+            Image,
             CreatedAt:Date.now()
         })
     }
