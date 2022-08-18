@@ -2,7 +2,10 @@ import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import { faWallet, faNetworkWired, faToolbox , faChartSimple , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus} from "@fortawesome/free-solid-svg-icons";
 import Xayaysiis from "../Saponsered_Ads";
 import { Link } from "react-router-dom";
+import { UseAuth } from "../context/authcontext";
 function AsideUser(){
+    const {Userinfo} = UseAuth()
+    const uid = Userinfo && Userinfo.uid
     return(
         <div className="filters">
         <div className="noocyo">
@@ -29,10 +32,9 @@ function AsideUser(){
                         </Link>
                     </li>
                     <li>
-                        <a href="">
-                        
-                        <FontAwesomeIcon className="i" icon={faPenToSquare}/> update profile
-                        </a>
+                        <Link to={`/Profile/update/${uid}`}>
+                            <FontAwesomeIcon className="i" icon={faPenToSquare}/> update profile
+                        </Link>
                     </li>
                     <li>
                         <a href="">

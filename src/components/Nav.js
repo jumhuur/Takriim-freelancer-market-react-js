@@ -14,11 +14,9 @@ function Nav(){
     const [massage, setmagessa] = useState(false)
     const [drop, setdrop] = useState(false)
     const [Navmobile, setnavMobile] = useState(false)
-    const {crentuser , active} = UseAuth()
+    const {crentuser, Userinfo} = UseAuth()
 
 
-
-    console.log(active && active)
     function HandelOgaysiis(){
         isactive ? setisactive(false): setisactive(true);
         setmagessa(false)
@@ -72,7 +70,7 @@ function Nav(){
                 <li className="user_nav">
                     <a href="#Drop" onClick={handelDrop}>
                         <div className="user_">
-                            <img src="/images/avatar.jpg" />
+                            <img src={Userinfo && Userinfo.Image} />
                         </div>
                     </a>
                 </li>

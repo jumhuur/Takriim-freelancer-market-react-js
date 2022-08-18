@@ -30,20 +30,6 @@ function SingUp(){
         try {
         const data_user = await sinup(email,password)
         await Add_userdata(Name, Nooc , Image , Heerka, Magaalada, Info , r_Total ,r_Xidhan, r_Furan , data_user.user.uid, data_user.user.uid)
-        // const data = {email, password , name}
-        // const response = await fetch('/users', {
-        //     method: "post",
-        //     body: JSON.stringify(data),
-        //     headers : {'Content-Type': 'application/json'}
-        // })
-        // const json = await response.json()
-        // if(!json.ok){
-        //     console.log('qalad')
-        // }
-
-        // if(json.ok){
-        //     console.log('added')
-        //     console.log(data)
         toHomepage.push('/')
         // } 
 
