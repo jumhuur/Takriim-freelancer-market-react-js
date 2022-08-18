@@ -3503,6 +3503,11 @@ div.pro_rasiid.hellay  .total h2 ,.pannding h2,.avalible h2{
   font-size: 1.70em;
 }
 
+div.pro_rasiid.hellay .avalible h2{
+   font-size: 1.70em;
+  color: var(--guul);
+}
+
 div.pro_rasiid  .total h2 ,.pannding h2,.avalible h2{
   color: var(--main-2);
   font-size: 3em;

@@ -16,7 +16,7 @@ function Orders_Free(){
     //get data ordrer frelancer 
     const db = getFirestore()
     const colref = collection(db, "Orders")
-    const q = query(colref, orderBy('CreatedAt' , "asc"))    
+    const q = query(colref, orderBy('CreatedAt' , "desc"))    
     //hellida docs 
     async function  getdaata_order(){
         onSnapshot (q, (snapshot) => {

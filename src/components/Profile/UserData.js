@@ -7,7 +7,6 @@ import { UseAuth } from "../context/authcontext";
 
 function AllDatUser(){
     const {user_data} = UseAuth()
-    console.log(user_data)
     return(
         <section className="qayb_name">
         {user_data && user_data.map((data) => 

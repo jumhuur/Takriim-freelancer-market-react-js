@@ -32,7 +32,6 @@ function ContentHome(){
         // }
         // objects()
         getdaata_user()
-        console.log(JobsData)
     }), [])
     return(
         <section className="sliding">

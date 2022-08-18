@@ -28,8 +28,6 @@ function Gudoon(){
     const Khidmad = 15 / 100 * parseFloat(qiimaha)
     const Last_qiimo = Number(qiimaha) - Khidmad
 
-    console.log(Khidmad)
-
     // update order in la gudoomay 
     const gudoomay = true
 
@@ -121,7 +119,7 @@ function Gudoon(){
         getsingaleorder() 
         get_user()
         get_user_cren()
-    }, [])
+    }, [oneOrder])
 
 
 

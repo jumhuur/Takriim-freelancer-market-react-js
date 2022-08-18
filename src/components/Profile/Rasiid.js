@@ -17,9 +17,9 @@ function Rasiid(){
     //get data ordrer frelancer 
     const db = getFirestore()
     const colref = collection(db, "Rasiid")
-    const q = query(colref,where("g_id" , "==", u_id))    
+    const q = query(colref,orderBy('CreatedAt',"desc"),where("g_id" , "==", u_id))    
     //hellida docs 
-    async function get_dhaqaaq_rasiid(){
+    function get_dhaqaaq_rasiid(){
         onSnapshot (q, (snapshot) => {
             const Dhaq1aad = []
             snapshot.docs.forEach((doc) => {
@@ -28,10 +28,11 @@ function Rasiid(){
             setdh_rasiid(Dhaq1aad)
         })
     }
+    
 
     useEffect(() =>{
         get_dhaqaaq_rasiid()
-    },[Userinfo])
+    },[dh_rasiid])
     return(
         <>
         <NavHolder />
@@ -63,7 +64,7 @@ function Rasiid(){
                         <h2><span>{rasiid_tr.id.substr(6,6).toUpperCase()}</span></h2>
                         <p><FontAwesomeIcon className="i" icon={faToolbox} /> Dalabka Id</p>
                     </div>
-                    <div className="total">
+                    <div className="avalible">
                         <h2> + {rasiid_tr && rasiid_tr.Qiimaha}$</h2>
                         <p><FontAwesomeIcon className="i" icon={faChartLine} /> Lacagta Aad Heshay</p>
                     </div>

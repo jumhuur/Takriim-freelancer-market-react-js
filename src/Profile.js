@@ -48,26 +48,7 @@ function Profile(){
                 setj_user(Dhaq1aad)
             })
         }
-
-    console.log(user_data)
     useEffect(() =>{
-        // fetch(`http://localhost:800/User/${id}`)
-        // .then((response) =>{
-        //     let crime = response.json()
-        //     fetch('/jobs')
-        //     .then((res) => {
-        //         let db = res.json()
-        //         return db
-        //     })
-        //     .then((data_db) =>{
-        //         setj_user(data_db)
-        //     })
-        //     return crime
-        // })
-        // .then((data) => {
-        //     setuser(data)
-        // })
-
         getdaata_user()
         get_jobs()
     },[crentuser])
