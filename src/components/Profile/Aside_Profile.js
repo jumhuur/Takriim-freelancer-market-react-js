@@ -17,11 +17,6 @@ function AsideUser(){
                         </Link>
                     </li>
                     <li>
-                        <a href="">
-                        <FontAwesomeIcon className="i" icon={faChartSimple}/> adeegyadaada
-                        </a>
-                    </li>
-                    <li>
                         <Link to={'/Acount/Rasiid/'}>
                          <FontAwesomeIcon className="i" icon={faFileInvoiceDollar}/> Rasiika Lacagta
                         </Link>
@@ -43,7 +38,6 @@ function AsideUser(){
                     </li>
                     <li>
                         <Link to={'/Acount/Add_Job'}>
-                        
                         <FontAwesomeIcon className="i" icon={faCirclePlus}/> Gali Adeeg
                         </Link>
                     </li>

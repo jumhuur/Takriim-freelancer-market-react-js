@@ -25,18 +25,7 @@ function LinksQaybo({margin,qaybdtl}){
     useEffect(() => {
         get_Home_qaybo()
     }, [])
-    // useEffect((function(){
-    //     fetch(`/qaybo`)
-    //     .then((res) =>{
-    //         if(res.ok){
-    //             return res.json()
-    //         }
-    //     })
-    //     .then((data) => {
-    //         setQayb(data)
-    //     })
-    //     //setDataJobs(listdata)
-    // }), [])
+
     return(
         <section className="links_noocyo">
             <div className="xajiye">

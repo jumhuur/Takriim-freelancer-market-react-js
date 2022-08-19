@@ -3483,7 +3483,12 @@ div.pro_rasiid , div.pro_tirakoob{
   border-bottom: solid 2px var(--main-2);
 }
 
-div.pro_rasiid  .total,.pannding,.avalible{
+div.pro_rasiid#hellay > #total,#pannding,#avalible{
+  height: 100px !important;
+  margin: 1% 0;
+}
+
+div.pro_rasiid .total,.pannding,.avalible{
   width: calc(90% / 3);
   height: 200px;
   border-radius: 0px;
@@ -3495,16 +3500,13 @@ div.pro_rasiid  .total,.pannding,.avalible{
   margin: 2% 0;
 }
 
-div.pro_rasiid.hellay  .total,.pannding,.avalible{
-  height: 100px;
-  margin: 1% 0;
-}
 
-div.pro_rasiid.hellay  .total h2 ,.pannding h2,.avalible h2{
+
+div.pro_rasiid#hellay  .total h2 ,.pannding h2,.avalible h2{
   font-size: 1.70em;
 }
 
-div.pro_rasiid.hellay .avalible h2{
+div.pro_rasiid#hellay .avalible h2{
    font-size: 1.70em;
   color: var(--guul);
 }
@@ -5204,6 +5206,11 @@ div.xaalad div.x_1aad label{
     height: 350px;
   }
 
+
+  .head .header .nav_links.normal{
+    display: none;
+  }
+
   /* .sliding .tranding_haye .card_template .macluumaad .tirakoob ul{
     display: none;
   } */
@@ -5298,6 +5305,10 @@ div.xaalad div.x_1aad label{
 
   .head .header .nav_links.mobile{
     display: flex;
+  }
+
+  .head .header .nav_links.normal{
+    display: none;
   }
 
   .nav_bar .home_page2 h2{
@@ -5586,7 +5597,7 @@ div.xaalad div.x_1aad label{
     }
 
     div.pro_tirakoob .tr{
-      width: calc(75% / 1);
+      width: calc(95% / 1);
     }
 
     div.pro_rasiid .total, .pannding, .avalible{

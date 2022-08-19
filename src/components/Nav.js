@@ -9,6 +9,7 @@ import Drop_nav from "./Drop_nav";
 import {FaAngleDown , FaGlobeAfrica} from "react-icons/fa"
 import { UseAuth } from "./context/authcontext";
 
+
 function Nav(){
     const [isactive, setisactive] = useState(false)
     const [massage, setmagessa] = useState(false)
@@ -112,14 +113,18 @@ function Nav(){
                     <FontAwesomeIcon className="barmobile i" icon={faBars}/>
                     </a>
                 </li>
-
+                {crentuser ?
                 <li className="user_nav">
-                    <Link to={'/Acount/maxamad%20dayib/1'}>
-                        <div className="user_">
-                            <img src="/images/avatar.jpg" />
-                        </div>
-                    </Link>
+                <Link to={`/Acount/user/${crentuser && crentuser.uid}`}>
+                    <div className="user_">
+                        <img src={Userinfo && Userinfo.Image} />
+                    </div>
+                </Link>
                 </li>
+                :<></>
+                }
+
+
             </ul>
         </div>
         {/* <!--------- end nav mobile-----------------------------> */}

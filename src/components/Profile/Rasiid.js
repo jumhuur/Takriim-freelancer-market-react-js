@@ -59,12 +59,12 @@ function Rasiid(){
                     }
                     {/* lacag la bixid cadan */}
                     {dh_rasiid && dh_rasiid.map((rasiid_tr) => 
-                    <div className="pro_rasiid hellay">
-                    <div className="total">
+                    <div className="pro_rasiid" id="hellay">
+                    <div className="total" id="total">
                         <h2><span>{rasiid_tr.id.substr(6,6).toUpperCase()}</span></h2>
                         <p><FontAwesomeIcon className="i" icon={faToolbox} /> Dalabka Id</p>
                     </div>
-                    <div className="avalible">
+                    <div className="avalible" id="avalible">
                         <h2> + {rasiid_tr && rasiid_tr.Qiimaha}$</h2>
                         <p><FontAwesomeIcon className="i" icon={faChartLine} /> Lacagta Aad Heshay</p>
                     </div>
