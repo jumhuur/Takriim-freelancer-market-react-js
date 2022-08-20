@@ -4,16 +4,10 @@ function Xayaysiis(){
             <h2 id="Xayaysiis_title"><i className="fa-solid fa-lightbulb"></i> Xayaysiis | sponsored</h2>
         <div className="xayaysiis">
             <div className="xa">
-                <img src="/images/xayaysiis.jpg"/>
+                <img alt="ads" src="/images/Xayaysiis.jpg"/>
             </div>
 
         </div>
-        {/* <div className="xayaysiis">
-            <div className="xa">
-                <img src="/images/Xayaysiis.jfif"/>
-            </div>
-
-        </div> */}
         </div>
         
     )

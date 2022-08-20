@@ -62,6 +62,8 @@ function NavMobile({nav_mb}){
             </li>
             <div className="qaybo_mobile" style={{"display": "flex"}}>
                 <ul>
+                    { Userinfo  && Userinfo.Nooc === "frelancer" ?
+                    <>
                     <li>
                         <Link to={'/Acount/Myorder'}>
                             <FontAwesomeIcon className="i" icon={faToolbox} /> dalabyada
@@ -78,35 +80,52 @@ function NavMobile({nav_mb}){
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/Profile/update/${uid}`}>
-                        <FontAwesomeIcon className="i" icon={faPenToSquare} /> update profile
-                        </Link>
-                    </li>
-                    <li>
                         <Link to={'/Acount/Add_Job'}>
                         <FontAwesomeIcon className="i" icon={faCirclePlus} /> Gali Adeeg
                         </Link>
                     </li>
                     <li>
+                        <Link to={`/Profile/update/${uid}`}>
+                        <FontAwesomeIcon className="i" icon={faPenToSquare} /> update profile
+                        </Link>
+                    </li>
+
+                    <li>
                         <a href="">
                         <FontAwesomeIcon className="i" icon={faRightFromBracket} /> Xidho Akoonka
                         </a>
                     </li>
+                    </>
+                    :
+                    <>
+                    <li>
+                        <Link to={`/Profile/update/${uid}`}>
+                        <FontAwesomeIcon className="i" icon={faPenToSquare} /> update profile
+                        </Link>
+                    </li>
+
+                    <li>
+                        <a href="">
+                        <FontAwesomeIcon className="i" icon={faRightFromBracket} /> Xidho Akoonka
+                        </a>
+                    </li>
+                    </>
+                    }
                 </ul>
             </div>
             <li>
                 <a href="#">
-                    <i className="fa-solid fa-message"></i> Fariimo <span>20</span>
+                    <i className="fa-solid fa-message"></i> Fariimo <span>0</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i className="fa-solid fa-bell"></i> Ogaysiis <span>01</span>
+                    <i className="fa-solid fa-bell"></i> Ogaysiis <span>0</span>
                 </a>
             </li>
             <li>
                 <Link to={'/Acount/orders'}>
-                    <i className="fa-solid fa-toolbox"></i> Dalabyo  <span>0</span>
+                    <i className="fa-solid fa-toolbox"></i> Dalabyo
                 </Link>
             </li>
             <Link to={"/Acount/Login"}>

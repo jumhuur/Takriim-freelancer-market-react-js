@@ -7,8 +7,12 @@ function Login(){
     const [password, setpassword] = useState('')
     const [log, setlog] = useState(false)
     const [wrongmsg , setwrongmsg] = useState('')
-    const {Login} = UseAuth()
+    const {Login,crentuser} = UseAuth()
     const navigator = useHistory()
+    const path_kale = useHistory()
+    if(crentuser){
+        path_kale.push("/")
+    }
 
     const hanlaelogin = async (e) => {
         e.preventDefault()

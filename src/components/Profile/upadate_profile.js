@@ -172,7 +172,7 @@ function Upadate_profile(){
                             <label htmlFor="qaab">Nooca Akoonkaaga</label>
                             <select  value={Nooc} className="la_bax" name="Nooc" onChange ={(e) => setNooc(e.target.value)} >
                                 <option>
-                                    Takriim User
+                                customer
                                 </option>
                                 <option>
                                     frelancer
@@ -190,7 +190,7 @@ function Upadate_profile(){
                             <label htmlFor="qaab">Sawirka Akoonkaag</label>
                             <div className="sawir">
                                 <span name="image" ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
-                                <input ref={image01} onInput={onchange} className="img_01" type="file" name="sawir1aad" style={{visibility:"hidden"}} 
+                                <input accept="image/*" ref={image01} onInput={onchange} className="img_01" type="file" name="sawir1aad" style={{visibility:"hidden"}} 
                                 onChange={
                                 function(e){
                                     setImage(e.target.files[0].name)

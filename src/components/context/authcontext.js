@@ -96,7 +96,7 @@ export function AuthProvader({children}){
 
 
     //add user info
-    function Add_userdata(Name, Nooc , Image , Heerka , Magaalada, info, r_Total ,r_Xidhan, r_Furan, uid,  user_id){
+    function Add_userdata(Name, Nooc , Image , Heerka , Magaalada, info, r_Total ,r_Xidhan, r_Furan,Macmiil,Qiimayn_user, uid,  user_id){
         return setDoc(doc(db, "Users", user_id), {
             Name,
             Image,
@@ -107,6 +107,8 @@ export function AuthProvader({children}){
             r_Total,
             r_Xidhan,
             r_Furan,
+            Macmiil,
+            Qiimayn_user,
             uid
         })
     }

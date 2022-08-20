@@ -9,26 +9,28 @@ function AllDatUser(){
     const {user_data} = UseAuth()
     return(
         <section className="qayb_name">
-        {user_data && user_data.map((data) => 
+        {user_data && 
         <div className="xajiye kala_qaybiye">
             <div className="qayb_name_page profile">
                 <div className="prof sawir_user">
                     <div>
-                        <img src={data.Image} />
+                        <img src={user_data.Image} />
                     </div>
                 </div>
                 <div className="prof macluumo_user">
-                    <h2 className="name">{data.Name}   <img id="la_xaqiijiyay" src="/images/tawsiiq.svg" alt="tawqsiiq" title="Waa La Xaqiijiyay" /> <span className="coun_shaqo"></span></h2>
-                    <p><FontAwesomeIcon icon={faBriefcase} /> {data.info} </p>
+                    <h2 className="name">{user_data.Name} 
+                    {/* <img id="la_xaqiijiyay" src="/images/tawsiiq.svg" alt="tawqsiiq" title="Waa La Xaqiijiyay" /> <span className="coun_shaqo"></span> */}
+                    </h2>
+                    <p><FontAwesomeIcon icon={faBriefcase} /> {user_data.info} </p>
                     <ul>
                         <li>
                             <p>
-                                <FontAwesomeIcon icon={faLocationDot} /> <span>{data.Magaalada}</span>
+                                <FontAwesomeIcon icon={faLocationDot} /> <span>{user_data.Magaalada}</span>
                             </p>
                         </li>
                         <li>
                             <p>
-                                <FontAwesomeIcon icon={faMedal} /> Heerka <span>{data.Heerka}</span>aad
+                                <FontAwesomeIcon icon={faMedal} /> Heerka <span>{user_data.Heerka}</span>aad
                             </p>
                         </li>
                     </ul>
@@ -38,7 +40,7 @@ function AllDatUser(){
                 <img src="/images/profile.svg" />
             </div>
         </div>
-        )}
+        }
 
         </section>
     )

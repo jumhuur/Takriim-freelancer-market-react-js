@@ -4,7 +4,7 @@ import {faCirclePlus,faRightFromBracket,faToolbox , faUser,faSackDollar ,faFileI
 import {UseAuth } from "../components/context/authcontext"
 
 function Drop_nav({drop}){
-    const {Logout , crentuser , user_data} =  UseAuth()
+    const {Logout , crentuser , user_data, Userinfo} =  UseAuth()
     const home = useHistory()
 
 
@@ -20,6 +20,25 @@ function Drop_nav({drop}){
     return(
         <div id="Drop_nav"  className={drop ? "active" : ""}>
            <div> 
+            {Userinfo && Userinfo.Nooc === "customer" ?
+            <ul id="Drop_items">
+                <li id="Dr" data="dd">
+                    <Link to={`/Acount/user/${crentuser && crentuser.uid}`}>
+                    <FontAwesomeIcon className="i" icon={faUser} /> Akoonkaaga
+                    </Link>
+                </li>
+                <li id="Dr">
+                    <Link to={`/Profile/update/${crentuser && crentuser.uid}`}>
+                        <FontAwesomeIcon className="i" icon={faGear} /> Maarayn
+                    </Link>
+                </li>
+                <li id="Dr">
+                    <Link onClick={logouthanle}>
+                    <FontAwesomeIcon className="i" icon={faRightFromBracket} /> Xidho
+                    </Link>
+                </li>
+            </ul>
+            :
             <ul id="Drop_items">
                 <li id="Dr" data="dd">
                     <Link to={`/Acount/user/${crentuser && crentuser.uid}`}>
@@ -57,6 +76,8 @@ function Drop_nav({drop}){
                     </Link>
                 </li>
             </ul>
+            }
+
             </div>
         </div>
     )

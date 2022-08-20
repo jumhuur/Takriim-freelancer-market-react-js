@@ -58,13 +58,13 @@ function Nav(){
                 </li>
                 <li onClick={HandelMassage}>
                 <a href="#Massage">
-                <FontAwesomeIcon className="i" icon={faEnvelope}/> Fariimo <span>20</span>
+                <FontAwesomeIcon className="i" icon={faEnvelope}/> Fariimo <span>0</span>
                 </a>
                 </li>
                 <Massages massageHold={massage}/>
                 <li onClick={HandelOgaysiis}>
                     <a href="#Ogaysiis">
-                    <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis <span>01</span>
+                    <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis <span>0</span>
                     </a>
                 </li>
                 <Nativactions isactive={isactive}/>

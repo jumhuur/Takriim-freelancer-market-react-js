@@ -8,7 +8,7 @@ function SingUp(){
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [Name, setname] = useState('')
-    const [Nooc, setNooc] = useState('User')
+    const [Nooc, setNooc] = useState('customer')
     const [Magaalada, setMagaalada] = useState('Soomaliland')
     const [Heerka, setHeerka] = useState('1')
     const [Image, setImage] = useState('/images/avatar.jpg')
@@ -16,11 +16,16 @@ function SingUp(){
     const [r_Furan, setr_Furan] = useState('0.00')
     const [r_Xidhan, setr_Xidhan] = useState('0.00')
     const [Info, setInfo] = useState('Takriim User')
+    const [Macmiil, setMacmiil] = useState('0')
+    const [Qiimayn_user, setQiimayn_user] = useState('0')
     const [alert, setalert] = useState(false)
     const [msg, semsg] = useState(false)
     const  { sinup , crentuser, Add_userdata } = UseAuth()
     const toHomepage = useHistory()
-    
+    const path_kale = useHistory()
+    if(crentuser){
+        path_kale.push("/")
+    }
 
     // gaar 
 
@@ -29,37 +34,16 @@ function SingUp(){
         e.preventDefault()
         try {
         const data_user = await sinup(email,password)
-        await Add_userdata(Name, Nooc , Image , Heerka, Magaalada, Info , r_Total ,r_Xidhan, r_Furan , data_user.user.uid, data_user.user.uid)
+        await Add_userdata(Name, Nooc , Image , Heerka, Magaalada, Info , r_Total ,r_Xidhan, r_Furan , Macmiil,Qiimayn_user, data_user.user.uid, data_user.user.uid)
         toHomepage.push('/')
-        // } 
-
         } catch(err) {
-            setalert(true)
-            semsg('Emailkan Horaa Loo Qatay')
-            console.log(err)
-        }
-
+        console.log(err)
+        setalert(true)
+        semsg('Emailkan Horaa Loo Qatay')
         setTimeout(() => {
             setalert(false)
         } , 10000)
-        
-        // const data = {email, password , name}
-        // const response = await fetch('/users', {
-        //     method: "post",
-        //     body: JSON.stringify(data),
-        //     headers : {'Content-Type': 'application/json'}
-        // })
-
-        // const json = await response.json()
-        // if(!response.ok){
-        //     console.log('qalad')
-            
-        // }
-
-        // if(response.ok){
-        //     console.log('added')
-        //     console.log(data)
-        // } 
+        }
     }
     return(
         <section className="sinup_page">

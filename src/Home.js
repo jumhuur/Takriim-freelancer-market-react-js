@@ -4,10 +4,7 @@ import Footer from "./components/Footer";
 import Homcontent from './components/Home/Homcontent'
 import Ubuc from "./components/Home/UbucHome";
 import {useState} from "react";
-
-
 function Homepage(){
-
     const setup = (user) => {
         if(user){
             console.log('sax')

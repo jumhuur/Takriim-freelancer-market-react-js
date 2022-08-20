@@ -14,10 +14,10 @@ function Gudoon(){
     const {userid} = useParams()
     const [oneOrder , setoneOrder] = useState()
     const [user , setuser] = useState()
-    const mypath = useHistory()
     const [c_user, setc_user] = useState()
     const [job ,setjob] = useState(null)
-    const {Add_Comments ,Userinfo , Add_Rasiid , } = UseAuth()
+    const [ordejob,setordejob ] = useState(null)
+    const {Add_Comments ,Userinfo , Add_Rasiid ,crentuser } = UseAuth()
     // comments state 
     const [Rate, setRate] = useState("5")
     const [Comment, setComment] = useState()
@@ -35,6 +35,16 @@ function Gudoon(){
     // updarete iibsade iyo qiimayn
     const iibsade = parseInt(job && job.iibsade) + 1
     const Qiimayn = parseInt(job && job.Qiimayn) + 1
+
+
+    // akoon info
+    useEffect(() => {
+        if(crentuser){
+            setordejob(`${oneOrder && oneOrder.Jobid}`)
+            //get_this_job()
+        }
+
+    },[crentuser])
 
     const submitHandale  = async (e) =>{
         e.preventDefault()
@@ -106,15 +116,28 @@ function Gudoon(){
         })
     }
 
+    // const Jobsref_r = doc(db, "Jobs" , ordejob)
+    // //const q = query(colref)    
+    // function  get_this_job(){
+    //     getDoc(Jobsref_r)
+    //     .then((doc) => {
+    //         setjob({...doc.data(), id:doc.id})
+    //     })
+    // }
+
 
 
     function update_rasiid(){
         const ordref =  doc(db, "Users", userid)
         const total = parseFloat(c_user.r_Total)   + parseFloat(Last_qiimo) 
         const Xidhan = parseFloat(c_user.r_Xidhan) +  parseFloat(Last_qiimo) 
+        const Mac = Number(c_user.Macmiil) + 1
+        const Q_r = Number(c_user.Qiimayn_user) + 1
         updateDoc(ordref, {
             r_Total:total.toFixed(2),
-            r_Xidhan:Xidhan.toFixed(2)
+            r_Xidhan:Xidhan.toFixed(2),
+            Macmiil:String(Mac),
+            Qiimayn_user:String(Q_r),
         })
     }
     useEffect(() => {
@@ -200,7 +223,7 @@ function Gudoon(){
                             Xagan Hoose Kala Soco Kolba Xalladaha Dalabkaaga
                         </p>
                         <p className="Gudoon_p">
-                            Dalabkan waxaad samaysay muda hada laga joogo <span>({format(oneOrder && oneOrder.createdAt)})</span>
+                            Dalabkan waxaad samaysay muda hada laga joogo <span>({format(oneOrder && oneOrder.CreatedAt)})</span>
                            
                         </p>
                         <p className="Gudoon_p">
