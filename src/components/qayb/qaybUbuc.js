@@ -8,7 +8,7 @@ function QaybUbuc({data}){
         <div className="xajiye kala_qaybiye">
             <div className="qayb_name_page">
                 <h2> Qaybta  <span>{data.Name}</span>  <span className="coun_shaqo"></span></h2>
-                <p>{data.Title}</p>
+                <p>{data.Title} {data.Name}</p>
                 <ul>
                     <li>
                         <a href="#choose">

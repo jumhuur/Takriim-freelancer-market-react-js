@@ -117,7 +117,7 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
                         <span ref={kalmad_place} className="count_place kalmad">00</span>
                     </div>
                 </div>
-                </div> :<p>lama hellin</p>}
+                </div> :<></>}
                 {/* <!-------if shaqo type == turjumid qorid iwm--> */}
                 <div className="iibiye_info">
                     <img id="la_xaqiijiyay" src="/images/tawsiiq.svg" alt="tawqsiiq" title="Waa La Xaqiijiyay" />
@@ -125,7 +125,7 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
                         <img src={user? user.Image :"/images/avatar.jpg"} />
                     </div>
                     <div className="info_seller">
-                        {user ?  <Link to={`/Acount/${user.Name}/${user.id}`}>
+                        {user ?  <Link to={'#'}>
                             <h2> {user? user.Name :"unknown user"}</h2>
                         </Link> : ""}
                         

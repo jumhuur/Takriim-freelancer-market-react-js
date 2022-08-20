@@ -131,8 +131,8 @@ function Gudoon(){
         const ordref =  doc(db, "Users", userid)
         const total = parseFloat(c_user.r_Total)   + parseFloat(Last_qiimo) 
         const Xidhan = parseFloat(c_user.r_Xidhan) +  parseFloat(Last_qiimo) 
-        const Mac = Number(c_user.Macmiil) + 1
-        const Q_r = Number(c_user.Qiimayn_user) + 1
+        const Mac = parseInt(c_user.Macmiil) + 1
+        const Q_r = parseInt(c_user.Qiimayn_user) + 1
         updateDoc(ordref, {
             r_Total:total.toFixed(2),
             r_Xidhan:Xidhan.toFixed(2),
