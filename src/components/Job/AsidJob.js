@@ -33,20 +33,19 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
     const [qi_toin, setqitoin] = useState(null)
     const [xa_toin, setxatoin] = useState(null)
 
-
     function xisaabiye(){
         const xadiga_hore = qiimaha / xadiga
         const xadiga_inputka = parseInt(inputt.current.value);
         const last_qii = xadiga_hore * xadiga_inputka
-
         const mudadiiHore = Mudada / xadiga
         const lastmuddo = mudadiiHore * xadiga_inputka
-        // sax waxii noqda
-        setxadiga(xadiga_inputka)
-        setqimosaxa(last_qii.toFixed(2))
-        setmudayn(Math.floor(lastmuddo))
-        console.log(mudayn)
-        xadi2 == NaN ? setxadiga(1) : console.log('ok');
+        if(inputt.current.value == ""){
+            setxadiga('1')
+        } else {
+            setxadiga(xadiga_inputka)
+            setqimosaxa(last_qii.toFixed(2))
+            setmudayn(Math.floor(lastmuddo))
+        }
     }
 
     function oninput(){
@@ -93,10 +92,10 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
                         <input  ref={x} type="hidden" value={xadi2}  name="xadiga"/>
                         <input  ref={q} type="hidden" value={q_sax}  name="qiimaha"/>
                         <label><FontAwesomeIcon  icon={faRotate}/> Xadiga : </label>
-                        <input ref={inputt} onChange={xisaabiye} className="xadiga_user" type="number" value={xadi2} name="xadiga" />
+                        <input  ref={inputt} onChange={xisaabiye} className="xadiga_user" type="number" value={xadi2} name="xadiga" />
                         <label> {job.Nooca} </label>
                         {
-                        q_sax <= 0 || q_sax == NaN ? <p>dalab ma noqonayo wax ka yar 1 </p> :
+                        q_sax <= 0 || q_sax === NaN ? <p>dalab ma noqonayo wax ka yar 1 </p> :
                         <Link to={`/Order/${job.id}`} >
                             <button onClick={setlocal} type="submit">Gudbi Dalabka(<span className="qiimaha_lastiga">{q_sax}</span>$)</button>
                         </Link>
@@ -130,13 +129,14 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
                         </Link> : ""}
                         
                         <p>  {user ? user.info :  "unknown Description"}</p>
+                        <p>  Totalka Dalabyada ({user ? user.Macmiil :  "unknown Description"}) Dalab</p>
                         <p className="qiimayn">
-                            {/* <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
-                            (<span>23</span>) qof */}
+                            <FontAwesomeIcon className="i" icon={faStar} />
+                            (<span>{user ? user.Qiimayn_user:<></>}</span>) qof
                         </p>
                         {user ? <Link to={`/Chat`}>
                             <button><FontAwesomeIcon icon={faEnvelope} /> ila soo xidhiidh</button>

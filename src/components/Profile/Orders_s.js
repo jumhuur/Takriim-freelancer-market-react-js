@@ -54,7 +54,7 @@ function OrderUsers(){
                 </div>
                 <div className="macluumaad">
                     <div className="qoraalo">
-                        <Link to={`/Acount/order/Info/${dat_order.id}/${dat_order.UserId}`}>
+                        <Link to={`/Acount/order/Info/${dat_order.id}/${dat_order.UserId}/${dat_order.Jobid}`}>
                             <h2>{dat_order.title}</h2>
                             <p>
                             Dalabkaaga waad gudbisay macmiil waxaanan rajaynaynaa inaad ku qancid doonta 
@@ -73,7 +73,7 @@ function OrderUsers(){
                             :dat_order.xaalad == 1 ?  
                                 <li>
                                 <span> <FontAwesomeIcon className="i socda" icon={faClockRotateLeft} /> </span>
-                                socdaa 
+                                Wuu socdaa 
                                 </li>
                             : dat_order.xaalad == 2 ? 
                                 <li>

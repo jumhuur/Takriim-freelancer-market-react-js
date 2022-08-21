@@ -12,6 +12,7 @@ import { UseAuth } from "../context/authcontext";
 function Gudoon(){
     const {id} = useParams()
     const {userid} = useParams()
+    const {j_id} = useParams()
     const [oneOrder , setoneOrder] = useState()
     const [user , setuser] = useState()
     const [c_user, setc_user] = useState()
@@ -31,7 +32,6 @@ function Gudoon(){
 
     // update order in la gudoomay 
     const gudoomay = true
-
     // updarete iibsade iyo qiimayn
     const iibsade = parseInt(job && job.iibsade) + 1
     const Qiimayn = parseInt(job && job.Qiimayn) + 1
@@ -65,6 +65,7 @@ function Gudoon(){
 
             update_gudoon()
             update_rasiid()
+            update_job()
 
         }catch(Err){
             console.log(Err)
@@ -116,14 +117,14 @@ function Gudoon(){
         })
     }
 
-    // const Jobsref_r = doc(db, "Jobs" , ordejob)
-    // //const q = query(colref)    
-    // function  get_this_job(){
-    //     getDoc(Jobsref_r)
-    //     .then((doc) => {
-    //         setjob({...doc.data(), id:doc.id})
-    //     })
-    // }
+    const Jobsref_r = doc(db, "Jobs" , j_id)
+    //const q = query(colref)    
+    function  get_this_job(){
+        getDoc(Jobsref_r)
+        .then((doc) => {
+            setjob({...doc.data(), id:doc.id})
+        })
+    }
 
 
 
@@ -140,10 +141,19 @@ function Gudoon(){
             Qiimayn_user:String(Q_r),
         })
     }
+
+    function update_job(){
+        const job_upd =  doc(db, "Jobs", j_id)
+        updateDoc(job_upd, {
+            Qiimayn,
+            iibsade,
+        })
+    }
     useEffect(() => {
         getsingaleorder() 
         get_user()
         get_user_cren()
+        get_this_job()
     }, [oneOrder])
 
 
