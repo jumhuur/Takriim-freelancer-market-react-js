@@ -101,10 +101,21 @@ function JobContent({jobdetails ,user}){
                             </div>                  
                         </div>
                         <div className="sawir_shaqo">
-                                <img src={jobdetails.image} alt="sawir shaqo" title="sawir shaqo" />
-                                {/* <iframe width="100%" height="100%"
-                                src={jobdetails.Muuqaal}>
-                                </iframe> */}
+                            {jobdetails.image == "/images/asalahaan.png" ? 
+                            /*<video src={jobdetails.Video} alt="Muuqaal Shaqo" />*/
+                                <video
+                                    id="my-player"
+                                    class="video-js vjs-theme-fantasy"
+                                    controls
+                                    preload="auto"
+                                    /*poster="//vjs.zencdn.net/v/oceans.png"*/
+                                    data-setup='{}'>
+                                <source src={jobdetails.Video} type="video/mp4"></source>
+                                </video>
+                            :
+                            <img src={jobdetails.image} alt="sawir shaqo" title="sawir shaqo" />
+                            }
+                               
                         </div>
                         <div className="faahfaahin_sho">
                             <h2> Warbixinta shaqadan aan kuu qabanayo</h2>

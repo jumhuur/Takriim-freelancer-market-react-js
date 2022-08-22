@@ -74,6 +74,8 @@ html{
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: sans-serif;
+  font-family: "nooca_farta";
 }
 
 
@@ -1268,6 +1270,11 @@ div.nav_job ul#nav_jobs  li:hover a{
   object-fit: cover;
 }
 
+.sliding .tranding_haye .card_template .imges video{
+  width: 100%;
+  height: 100%;
+}
+
 .sliding .tranding_haye .card_template .macluumaad{
   width: 80%;
   height: 100%;
@@ -2008,6 +2015,16 @@ footer .my_footer .qayb.shaqooyin_link ul li a{
   border-radius: 5px;
   border-left: solid 4px var(--main-2);
   border-right: solid 4px var(--main-2);
+}
+
+
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .sawir_shaqo video {
+  width: 100%;
+  height: 100%;
+}
+.main_shaqo .shao_macluumad_dhan .qayb_.sawiro .sawir_shaqo iframe{
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -5038,6 +5055,29 @@ section.Chat .chatbody .chatmassages .massages_list .loadmassage p{
   line-height: 1.9;
 }
 
+
+/*--------- OPTIOSNKA MEDIA ADD JOB -------------*/
+div.option_mdeia{
+  width: 80%;
+  /* background-color: var(--main-2); */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: wrap row;
+  padding: 3% 0px;
+}
+
+div.option_mdeia input{
+  width: 35px;
+  height: 35px;
+  margin: 10px 15px;
+}
+
+div.option_mdeia label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 /* ------- skalton style ---------------------------*/
 .filters.skl{
   background-color: var(--fonts);
@@ -5209,6 +5249,12 @@ div.xaalad div.x_1aad input {
 div.xaalad div.x_1aad label{
   padding: 0;
   margin: 0;
+}
+
+
+div.raber{
+  height: 100vh;
+  background-color: var(--main-2);
 }
 
 

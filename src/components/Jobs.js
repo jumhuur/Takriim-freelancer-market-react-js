@@ -6,9 +6,24 @@ function Jobs({Jobsset}){
         <div className="tranding_haye main">
             {Jobsset && Jobsset.map(listdata => (
                  <div className="card_template" key={listdata.id}>
-                 <div className="imges">
-                     <img src={listdata.image ? listdata.image : "/images/asalahaan.png"} alt="sawir_template" />
-                 </div>
+                {listdata.image == "/images/asalahaan.png"  ?
+                <div className="imges">
+                <video
+                    id="my-player"
+                    class="video-js vjs-theme-fantasy"
+                    controls
+                    preload="auto"
+                    /*poster="//vjs.zencdn.net/v/oceans.png"*/
+                    data-setup='{}'>
+                <source src={listdata.Video} type="video/mp4"></source>
+                </video>
+                </div>
+                : 
+                <div className="imges">
+                <img src={listdata.image ? listdata.image : "/images/asalahaan.png"} alt="sawir_template" />
+                </div>
+                }
+
                  <div className="macluumaad">
                      <div className="qoraalo">
                          <Link to={`/jobs/${listdata.id}/User/${listdata.UserId}`}>

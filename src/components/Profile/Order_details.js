@@ -16,6 +16,7 @@ function OrderDetailscheckh(){
     const [order, setorder] = useState(null)
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
+    const [PaymentType, setPaymentTaype] = useState('Zaad')
     const {crentuser , add_order} = UseAuth()
     const {xadiga} = useDatacontext()
     const path = `/Order/Complated/${id}`
@@ -65,6 +66,7 @@ function OrderDetailscheckh(){
         getsingalejob()
 
     }, [])
+
 
     //spn_img1.current.addEventListener('click', image01_click)
     function image01_click(e){
@@ -229,18 +231,40 @@ function OrderDetailscheckh(){
                                 </div>
                                 {/* <!----------upload file and image --> */}
                                 <label>Dooro Qaabka Lacag Bixinta</label>
-                                    <select   className="lacag_bixin" name="shirkad">
+                                    <select   className="lacag_bixin" name="shirkad"
+                                    onChange={
+                                        function(e){
+                                            setPaymentTaype(e.target.value)
+                                            console.log(PaymentType)
+                                        }
+                                    }
+                                    
+                                    >
                                         <option value="zaad">
                                             zaad service
                                         </option>
                                         <option value="edahab">
                                             edahab service
                                         </option>
+                                        <option value="Paypal">
+                                            Paypal
+                                        </option>
                                     </select>
+                                {PaymentType == "Zaad" ?
                                 <input className="lacag_bixin" type="text" required placeholder="Lanbaraakag" name="lanbarka"
                                 onChange={(e) => setlanbarka(e.target.value)}
                                 value={lanbarka}
                                 />
+                                :PaymentType == "edahab" ?
+                                <input className="lacag_bixin" type="text" required placeholder="Lanbaraakag" name="lanbarka"
+                                onChange={(e) => setlanbarka(e.target.value)}
+                                value={lanbarka}
+                                />
+
+                                :PaymentType == "Paypal"?
+                                <button>Pay Now </button>
+                                :<></>
+                                }    
                             </div>
                             <input type="hidden" value={Mudada}   name="Mudada"/>
                             <input type="hidden" value={Xadiga}  name="xadiga"/>

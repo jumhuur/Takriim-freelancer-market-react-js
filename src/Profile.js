@@ -40,15 +40,28 @@ function Profile(){
     }
 
 
-    // function getdaata_user(){
-    //     onSnapshot (q, (snapshot) => {
+    // calculate reting 
+    // const [rate5, setrate5] = useState()
+    // const [rate4, setrate4] = useState()
+    // const [rate3, setrate3] = useState()
+    // const [rate2, setrate2] = useState()
+    // const [rate1, setrate1] = useState()
+
+    // const r_5col = collection(db, "Comments")
+    // const r_5_q = query(r_5col, orderBy('CreatedAt', "desc"), where("UserId" , "==" ,id ))    
+    // //hellida docs 
+    // async function  get_rate(){
+    //     onSnapshot (r_5_q, (snapshot) => {
     //         const Dhaq1aad = []
     //         snapshot.docs.forEach((doc) => {
-    //                 Dhaq1aad.push({...doc.data(), id:doc.id})
+    //             Dhaq1aad.push({...doc.data(), id:doc.id})
     //         })
-    //         setuser_data(Dhaq1aad)
+    //         setrate5(Dhaq1aad.length)
+            
     //     })
     // }
+
+
 
 
 
@@ -82,6 +95,7 @@ function Profile(){
         getdaata_user()
         get_jobs()
         get_cus()
+        //get_rate()
     },[crentuser,id])
     return(
         <div>

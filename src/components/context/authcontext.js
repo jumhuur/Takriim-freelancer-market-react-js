@@ -24,11 +24,12 @@ export function AuthProvader({children}){
     
     // add job 
     const db = getFirestore()
-    function Add_job(title, body , image , Qiimaha , Qiimayn, Xadiga, Nooca ,Qaybid, Mudada,iibsade,xaalad,qodob1aad,qodob2aad,  UserId,){
+    function Add_job(title, body , image , Video , Qiimaha , Qiimayn, Xadiga, Nooca ,Qaybid, Mudada,iibsade,xaalad,qodob1aad,qodob2aad,  UserId,){
         return setDoc(doc(db, "Jobs", `job${Date.now()}`), {
             title,
              body ,
              image,
+             Video,
              Qiimaha ,
              Qiimayn ,
              Xadiga ,

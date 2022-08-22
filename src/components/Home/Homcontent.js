@@ -9,7 +9,7 @@ function ContentHome(){
     //get data user 
     const db = getFirestore()
     const colref = collection(db, "Jobs")
-    const q = query(colref, limit(6), orderBy("CreatedAt", "desc"))    
+    const q = query(colref, limit(10), orderBy("CreatedAt", "desc"))    
     //hellida docs 
     async function  getdaata_user(){
         onSnapshot (q, (snapshot) => {
