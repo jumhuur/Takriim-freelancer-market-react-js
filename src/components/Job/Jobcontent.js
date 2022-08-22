@@ -103,13 +103,7 @@ function JobContent({jobdetails ,user}){
                         <div className="sawir_shaqo">
                             {jobdetails.image == "/images/asalahaan.png" ? 
                             /*<video src={jobdetails.Video} alt="Muuqaal Shaqo" />*/
-                                <video
-                                    id="my-player"
-                                    class="video-js vjs-theme-fantasy"
-                                    controls
-                                    preload="auto"
-                                    /*poster="//vjs.zencdn.net/v/oceans.png"*/
-                                    data-setup='{}'>
+                                <video controls>
                                 <source src={jobdetails.Video} type="video/mp4"></source>
                                 </video>
                             :

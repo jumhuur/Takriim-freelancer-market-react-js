@@ -130,9 +130,18 @@ function Profile(){
                 <TiroKoob adeeg={adeeg} Macmiil={user_data.Macmiil}Qimayn={user_data.Qiimayn_user}/>
                 {j_user?  j_user.filter((data => data.UserId == id)).map(listdata => (
                 <div className="card_template" key={listdata.id}>
+                    {listdata.image == "/images/asalahaan.png"  ?
+                    <div className="imges">
+                    <video controls>
+                    <source src={listdata.Video} type="video/mp4"></source>
+                    </video>
+                    </div>
+                    :
                     <div className="imges">
                         <img src={listdata.image} alt="sawir_template" />
                     </div>
+                    }
+
                     <div className="macluumaad">
                         <div className="qoraalo">
                             <Link to={`/jobs/${listdata.id}/User/${listdata.UserId}`}>
@@ -161,9 +170,16 @@ function Profile(){
                 <>
                 {j_cus?  j_cus.map(listdata => (
                     <div className="card_template" key={listdata.id}>
+                    {listdata.image == "/images/asalahaan.png"  ?
+                    <video controls>
+                    <source src={listdata.Video} type="video/mp4"></source>
+                    </video>
+                    :
                     <div className="imges">
                         <img src={listdata.image} alt="sawir_template" />
                     </div>
+                    }
+
                     <div className="macluumaad">
                         <div className="qoraalo">
                             <Link to={`/jobs/${listdata.id}/User/${listdata.UserId}`}>

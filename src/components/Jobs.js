@@ -8,13 +8,7 @@ function Jobs({Jobsset}){
                  <div className="card_template" key={listdata.id}>
                 {listdata.image == "/images/asalahaan.png"  ?
                 <div className="imges">
-                <video
-                    id="my-player"
-                    class="video-js vjs-theme-fantasy"
-                    controls
-                    preload="auto"
-                    /*poster="//vjs.zencdn.net/v/oceans.png"*/
-                    data-setup='{}'>
+                <video controls>
                 <source src={listdata.Video} type="video/mp4"></source>
                 </video>
                 </div>
