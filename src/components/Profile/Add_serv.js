@@ -70,6 +70,7 @@ function Add_servece(){
         if(file){
             let file_name = file.name.substring(0,30);
             let file_zise = file.size / 1024 / 1024
+            let file_time = file.duration;
             setfilename(file_name.substring(0,30))
             setfilezise(`${file_zise.toFixed(2)} MB`)
             uploadFile(file_name)

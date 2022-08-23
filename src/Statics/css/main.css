@@ -5364,6 +5364,14 @@ div.raber{
     margin-bottom: 2%;
   }
 
+  div.option_mdeia input {
+    width: 20px;
+  }
+
+  div.option_mdeia {
+    width: 100%;
+  }
+
   .sliding .tranding_haye .card_template .imges video{
     height: 100%;
     width: 100%;

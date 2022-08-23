@@ -104,10 +104,10 @@ function JobContent({jobdetails ,user}){
                             {jobdetails.image == "/images/asalahaan.png" ? 
                             /*<video src={jobdetails.Video} alt="Muuqaal Shaqo" />*/
                                 <video controls>
-                                <source src={jobdetails.Video} type="video/mp4"></source>
+                                <source data-src={jobdetails.Video} type="video/mp4"></source>
                                 </video>
                             :
-                            <img src={jobdetails.image} alt="sawir shaqo" title="sawir shaqo" />
+                            <img className="lazyload" data-src={jobdetails.image} alt="sawir shaqo" title="sawir shaqo" />
                             }
                                
                         </div>
