@@ -425,7 +425,7 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
 
 #ogaysiis_nav.active{
   visibility: visible;
-  top: 90px;
+  top: 80px;
   transition: all 0.3s ease-in;
 }
 
@@ -439,7 +439,7 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
 
 #massages_nav.active{
   visibility: visible;
-  top: 90px;
+  top: 80px;
   transition: all 0.3s ease-in;
 }
 
