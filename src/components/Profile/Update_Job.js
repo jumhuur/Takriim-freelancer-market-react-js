@@ -1,15 +1,15 @@
 import  NavHolder from "../NavHolder";
 import  Footer from "../Footer";
 import AsideUser from "./Aside_Profile"
-import  SklatonAll from '../skaltons/Jobskalaton';
+//import  SklatonAll from '../skaltons/Jobskalaton';
 import Alert_wrong from "../Alert2";
-import { Link, useHistory, useParams } from "react-router-dom"
+import {useHistory, useParams } from "react-router-dom"
 import {useRef, useState } from "react"
 import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus , faFilm, faImage} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import {UseAuth } from '../context/authcontext'
-import { collection,getFirestore, query, onSnapshot, limit, orderBy, doc, getDoc, updateDoc } from "firebase/firestore";
+import { collection,getFirestore, query, onSnapshot, orderBy, doc, getDoc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
 

@@ -342,7 +342,7 @@ div#Drop_nav.active > div{
   background-color: var(--fonts);
   border-radius: 5px;
   padding: 3% 0%;
-  box-shadow:0px 0px 11px 1px #9b9b9b78;
+  box-shadow: 0px 0px 11px 1px #9b9b9b78;
 }
 
 div#Drop_nav::before{
@@ -415,12 +415,11 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
 /*-----ogaysis---- and massage----*/
 
 #ogaysiis_nav ,#massages_nav{
-  width: 350px;
-  height: 450px;
+  width: 280px;
   position: absolute;
   top: 100px;
   bottom: 0px;
-  right: 50px;
+  right: 85px;
   visibility: hidden;
 }
 
@@ -452,22 +451,27 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
   content: "";
   position: absolute;
   top: -20px;
-  left: 152px;
-  border-bottom: solid 10px var(--main-2);
+  left: 125px;
+  border-bottom: solid 10px var(--fonts);
   border-left: solid 10px transparent;
   border-right: solid 10px transparent;
   border-top: solid 10px transparent;
 }
 
 
-#ogaysiis_nav .all_massage ,#massages_nav .all_massage ,#ogaysiis_nav .footer_msg ,#massages_nav .footer_msg{
+#ogaysiis_nav .all_massage ,#massages_nav .all_massage {
   background-color: var(--fonts);
+}
+
+#ogaysiis_nav .footer_msg ,#massages_nav .footer_msg{
+  background-color: var(--fonts);
+  box-shadow: 0px 0px 11px 1px #9b9b9b78;
 }
 
 
 #ogaysiis_nav .all_massage ,#massages_nav .all_massage{
   width: 100%;
-  height: 400px;
+  height: 280px;
   padding: 2% 3%;
   overflow-x: auto;
 }
@@ -476,8 +480,8 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
 }
 
 #ogaysiis_nav  .all_massage::-webkit-scrollbar-thumb ,#massages_nav  .all_massage::-webkit-scrollbar-thumb {
-  background-color: var(--fonts);
-  border-radius: 15px;
+  background-color: var(--Font-color);
+  border-radius: 2px;
 }
 
 #ogaysiis_nav  .all_massage::-webkit-scrollbar-track , #massages_nav  .all_massage::-webkit-scrollbar-track{
@@ -494,7 +498,7 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
   flex-flow: wrap column;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: var(--main-2);
+  background-color: var(--fonts);
 
 }
 
@@ -504,7 +508,8 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
   border-bottom-right-radius: 0px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background-color: var(--main-2);
+  background-color: var(--fonts);
+  box-shadow: 0px 0px 11px 1px #9b9b9b78;
   
 }
 
@@ -512,7 +517,7 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
   text-decoration: none;
   width: fit-content;
   font-size: 16px;
-  color: var(--fonts);
+  color: var(--main-2);
   font-family: "nooca_farta";
   text-transform: capitalize;
 }
@@ -555,14 +560,14 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
 }
 
 #ogaysiis_nav .msg h2 span ,#massages_nav .msg h2 span{
-  color: var(--main-2);
+  color: var(--ciwaano);
   font-weight: bold;
   text-transform: capitalize;
 }
 
 #ogaysiis_nav .msg p ,#massages_nav .msg p{
-  font-size: 16px;
-  color: var(--ciwaano);
+  font-size: 12px;
+  color: var(--main-color);
 
 }
 /*-------------------------nav mobile --------------------*/

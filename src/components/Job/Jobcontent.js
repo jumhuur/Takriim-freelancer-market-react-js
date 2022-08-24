@@ -7,7 +7,6 @@ import {faSpinner, faStar , faUserGroup , faUserTie , faTrashCanArrowUp , faGear
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useState } from "react";
 import {UseAuth} from "../context/authcontext"
-import { useEffect } from "react";
 function JobContent({jobdetails ,user}){
     const {id} = useParams()
     const [active , setactive] = useState (false)
@@ -22,18 +21,18 @@ function JobContent({jobdetails ,user}){
 
     // delete data job 
 
-    const deletemasax = async () => {
-            const response = await fetch(`/jobs/${id}`, {
-            method: "DELETE",
-        })
+    // const deletemasax = async () => {
+    //         const response = await fetch(`/jobs/${id}`, {
+    //         method: "DELETE",
+    //     })
 
-        const json = response.json()
-        if(response.ok){
-            console.log('waa la masaxay')
-            myparth.push('/Acount/maxamad dayib/1')
-        }
+    //     const json = response.json()
+    //     if(response.ok){
+    //         console.log('waa la masaxay')
+    //         myparth.push('/Acount/maxamad dayib/1')
+    //     }
 
-    }
+    // }
 
 
 
@@ -56,7 +55,7 @@ function JobContent({jobdetails ,user}){
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link onClick={deletemasax}>
+                                    <Link>
                                     <FontAwesomeIcon icon={faTrashCanArrowUp} /> Masax
                                     </Link>
                                 </li>

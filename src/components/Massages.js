@@ -9,37 +9,37 @@ function Massages({massageHold}){
             <a href="">
                 <div className="msg">
                     <h2>Fariin cusub ayaad ka heshay <span>Ixsaan maxamad</span></h2>
-                    <p>Tariikh: <span>28-05-2022</span>  <span className="Xaalad"><i className="fa-solid fa-envelope"></i></span></p>
+                    <p>Waktiga: <span>1 Day Ago</span>  <span className="Xaalad"><i className="fa-solid fa-envelope"></i></span></p>
                 </div>
             </a>
             <a href="">
                 <div className="msg">
                     <h2>Fariin cusub ayaad ka heshay <span>Ixsaan maxamad</span></h2>
-                    <p>Tariikh: <span>28-05-2022</span>  <span className="Xaalad">   <i className="fa-solid fa-envelope-open"></i></span></p>
+                    <p>Waktiga: <span>1 Day Ago</span>  <span className="Xaalad"><i className="fa-solid fa-envelope"></i></span></p>
                 </div>
             </a>
             <a href="">
                 <div className="msg">
                     <h2>Fariin cusub ayaad ka heshay <span>cimaraan idir</span></h2>
-                    <p>Tariikh: <span>28-05-2022</span>  <span className="Xaalad">   <i className="fa-solid fa-envelope-open"></i></span></p>
+                    <p>Waktiga: <span>1 Day Ago</span>  <span className="Xaalad"><i className="fa-solid fa-envelope"></i></span></p>
                 </div>
             </a>
             <a href="">
                 <div className="msg">
                     <h2>Fariin cusub ayaad ka heshay <span>nasriin xamse</span></h2>
-                    <p>Tariikh: <span>28-05-2022</span>  <span className="Xaalad">   <i className="fa-solid fa-envelope-open"></i></span></p>
+                    <p>Waktiga: <span>1 Day Ago</span>  <span className="Xaalad"><i className="fa-solid fa-envelope"></i></span></p>
                 </div>
             </a>
             <a href="">
                 <div className="msg">
                     <h2>Fariin cusub ayaad ka heshay <span>Ixsaan maxamad</span></h2>
-                    <p>Tariikh: <span>28-05-2022</span>  <span className="Xaalad">   <i className="fa-solid fa-envelope-open"></i></span></p>
+                    <p>Waktiga: <span>1 Day Ago</span>  <span className="Xaalad"><i className="fa-solid fa-envelope"></i></span></p>
                 </div>
             </a>
             <a href="">
             <div className="msg">
                 <h2>Fariin cusub ayaad ka heshay <span>Ixsaan cumar</span></h2>
-                <p>Tariikh: <span>28-05-2022</span>  <span className="Xaalad">   <i className="fa-solid fa-envelope-open"></i></span></p>
+                <p>Waktiga: <span>1 Day Ago</span>  <span className="Xaalad"><i className="fa-solid fa-envelope"></i></span></p>
             </div>
             </a>
         </div>
