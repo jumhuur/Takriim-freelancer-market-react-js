@@ -65,8 +65,20 @@ function Rasiid(){
                         <p><FontAwesomeIcon className="i" icon={faToolbox} /> Dalabka Id</p>
                     </div>
                     <div className="avalible" id="avalible">
-                        <h2> + {rasiid_tr && rasiid_tr.Qiimaha}$</h2>
+                        {rasiid_tr.Nooc == "-" ?
+                        <>
+                            <h2 className="out"> - {rasiid_tr && rasiid_tr.Qiimaha} $</h2>
+                            <p className="out"><FontAwesomeIcon className="i" icon={faChartLine} /> Lacagta Ka Go'aday</p>
+                        </>
+
+                        :
+
+                        <>
+                        <h2> + {rasiid_tr && rasiid_tr.Qiimaha} $</h2>
                         <p><FontAwesomeIcon className="i" icon={faChartLine} /> Lacagta Aad Heshay</p>
+                        </>
+                        }
+
                     </div>
                     </div>
                     )}

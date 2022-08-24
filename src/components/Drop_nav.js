@@ -61,7 +61,7 @@ function Drop_nav({drop}){
                     </Link>
                 </li>
                 <li id="Dr">
-                    <Link to={'/Acount/Cashout'}>
+                    <Link to={`/Cashout/${crentuser && crentuser.uid}`}>
                         <FontAwesomeIcon className="i" icon={faSackDollar} />  Lacag La Bax
                     </Link>
                 </li>

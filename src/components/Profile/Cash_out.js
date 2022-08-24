@@ -5,8 +5,72 @@ import {useEffect, useState } from "react"
 import {faSackDollar} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { UseAuth } from "../context/authcontext";
+import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
+import { useHistory, useParams } from "react-router-dom";
 function Lacag_La_bixid(){
-    const {Userinfo} = UseAuth()
+    const {id} = useParams()
+    const {Userinfo, Add_Rasiid, cashOut} = UseAuth()
+    const [c_user, setc_user] = useState()
+
+    // state cashout
+    const Name = Userinfo && Userinfo.Name
+    const Lanbar =  Userinfo && Userinfo.Talefan
+    const [Lacag,setLacag] = useState()
+    const Nooc = "-";
+    const path = useHistory()
+
+    // get order
+    const db = getFirestore()
+    // state rasiid
+
+    const submit_cashout = async (e) => {
+        e.preventDefault()
+        try{
+            await cashOut(
+                Name,
+                Lanbar,
+                Lacag,
+            )
+
+            await Add_Rasiid (
+                Lacag,
+                id,
+                Nooc,
+            )
+
+            update_rasiid()
+            path.push(`/Acount/Cashoutsax`)
+
+
+        } catch(err){
+            console.log(err)
+        }
+    }
+
+    const Userref_r = doc(db, "Users" , id)
+    //const q = query(colref)    
+    function  get_user_cren(){
+        getDoc(Userref_r)
+        .then((doc) => {
+            setc_user({...doc.data(), id:doc.id})
+        })
+    }
+
+    function update_rasiid(){
+        const ordref =  doc(db, "Users", id)
+        const Furan = parseFloat(c_user.r_Furan)   - parseFloat(Lacag) 
+        updateDoc(ordref, {
+            r_Furan:Furan.toFixed(2),
+        })
+    }
+
+
+    useEffect(() => {
+        get_user_cren()
+    },[])
+
+
+
     return(
     <div>
         <NavHolder />
@@ -17,7 +81,7 @@ function Lacag_La_bixid(){
             <div className="tranding_haye">
                 <div className="rasiid_tamplate">
                     <div className="rasiid">
-                        <form method="GET" action="">
+                        <form >
                             <label htmlFor="name">Magacaaga - Lama Badali Karro</label>
                             <input className="la_bax" type="text" name="Magaca_dalbadaha_lacagta" readOnly value={Userinfo && Userinfo.Name} />
                             <label htmlFor="qaab">Qaabka - shirkada</label>
@@ -26,10 +90,12 @@ function Lacag_La_bixid(){
                                 <option value="edahab">edahab service</option>
                             </select>
                             <label htmlFor="tel">Lanbarka - Lama Badali Karro</label>
-                            <input className="la_bax" type="tel" required maxLength={10} name="lanbar" placeholder="Tusale 0634xxxxx" value={Userinfo && Userinfo.Name} />
+                            <input className="la_bax" type="tel" required maxLength={10} name="lanbar" placeholder="Tusale 0634xxxxx" value={Userinfo && Userinfo.Talefan}  readOnly/>
                             <label htmlFor="lacag">Lacagta</label>
-                            <input className="la_bax" type="lacag" required name="lacag" placeholder="Tusaale 20" value={Userinfo && Userinfo.r_Furan} />
-                            <button className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Dalbo</button>
+                            <input className="la_bax" type="lacag" required name="lacag" placeholder="Tusaale 20" value={Lacag} 
+                            onChange={(e) => setLacag(e.target.value)}
+                            />
+                            <button onClick={submit_cashout} className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Dalbo</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> Ogow Lacagta Kuu Furan  waa {Userinfo && Userinfo.r_Furan} $</p>
                         </form>
                     </div>

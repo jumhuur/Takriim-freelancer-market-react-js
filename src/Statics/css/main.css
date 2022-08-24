@@ -3588,6 +3588,11 @@ div.pro_rasiid  .total p ,.pannding p,.avalible p{
   font-weight: normal;
 }
 
+h2.out, p.out{
+  color: #f607c2 !important;
+
+}
+
 div.pro_rasiid  .total p .i{
   color: var(--main-2);
 }

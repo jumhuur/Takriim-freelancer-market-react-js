@@ -83,10 +83,10 @@ function App(){
           <Route exact path="/job/upadate/:id">
             <Upadate_job />
           </Route>
-          <Route exact path="/Acount/Cashout">
+          <Route exact path="/Cashout/:id">
             <Lacag_La_bixid />
           </Route>
-          <Route exact path="/Acount/Cashout_sax">
+          <Route exact path="/Acount/Cashoutsax">
             <Labxaday />
           </Route>
           <Route exact path={"/Chat"}>

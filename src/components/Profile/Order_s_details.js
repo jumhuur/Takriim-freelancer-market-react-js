@@ -29,6 +29,7 @@ function Gudoon(){
     const qiimaha = oneOrder && oneOrder.Qiimaha 
     const Khidmad = 15 / 100 * parseFloat(qiimaha)
     const Last_qiimo = Number(qiimaha) - Khidmad
+    const Nooc = "+";
 
     // update order in la gudoomay 
     const gudoomay = true
@@ -60,7 +61,8 @@ function Gudoon(){
 
             await Add_Rasiid (
                 Last_qiimo,
-                userid
+                userid,
+                Nooc
             )
 
             update_gudoon()

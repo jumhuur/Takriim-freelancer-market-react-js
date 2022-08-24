@@ -13,7 +13,7 @@ function Labxaday(){
                 <div class="rasiid_tamplate">
                     <div class="rasiid">
                         <div class="sax">
-                            <p>Dalbkaaga Waad soo Gudbisay Mahadsanid</p>
+                            <p>Dalbashadada Lacagta Waad soo Gudbisay Mahadsanid</p>
                             <img src="/images/labixid2.svg" alt="lacag_labixid" />
                         </div>
                     </div>

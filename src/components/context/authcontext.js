@@ -6,6 +6,7 @@ import {
     setDoc,
     serverTimestamp,
     getDoc,
+    Timestamp,
 } from "firebase/firestore";
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword , signOut} from "firebase/auth";
 const AuthContext = React.createContext()
@@ -87,10 +88,11 @@ export function AuthProvader({children}){
     }
 
         //add comment 
-        function Add_Rasiid(Qiimaha,g_id){
+        function Add_Rasiid(Qiimaha,g_id,Nooc){
             return setDoc(doc(db, "Rasiid", `order${Date.now()}`), {
                 Qiimaha,
                 g_id,
+                Nooc,
                 CreatedAt:serverTimestamp()
             })
         }
@@ -111,6 +113,17 @@ export function AuthProvader({children}){
             Macmiil,
             Qiimayn_user,
             uid
+        })
+    }
+
+
+    // cah out info 
+    function cashOut(Name, Lanbar, lacag){
+        return setDoc(doc(db, "Cashout", `Out${Date.now()}`), {
+            Name,
+            Lanbar,
+            lacag,
+            CreatedAt: serverTimestamp()
         })
     }
 
@@ -162,7 +175,8 @@ export function AuthProvader({children}){
         Add_job,
         add_order,
         Add_Comments,
-        Add_Rasiid
+        Add_Rasiid,
+        cashOut
     }
 
     return(

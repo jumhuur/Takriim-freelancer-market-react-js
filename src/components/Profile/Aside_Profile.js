@@ -24,7 +24,7 @@ function AsideUser(){
                         </Link>
                     </li>
                     <li>
-                        <Link to={'/Acount/Cashout'}>
+                        <Link to={`/Cashout/${uid}`}>
                         <FontAwesomeIcon className="i" icon={faSackDollar}/> Lacag La Bax
                         </Link>
                     </li>

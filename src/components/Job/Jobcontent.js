@@ -1,11 +1,9 @@
 import AsideJob from "./AsidJob";
 import Comment from "./comments";
-// import {useEffect ,useState} from "react";
-// import { useParams } from "react-router-dom";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faSpinner, faStar , faUserGroup , faUserTie , faTrashCanArrowUp , faGear, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { useState } from "react";
+import {useState } from "react";
 import {UseAuth} from "../context/authcontext"
 function JobContent({jobdetails ,user}){
     const {id} = useParams()
@@ -13,7 +11,8 @@ function JobContent({jobdetails ,user}){
     const {crentuser }  = UseAuth()
     const myparth = useHistory()
     const Id_youtube = "https://www.youtube.com/embed/"+`${jobdetails.Video}`+"?controls=0";
-
+        
+   
     function settings_handle(e){
         !active ? setactive(true) : setactive(false)
     }
@@ -100,14 +99,15 @@ function JobContent({jobdetails ,user}){
                                 </ul>
                             </div>                  
                         </div>
+                        {jobdetails.Video == false? 
                         <div className="sawir_shaqo">
-                            {jobdetails.video == null? 
-                            <img  src={jobdetails.image} alt="sawir shaqo" title="sawir shaqo" />
-                            :
-                            <iframe src={Id_youtube}></iframe>
-                            }
-                               
+                        <img  src={jobdetails.image} alt="sawir shaqo" title="sawir shaqo" />
                         </div>
+                        :
+                        <div className="sawir_shaqo">
+                        <iframe src={Id_youtube}></iframe> 
+                        </div>
+                        }
                         <div className="faahfaahin_sho">
                             <h2> Warbixinta shaqadan aan kuu qabanayo</h2>
                             <p>

@@ -36,7 +36,7 @@ function Add_servece(){
     const [iibsade , setiibsade] = useState("0")
     const [Qiimayn , setQiimayn] = useState("0")
     const [image , setimage] = useState("")
-    const [Video, setVideo] = useState(null)
+    const [Video, setVideo] = useState(false)
     const [qalad, setqalad] = useState("")
     const [alertw , setalertw] = useState(false);
     const [prog,setprog] = useState()
@@ -130,7 +130,7 @@ function Add_servece(){
 
 
     const Null_video = () =>{
-        setVideo(null)
+        setVideo(false)
     }
 
     const upload_image_progile = async () => {
@@ -245,10 +245,13 @@ function Add_servece(){
                             </div>
 
                             {media == "Haa" ?
+                            <>
+                            <label htmlFor="name">Gali Halkan Id-ga Muqaalka   </label>
                             <input className="la_bax" type="text" name="qodob1aad" placeholder="Video Id 11 Xaraf Kaliya"  maxLength={11} 
                             onChange={(e) => setVideo(e.target.value)}
                             value={Video}
                             />
+                            </>
                             : <></>
                             }
  

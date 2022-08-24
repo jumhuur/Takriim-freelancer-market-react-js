@@ -39,7 +39,7 @@ function Upadate_job(){
     const [qodob2aad , setqodob2aad] = useState("");
     const [body , setbody] = useState("");
     const [image , setimage] = useState("");
-    const [Video, setVideo] = useState('')
+    const [Video, setVideo] = useState(false)
     const [prog,setprog] = useState()
 
 
@@ -193,7 +193,7 @@ function Upadate_job(){
     },[val, crentuser])
 
     const Null_video = () =>{
-        setVideo(null)
+        setVideo(false)
     }
     return(
         <div>
