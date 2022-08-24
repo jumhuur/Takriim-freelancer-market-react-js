@@ -13,6 +13,7 @@ function JobContent({jobdetails ,user}){
     const [active , setactive] = useState (false)
     const {crentuser }  = UseAuth()
     const myparth = useHistory()
+    const Id_youtube = "https://www.youtube.com/embed/"+`${jobdetails.Video}`+"?controls=0";
 
     function settings_handle(e){
         !active ? setactive(true) : setactive(false)
@@ -101,13 +102,10 @@ function JobContent({jobdetails ,user}){
                             </div>                  
                         </div>
                         <div className="sawir_shaqo">
-                            {jobdetails.image == "/images/asalahaan.png" ? 
-                            /*<video src={jobdetails.Video} alt="Muuqaal Shaqo" />*/
-                                <video controls>
-                                <source data-src={jobdetails.Video} type="video/mp4"></source>
-                                </video>
+                            {jobdetails.video == null? 
+                            <img  src={jobdetails.image} alt="sawir shaqo" title="sawir shaqo" />
                             :
-                            <img className="lazyload" data-src={jobdetails.image} alt="sawir shaqo" title="sawir shaqo" />
+                            <iframe src={Id_youtube}></iframe>
                             }
                                
                         </div>

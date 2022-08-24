@@ -5,7 +5,7 @@ import  SklatonAll from '../skaltons/Jobskalaton';
 import Alert_wrong from "../Alert2";
 import { Link, useHistory, useParams } from "react-router-dom"
 import {useRef, useState } from "react"
-import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
+import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus , faFilm, faImage} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import {UseAuth } from '../context/authcontext'
@@ -20,6 +20,7 @@ function Upadate_job(){
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
     const [list , setlist] = useState(null)
+    const [media,setmedia] = useState(null)
     const history = useHistory()
     const {crentuser } = UseAuth()
 
@@ -38,6 +39,7 @@ function Upadate_job(){
     const [qodob2aad , setqodob2aad] = useState("");
     const [body , setbody] = useState("");
     const [image , setimage] = useState("");
+    const [Video, setVideo] = useState('')
     const [prog,setprog] = useState()
 
 
@@ -102,6 +104,7 @@ function Upadate_job(){
             Mudada , 
             Qaybid, 
             image,
+            Video,
             qodob1aad,
             qodob2aad,
         })
@@ -182,11 +185,16 @@ function Upadate_job(){
             setMudada(`${val && val.Mudada}`)  
             setQaybid(`${val && val.Qaybid}`) 
             setimage(`${val && val.image}`) 
+            setVideo(`${val && val.Video}`)
             setqodob1aad(`${val && val.qodob1aad}`) 
             setqodob2aad(`${val && val.qodob2aad}`) 
         }
 
     },[val, crentuser])
+
+    const Null_video = () =>{
+        setVideo(null)
+    }
     return(
         <div>
         <NavHolder />
@@ -246,6 +254,31 @@ function Upadate_job(){
                                 </div>
                                 {/* <!----------upload file and image --> */}
                             </div>
+                            <label htmlFor="name">Ma Haystaa Muqaal shaqadaada ku sabsan ?  </label>
+                            <div className="option_mdeia">
+                                <input id="Haa" type="radio" required name="media"  value="Haa"
+                                onClick={(e) => setmedia(e.target.value)}
+                                />
+                                <label  htmlFor="Haa"> <FontAwesomeIcon icon={faFilm}/> Haa</label> 
+                                <input id="Maya" type="radio" required name="media" value="Maya"
+                                onClick={
+                                    function(e){
+                                    setmedia(e.target.value)
+                                    Null_video()
+                                    }
+                                }
+                                />
+                                <label htmlFor="Maya"><FontAwesomeIcon icon={faImage}/> Maya</label>
+                            </div>
+
+                            {media == "Haa" ?
+                            <input className="la_bax" type="text" name="qodob1aad" placeholder="Video Id 11 Xaraf Kaliya"  maxLength={11} 
+                            onChange={(e) => setVideo(e.target.value)}
+                            value={Video}
+                            />
+                            : <></>
+                            }
+
                             <label htmlFor="qaab">Faahfaahinta Adeega</label>
                             <textarea  name="body" className="add_serv" placeholder="faahfaahin adeegaga" minLength={50} required maxLength={1000}
                             onChange={(e) => setbody(e.target.value)}

@@ -12,17 +12,15 @@ import {UseAuth } from '../context/authcontext'
 import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
-import { FaFontAwesome } from "react-icons/fa";
 
 function Add_servece(){
     const [good, setgood] = useState()
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
     const [list , setlist] = useState(null)
-    const [media, setmedia] = useState();
+    const [media,setmedia] = useState(null)
     const history = useHistory()
     const {crentuser,Add_job } = UseAuth()
-
     // states from 
     const [title , settitle] = useState("")
     const [Qiimaha , setQiimaha] = useState("5.00")
@@ -37,8 +35,8 @@ function Add_servece(){
     const [body , setbody] = useState("")
     const [iibsade , setiibsade] = useState("0")
     const [Qiimayn , setQiimayn] = useState("0")
-    const [image , setimage] = useState("/images/asalahaan.png")
-    const [Video, setVideo] = useState('0')
+    const [image , setimage] = useState("")
+    const [Video, setVideo] = useState(null)
     const [qalad, setqalad] = useState("")
     const [alertw , setalertw] = useState(false);
     const [prog,setprog] = useState()
@@ -79,11 +77,7 @@ function Add_servece(){
             file_icon.current.classList.remove('active')
             file_icon2.current.classList.remove('active')
         }
-        if(media == "Muuqaal"){
-            setVideo(file)
-        } else {
-            setimage(file)
-        }
+        setimage(file)
     }
 
     function uploadFile(name){
@@ -134,8 +128,13 @@ function Add_servece(){
         })
     }
 
+
+    const Null_video = () =>{
+        setVideo(null)
+    }
+
     const upload_image_progile = async () => {
-        const storageRef = ref(Storage, `${Date.now()}${image}`);
+        const storageRef = ref(Storage, `Jobs/${Date.now()}${image}`);
 
         const uploadTask = uploadBytesResumable(storageRef, image);
         uploadTask.on('state_changed', 
@@ -155,32 +154,6 @@ function Add_servece(){
         () => {
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                 setimage(downloadURL)
-            });
-        }
-        );
-    }
-
-    const upload_video = async () => {
-        const storageRef = ref(Storage, `${Date.now()}${Video}`);
-
-        const uploadTask = uploadBytesResumable(storageRef, Video);
-        uploadTask.on('state_changed', 
-        (snapshot) => {
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            setprog(progress)
-            switch (snapshot.state) {
-            case 'paused':
-                break;
-            case 'running':
-                break;
-            }
-        }, 
-        (error) => {
-            console.log(error)
-        }, 
-        () => {
-            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                setVideo(downloadURL)
             });
         }
         );
@@ -220,53 +193,6 @@ function Add_servece(){
                                ))}
                             </select>
                             <label htmlFor="qaab">Sawirka Ama Muuqaal</label>
-                            <div className="option_mdeia">
-                                <input id="muuqaal" type="radio" required name="media"  value="Muuqaal"
-                                onClick={(e) => setmedia(e.target.value)}
-                                />
-                                <label  htmlFor="muuqaal"> <FontAwesomeIcon icon={faFilm}/> Muuqaal</label> 
-                                <input id="sawir" type="radio" required name="media" value="sawir"
-                                onClick={(e) => setmedia(e.target.value)}
-                                />
-                                <label htmlFor="sawir"><FontAwesomeIcon icon={faImage}/> Sawir</label>
-                            </div>
-                            {media == "Muuqaal" ? 
-                            <div className="sawir">
-                            <span name="image" ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faFilm} />
-                            </span>
-                            <input ref={image01} onInput={onchange} className="img_01" type="file" name="image" style={{visibility:"hidden"}} 
-                            onChange={
-                                function(e){
-                                    setVideo(`${e.target.files[0].name}`)
-                                    upload_video()
-                                }
-
-                            }
-
-                            accept="video/*"
-                            />
-                            {/* <!----------upload file and image --> */}
-                            <div ref={progress} className="upload">
-                                <div ref={file_icon} className="file_icon active">
-                                    <FontAwesomeIcon icon={faFileCircleCheck} />
-                                </div>
-                                <div className="file_name_and_zise">
-                                    <div className="macluumaad">
-                                        <h2>{filename}  {filezise}</h2>
-                                    </div>
-                                    <div className="progerss_two">
-                                        <div className="line" style={{width: `${prog}%`}}>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div ref={file_icon2} className="file_icon delete active" onClick={xidh}>
-                                        <FontAwesomeIcon icon={faTrashCan} />
-                                </div>
-                            </div>
-                            {/* <!----------upload file and image --> */}
-                            </div>
-                            : media == "sawir" ? 
                             <div className="sawir">
                                 <span name="image" ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faImage} /></span>
                                 <input ref={image01} onInput={onchange} className="img_01" type="file" name="image" style={{visibility:"hidden"}} 
@@ -301,8 +227,31 @@ function Add_servece(){
                                 </div>
                                 {/* <!----------upload file and image --> */}
                             </div>
-                            :<></>
+                            <label htmlFor="name">Ma Haystaa Muqaal shaqadaada ku sabsan ?  </label>
+                            <div className="option_mdeia">
+                                <input id="Haa" type="radio" required name="media"  value="Haa"
+                                onClick={(e) => setmedia(e.target.value)}
+                                />
+                                <label  htmlFor="Haa"> <FontAwesomeIcon icon={faFilm}/> Haa</label> 
+                                <input id="Maya" type="radio" required name="media" value="Maya"
+                                onClick={
+                                    function(e){
+                                    setmedia(e.target.value)
+                                    Null_video()
+                                    }
+                                }
+                                />
+                                <label htmlFor="Maya"><FontAwesomeIcon icon={faImage}/> Maya</label>
+                            </div>
+
+                            {media == "Haa" ?
+                            <input className="la_bax" type="text" name="qodob1aad" placeholder="Video Id 11 Xaraf Kaliya"  maxLength={11} 
+                            onChange={(e) => setVideo(e.target.value)}
+                            value={Video}
+                            />
+                            : <></>
                             }
+ 
 
                             <label htmlFor="qaab">Faahfaahinta Adeega</label>
                             <textarea  name="body" className="add_serv" placeholder="faahfaahin adeegaga" minLength={50} required maxLength={1000}

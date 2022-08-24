@@ -6,17 +6,9 @@ function Jobs({Jobsset}){
         <div className="tranding_haye main">
             {Jobsset && Jobsset.map(listdata => (
                  <div className="card_template" key={listdata.id}>
-                {listdata.image == "/images/asalahaan.png"  ?
-                <div className="imges">
-                <video controls>
-                <source src={listdata.Video} type="video/mp4"></source>
-                </video>
-                </div>
-                : 
                 <div className="imges">
                 <img src={listdata.image ? listdata.image : "/images/asalahaan.png"} alt="sawir_template" />
                 </div>
-                }
 
                  <div className="macluumaad">
                      <div className="qoraalo">

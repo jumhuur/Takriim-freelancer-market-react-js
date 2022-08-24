@@ -79,6 +79,13 @@ html{
 }
 
 
+.ytp-title-text{
+  display: none !important;
+}
+
+.html5-video-player a {
+  display: none !important;
+}
 textarea {
   line-height: 1.6;
   resize: vertical;
@@ -1275,6 +1282,12 @@ div.nav_job ul#nav_jobs  li:hover a{
   width: 100%;
   object-fit: cover;
 }
+
+iframe{
+  width: 100%;
+  height: 100%;
+}
+
 
 .sliding .tranding_haye .card_template .imges video source {
   height: 100%;
@@ -5080,14 +5093,14 @@ div.option_mdeia{
 }
 
 div.option_mdeia input{
-  width: 35px;
-  height: 35px;
-  margin: 10px 15px;
+  width: 24px;
+  height: 20px;
+  margin: 7px 15px;
 }
 
 div.option_mdeia label {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 /* ------- skalton style ---------------------------*/
