@@ -95,8 +95,17 @@ function Lacag_La_bixid(){
                             <input className="la_bax" type="lacag" required name="lacag" placeholder="Tusaale 20" value={Lacag} 
                             onChange={(e) => setLacag(e.target.value)}
                             />
-                            <button onClick={submit_cashout} className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Dalbo</button>
+                            {Userinfo && Userinfo.r_Furan > 0 ?
+                            <>
+                            <button onClick={submit_cashout} className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Dalbo {Lacag} $</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> Ogow Lacagta Kuu Furan  waa {Userinfo && Userinfo.r_Furan} $</p>
+                            </>
+                            :
+                            <>
+                            <p className="la_bax out"><i className="fa-solid fa-bell"></i> Naga Raali Noqo Hadhaaga Kuu Furan Waa {Userinfo && Userinfo.r_Furan} $ </p>
+                            </>
+                            }
+
                         </form>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import { faToolbox, faMoneyCheck, faPeopleGroup, faStar, faWallet ,faChartLine ,faSackXmark} from "@fortawesome/free-solid-svg-icons";
+import { faToolbox, faMoneyCheck, faPeopleGroup, faStar, faWallet ,faChartLine ,faSackXmark, faFileInvoice} from "@fortawesome/free-solid-svg-icons";
 import  Footer  from "../Footer";
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -9,15 +9,16 @@ import Asideuser from '../Profile/Aside_Profile';
 import AllDatUser from '../Profile/UserData';
 import { UseAuth } from "../context/authcontext";
 import { collection,getFirestore, query, onSnapshot, limit, orderBy, where } from "firebase/firestore";
+import {format} from "timeago.js";
+//import { format } from "date-fns";
 function Rasiid(){
     const [dh_rasiid, setdh_rasiid] = useState()
     const {Userinfo} = UseAuth()
     const u_id = Userinfo && Userinfo.uid
-
     //get data ordrer frelancer 
     const db = getFirestore()
     const colref = collection(db, "Rasiid")
-    const q = query(colref,orderBy('CreatedAt',"desc"),where("g_id" , "==", u_id))    
+    const q = query(colref,orderBy('CreatedAt',"desc"),where("g_id" , "==", u_id),limit(50))    
     //hellida docs 
     function get_dhaqaaq_rasiid(){
         onSnapshot (q, (snapshot) => {
@@ -32,7 +33,7 @@ function Rasiid(){
 
     useEffect(() =>{
         get_dhaqaaq_rasiid()
-    },[dh_rasiid])
+    },[dh_rasiid,Userinfo])
     return(
         <>
         <NavHolder />
@@ -60,26 +61,34 @@ function Rasiid(){
                     {/* lacag la bixid cadan */}
                     {dh_rasiid && dh_rasiid.map((rasiid_tr) => 
                     <div className="pro_rasiid" id="hellay">
+                    <div className="Taarikh_rasiid">
+                        <p>{format(rasiid_tr.Date)}</p>
+
+                    </div> 
+
+                    {rasiid_tr.Nooc == "-" ?
+                     <>
                     <div className="total" id="total">
                         <h2><span>{rasiid_tr.id.substr(6,6).toUpperCase()}</span></h2>
-                        <p><FontAwesomeIcon className="i" icon={faToolbox} /> Dalabka Id</p>
+                        <p><FontAwesomeIcon className="i" icon={faFileInvoice} /> Rasiid Id</p>
                     </div>
                     <div className="avalible" id="avalible">
-                        {rasiid_tr.Nooc == "-" ?
-                        <>
-                            <h2 className="out"> - {rasiid_tr && rasiid_tr.Qiimaha} $</h2>
-                            <p className="out"><FontAwesomeIcon className="i" icon={faChartLine} /> Lacagta Ka Go'aday</p>
-                        </>
-
-                        :
-
-                        <>
-                        <h2> + {rasiid_tr && rasiid_tr.Qiimaha} $</h2>
-                        <p><FontAwesomeIcon className="i" icon={faChartLine} /> Lacagta Aad Heshay</p>
-                        </>
-                        }
-
+                    <h2 className="out"> - {rasiid_tr && rasiid_tr.Qiimaha} $</h2>
+                    <p className="out"><FontAwesomeIcon className="i" icon={faSackXmark} /> Lacagta Ka Go'aday</p>
                     </div>
+                    </>
+                    :
+                    <>
+                    <div className="total" id="total">
+                    <h2><span>{rasiid_tr.id.substr(6,6).toUpperCase()}</span></h2>
+                    <p><FontAwesomeIcon className="i" icon={faToolbox} /> Dalabka Id</p>
+                    </div>
+                    <div className="avalible" id="avalible">
+                    <h2> + {rasiid_tr && rasiid_tr.Qiimaha} $</h2>
+                    <p><FontAwesomeIcon className="i" icon={faChartLine} /> Lacagta Aad Heshay</p>
+                    </div>
+                    </>
+                    }
                     </div>
                     )}
 

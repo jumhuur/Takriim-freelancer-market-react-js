@@ -93,6 +93,7 @@ export function AuthProvader({children}){
                 Qiimaha,
                 g_id,
                 Nooc,
+                Date:Date.now(),
                 CreatedAt:serverTimestamp()
             })
         }
@@ -123,6 +124,7 @@ export function AuthProvader({children}){
             Name,
             Lanbar,
             lacag,
+            Date:Date.now(),
             CreatedAt: serverTimestamp()
         })
     }
@@ -161,7 +163,7 @@ export function AuthProvader({children}){
             getsingaleorder()
         })
         return unsubs
-    },[])
+    },[crentuser])
     const value = {
         Userinfo,
         crentuser,
