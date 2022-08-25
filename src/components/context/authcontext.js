@@ -22,6 +22,7 @@ export function AuthProvader({children}){
     const [Userinfo, setUserinfo] = useState(null)
     const [active , setactive] = useState("")
     const useruid = crentuser && crentuser.uid
+    const [Furasho, setFurasho] = useState('on');
     
     // add job 
     const db = getFirestore()
@@ -178,7 +179,8 @@ export function AuthProvader({children}){
         add_order,
         Add_Comments,
         Add_Rasiid,
-        cashOut
+        cashOut,
+        Furasho
     }
 
     return(

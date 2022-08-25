@@ -24,6 +24,7 @@ import Upadate_profile from './components/Profile/upadate_profile';
 import Chat from './components/Profile/chat';
 import Rasiid from './components/Profile/Rasiid';
 import Tob_Nav from './components/Admin/Tob_nav';
+import Furo from './components/Profile/FuroLacag';
 
 
 function App(){
@@ -88,6 +89,9 @@ function App(){
           </Route>
           <Route exact path="/Acount/Cashoutsax">
             <Labxaday />
+          </Route>
+          <Route exact path="/Rasiid/furo/:id">
+            <Furo />
           </Route>
           <Route exact path={"/Chat"}>
             <Chat />

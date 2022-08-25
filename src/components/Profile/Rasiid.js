@@ -1,12 +1,9 @@
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import { faToolbox, faMoneyCheck, faPeopleGroup, faStar, faWallet ,faChartLine ,faSackXmark, faFileInvoice} from "@fortawesome/free-solid-svg-icons";
-import  Footer  from "../Footer";
-import { useParams, Link } from 'react-router-dom';
+import { faToolbox, faCircleDollarToSlot, faWallet ,faChartLine ,faSackXmark, faFileInvoice} from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from 'react';
 import Jobskl from '../skaltons/Jobskalaton';
 import NavHolder  from '../NavHolder';
 import Asideuser from '../Profile/Aside_Profile';
-import AllDatUser from '../Profile/UserData';
 import { UseAuth } from "../context/authcontext";
 import { collection,getFirestore, query, onSnapshot, limit, orderBy, where } from "firebase/firestore";
 import {format} from "timeago.js";
@@ -75,6 +72,17 @@ function Rasiid(){
                     <div className="avalible" id="avalible">
                     <h2 className="out"> - {rasiid_tr && rasiid_tr.Qiimaha} $</h2>
                     <p className="out"><FontAwesomeIcon className="i" icon={faSackXmark} /> Lacagta Ka Go'aday</p>
+                    </div>
+                    </>
+                    :rasiid_tr.Nooc == "@" ?
+                    <>
+                    <div className="total" id="total">
+                    <h2><span>{rasiid_tr.id.substr(6,6).toUpperCase()}</span></h2>
+                    <p><FontAwesomeIcon className="i" icon={faCircleDollarToSlot} /> Furasho Id</p>
+                    </div>
+                    <div className="avalible" id="avalible">
+                    <h2 className="out_in"> {rasiid_tr && rasiid_tr.Qiimaha} $</h2>
+                    <p className="out_in"><FontAwesomeIcon className="i" icon={faSackXmark} /> Lacagataad Furatay</p>
                     </div>
                     </>
                     :

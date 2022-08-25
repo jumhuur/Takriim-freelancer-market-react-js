@@ -3621,6 +3621,11 @@ h2.out, p.out{
 
 }
 
+
+h2.out_in, p.out_in {
+  color: var(--gaar) !important;
+}
+
 div.pro_rasiid  .total p.out .i{
   color: var(--gaar) !important;
 }
@@ -4423,8 +4428,9 @@ div.chat_conte .massages_chat{
   border-radius: 5px;
   margin-top: 15px;
   padding: 3% 3%;
-  /* border-left: solid 2px var(--bacground-qaybo);
-  border-right: solid 2px var(--bacground-qaybo); */
+  /* box-shadow:   0px 0px 5px 0px #9b9b9b78; */
+  /* border-bottom: solid 2px var(--bacground-qaybo); */
+  /* border-right: solid 2px var(--bacground-qaybo); */
 }
 
 div.chat_conte .massages_chat .msg{
@@ -4433,7 +4439,6 @@ div.chat_conte .massages_chat .msg{
   font-weight: normal;
   line-height: 1.9;
   text-transform: capitalize;
-
 }
 
 div.chat_conte .massages_chat .userinfo{

@@ -1,16 +1,20 @@
 import  NavHolder from "../NavHolder";
 import  Footer from "../Footer";
 import AsideUser from "./Aside_Profile"
-import {useEffect, useState } from "react"
+import {useEffect, useRef, useState } from "react"
 import {faSackDollar} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { UseAuth } from "../context/authcontext";
 import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { useHistory, useParams } from "react-router-dom";
+import Jobskl from "../skaltons/Jobskalaton";
 function Lacag_La_bixid(){
     const {id} = useParams()
     const {Userinfo, Add_Rasiid, cashOut} = UseAuth()
     const [c_user, setc_user] = useState()
+    const [x_labixid, setx_labixid] = useState(true)
+    const Hadhaa_c_user = c_user &&  Number(c_user.r_Furan)
+    const input_lacag = useRef()
 
     // state cashout
     const Name = Userinfo && Userinfo.Name
@@ -64,6 +68,18 @@ function Lacag_La_bixid(){
         })
     }
 
+    const Hadhaa = () => {
+        if(input_lacag.current.value > Number(Hadhaa_c_user)){
+            setx_labixid(false)
+        } else {
+            setx_labixid(true)
+        }
+
+        console.log(x_labixid)
+        console.log(Hadhaa_c_user)
+
+    }
+
 
     useEffect(() => {
         get_user_cren()
@@ -80,6 +96,7 @@ function Lacag_La_bixid(){
             {/* <!---------------biloga foomka labixida -------------------> */}
             <div className="tranding_haye">
                 <div className="rasiid_tamplate">
+                    {c_user ?
                     <div className="rasiid">
                         <form >
                             <label htmlFor="name">Magacaaga - Lama Badali Karro</label>
@@ -92,22 +109,31 @@ function Lacag_La_bixid(){
                             <label htmlFor="tel">Lanbarka - Lama Badali Karro</label>
                             <input className="la_bax" type="tel" required maxLength={10} name="lanbar" placeholder="Tusale 0634xxxxx" value={Userinfo && Userinfo.Talefan}  readOnly/>
                             <label htmlFor="lacag">Lacagta</label>
-                            <input className="la_bax" type="lacag" required name="lacag" placeholder="Tusaale 20" value={Lacag} 
+                            <input  ref={input_lacag} input onInput={Hadhaa} className="la_bax" type="lacag" required name="lacag" placeholder="Tusaale 20" value={Lacag} 
                             onChange={(e) => setLacag(e.target.value)}
                             />
-                            {Userinfo && Userinfo.r_Furan > 0 ?
+                            {c_user && c_user.r_Furan > 0 ?
+                            <>
+                            {x_labixid ?
                             <>
                             <button onClick={submit_cashout} className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Dalbo {Lacag} $</button>
-                            <p className="la_bax"><i className="fa-solid fa-bell"></i> Ogow Lacagta Kuu Furan  waa {Userinfo && Userinfo.r_Furan} $</p>
+                            <p className="la_bax"><i className="fa-solid fa-bell"></i> Ogow Lacagta Kuu Furan  waa {c_user && c_user.r_Furan} $</p>
+                            </>
+                            :
+                            <p className="la_bax out"><i className="fa-solid fa-bell"></i> Naga Raali Noqo Hadhaaga Kuu Furan Waa {c_user && c_user.r_Furan} $ </p>
+                            }
                             </>
                             :
                             <>
-                            <p className="la_bax out"><i className="fa-solid fa-bell"></i> Naga Raali Noqo Hadhaaga Kuu Furan Waa {Userinfo && Userinfo.r_Furan} $ </p>
+                            <p className="la_bax out"><i className="fa-solid fa-bell"></i> Naga Raali Noqo Hadhaaga Kuu Furan Waa {c_user && c_user.r_Furan} $ </p>
                             </>
                             }
 
                         </form>
                     </div>
+                    :
+                    <Jobskl />
+                    }
                 </div>
             </div>
             {/* <!---------------dhamaadka  foomka labixida -------------------> */}
