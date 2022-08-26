@@ -92,9 +92,6 @@ function Lacag_La_bixid(){
     useEffect(() => {
         get_user_cren()
     },[])
-
-
-
     return(
     <>
     <Loading loading={load}/>

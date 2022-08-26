@@ -11,6 +11,7 @@ import {UseAuth } from '../context/authcontext'
 import {Storage} from "../../Firebase";
 import { collection,getFirestore, query, onSnapshot, limit, orderBy, doc, getDoc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from "firebase/storage";
+import Loading from "../loading";
 function Upadate_profile(){
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
@@ -20,6 +21,12 @@ function Upadate_profile(){
     const {crentuser} = UseAuth()
     const history = useHistory()
     const [prog, setprog] = useState();
+    // loading
+    const [load, setload] = useState(false)
+    const loading_handale = () => {
+        load ? setload(false) : setload(true)
+        console.log(load)
+    }
 
 
 
@@ -155,6 +162,7 @@ function Upadate_profile(){
     },[])
     return(
         <div>
+        <Loading loading={load}/>
         <NavHolder />
         <section className="orders invocs">
         <div className="xajiye kala_qayb">
@@ -233,7 +241,7 @@ function Upadate_profile(){
                                     <option value="Dhedig">Dhedig</option>
                                 </select>
                             </div>
-                            <button ref={btn_add} className="la_bax" type="submit">  Cusbonaysii</button>
+                            <button onClick={loading_handale} ref={btn_add} className="la_bax" type="submit">  Cusbonaysii</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> Macluumaadka akoonkaaga qaar ayaa ka soo muqanaya prifile-kaag</p>
                         </form> 
                     </div>

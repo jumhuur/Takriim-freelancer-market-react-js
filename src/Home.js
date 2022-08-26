@@ -7,7 +7,7 @@ import {useState} from "react";
 function Homepage(){
     const setup = (user) => {
         if(user){
-            console.log('sax')
+            //console.log('sax')
         }
     }
 
