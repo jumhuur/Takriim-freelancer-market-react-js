@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import {format}  from "timeago.js"
 import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { UseAuth } from "../context/authcontext";
+import Loading from "../loading";
 
 function Gudoon(){
     const {id} = useParams()
@@ -30,6 +31,13 @@ function Gudoon(){
     const Khidmad = 15 / 100 * parseFloat(qiimaha)
     const Last_qiimo = Number(qiimaha) - Khidmad
     const Nooc = "+";
+
+    // loading
+    const [load, setload] = useState(false)
+    const loading_handale = () => {
+        load ? setload(false) : setload(true)
+        console.log(load)
+    }
 
     // update order in la gudoomay 
     const gudoomay = true
@@ -68,6 +76,7 @@ function Gudoon(){
             update_gudoon()
             update_rasiid()
             update_job()
+            setload(false)
 
         }catch(Err){
             console.log(Err)
@@ -220,6 +229,7 @@ function Gudoon(){
 
     return(
         <div>
+        <Loading loading={load}/>
         <Holder />
         <section className="main_shaqo">
         <div className="xajiye">
@@ -361,7 +371,7 @@ function Gudoon(){
                                             <input  type="hidden" value={iibsade} name="Iibsade"/>
                                             <input  type="hidden" value={Qiimayn} name="Qiimayn"/>
                                             </form>
-                                            <button className="gudoon_btn" type="submit">Gudoon Dalabka</button>
+                                            <button onClick={loading_handale} className="gudoon_btn" type="submit">Gudoon Dalabka</button>
                                         </form>
                                     :""
                                     }

@@ -10,12 +10,20 @@ import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faMessage, faStar , faEnvelope , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
+import Loading from "../loading";
 function My_Orders(){
     const {id} = useParams()
     const [jobfree, setjobfree] = useState(null)
     const [xaalad, setxaalad] = useState('')
     const [image, setimage] = useState("")
     const done = "Done";
+
+    // loading
+    const [load, setload] = useState(false)
+    const loading_handale = () => {
+        load ? setload(false) : setload(true)
+        console.log(load)
+    }
 
     // gudbin sttings 
     const [filename , setfilename] = useState(null)
@@ -69,6 +77,7 @@ function My_Orders(){
     const update_xaalad_done = async (e) => {
         e.preventDefault()
         update_done()
+        setload(false)
     }
 
 
@@ -142,6 +151,8 @@ function My_Orders(){
          );
     }
     return(
+    <>
+    <Loading loading={load}/>
     <div>
         <Holder />
         <section className="main_shaqo">
@@ -224,7 +235,7 @@ function My_Orders(){
                                 {/* <!----------upload file and image --> */}
                             </div>
                             <textarea name="faahfaahin" className="add_serv" placeholder="Macluumadka Oo Dhan Halkan Ku Qor" required></textarea>
-                            <button className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus} /> Gudbi Dalabka </button>
+                            <button onClick={loading_handale} className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus} /> Gudbi Dalabka </button>
                         </form>
                     </div>
                 </div>
@@ -325,7 +336,7 @@ function My_Orders(){
         </section>
         <Footer />
     </div>
-
+    </>
     )
 }
 

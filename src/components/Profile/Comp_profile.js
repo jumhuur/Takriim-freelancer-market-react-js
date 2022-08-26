@@ -36,20 +36,6 @@ function CompProfile(){
                     <button id="btn_com">Buuxi Maclumadka Akoonkaaga</button>
                 </Link>
                 </div>
-                {/* <form className="login_over_foo" method="">
-                    <div className="inputs">
-                        <label>Email-kaaga</label>
-                        <input type="text" required placeholder="Emailkaaga" />
-                    </div>
-                    <div className="inputs">
-                        <label>Passwor-kaaga</label>
-                        <input type="text" required placeholder="Emailkaaga" />
-                    </div>
-                    <div className="inputs links_foo">
-                        <a href="#">Waan ilaawa Passwor-ka</a>
-                        <a href="#">Samayso Akoon Cusub</a>
-                    </div>
-                </form> */}
             </div>
         </div>
         </>

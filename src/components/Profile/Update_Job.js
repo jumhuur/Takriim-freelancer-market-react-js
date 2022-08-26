@@ -12,6 +12,7 @@ import {UseAuth } from '../context/authcontext'
 import { collection,getFirestore, query, onSnapshot, orderBy, doc, getDoc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
+import Loading from "../loading";
 
 function Upadate_job(){
     const {id} = useParams()
@@ -195,8 +196,17 @@ function Upadate_job(){
     const Null_video = () =>{
         setVideo(false)
     }
+
+    // loading
+    const [load, setload] = useState(false)
+    const loading_handale = () => {
+        load ? setload(false) : setload(true)
+        console.log(load)
+    }
+
     return(
         <div>
+        <Loading loading={load}/>
         <NavHolder />
         <section className="orders invocs">
         <div className="xajiye kala_qayb">
@@ -372,7 +382,7 @@ function Upadate_job(){
                             onChange={(e) => setqodob2aad(e.target.value)}
                             value={qodob2aad}
                             />
-                            <button ref={btn_add} className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon>  Ku Dar Adeega</button>
+                            <button onClick={loading_handale} ref={btn_add} className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon>  Cusbonaysii Adeeg</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> lama Ardkay Waxaad Ugu Baahantahay Iibsadaha markuu dalbado mooyaane</p>
                         </form> 
                     </div>

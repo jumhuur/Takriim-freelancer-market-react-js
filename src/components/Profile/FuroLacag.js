@@ -9,6 +9,7 @@ import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { useHistory, useParams } from "react-router-dom";
 import Jobskl from "../skaltons/Jobskalaton";
 import Empaty from "../empaty";
+import Loading from "../loading";
 function Furo(){
     const {id} = useParams()
     const {Userinfo, Add_Rasiid,crentuser ,Furasho} = UseAuth()
@@ -45,6 +46,12 @@ function Furo(){
         }
     }
 
+    const [load, setload] = useState(false)
+    const loading_handale = () => {
+        load ? setload(false) : setload(true)
+        console.log(load)
+    }
+
     const Userref_r = doc(db, "Users" , id)
     //const q = query(colref)    
     function  get_user_cren(){
@@ -72,6 +79,8 @@ function Furo(){
 
 
     return(
+    <>
+    <Loading loading={load}/>
     <div>
         <NavHolder />
         <section className="orders invocs">
@@ -84,14 +93,14 @@ function Furo(){
                 <>
                     {Furasho && Furasho.Furasho == true ?
                     <div className="rasiid">
-                    <form >
+                    <form onSubmit={Furasho_submid}>
                         <label htmlFor="lacag">Lacagta</label>
                         <input className="la_bax" type="lacag" required name="lacag" placeholder="Tusaale 20" value={Lacag}
                         readOnly
                         />
                         {c_user && c_user.r_Xidhan > 0 ?
                         <>
-                        <button onClick={Furasho_submid} className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Furo {Lacag} $</button>
+                        <button onClick={loading_handale} className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Furo {Lacag} $</button>
                         <p className="la_bax"><i className="fa-solid fa-bell"></i> Ogow Lacagta Kuu Furan  waa {c_user && c_user.r_Xidhan} $</p>
                         </>
                         :
@@ -119,6 +128,7 @@ function Furo(){
     </section>
     <Footer />
     </div>
+    </>
     )
 }
 

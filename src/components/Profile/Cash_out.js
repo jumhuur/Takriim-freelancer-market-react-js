@@ -8,6 +8,7 @@ import { UseAuth } from "../context/authcontext";
 import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { useHistory, useParams } from "react-router-dom";
 import Jobskl from "../skaltons/Jobskalaton";
+import Loading from "../loading";
 function Lacag_La_bixid(){
     const {id} = useParams()
     const {Userinfo, Add_Rasiid, cashOut} = UseAuth()
@@ -15,6 +16,13 @@ function Lacag_La_bixid(){
     const [x_labixid, setx_labixid] = useState(true)
     const Hadhaa_c_user = c_user &&  Number(c_user.r_Furan)
     const input_lacag = useRef()
+
+    // loading
+    const [load, setload] = useState(false)
+    const loading_handale = () => {
+        load ? setload(false) : setload(true)
+        console.log(load)
+    }
 
     // state cashout
     const Name = Userinfo && Userinfo.Name
@@ -88,6 +96,8 @@ function Lacag_La_bixid(){
 
 
     return(
+    <>
+    <Loading loading={load}/>
     <div>
         <NavHolder />
         <section className="orders invocs">
@@ -98,7 +108,7 @@ function Lacag_La_bixid(){
                 <div className="rasiid_tamplate">
                     {c_user ?
                     <div className="rasiid">
-                        <form >
+                        <form onSubmit={submit_cashout}>
                             <label htmlFor="name">Magacaaga - Lama Badali Karro</label>
                             <input className="la_bax" type="text" name="Magaca_dalbadaha_lacagta" readOnly value={Userinfo && Userinfo.Name} />
                             <label htmlFor="qaab">Qaabka - shirkada</label>
@@ -116,7 +126,7 @@ function Lacag_La_bixid(){
                             <>
                             {x_labixid ?
                             <>
-                            <button onClick={submit_cashout} className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Dalbo {Lacag} $</button>
+                            <button onClick={loading_handale} className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Dalbo {Lacag} $</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> Ogow Lacagta Kuu Furan  waa {c_user && c_user.r_Furan} $</p>
                             </>
                             :
@@ -141,6 +151,7 @@ function Lacag_La_bixid(){
     </section>
     <Footer />
     </div>
+    </>
     )
 }
 

@@ -11,6 +11,7 @@ import {useDatacontext} from "../context/dataContext"
 import {getFirestore,getDoc, doc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
+import Loading from "../loading";
 function OrderDetailscheckh(){
     const {id} = useParams()
     const [order, setorder] = useState(null)
@@ -21,6 +22,13 @@ function OrderDetailscheckh(){
     const {xadiga} = useDatacontext()
     const path = `/Order/Complated/${id}`
     const mypath = useHistory()
+
+    // loading
+    const [load, setload] = useState(false)
+    const loading_handale = () => {
+        load ? setload(false) : setload(true)
+        console.log(load)
+    }
 
     // foomka 
     const title = order && order.title
@@ -167,6 +175,7 @@ function OrderDetailscheckh(){
 
     return(
         <div>
+        <Loading loading={load}/>
         <Holder />
         <section className="orders invocs">
             <div className="xajiye kala_qayb">
@@ -278,7 +287,7 @@ function OrderDetailscheckh(){
                             <input type="hidden" value={order.qodob2aad}  name="Qodobka2aad"/>
                             <input type="hidden" value={order.qodob1aad}  name="Qodobka1aad"/>
                             <input type="hidden" value={gudoomay}  name="gudoomay"/>
-                            <button className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus} />  Bixi Lacagta ({Qiimaha}$)</button>
+                            <button onClick={loading_handale} className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus} />  Bixi Lacagta ({Qiimaha}$)</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> Macluumaadkan waa u muhiim qofka shaqada kuu qabanaya fadalan buuxi</p>
                         </form>
                         

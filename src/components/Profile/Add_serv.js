@@ -12,6 +12,7 @@ import {UseAuth } from '../context/authcontext'
 import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
+import Loading from "../loading";
 
 function Add_servece(){
     const [good, setgood] = useState()
@@ -87,6 +88,14 @@ function Add_servece(){
             console.log(e)
         })
     }
+
+    // loading
+    const [load, setload] = useState(false)
+    const loading_handale = () => {
+        load ? setload(false) : setload(true)
+        console.log(load)
+    }
+
     const Adddata = async (e) =>{
         e.preventDefault()
         try {
@@ -167,6 +176,7 @@ function Add_servece(){
     },[])
     return(
         <div>
+        <Loading loading={load}/>
         <NavHolder />
         <section className="orders invocs">
         <div className="xajiye kala_qayb">
@@ -363,7 +373,7 @@ function Add_servece(){
                             <input type="text"  name="iibsade" value={iibsade} required  hidden
                             onChange={(e) => setiibsade(e.target.value)}
                             />
-                            <button ref={btn_add} className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon>  Ku Dar Adeega</button>
+                            <button onClick={loading_handale} ref={btn_add} className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon>  Ku Dar Adeega</button>
                             <p className="la_bax"><i className="fa-solid fa-bell"></i> lama Ardkay Waxaad Ugu Baahantahay Iibsadaha markuu dalbado mooyaane</p>
                         </form> 
                     </div>
