@@ -1,5 +1,5 @@
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import { faWallet, faNetworkWired, faToolbox , faChartSimple , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus} from "@fortawesome/free-solid-svg-icons";
+import { faWallet, faNetworkWired, faToolbox , faMoneyBillTransfer , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus} from "@fortawesome/free-solid-svg-icons";
 import Xayaysiis from "../Saponsered_Ads";
 import { Link } from "react-router-dom";
 import { UseAuth } from "../context/authcontext";
@@ -24,6 +24,12 @@ function AsideUser(){
                         </Link>
                     </li>
                     <li>
+                        <Link to={`/rasiid/furo/${uid}`}>
+                            <FontAwesomeIcon className="i" icon={faMoneyBillTransfer}/>   Furo Lacag
+                        </Link>
+                        
+                    </li>
+                    <li>
                         <Link to={`/Cashout/${uid}`}>
                         <FontAwesomeIcon className="i" icon={faSackDollar}/> Lacag La Bax
                         </Link>
@@ -35,7 +41,7 @@ function AsideUser(){
                     </li>
                     <li>
                         <Link to={`/Profile/update/${uid}`}>
-                            <FontAwesomeIcon className="i" icon={faPenToSquare}/> update profile
+                            <FontAwesomeIcon className="i" icon={faPenToSquare}/>   Marayn Akoon
                         </Link>
                     </li>
                     <li>

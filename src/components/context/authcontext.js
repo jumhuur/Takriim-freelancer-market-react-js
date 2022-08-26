@@ -21,8 +21,20 @@ export function AuthProvader({children}){
     const [user_data , setuser_data] = useState(null)
     const [Userinfo, setUserinfo] = useState(null)
     const [active , setactive] = useState("")
-    const useruid = crentuser && crentuser.uid
-    const [Furasho, setFurasho] = useState('on');
+    const [Furasho, setFurasho] = useState(null);
+
+
+    useEffect(() => {
+    const docref = doc(db, "Furasho" , "i0DehvgaZq4iC6PHHU7K")
+    //const q = query(colref)    
+    function  get_furasho(){
+        getDoc (docref)
+        .then((doc) => {
+            setFurasho({...doc.data(), id:doc.id})
+        })
+    }
+    get_furasho()
+    }, [Furasho])
     
     // add job 
     const db = getFirestore()
@@ -135,6 +147,9 @@ export function AuthProvader({children}){
 
 
 
+
+
+
     function  sinup(email, password){
         setactive(true)
         return  createUserWithEmailAndPassword(Auth, email, password)
@@ -150,6 +165,17 @@ export function AuthProvader({children}){
         setactive(false)
         return  signOut(Auth)
     }
+
+
+    // const docref = doc(db, "Users" , Userinfo.uid)
+    // //const q = query(colref)    
+    // function  getsingaleorder(){
+    //     getDoc (docref)
+    //     .then((doc) => {
+    //         setUserinfo({...doc.data(), id:doc.id})
+    //     })
+    // }
+
     useEffect(() =>{
         const unsubs =  Auth.onAuthStateChanged(user => {
             setcrentuser(user)
@@ -182,6 +208,8 @@ export function AuthProvader({children}){
         cashOut,
         Furasho
     }
+
+
 
     return(
         <AuthContext.Provider value={value}>

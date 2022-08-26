@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {Link, useHistory} from 'react-router-dom';
-import {faBarsStaggered, faBars,faUserPlus, faNetworkWired, faToolbox , faChartSimple , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus, faAngleDown} from "@fortawesome/free-solid-svg-icons";
+import {faMoneyBillTransfer, faBars,faUserPlus, faNetworkWired, faToolbox , faChartSimple , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus, faAngleDown} from "@fortawesome/free-solid-svg-icons";
 import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
 import { UseAuth } from "./context/authcontext";
 
@@ -78,6 +78,13 @@ function NavMobile({nav_mb}){
                         <Link to={`/Cashout/${uid}`}>
                         <FontAwesomeIcon className="i" icon={faSackDollar} /> Lacag La Bax
                         </Link>
+                    </li>
+
+                    <li>
+                        <Link to={`/rasiid/furo/${uid}`}>
+                            <FontAwesomeIcon className="i" icon={faMoneyBillTransfer}/>   Furo Lacag
+                        </Link>
+                        
                     </li>
                     <li>
                         <Link to={'/Acount/Add_Job'}>

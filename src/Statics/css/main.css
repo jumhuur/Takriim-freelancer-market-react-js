@@ -3621,6 +3621,10 @@ h2.out, p.out{
 
 }
 
+p.empty{
+  color: var(--main-2) !important;
+}
+
 
 h2.out_in, p.out_in {
   color: var(--gaar) !important;
@@ -5855,6 +5859,7 @@ div.raber{
 
     div.pro_rasiid .total, .pannding, .avalible{
       width: calc(90% / 1);
+      height: 115px;
     }
 
     div.pro_tirakoob .tr .icon {

@@ -50,11 +50,11 @@ function Drop_nav({drop}){
                         <FontAwesomeIcon className="i" icon={faToolbox} />  Dalbyo
                     </Link>
                 </li>
-                <li id="Dr">
+                {/* <li id="Dr">
                     <Link to={'/Acount/Add_Job'}>
                         <FontAwesomeIcon className="i" icon={faCirclePlus} />  Ku Dar Adeeg
                     </Link>
-                </li>
+                </li> */}
                 <li id="Dr">
                     <Link to={'/Acount/Rasiid'}>
                         <FontAwesomeIcon className="i" icon={faFileInvoiceDollar}/> Rasiid-kaaga
@@ -65,11 +65,11 @@ function Drop_nav({drop}){
                         <FontAwesomeIcon className="i" icon={faSackDollar} />  Lacag La Bax
                     </Link>
                 </li>
-                {/* <li id="Dr">
-                    <Link to={'/Acount/Cashout'}>
-                        <FontAwesomeIcon className="i" icon={faGear} /> Maarayn
+                <li id="Dr">
+                    <Link to={`/Profile/update/${crentuser && crentuser.uid}`}>
+                        <FontAwesomeIcon className="i" icon={faGear} /> Marayn Akoon
                     </Link>
-                </li> */}
+                </li>
                 <li id="Dr">
                     <Link onClick={logouthanle}>
                     <FontAwesomeIcon className="i" icon={faRightFromBracket} /> Xidho

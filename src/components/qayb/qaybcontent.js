@@ -1,5 +1,4 @@
 import Aside from "../Aside";
-import Empaty from "../empaty";
 import Jobsskl from "../skaltons/Jobskalaton";
 import { Link, useParams } from "react-router-dom";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";

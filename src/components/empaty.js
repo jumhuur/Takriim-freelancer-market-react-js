@@ -1,8 +1,8 @@
 function Empaty(){
     return(
         <div className="Madhan">
-            <img id="empty_side" src="/images/empty.svg" />
-            <p>Qaybtan shaqo kuma jirto</p>
+            <img id="empty_side" src="/images/coins.svg" />
+            <p  className="empty">Lacag Lama Furan Karro Hada</p>
         </div>
     )
 }

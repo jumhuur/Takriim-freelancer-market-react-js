@@ -9,7 +9,7 @@ function AllDatUser(){
     const {user_data} = UseAuth()
     return(
         <section className="qayb_name">
-        {user_data && 
+        {user_data ?
         <div className="xajiye kala_qaybiye">
             <div className="qayb_name_page profile">
                 <div className="prof sawir_user">
@@ -40,6 +40,8 @@ function AllDatUser(){
                 <img src="/images/profile.svg" />
             </div>
         </div>
+        :
+        <SklQayb />
         }
 
         </section>

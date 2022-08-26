@@ -8,6 +8,7 @@ import { UseAuth } from "../context/authcontext";
 import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { useHistory, useParams } from "react-router-dom";
 import Jobskl from "../skaltons/Jobskalaton";
+import Empaty from "../empaty";
 function Furo(){
     const {id} = useParams()
     const {Userinfo, Add_Rasiid,crentuser ,Furasho} = UseAuth()
@@ -23,8 +24,8 @@ function Furo(){
     const db = getFirestore()
     // state rasiid
 
-    if(Furasho === "off"){
-        path2.push(`/`)
+    if(Furasho && Furasho.Furasho === false){
+        //path2.push(`/`)
     }
     const Furasho_submid = async (e) => {
         e.preventDefault()
@@ -77,33 +78,42 @@ function Furo(){
         <div className="xajiye kala_qayb">
             <AsideUser />
             {/* <!---------------biloga foomka labixida -------------------> */}
-            {c_user ? 
             <div className="tranding_haye">
                 <div className="rasiid_tamplate">
+                {c_user ? 
+                <>
+                    {Furasho && Furasho.Furasho == true ?
                     <div className="rasiid">
-                        <form >
-                            <label htmlFor="lacag">Lacagta</label>
-                            <input className="la_bax" type="lacag" required name="lacag" placeholder="Tusaale 20" value={Lacag}
-                            readOnly
-                            />
-                            {c_user && c_user.r_Xidhan > 0 ?
-                            <>
-                            <button onClick={Furasho_submid} className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Furo {Lacag} $</button>
-                            <p className="la_bax"><i className="fa-solid fa-bell"></i> Ogow Lacagta Kuu Furan  waa {c_user && c_user.r_Xidhan} $</p>
-                            </>
-                            :
-                            <>
-                            <p className="la_bax out"><i className="fa-solid fa-bell"></i> Naga Raali Noqo Hadhaaga Kaa Xidhan Waa {Userinfo && Userinfo.r_Xidhan} $ </p>
-                            </>
-                            }
+                    <form >
+                        <label htmlFor="lacag">Lacagta</label>
+                        <input className="la_bax" type="lacag" required name="lacag" placeholder="Tusaale 20" value={Lacag}
+                        readOnly
+                        />
+                        {c_user && c_user.r_Xidhan > 0 ?
+                        <>
+                        <button onClick={Furasho_submid} className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Furo {Lacag} $</button>
+                        <p className="la_bax"><i className="fa-solid fa-bell"></i> Ogow Lacagta Kuu Furan  waa {c_user && c_user.r_Xidhan} $</p>
+                        </>
+                        :
+                        <>
+                        <p className="la_bax out"><i className="fa-solid fa-bell"></i> Naga Raali Noqo Hadhaaga Kaa Xidhan Waa {Userinfo && Userinfo.r_Xidhan} $ </p>
+                        </>
+                        }
 
-                        </form>
+                    </form>
                     </div>
+                    :
+                    <>
+                    <Empaty />                
+                    </>
+                    }
+                </>
+                :
+                <Jobskl />
+            }
+
                 </div>
             </div>
-            :
-            <Jobskl />
-            }
             {/* <!---------------dhamaadka  foomka labixida -------------------> */}
         </div>
     </section>
