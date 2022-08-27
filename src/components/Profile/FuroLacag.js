@@ -95,7 +95,7 @@ function Furo(){
                     <div className="rasiid">
                     <form onSubmit={Furasho_submid}>
                         <label htmlFor="lacag">Lacagta</label>
-                        <input className="la_bax" type="lacag" required name="lacag" placeholder="Tusaale 20" value={Lacag}
+                        <input  className="la_bax" type="lacag" required name="lacag" placeholder="Tusaale 20" value={Lacag}
                         readOnly
                         />
                         {c_user && c_user.r_Xidhan > 0 ?

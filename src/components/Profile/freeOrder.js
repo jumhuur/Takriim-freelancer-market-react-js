@@ -5,7 +5,6 @@ import Sklall from "../skaltons/sklAll";
 import { Link, useHistory, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {format} from 'timeago.js'
 import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faMessage, faStar , faEnvelope , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
@@ -72,6 +71,7 @@ function My_Orders(){
     const update_xaalad = async (e) => {
         e.preventDefault()
         update_Order()
+        setload(false)
     }
 
     const update_xaalad_done = async (e) => {
@@ -186,7 +186,7 @@ function My_Orders(){
                     <div className="tranding_haye">
                     <div className="rasiid_tamplate">
                         <div className="rasiid info_raacsan">
-                            <h2 className="ciwaan_bahanahay">Dalabkan waad dhamaysay Ka Hor <span>{format(jobfree.updatedAt)}</span></h2>
+                            <h2 className="ciwaan_bahanahay">Dalabkan waad dhamaysay Ka Hor <span></span></h2>
                             {/* <!-- <p className="info_dalab_p">
                             </p> --> */}
                             <h2 className="ciwaan_bahanahay2">Halkan Hoose Waa mashruucii aad fulisay <FontAwesomeIcon icon={faAngleDown}/> :</h2>
@@ -284,7 +284,7 @@ function My_Orders(){
                                     <label htmlFor="laabtay">Ka Laabo Shaqada</label>
                                     </div>
                                 </div>
-                                    <button type="submit">Cusbonaysii Xaalada</button>
+                                    <button  onClick={loading_handale} type="submit">Cusbonaysii Xaalada</button>
                                 </div>
                         
                                 :jobfree.xaalad == "1" ?
@@ -297,7 +297,7 @@ function My_Orders(){
                                     <label htmlFor="Bilaabay">Waan Dhameeyay</label>
                                     </div>
                                 </div>
-                                <button  type="submit">Cusbonaysii Xalada</button>
+                                <button   onClick={loading_handale} type="submit">Cusbonaysii Xalada</button>
                                 </div>
                                 :jobfree.xaalad == "2" ||  jobfree.xaalad == "Done" ?
                                 <di>

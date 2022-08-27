@@ -9,13 +9,16 @@ import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { useHistory, useParams } from "react-router-dom";
 import Jobskl from "../skaltons/Jobskalaton";
 import Loading from "../loading";
+import error from "../Err";
 function Lacag_La_bixid(){
     const {id} = useParams()
     const {Userinfo, Add_Rasiid, cashOut} = UseAuth()
     const [c_user, setc_user] = useState()
     const [x_labixid, setx_labixid] = useState(true)
+    const [Nan , setNan] = useState(true)
     const Hadhaa_c_user = c_user &&  Number(c_user.r_Furan)
     const input_lacag = useRef()
+    const  pattern = /[^0-9.]/g;
 
     // loading
     const [load, setload] = useState(false)
@@ -82,10 +85,16 @@ function Lacag_La_bixid(){
         } else {
             setx_labixid(true)
         }
+    }
 
-        console.log(x_labixid)
-        console.log(Hadhaa_c_user)
-
+    const keyuphandale =() => {
+        if(input_lacag.current.value.match(pattern)){
+            setNan(false)
+            console.log(Nan)
+        } else {
+            setNan(true)
+            console.log(Nan)
+        }
     }
 
 
@@ -103,44 +112,50 @@ function Lacag_La_bixid(){
             {/* <!---------------biloga foomka labixida -------------------> */}
             <div className="tranding_haye">
                 <div className="rasiid_tamplate">
-                    {c_user ?
-                    <div className="rasiid">
-                        <form onSubmit={submit_cashout}>
-                            <label htmlFor="name">Magacaaga - Lama Badali Karro</label>
-                            <input className="la_bax" type="text" name="Magaca_dalbadaha_lacagta" readOnly value={Userinfo && Userinfo.Name} />
-                            <label htmlFor="qaab">Qaabka - shirkada</label>
-                            <select className="la_bax">
-                                <option value="zaad">zaad service</option>
-                                <option value="edahab">edahab service</option>
-                            </select>
-                            <label htmlFor="tel">Lanbarka - Lama Badali Karro</label>
-                            <input className="la_bax" type="tel" required maxLength={10} name="lanbar" placeholder="Tusale 0634xxxxx" value={Userinfo && Userinfo.Talefan}  readOnly/>
-                            <label htmlFor="lacag">Lacagta</label>
-                            <input  ref={input_lacag} input onInput={Hadhaa} className="la_bax" type="lacag" required name="lacag" placeholder="Tusaale 20" value={Lacag} 
-                            onChange={(e) => setLacag(e.target.value)}
-                            />
-                            {c_user && c_user.r_Furan > 0 ?
-                            <>
-                            {x_labixid ?
-                            <>
-                            <button onClick={loading_handale} className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Dalbo {Lacag} $</button>
-                            <p className="la_bax"><i className="fa-solid fa-bell"></i> Ogow Lacagta Kuu Furan  waa {c_user && c_user.r_Furan} $</p>
-                            </>
-                            :
-                            <p className="la_bax out"><i className="fa-solid fa-bell"></i> Naga Raali Noqo Hadhaaga Kuu Furan Waa {c_user && c_user.r_Furan} $ </p>
-                            }
-                            </>
-                            :
-                            <>
-                            <p className="la_bax out"><i className="fa-solid fa-bell"></i> Naga Raali Noqo Hadhaaga Kuu Furan Waa {c_user && c_user.r_Furan} $ </p>
-                            </>
-                            }
+                {Nan ?  
+                <>
+                {c_user ?
+                <div className="rasiid">
+                    <form onSubmit={submit_cashout}>
+                        <label htmlFor="name">Magacaaga - Lama Badali Karro</label>
+                        <input className="la_bax" type="text" name="Magaca_dalbadaha_lacagta" readOnly value={Userinfo && Userinfo.Name} />
+                        <label htmlFor="qaab">Qaabka - shirkada</label>
+                        <select className="la_bax">
+                            <option value="zaad">zaad service</option>
+                            <option value="edahab">edahab service</option>
+                        </select>
+                        <label htmlFor="tel">Lanbarka - Lama Badali Karro</label>
+                        <input className="la_bax" type="tel" required maxLength={10} name="lanbar" placeholder="Tusale 0634xxxxx" value={Userinfo && Userinfo.Talefan}  readOnly/>
+                        <label htmlFor="lacag">Lacagta</label>
+                        <input  ref={input_lacag} onKeyUp={keyuphandale} input onInput={Hadhaa} className="la_bax" type="lacag" required name="lacag" placeholder="Tusaale 20" value={Lacag} 
+                        onChange={(e) => setLacag(e.target.value)}
+                        />
+                        {c_user && c_user.r_Furan > 0 ?
+                        <>
+                        {x_labixid ?
+                        <>
+                        <button onClick={loading_handale} className="la_bax" type="submit">< FontAwesomeIcon icon={faSackDollar}/>  Hada Dalbo {Lacag} $</button>
+                        <p className="la_bax"><i className="fa-solid fa-bell"></i> Ogow Lacagta Kuu Furan  waa {c_user && c_user.r_Furan} $</p>
+                        </>
+                        :
+                        <p className="la_bax out"><i className="fa-solid fa-bell"></i> Naga Raali Noqo Hadhaaga Kuu Furan Waa {c_user && c_user.r_Furan} $ </p>
+                        }
+                        </>
+                        :
+                        <>
+                        <p className="la_bax out"><i className="fa-solid fa-bell"></i> Naga Raali Noqo Hadhaaga Kuu Furan Waa {c_user && c_user.r_Furan} $ </p>
+                        </>
+                        }
 
-                        </form>
-                    </div>
-                    :
-                    <Jobskl />
-                    }
+                    </form>
+                </div>
+                :
+                <Jobskl />
+                }
+                </>
+                :
+                <error />
+                }
                 </div>
             </div>
             {/* <!---------------dhamaadka  foomka labixida -------------------> */}
