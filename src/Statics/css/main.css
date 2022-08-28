@@ -58,6 +58,23 @@ body::-webkit-scrollbar-thumb {
   
 }
 
+/* width */
+*::-webkit-scrollbar {
+  width: 8px;
+  
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  background-color: var(--fonts);
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background-color: var(--placeholder_color);
+  
+}
+
 /* Handle on hover 
 body::-webkit-scrollbar-thumb:hover {
   background-image: linear-gradient(205deg, #7400b8,#2196f3);
@@ -859,7 +876,7 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
   border-radius: 2px;
   background-color: var(--fonts);
   padding:0 15px;
-  caret-color: var(--main-2);
+  caret-color: var(--Font-color);
   color: var(--main-2);
   font-size: 18px;
   font-family: "nooca_farta";
@@ -5402,7 +5419,7 @@ div.searchbar{
   top: 82px;
   left: 6px;
   z-index: 10;
-  overflow-y: scroll;
+  overflow-y: auto;
   border-radius: 1px;
 }
 
@@ -5468,8 +5485,16 @@ div.searchbar > .match .shaqo_hellay div.inf_hellay ul  li {
   width: calc(85% / 3);
   list-style: none;
   font-size: 16px;
+  color: var(--Font-color);
+  font-weight: normal;
+}
+
+div.searchbar > .match .shaqo_hellay div.inf_hellay ul  li .i {
   color: var(--main-2);
-  font-weight: bold;
+}
+
+div.searchbar > .match .shaqo_hellay div.inf_hellay ul  li .i.rate{
+  color: var(--gaar);
 }
 
 

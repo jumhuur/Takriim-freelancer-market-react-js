@@ -1,5 +1,5 @@
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import {faPeopleGroup, faStar,faUser} from "@fortawesome/free-solid-svg-icons";
+import {faPeopleGroup, faStar, faMoneyCheck} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 function SearchPar({active,valeu_q,colectionJobs}){
     return(
@@ -18,10 +18,13 @@ function SearchPar({active,valeu_q,colectionJobs}){
                 <div className="inf_hellay">
                     <ul>
                         <li>
-                            <FontAwesomeIcon icon={faPeopleGroup} /> Iiibsade ({data.iibsade})
+                            <FontAwesomeIcon icon={faMoneyCheck} className="i" /> Qiimaha : {data.Qiimaha} $
                         </li>
                         <li>
-                            <FontAwesomeIcon icon={faStar} /> Qiimayn ({data.Qiimayn})
+                            <FontAwesomeIcon icon={faPeopleGroup} className="i" /> Iiibsade : {data.iibsade} Qof
+                        </li>
+                        <li>
+                            <FontAwesomeIcon icon={faStar} className="i rate" /> Qiimayn : {data.Qiimayn} Qof
                         </li>
                     </ul>
                 </div>
