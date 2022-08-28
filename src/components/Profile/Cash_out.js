@@ -9,7 +9,7 @@ import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { useHistory, useParams } from "react-router-dom";
 import Jobskl from "../skaltons/Jobskalaton";
 import Loading from "../loading";
-import error from "../Err";
+import Qalad from "../Err";
 function Lacag_La_bixid(){
     const {id} = useParams()
     const {Userinfo, Add_Rasiid, cashOut} = UseAuth()
@@ -154,7 +154,7 @@ function Lacag_La_bixid(){
                 }
                 </>
                 :
-                <error />
+                <Qalad />
                 }
                 </div>
             </div>

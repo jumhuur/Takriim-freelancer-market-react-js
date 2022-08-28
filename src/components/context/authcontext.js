@@ -6,7 +6,6 @@ import {
     setDoc,
     serverTimestamp,
     getDoc,
-    Timestamp,
 } from "firebase/firestore";
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword , signOut} from "firebase/auth";
 const AuthContext = React.createContext()
