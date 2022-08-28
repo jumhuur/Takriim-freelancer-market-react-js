@@ -190,7 +190,7 @@ function Add_servece(){
                         <form action="/" ref={foomka} method="post" onSubmit={Adddata} encType="multipart/form-data">
                             <label htmlFor="name">Ciwaanka adegaaga</label>
                             <input  value={title} className="la_bax" type="text" name="title" placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={40} 
-                            onChange={(e) => settitle(e.target.value)}
+                            onChange={(e) => settitle(e.target.value.toLowerCase())}
                             //value={title}
                             />
                             <label htmlFor="qaab">Qaybta Uu Ka Mid Yahay</label>

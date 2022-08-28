@@ -220,7 +220,7 @@ function Upadate_job(){
                         <form ref={foomka} method="put" onSubmit={Adddata} encType="multipart/form-data">
                             <label htmlFor="name">Ciwaanka adegaaga</label>
                             <input  className="la_bax" type="text" name="title" value={title} placeholder="ciwaanka adeegaaga" minLength={20} required maxLength={40} 
-                            onChange={(e) => settitle(e.target.value)}
+                            onChange={(e) => settitle(e.target.value.toLowerCase())}
                             />
                             <label htmlFor="qaab">Qaybta Uu Ka Mid Yahay</label>
                             <select className="la_bax" name="Qaybid" 
@@ -266,11 +266,11 @@ function Upadate_job(){
                             </div>
                             <label htmlFor="name">Ma Haystaa Muqaal shaqadaada ku sabsan ?  </label>
                             <div className="option_mdeia">
-                                <input id="Haa" type="radio" required name="media"  value="Haa"
+                                <input id="Haa" type="radio" name="media"  value="Haa"
                                 onClick={(e) => setmedia(e.target.value)}
                                 />
                                 <label  htmlFor="Haa"> <FontAwesomeIcon icon={faFilm}/> Haa</label> 
-                                <input id="Maya" type="radio" required name="media" value="Maya"
+                                <input id="Maya" type="radio" name="media" value="Maya"
                                 onClick={
                                     function(e){
                                     setmedia(e.target.value)

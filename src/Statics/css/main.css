@@ -815,6 +815,7 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
 
 .Qayb{
   width: calc(95% / 2);
+  position: relative;
 }
 
 .Qayb.sawir{
@@ -862,8 +863,8 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
   color: var(--main-2);
   font-size: 18px;
   font-family: "nooca_farta";
-  text-transform: capitalize;
   border-top-right-radius: 0px;
+  text-transform: capitalize;
   border-bottom-right-radius: 0px;
 
 }
@@ -5392,6 +5393,103 @@ div.raber{
 /*-------------------- end loading css 8 --------------------------*/
 
 
+/*-------------search----------------*/
+div.searchbar{
+  width: 98%;
+  height: 257px;
+  background-color: var(--bacground-qaybo);
+  position: absolute;
+  top: 82px;
+  left: 6px;
+  z-index: 10;
+  overflow-y: scroll;
+  border-radius: 1px;
+}
+
+div.searchbar .match{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: wrap row;
+}
+
+
+div.searchbar > .match a{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: wrap column;
+  margin: 5px 0px;
+}
+
+
+div.searchbar > .match .shaqo_hellay{
+  width: 95%;
+  height: 100px;
+  background-color: var(--fonts);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+div.searchbar > .match .shaqo_hellay > .ciwaan_hellay{
+  width: 100%;
+}
+
+div.searchbar > .match .shaqo_hellay > .ciwaan_hellay > h2 {
+  color: var(--Font-color);
+  font-size: 19px;
+  display: block;
+  padding: 0px 15px;
+  font-weight: normal;
+}
+
+div.searchbar > .match .shaqo_hellay div.inf_hellay{
+  width: 100%;
+
+}
+
+div.searchbar > .match .shaqo_hellay div.inf_hellay ul {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: wrap row;
+  padding: 10px 15px;
+  margin: 10px 0px;
+}
+
+div.searchbar > .match .shaqo_hellay div.inf_hellay ul  li {
+  width: calc(85% / 3);
+  list-style: none;
+  font-size: 16px;
+  color: var(--main-2);
+  font-weight: bold;
+}
+
+
+div.not_foun_image{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+div.not_foun_image img {
+  width: 40%;
+}
+
+p.not_foud{
+  color: var(--Font-color) !important;
+  font-size: 16px;
+}
 
 
 
