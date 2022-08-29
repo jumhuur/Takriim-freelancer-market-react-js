@@ -927,9 +927,9 @@ div.tobsellers::after{
   content: "Top 10 Sellers";
   position: absolute;
   width: 150px;
-  height: 30px;
-  background: var(--fonts);
-  color: var(--main-2);
+  height: 25px;
+  /* background-image: linear-gradient(205deg, #7400b8,#2196f3); */
+  color: var(--fonts);
   top: -15px;
   display: flex;
   justify-content: center;
@@ -937,7 +937,8 @@ div.tobsellers::after{
   flex-flow: wrap column;
   border-radius: 5px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 500;
+  border: solid 1.50px var(--fonts);
 }
 
 div.tobsellers .cover_images{
@@ -954,10 +955,14 @@ div.tobsellers .cover_images{
 div.tobsellers .cover_images .image_user_top_seller{
   width: 82px;
   height: 82px;
-  background-color: var(--main-2);
+  background-color: var(--fonts);
   border-radius: 50%;
   border: solid 2.50px var(--fonts);
   overflow: hidden;
+}
+
+div.tobsellers .cover_images .image_user_top_seller:hover{
+  z-index: 50;
 }
 
 div.tobsellers .cover_images .image_user_top_seller > img {
@@ -5812,6 +5817,37 @@ p.not_foud{
     max-width: 540px;
   }
 
+  div.tobsellers::after{
+    content: "Top 5 Sellers";
+    position: absolute;
+  }
+
+  div.tobsellers .cover_images .image_user_top_seller:nth-child(6){
+    transform: translate(-150px ,0px);
+    z-index: 5;
+    display: none;
+  }
+  div.tobsellers .cover_images .image_user_top_seller:nth-child(7){
+    transform: translate(-180px ,0px);
+    z-index: 7;
+    display: none;
+  }
+  div.tobsellers .cover_images .image_user_top_seller:nth-child(8){
+    transform: translate(-210px ,0px);
+    z-index: 8;
+    display: none;
+  }
+  div.tobsellers .cover_images .image_user_top_seller:nth-child(9){
+    transform: translate(-230px ,0px);
+    z-index: 9;
+    display: none;
+  }
+  div.tobsellers .cover_images .image_user_top_seller:nth-child(10){
+    transform: translate(-250px ,0px);
+    z-index: 10;
+    display: none;
+  }
+
   .orders .tranding_haye .card_template .macluumaad .tirakoob ul li{
     width: calc(100% / 1);
   }
@@ -6227,6 +6263,11 @@ p.not_foud{
       div#btn_com2 > button#btn_com {
         width: 90%;
       }
+
+
+      .head .header .nav_links > ul > li {
+        width: calc(90% / 4);
+      }
 }
 
 @media (min-width: 576px) and (max-width: 768px) {
@@ -6452,6 +6493,10 @@ p.not_foud{
       width: 85%;
     }
 
+    .head .header .nav_links > ul > li {
+      width: calc(90% / 4);
+    }
+
 
 }
 
@@ -6462,6 +6507,35 @@ p.not_foud{
     }
     .haye {
       max-width: 720px;
+    }
+
+    div.tobsellers::after{
+      content: "Top 7 Sellers";
+      position: absolute;
+    }
+
+    div.tobsellers .cover_images .image_user_top_seller:nth-child(8){
+      transform: translate(-210px ,0px);
+      z-index: 8;
+      display: none;
+    }
+    div.tobsellers .cover_images .image_user_top_seller:nth-child(9){
+      transform: translate(-230px ,0px);
+      z-index: 9;
+      display: none;
+    }
+    div.tobsellers .cover_images .image_user_top_seller:nth-child(10){
+      transform: translate(-250px ,0px);
+      z-index: 10;
+      display: none;
+    }
+
+    .head .header .logo {
+      width: 10%;
+    }
+
+    .head .header .nav_links {
+      width: 90%;
     }
 
     .qof{

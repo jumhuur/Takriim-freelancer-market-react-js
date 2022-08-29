@@ -11,7 +11,7 @@ function PapularContenar(){
     //get data user 
     const db = getFirestore ()
     const colref = collection(db, "Users")
-    const q = query(colref, limit(10))    
+    const q = query(colref, limit(10), orderBy("Macmiil", "desc"))    
     //hellida docs 
     async function  getcolections(){
         onSnapshot (q, (snapshot) => {
@@ -33,8 +33,8 @@ function PapularContenar(){
                 {hellay && hellay ?
                 <div className="cover_images">
                     {hellay.map(data_top => (
-                    <div className="image_user_top_seller">
-                        <img src={data_top.Image} alt="user_seller"  title={data_top.Name}/>
+                    <div className="image_user_top_seller" key={data_top.uid}>
+                        <img src={data_top.Image ? data_top.Image: "/images/avatar.png"} alt="user_seller"  title={`${data_top.Name} : ${data_top.Macmiil} Iib`}/>
                     </div>
                     ))}
                 </div>
