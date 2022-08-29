@@ -1,11 +1,9 @@
-import Papular from "./Papular"
-import SearchPar from "../searchpar"
+import SearchPar from "./searchpar"
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+import {faCircleXmark} from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { collection,getFirestore, query, onSnapshot, where,  limit, orderBy } from "firebase/firestore";
-
-function Search(){
+import { collection,getFirestore, query, onSnapshot} from "firebase/firestore";
+function Search({active, setactive}){
     const [serchAc, setserchAc] = useState(false)
     const [hellay,sethelly] = useState(null)
     const [myquary, setquery] = useState('')
@@ -28,18 +26,25 @@ function Search(){
     const onparessHandale = () => {
         setserchAc(true)
         getcolections()
-        console.log(myquary)
+    }
+
+    const handalesetsearch =() => {
+        active ? setactive(false) : setactive(true)
     }
 
     return(
-        <div className="search">
+        <>
+        {active ?
+            <div className="search top_search">
             <form>
-                <input onChange={(e) => setquery(e.target.value.toLowerCase())} onKeyUp={onparessHandale} type="search" required placeholder="Raadi Tusaale 'Logo Desin' .." name="sawir_name" />
-                <button type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+                <input onChange={(e) => setquery(e.target.value.toLowerCase())} onKeyUp={onparessHandale} type="search" required placeholder="Raadi Tusaale 'Nashqadayn Logo' .." name="sawir_name" autoComplete="off" spellCheck="false" />
+                <button onClick={handalesetsearch} type="submit"><FontAwesomeIcon icon={faCircleXmark} /></button>
             </form>
-            <Papular />
             <SearchPar active={serchAc} colectionJobs={hellay && hellay} valeu_q={myquary && myquary}/>
         </div>
+        : <></>
+        }
+        </>
     )
 }
 

@@ -1,4 +1,4 @@
-import Search from "./search"
+import PapularContenar from "./Papularcontenar"
 function Ubuc(){
     return(
         <div className="home_page">
@@ -7,7 +7,7 @@ function Ubuc(){
                     <h2>Shabakada Takriim Waa</h2>
                     <p>Suuqa Xorta Ah Ee Dhalin yarada Soomalida ! </p>
                 </div>
-                <Search />
+                <PapularContenar />
             </div>
             <div className="Qayb sawir">
                 <img src="/images/home_page.svg" alt="sawir01" />

@@ -3,21 +3,29 @@ import { Link } from "react-router-dom";
 import Nativactions from "./Nativactions";
 import Massages from "./Massages";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import { faAngleDown, faBars, faBell, faEarthAfrica, faEnvelope, faRightToBracket ,faToolbox} from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faBars, faBell, faEarthAfrica, faEnvelope, faRightToBracket ,faSearch,faToolbox} from "@fortawesome/free-solid-svg-icons";
 import NavMobile from "./NavMobile";
 import Drop_nav from "./Drop_nav";
 import {FaAngleDown , FaGlobeAfrica} from "react-icons/fa"
 import { UseAuth } from "./context/authcontext";
+import Search from "./serchFrom";
 
 
 function Nav(){
     const [isactive, setisactive] = useState(false)
+    const [search,setsearch] = useState(false)
     const [massage, setmagessa] = useState(false)
     const [drop, setdrop] = useState(false)
     const [Navmobile, setnavMobile] = useState(false)
     const {crentuser, Userinfo} = UseAuth()
 
 
+    const handalesearch = () => {
+        search ? setsearch(false) : setsearch(true)
+        setmagessa(false)
+        setdrop(false)
+        setisactive(false)
+    }
     function HandelOgaysiis(){
         isactive ? setisactive(false): setisactive(true);
         setmagessa(false)
@@ -50,6 +58,9 @@ function Nav(){
         </div>
         {crentuser ?
         <div className="nav_links user">
+            <Search active={search} setactive={setsearch}/>
+            {!search ?
+            <>
             <ul>
                 <li>
                 <Link to={'/Acount/orders'}>
@@ -67,6 +78,11 @@ function Nav(){
                     <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis <span>0</span>
                     </a>
                 </li>
+                <li>
+                <Link to={'#search'} onClick={handalesearch}>
+                <FontAwesomeIcon className="i" icon={faSearch}/>
+                </Link>
+                </li>
                 <Nativactions isactive={isactive}/>
                 <li className="user_nav">
                     <a href="#Drop" onClick={handelDrop}>
@@ -77,8 +93,14 @@ function Nav(){
                 </li>
                 <Drop_nav drop={drop}/>
             </ul>
+            </>
+            :
+            <></>
+            }
         </div>
         :<div className="nav_links normal">
+        <Search active={search} setactive={setsearch}/>
+        {!search ?
         <ul className="ul_nav">
             <li>
                 <a href="#">
@@ -95,12 +117,20 @@ function Nav(){
                     E-sako Web
                 </a>
             </li>
+            <li>
+                <Link to={'#search'} onClick={handalesearch}>
+                <FontAwesomeIcon className="i" icon={faSearch}/>
+                </Link>
+            </li>
             <li className="btn">
                 <Link to={"/Acount/Login"}>
                 <FontAwesomeIcon className="i" icon={faRightToBracket}/> Gal Akoon
                 </Link>
             </li>
         </ul>
+        :
+        <></>
+        }
         </div>
         }
         {/* <!---------nav normal-----------------------------> */}

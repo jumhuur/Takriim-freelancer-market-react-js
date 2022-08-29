@@ -60,7 +60,7 @@ body::-webkit-scrollbar-thumb {
 
 /* width */
 *::-webkit-scrollbar {
-  width: 8px;
+  width: 0px;
   
 }
 
@@ -219,7 +219,7 @@ a {
 }
 
 .head .header .nav_links ul {
-  width: 60%;
+  width: 70%;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -230,7 +230,7 @@ a {
 }
 
 .head .header .nav_links > ul > li {
-  width: calc(90% / 4);
+  width: calc(90% / 5);
   height: fit-content;
   list-style: none;
   display: flex;
@@ -859,6 +859,16 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
   position: relative;
 }
 
+.nav_bar .search.top_search{
+  width: 80%;
+  height: 100%;
+  padding: 0% 0;
+  position: absolute;
+  /* background-color: var(--main-2); */
+  right: 0;
+  /* background-image: linear-gradient(205deg, #7400b8,#2196f3); */
+}
+
 .nav_bar .search form{
   width: 100%;
   height: 100%;
@@ -866,43 +876,160 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
   justify-content: center;
   align-items: center;
   flex-flow: wrap row;
+  position: absolute;
 }
 
 .nav_bar .search input{
-  width: 86%;
-  height: 55px;
+  width: 90%;
+  height: 45px;
   outline: none;
   border: none;
   border-radius: 2px;
   background-color: var(--fonts);
-  padding:0 15px;
+  padding: 0 15px;
   caret-color: var(--Font-color);
-  color: var(--main-2);
-  font-size: 18px;
+  color: var(--Font-color);
+  font-size: 16px;
   font-family: "nooca_farta";
-  border-top-right-radius: 0px;
+  /* border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px; */
   text-transform: capitalize;
-  border-bottom-right-radius: 0px;
+
 
 }
 
 .nav_bar .search button{
-  width: 70px;
-  height: 55px;
-  border-radius: 0;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
   outline: none;
   border: none;
   cursor: pointer;
-  background-color: #2196F3;
-  /* background-image: linear-gradient(205deg, #7400b8,#2196f3); */
   color: var(--fonts);
+  background-color: transparent;
+  margin: 0px 5px;
 }
 
 .nav_bar .search button:hover{
-  background-color: #2196F3;
+  color: var(--fonts);
   /* background-image: linear-gradient(205deg, #7400b8,#2196f3); */
+}
+
+div.tobsellers{
+  width: 100%;
+  height: 130px;
+  border-radius: 5px;
+  margin: 5px 0px;
+  position: relative;
+}
+
+div.tobsellers::after{
+  content: "Top 10 Sellers";
+  position: absolute;
+  width: 150px;
+  height: 30px;
+  background: var(--fonts);
+  color: var(--main-2);
+  top: -15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+div.tobsellers .cover_images{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+}
+
+
+
+div.tobsellers .cover_images .image_user_top_seller{
+  width: 82px;
+  height: 82px;
+  background-color: var(--main-2);
+  border-radius: 50%;
+  border: solid 2.50px var(--fonts);
+  overflow: hidden;
+}
+
+div.tobsellers .cover_images .image_user_top_seller > img {
+  object-fit: cover;
+}
+
+div.tobsellers .cover_images .image_user_top_seller:nth-child(1){
+  transform: translate(0px ,0px);
+  z-index: 0;
+
+}
+div.tobsellers .cover_images .image_user_top_seller:nth-child(2){
+  transform: translate(-30px ,0px);
+    z-index: 1;
+}
+div.tobsellers .cover_images .image_user_top_seller:nth-child(3){
+  transform: translate(-60px ,0px);
+  z-index: 2;
+}
+div.tobsellers .cover_images .image_user_top_seller:nth-child(4){
+  transform: translate(-90px ,0px);
+  z-index: 3;
+}
+div.tobsellers .cover_images .image_user_top_seller:nth-child(5){
+  transform: translate(-120px ,0px);
+  z-index: 4;
+}
+div.tobsellers .cover_images .image_user_top_seller:nth-child(6){
+  transform: translate(-150px ,0px);
+  z-index: 5;
+}
+div.tobsellers .cover_images .image_user_top_seller:nth-child(7){
+  transform: translate(-180px ,0px);
+  z-index: 7;
+}
+div.tobsellers .cover_images .image_user_top_seller:nth-child(8){
+  transform: translate(-210px ,0px);
+  z-index: 8;
+}
+div.tobsellers .cover_images .image_user_top_seller:nth-child(9){
+  transform: translate(-230px ,0px);
+  z-index: 9;
+}
+div.tobsellers .cover_images .image_user_top_seller:nth-child(10){
+  transform: translate(-250px ,0px);
+  z-index: 10;
+}
+
+
+div.tobsellers .cover_images#sklaton_top{
+  display: flex;
+}
+
+div.tobsellers .cover_images#sklaton_top .image_user_top_seller{
+  background-color: #b4b4b4;
+  border: solid 2px var(--main-2);
+  animation-name: topSellers;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+@keyframes topSellers {
+  100%{
+    background-color: #b4b4b4;
+  }
+
+  0%{
+    background-color: #ffffff;
+  }
 }
 
 
@@ -5412,20 +5539,25 @@ div.raber{
 
 /*-------------search----------------*/
 div.searchbar{
-  width: 98%;
-  height: 257px;
+  width: 90%;
+  height: 550px;
   background-color: var(--bacground-qaybo);
   position: absolute;
-  top: 82px;
-  left: 6px;
+  top: 70px;
+  left: 10px;
   z-index: 10;
   overflow-y: auto;
   border-radius: 1px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: wrap row;
 }
 
 div.searchbar .match{
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -5443,6 +5575,7 @@ div.searchbar > .match a{
 }
 
 
+
 div.searchbar > .match .shaqo_hellay{
   width: 95%;
   height: 100px;
@@ -5453,6 +5586,12 @@ div.searchbar > .match .shaqo_hellay{
   align-items: center;
   flex-flow: wrap column;
 }
+
+div.searchbar > .match .shaqo_hellay:hover {
+  box-shadow: 0px 0px 20px 10px #a2c0fb81;
+  border-radius: 5px;
+}
+
 
 div.searchbar > .match .shaqo_hellay > .ciwaan_hellay{
   width: 100%;
@@ -6478,6 +6617,25 @@ p.not_foud{
 
         .orders .tranding_haye .card_template{
           width: calc(100% / 1);
+        }
+
+
+
+        /*---baadhida ------*/
+
+        .nav_bar .search.top_search {
+          width: 100%;
+          height: 100%;
+        }
+
+        div.searchbar {
+          width: 79%;
+          left: 30px;
+        }
+
+        div.searchbar > .match .shaqo_hellay div.inf_hellay ul li {
+          width: calc(100% / 3);
+          font-size: 13px;
         }
 
 

@@ -2,7 +2,6 @@ import { useState ,useEffect } from "react"
 import Aside from "../Aside";
 import Jobs from "../Jobs";
 import Jobskl from "../skaltons/Jobskalaton";
-import auth from "../Acount/Sinup";
 import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
 function ContentHome(){
     const [JobsData, setDataJobs] = useState(null)
