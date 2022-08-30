@@ -19,12 +19,12 @@ function Nav(){
     const [Navmobile, setnavMobile] = useState(false)
     const {crentuser, Userinfo} = UseAuth()
 
-
     const handalesearch = () => {
         search ? setsearch(false) : setsearch(true)
         setmagessa(false)
         setdrop(false)
         setisactive(false)
+
     }
     function HandelOgaysiis(){
         isactive ? setisactive(false): setisactive(true);

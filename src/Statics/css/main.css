@@ -926,19 +926,19 @@ div.tobsellers{
 div.tobsellers::after{
   content: "Top 10 Sellers";
   position: absolute;
-  width: 150px;
+  width: 120px;
   height: 25px;
-  /* background-image: linear-gradient(205deg, #7400b8,#2196f3); */
   color: var(--fonts);
   top: -15px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: wrap column;
-  border-radius: 5px;
+  border-radius: 2px;
   font-size: 16px;
   font-weight: 500;
-  border: solid 1.50px var(--fonts);
+  border-left: solid 1.50px var(--fonts);
+  border-right: solid 1.50px var(--fonts);
 }
 
 div.tobsellers .cover_images{
@@ -959,6 +959,7 @@ div.tobsellers .cover_images .image_user_top_seller{
   border-radius: 50%;
   border: solid 2.50px var(--fonts);
   overflow: hidden;
+  user-select: none;
 }
 
 div.tobsellers .cover_images .image_user_top_seller:hover{
@@ -972,7 +973,6 @@ div.tobsellers .cover_images .image_user_top_seller > img {
 div.tobsellers .cover_images .image_user_top_seller:nth-child(1){
   transform: translate(0px ,0px);
   z-index: 0;
-
 }
 div.tobsellers .cover_images .image_user_top_seller:nth-child(2){
   transform: translate(-30px ,0px);
@@ -1017,21 +1017,20 @@ div.tobsellers .cover_images#sklaton_top{
 }
 
 div.tobsellers .cover_images#sklaton_top .image_user_top_seller{
-  background-color: #b4b4b4;
-  border: solid 2px var(--main-2);
+  background-color: #ffffff;
   animation-name: topSellers;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  border: none;
 }
 
 
 @keyframes topSellers {
   100%{
-    background-color: #b4b4b4;
+    background-color: #d8d8d8;
   }
-
   0%{
     background-color: #ffffff;
   }
