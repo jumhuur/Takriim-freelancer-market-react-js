@@ -6,13 +6,15 @@ import { Link, useHistory, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
-import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faMessage, faStar , faEnvelope , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
+import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faMessage, faUser , faEarthAfrica , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
 import Loading from "../loading";
 function My_Orders(){
     const {id} = useParams()
+    const {userid} = useParams()
     const [jobfree, setjobfree] = useState(null)
+    const [bayer, setbayer] = useState(null)
     const [xaalad, setxaalad] = useState('')
     const [image, setimage] = useState("")
     const done = "Done";
@@ -47,8 +49,20 @@ function My_Orders(){
                 setjobfree({...doc.data(), id:doc.id})
             })
         }
+
+        const bayerCol = doc(db, "Users" , userid)
+        //const q = query(colref)    
+        function  getpayerinfo(){
+            getDoc(bayerCol)
+            .then((doc) => {
+                setbayer({...doc.data(), id:doc.id})
+            })
+        }
+
+
         useEffect(() => {
-            getonorder()     
+            getonorder()   
+            getpayerinfo()  
         }, [jobfree])
 
 
@@ -313,14 +327,14 @@ function My_Orders(){
 
                         <div className="iibiye_info">
                             <div className="sir">
-                                <img src="/images/avatar.jpg" />
+                                <img src={bayer && bayer.Image} />
                             </div>
                             <div className="info_seller">
                                 <a href="">
-                                    <h2>jimcaale muuse xasan</h2>
+                                    <h2>{bayer && bayer.Name}</h2>
                                 </a>
                                 
-                                <p>iibsadaha</p>
+                                <p><FontAwesomeIcon icon={faUser} className="i" /> {bayer && bayer.Nooc}  <FontAwesomeIcon icon={faEarthAfrica} className="i" /> {bayer && bayer.Magaalada}</p>
                                 <a href="/chat.html">
                                     <button><FontAwesomeIcon icon={faMessage} /> La xidhiidh</button>
                                 </a>

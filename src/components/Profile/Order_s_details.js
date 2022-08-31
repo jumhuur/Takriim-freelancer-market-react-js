@@ -148,8 +148,8 @@ function Gudoon(){
         updateDoc(ordref, {
             r_Total:total.toFixed(2),
             r_Xidhan:Xidhan.toFixed(2),
-            Macmiil:String(Mac),
-            Qiimayn_user:String(Q_r),
+            Macmiil: Number(Mac),
+            Qiimayn_user:Number(Q_r),
         })
     }
 

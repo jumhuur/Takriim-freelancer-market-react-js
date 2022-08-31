@@ -1683,6 +1683,9 @@ h2#Xayaysiis_title{
   user-select: none;
 
 }
+label.icon_qimayn{
+  color: var(--gaar) !important;
+}
 
 
 
@@ -2555,12 +2558,17 @@ p.wakhti_com{
 
 .main_shaqo .shao_macluumad_dhan .qayb_.macluumo .iibiye_info .info_seller h2{
   font-size: 16px;
-  color: var(--Font-color);
+  color: var(--main-2);
+  text-transform: capitalize;
 }
 
 .main_shaqo .shao_macluumad_dhan .qayb_.macluumo .iibiye_info .info_seller p{
   font-size: 15px;
 }
+.main_shaqo .shao_macluumad_dhan .qayb_.macluumo .iibiye_info .info_seller p .i{
+  color: var(--main-2);
+}
+
 
 .main_shaqo .shao_macluumad_dhan .qayb_.macluumo .iibiye_info .info_seller p.qiimayn{
   color: var(--gaar);
@@ -4909,6 +4917,8 @@ span.gudoon_fg{
 
 }
 
+
+
 /*----------------------- alert ----------------------*/
 div.alert{
   position: fixed;
@@ -5607,6 +5617,7 @@ div.searchbar > .match .shaqo_hellay > .ciwaan_hellay > h2 {
   display: block;
   padding: 0px 15px;
   font-weight: normal;
+  text-transform: capitalize;
 }
 
 div.searchbar > .match .shaqo_hellay div.inf_hellay{

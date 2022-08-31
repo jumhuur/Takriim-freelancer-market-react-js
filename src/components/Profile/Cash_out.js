@@ -12,19 +12,24 @@ import Loading from "../loading";
 import Qalad from "../Err";
 function Lacag_La_bixid(){
     const {id} = useParams()
-    const {Userinfo, Add_Rasiid, cashOut} = UseAuth()
+    const {Userinfo, Add_Rasiid, cashOut,crentuser} = UseAuth()
     const [c_user, setc_user] = useState()
     const [x_labixid, setx_labixid] = useState(true)
     const [Nan , setNan] = useState(true)
     const Hadhaa_c_user = c_user &&  Number(c_user.r_Furan)
     const input_lacag = useRef()
     const  pattern = /[^0-9.]/g;
+    const HomeTo = useHistory()
 
     // loading
     const [load, setload] = useState(false)
     const loading_handale = () => {
         load ? setload(false) : setload(true)
         console.log(load)
+    }
+
+    if(!crentuser) {
+        HomeTo.push("/")
     }
 
     // state cashout

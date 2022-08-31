@@ -6,7 +6,7 @@ import { collection,getFirestore, query, onSnapshot} from "firebase/firestore";
 function Search({active, setactive}){
     const [serchAc, setserchAc] = useState(false)
     const [hellay,sethelly] = useState(null)
-    const [myquary, setquery] = useState('')
+    const [myquary, setquery] = useState('.')
     const inputRef = useRef()
     //get data user 
     const db = getFirestore ()

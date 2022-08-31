@@ -47,7 +47,7 @@ function Orders_Free(){
                 </div>
                 <div className="macluumaad">
                     <div className="qoraalo">
-                        <Link to={`/Acount/Myorder/info/${dat_order.id}`}>
+                        <Link to={`/Acount/Myorder/info/${dat_order.id}/${dat_order.Dalbade_id}`}>
                             <h2>{dat_order.title}</h2>
                             <p>
                                 Dalabkan waxa uu kaaga yimid mid ka mida macaamiisha shabakada 

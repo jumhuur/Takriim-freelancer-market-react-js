@@ -71,7 +71,7 @@ function Rasiid(){
                     </div>
                     <div className="avalible" id="avalible">
                     <h2 className="out"> - {rasiid_tr && rasiid_tr.Qiimaha} $</h2>
-                    <p className="out"><FontAwesomeIcon className="i" icon={faSackXmark} /> Lacagta Ka Go'aday</p>
+                    <p className="out"><FontAwesomeIcon className="i" icon={faSackXmark} /> Lacagta Aad La Baxday</p>
                     </div>
                     </>
                     :rasiid_tr.Nooc == "@" ?

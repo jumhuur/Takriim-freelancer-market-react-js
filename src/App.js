@@ -69,7 +69,7 @@ function App(){
           <Route exact path="/Acount/Myorder">
             <Orders_Free />
           </Route>
-          <Route exact path="/Acount/Myorder/info/:id">
+          <Route exact path="/Acount/Myorder/info/:id/:userid">
             <My_Orders />
           </Route>
           <Route exact path="/Acount/gudbi">
