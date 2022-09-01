@@ -16,8 +16,14 @@ function SingUp(){
     const [r_Furan, setr_Furan] = useState('0.00')
     const [r_Xidhan, setr_Xidhan] = useState('0.00')
     const [Info, setInfo] = useState('Takriim User')
-    const [Macmiil, setMacmiil] = useState('0')
+    const [Macmiil, setMacmiil] = useState(0)
     const [Qiimayn_user, setQiimayn_user] = useState('0')
+    const Qiimayn_user5 = 0;
+    const Qiimayn_user4 = 0;
+    const Qiimayn_user3 = 0;
+    const Qiimayn_user2 = 0;
+    const Qiimayn_user1 = 0;
+
     const [alert, setalert] = useState(false)
     const [msg, semsg] = useState(false)
     const  { sinup , crentuser, Add_userdata } = UseAuth()
@@ -34,7 +40,25 @@ function SingUp(){
         e.preventDefault()
         try {
         const data_user = await sinup(email,password)
-        await Add_userdata(Name, Nooc , Image , Heerka, Magaalada, Info , r_Total ,r_Xidhan, r_Furan , Macmiil,Qiimayn_user, data_user.user.uid, data_user.user.uid)
+        await Add_userdata(
+            Name,
+            Nooc , 
+            Image , 
+            Heerka, 
+            Magaalada, 
+            Info , 
+            r_Total ,
+            r_Xidhan, 
+            r_Furan , 
+            Macmiil,
+            Qiimayn_user,
+            Qiimayn_user5,
+            Qiimayn_user4,
+            Qiimayn_user3,
+            Qiimayn_user2,
+            Qiimayn_user1,
+            data_user.user.uid, 
+            data_user.user.uid)
         toHomepage.push('/')
         } catch(err) {
         console.log(err)

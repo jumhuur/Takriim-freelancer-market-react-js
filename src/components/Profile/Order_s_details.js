@@ -75,7 +75,7 @@ function Gudoon(){
 
             update_gudoon()
             update_rasiid()
-            //update_Ratings()
+            update_Ratings()
             update_job()
             setload(false)
 
@@ -139,54 +139,54 @@ function Gudoon(){
     }
 
     // diyaar calc ratings 
-    // function update_Ratings(){
-    //     const ordref =  doc(db, "Users", userid)
-    //     const Q_r5 = parseInt(c_user.Qiimayn_user5) + 1
-    //     const Q_r4 = parseInt(c_user.Qiimayn_user4) + 1
-    //     const Q_r3 = parseInt(c_user.Qiimayn_user3) + 1
-    //     const Q_r2 = parseInt(c_user.Qiimayn_user2) + 1
-    //     const Q_r1 = parseInt(c_user.Qiimayn_user1) + 1
-    //     const x_1aad = 
-    //     c_user.Qiimayn_user5 +
-    //     c_user.Qiimayn_user4 +
-    //     c_user.Qiimayn_user3 + 
-    //     c_user.Qiimayn_user2 +
-    //     c_user.Qiimayn_user1;
-    //     const x_2aad = 
-    //     5 * c_user.Qiimayn_user5 +  
-    //     4 * c_user.Qiimayn_user4 + 
-    //     3 * c_user.Qiimayn_user3 + 
-    //     2 * c_user.Qiimayn_user2 + 
-    //     1 * c_user.Qiimayn_user1 ;
-    //     const last_calc = x_2aad / x_1aad
-    //     if(Rate == 5){
-    //     updateDoc(ordref, {
-    //         Qiimayn_user5:Number(Q_r5),
-    //         Qiimayn_user: Number(last_calc).toFixed(2)
-    //     })
-    //     } else if(Rate == 4){
-    //     updateDoc(ordref, {
-    //         Qiimayn_user4:Number(Q_r4),
-    //         Qiimayn_user: Number(last_calc).toFixed(2)
-    //     })            
+    function update_Ratings(){
+        const ordref =  doc(db, "Users", userid)
+        const Q_r5 = parseInt(c_user.Qiimayn_user5) + 1
+        const Q_r4 = parseInt(c_user.Qiimayn_user4) + 1
+        const Q_r3 = parseInt(c_user.Qiimayn_user3) + 1
+        const Q_r2 = parseInt(c_user.Qiimayn_user2) + 1
+        const Q_r1 = parseInt(c_user.Qiimayn_user1) + 1
+        const x_1aad = 
+        c_user.Qiimayn_user5 +
+        c_user.Qiimayn_user4 +
+        c_user.Qiimayn_user3 + 
+        c_user.Qiimayn_user2 +
+        c_user.Qiimayn_user1;
+        const x_2aad = 
+        5 * c_user.Qiimayn_user5 +  
+        4 * c_user.Qiimayn_user4 + 
+        3 * c_user.Qiimayn_user3 + 
+        2 * c_user.Qiimayn_user2 + 
+        1 * c_user.Qiimayn_user1 ;
+        const last_calc = x_2aad / x_1aad
+        if(Rate == 5){
+        updateDoc(ordref, {
+            Qiimayn_user5:Number(Q_r5),
+            Qiimayn_user: Number(last_calc).toFixed(2)
+        })
+        } else if(Rate == 4){
+        updateDoc(ordref, {
+            Qiimayn_user4:Number(Q_r4),
+            Qiimayn_user: Number(last_calc).toFixed(2)
+        })            
 
-    //     } else if(Rate == 3){
-    //     updateDoc(ordref, {
-    //         Qiimayn_user3:Number(Q_r3),
-    //         Qiimayn_user: Number(last_calc).toFixed(2)
-    //     })
-    //     } else if(Rate == 2){
-    //     updateDoc(ordref, {
-    //         Qiimayn_user2:Number(Q_r2),
-    //         Qiimayn_user: Number(last_calc).toFixed(2)
-    //     })
-    //     } else if(Rate == 1){
-    //     updateDoc(ordref, {
-    //         Qiimayn_user1:Number(Q_r1),
-    //         Qiimayn_user: Number(last_calc).toFixed(2)
-    //     })
-    //     }
-    // }
+        } else if(Rate == 3){
+        updateDoc(ordref, {
+            Qiimayn_user3:Number(Q_r3),
+            Qiimayn_user: Number(last_calc).toFixed(2)
+        })
+        } else if(Rate == 2){
+        updateDoc(ordref, {
+            Qiimayn_user2:Number(Q_r2),
+            Qiimayn_user: Number(last_calc).toFixed(2)
+        })
+        } else if(Rate == 1){
+        updateDoc(ordref, {
+            Qiimayn_user1:Number(Q_r1),
+            Qiimayn_user: Number(last_calc).toFixed(2)
+        })
+        }
+    }
 
 
 
