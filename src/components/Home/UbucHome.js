@@ -5,7 +5,7 @@ function Ubuc(){
             <div className="Qayb home_page2">
                 <div className="qoraalo">
                     <h2>Shabakada Takriim Waa</h2>
-                    <p>Suuqa Xorta Ah Ee Dhalin yarada Soomalida ! </p>
+                    <p>Suuqa Shaqaalaha Xorta Ah Ee Soomalida </p>
                 </div>
                 <PapularContenar />
             </div>

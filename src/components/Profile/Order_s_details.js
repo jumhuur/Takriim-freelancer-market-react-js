@@ -21,7 +21,7 @@ function Gudoon(){
     const [ordejob,setordejob ] = useState(null)
     const {Add_Comments ,Userinfo , Add_Rasiid ,crentuser } = UseAuth()
     // comments state 
-    const [Rate, setRate] = useState("5")
+    const [Rate, setRate] = useState(5)
     const [Comment, setComment] = useState()
     const Jobid = oneOrder && oneOrder.Jobid
     const Username = user && Userinfo.Name 
@@ -75,6 +75,7 @@ function Gudoon(){
 
             update_gudoon()
             update_rasiid()
+            //update_Ratings()
             update_job()
             setload(false)
 
@@ -137,6 +138,60 @@ function Gudoon(){
         })
     }
 
+    // diyaar calc ratings 
+    // function update_Ratings(){
+    //     const ordref =  doc(db, "Users", userid)
+    //     const Q_r5 = parseInt(c_user.Qiimayn_user5) + 1
+    //     const Q_r4 = parseInt(c_user.Qiimayn_user4) + 1
+    //     const Q_r3 = parseInt(c_user.Qiimayn_user3) + 1
+    //     const Q_r2 = parseInt(c_user.Qiimayn_user2) + 1
+    //     const Q_r1 = parseInt(c_user.Qiimayn_user1) + 1
+    //     const x_1aad = 
+    //     c_user.Qiimayn_user5 +
+    //     c_user.Qiimayn_user4 +
+    //     c_user.Qiimayn_user3 + 
+    //     c_user.Qiimayn_user2 +
+    //     c_user.Qiimayn_user1;
+    //     const x_2aad = 
+    //     5 * c_user.Qiimayn_user5 +  
+    //     4 * c_user.Qiimayn_user4 + 
+    //     3 * c_user.Qiimayn_user3 + 
+    //     2 * c_user.Qiimayn_user2 + 
+    //     1 * c_user.Qiimayn_user1 ;
+    //     const last_calc = x_2aad / x_1aad
+    //     if(Rate == 5){
+    //     updateDoc(ordref, {
+    //         Qiimayn_user5:Number(Q_r5),
+    //         Qiimayn_user: Number(last_calc).toFixed(2)
+    //     })
+    //     } else if(Rate == 4){
+    //     updateDoc(ordref, {
+    //         Qiimayn_user4:Number(Q_r4),
+    //         Qiimayn_user: Number(last_calc).toFixed(2)
+    //     })            
+
+    //     } else if(Rate == 3){
+    //     updateDoc(ordref, {
+    //         Qiimayn_user3:Number(Q_r3),
+    //         Qiimayn_user: Number(last_calc).toFixed(2)
+    //     })
+    //     } else if(Rate == 2){
+    //     updateDoc(ordref, {
+    //         Qiimayn_user2:Number(Q_r2),
+    //         Qiimayn_user: Number(last_calc).toFixed(2)
+    //     })
+    //     } else if(Rate == 1){
+    //     updateDoc(ordref, {
+    //         Qiimayn_user1:Number(Q_r1),
+    //         Qiimayn_user: Number(last_calc).toFixed(2)
+    //     })
+    //     }
+    // }
+
+
+
+
+
 
 
     function update_rasiid(){
@@ -144,12 +199,12 @@ function Gudoon(){
         const total = parseFloat(c_user.r_Total)   + parseFloat(Last_qiimo) 
         const Xidhan = parseFloat(c_user.r_Xidhan) +  parseFloat(Last_qiimo) 
         const Mac = parseInt(c_user.Macmiil) + 1
-        const Q_r = parseInt(c_user.Qiimayn_user) + 1
+        //const Q_r = parseInt(c_user.Qiimayn_user) + 1
         updateDoc(ordref, {
             r_Total:total.toFixed(2),
             r_Xidhan:Xidhan.toFixed(2),
             Macmiil: Number(Mac),
-            Qiimayn_user:Number(Q_r),
+            //Qiimayn_user:Number(Q_r),  
         })
     }
 
@@ -353,7 +408,7 @@ function Gudoon(){
                                     {oneOrder && oneOrder.gudoomay == false && oneOrder && oneOrder.xaalad == "Done"  ?
                                         <form className="gudoon" method="POST" action="" onSubmit={submitHandale}>
                                             <label>Sidee laguugu Adeegay ? </label>
-                                            <select name="Rate" onChange={(e) => setRate(e.target.value)} value={Rate}>
+                                            <select name="Rate" onChange={(e) => setRate(Number(e.target.value))} value={Rate}>
                                                 <option value="5">Si Aad Fiican</option>
                                                 <option value="4">Si Fiican</option>
                                                 <option value="3">Ma Xuma</option>

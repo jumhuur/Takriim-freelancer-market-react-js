@@ -1,6 +1,7 @@
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faStar,faStarHalfStroke} from "@fortawesome/free-solid-svg-icons";
 import Xayaysiis from "./Saponsered_Ads";
+import Takriim from "./Takriim";
 function Aside() {
     return (
         <div className="filters">
@@ -139,6 +140,7 @@ function Aside() {
                 </div>
                 <div>
                     <Xayaysiis />
+                    <Takriim />
                 </div>
         </div>
     )

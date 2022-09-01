@@ -37,6 +37,7 @@ function Search({active, setactive}){
 
     const handalesetsearch =() => {
         active ? setactive(false): setactive(true)
+        setserchAc(false)
     }
 
     return(
