@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faCircleCheck , faRotate, faStar , faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import Xayaysiis from "../Saponsered_Ads";
+import Takriim from "../Takriim"
 import { Link } from "react-router-dom";
 function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
     // var ii gaara 
@@ -146,6 +147,7 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
 
                 </div>
                 <Xayaysiis />
+                <Takriim />
             </div>
         </div>
     )

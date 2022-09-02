@@ -88,7 +88,7 @@ function JobContent({jobdetails ,user}){
                                         <FontAwesomeIcon className="i" icon={faStar} />
                                         <FontAwesomeIcon className="i" icon={faStar} />
                                         <FontAwesomeIcon className="i" icon={faStar} />
-                                            ( {jobdetails.Qiimayn} )
+                                            ({user && user.Qiimayn_user} )
                                         </p>
                                     </li>
                                     <li>

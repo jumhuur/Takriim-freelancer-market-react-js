@@ -436,7 +436,7 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
   position: absolute;
   top: 100px;
   bottom: 0px;
-  right: 85px;
+  right: 217px;
   visibility: hidden;
 }
 
@@ -451,7 +451,7 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
 #massages_nav{
   visibility: hidden;
   top: 100%;
-  right: 199px;
+  right: 339px;
 }
 
 #massages_nav.active{
@@ -924,9 +924,9 @@ div.tobsellers{
 }
 
 div.tobsellers::after{
-  content: "Top 10 Sellers";
+  content: "10-ka Ugu Iibin Badan";
   position: absolute;
-  width: 120px;
+  width: 170px;
   height: 25px;
   color: var(--fonts);
   top: -15px;
@@ -3404,8 +3404,8 @@ h2.orders_title{
 }
 
 .xayaysiis .xa.Takriim div.icon_takriim > p{
-  color: var(--fonts);
-  font-size: 5em;
+  color: var(--fonts) !important;
+  font-size: 5em !important;
 } 
 
 
@@ -5876,7 +5876,7 @@ p.not_foud{
   }
 
   div.tobsellers::after{
-    content: "Top 5 Sellers";
+    content: "5-Ta Ugu Iibin Badan";
     position: absolute;
   }
 
@@ -6568,7 +6568,7 @@ p.not_foud{
     }
 
     div.tobsellers::after{
-      content: "Top 7 Sellers";
+      content: "7-Da Ugu Iibin Badan";;
       position: absolute;
     }
 
