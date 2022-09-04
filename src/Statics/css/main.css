@@ -5814,6 +5814,10 @@ p.not_foud{
     margin-bottom: 2%;
   }
 
+  .qayb_name_page.profile div.prof.macluumo_user{
+    width: 100%;
+  }
+
   div.option_mdeia input {
     width: 20px;
   }
@@ -5882,6 +5886,11 @@ p.not_foud{
     max-width: 540px;
   }
 
+
+  
+  .qayb_name_page.profile div.prof.macluumo_user{
+    width: 100%;
+  }
   
   .qayb_name .qayb_name_page ul{
     display: none;
