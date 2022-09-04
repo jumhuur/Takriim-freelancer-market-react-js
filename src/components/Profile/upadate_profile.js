@@ -31,11 +31,11 @@ function Upadate_profile(){
     // All countries
     // length 252
     var countries = [
-        {"name":"Somaliland","code":"SL"},
+        {"name":"Republic Of Somaliland","code":"SL"},
         {"name":"Somalia","code":"SO"},
+        {"name":"Djibouti","code":"DJ"},
         {"name":"Ethiopia","code":"ET"},
         {"name":"Kenya","code":"KE"},
-        {"name":"Djibouti","code":"DJ"},
         {"name":"Afghanistan","code":"AF"},
         {"name":"Aland Islands","code":"AX"},
         {"name":"Albania","code":"AL"},
@@ -252,7 +252,7 @@ function Upadate_profile(){
         {"name":"Sweden","code":"SE"},
         {"name":"Switzerland","code":"CH"},
         {"name":"Syrian Arab Republic","code":"SY"},
-        {"name":"Taiwan, Province of China","code":"TW"},
+        {"name":"Taiwan","code":"TW"},
         {"name":"Tajikistan","code":"TJ"},
         {"name":"Tanzania, United Republic of","code":"TZ"},
         {"name":"Thailand","code":"TH"},

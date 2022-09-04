@@ -1,7 +1,7 @@
 import Holder from "../NavHolder";
 import Footer from "../Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarDays,faSpinner ,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faRotate, faStar , faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import { faCalendarDays,faSpinner ,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faRotate, faStar ,faEarthAfrica, faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import Xayaysiis from "../Saponsered_Ads";
 import { useParams , Link, useHistory } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
@@ -494,16 +494,17 @@ function Gudoon(){
                         </Link> : <></>}
                         
                         <p>  {user ? user.info :  "unknown Description"}</p>
-                        {/* <p className="qiimayn">
+                        <p>  <FontAwesomeIcon icon={faEarthAfrica} /> Wadanka : {user ? user.Magaalada :  "unknown Description"}</p>
+                        <p className="qiimayn">
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
                             <FontAwesomeIcon className="i" icon={faStar} />
-                            (<span>23</span>) qof
-                        </p> */}
+                            (<span>{user ? user.Qiimayn_user : <></>}</span>)
+                        </p>
                         {user ? <Link to={`/Chat`}>
-                            <button><FontAwesomeIcon icon={faEnvelope} /> ila soo xidhiidh</button>
+                            <button><FontAwesomeIcon icon={faEnvelope} /> La Xidhiidh</button>
                         </Link> :"/"}
 
                     </div>

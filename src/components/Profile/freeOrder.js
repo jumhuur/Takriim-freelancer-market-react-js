@@ -6,7 +6,7 @@ import { Link, useHistory, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
-import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faMessage, faUser , faEarthAfrica , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
+import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faEnvelope, faEarthAfrica , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
 import Loading from "../loading";
@@ -325,7 +325,7 @@ function My_Orders(){
                             </form>
                         </div>
 
-                        <div className="iibiye_info">
+                        {/* <div className="iibiye_info">
                             <div className="sir">
                                 <img src={bayer && bayer.Image} />
                             </div>
@@ -341,7 +341,25 @@ function My_Orders(){
 
                             </div>
 
+                        </div> */}
+                    <div className="iibiye_info">
+                        <img id="la_xaqiijiyay" src="/images/tawsiiq.svg" alt="tawqsiiq" title="Waa La Xaqiijiyay" />
+                        <div className="sir">
+                            <img src={bayer ? bayer.Image :"/images/avatar.jpg"} />
                         </div>
+                        <div className="info_seller">
+                            {bayer ?  <Link to={'#'}>
+                                <h2> {bayer ? bayer.Name :"unknown user"}</h2>
+                            </Link> : ""}
+                            
+                            <p>  {bayer ? bayer.Nooc  :  "unknown Description"}</p>
+                            <p>  <FontAwesomeIcon icon={faEarthAfrica} /> Wadanka {bayer ? bayer.Magaalada :  "unknown Description"}</p>
+                            {bayer ? <Link to={`/Chat`}>
+                                <button><FontAwesomeIcon icon={faEnvelope} /> La xidhiidh </button>
+                            </Link> :""}
+                        </div>
+
+                    </div>
                     </div>
                 </div>
         </div>
