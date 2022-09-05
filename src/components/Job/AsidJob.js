@@ -140,7 +140,7 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
                              (<span>{user ? user.Qiimayn_user:<></>}</span>)
                         </p>
                         {user ? <Link to={`/Chat`}>
-                            <button><FontAwesomeIcon icon={faEnvelope} /> ila soo xidhiidh</button>
+                            <button><FontAwesomeIcon icon={faEnvelope} />  La Xidhiidh</button>
                         </Link> :""}
 
                     </div>

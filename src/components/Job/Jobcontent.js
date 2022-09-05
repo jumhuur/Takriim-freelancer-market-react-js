@@ -3,10 +3,13 @@ import Comment from "./comments";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faSpinner, faStar , faUserGroup , faUserTie , faTrashCanArrowUp , faGear, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
 import { Link, useHistory, useParams } from "react-router-dom";
-import {useState } from "react";
+import {useReducer, useState } from "react";
 import {UseAuth} from "../context/authcontext"
+// import { initState, reducer } from "../Reduce/DeleteJob";
 function JobContent({jobdetails ,user}){
-    const {id} = useParams()
+    // const [State, dispatch] = useReducer(reducer, initState);
+    // console.log(dispatch)
+    const {id} = useParams();
     const [active , setactive] = useState (false)
     const {crentuser }  = UseAuth()
     const myparth = useHistory()
@@ -16,25 +19,6 @@ function JobContent({jobdetails ,user}){
     function settings_handle(e){
         !active ? setactive(true) : setactive(false)
     }
-
-
-    // delete data job 
-
-    // const deletemasax = async () => {
-    //         const response = await fetch(`/jobs/${id}`, {
-    //         method: "DELETE",
-    //     })
-
-    //     const json = response.json()
-    //     if(response.ok){
-    //         console.log('waa la masaxay')
-    //         myparth.push('/Acount/maxamad dayib/1')
-    //     }
-
-    // }
-
-
-
     return(
         <section className="main_shaqo">
             <div className="xajiye">
