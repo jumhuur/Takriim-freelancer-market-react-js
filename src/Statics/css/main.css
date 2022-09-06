@@ -5815,6 +5815,13 @@ p.not_foud{
     margin-bottom: 2%;
   }
 
+  div#xadiga_nooca {
+    width: 100%;
+  }
+
+  div#xadiga_nooca .xadiga {
+    width: calc(100% / 1);
+  }
   .qayb_name_page.profile div.prof.macluumo_user{
     width: 100%;
   }
@@ -5887,6 +5894,13 @@ p.not_foud{
     max-width: 540px;
   }
 
+  div#xadiga_nooca {
+    width: 100%;
+  }
+
+  div#xadiga_nooca .xadiga {
+    width: calc(100% / 1);
+  }
 
   
   .qayb_name_page.profile div.prof.macluumo_user{

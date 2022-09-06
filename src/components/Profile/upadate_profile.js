@@ -488,7 +488,7 @@ function Upadate_profile(){
                                 </div>
                                 {/* <!----------upload file and image --> */}
                             </div>
-                            <label htmlFor="qaab">Magaalada & jinsigaaga</label>
+                            <label htmlFor="qaab">Wadankaaga & jinsigaaga</label>
                             <div id="xadiga_nooca">
                             <select className="la_bax xadiga" value={Magaalada} name="Nooca"
                                 onChange ={(e) => setMagaalada(e.target.value)}
