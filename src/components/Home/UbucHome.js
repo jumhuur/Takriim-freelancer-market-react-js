@@ -10,7 +10,7 @@ function Ubuc(){
                 <PapularContenar />
             </div>
             <div className="Qayb sawir">
-                <img src="/images/home_page.svg" alt="sawir01" />
+                <img src="/images/Homepage.svg" alt="sawir01" />
             </div>
         </div>
     )

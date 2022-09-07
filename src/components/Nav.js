@@ -53,7 +53,7 @@ function Nav(){
         <div className='header hoos'>
         <div className="logo">
             <Link to='/'>
-                <img src="/images/SVGL.svg" alt="logo" />
+                <img src="/images/logo_casri.png" alt="logo" />
             </Link>
         </div>
         {crentuser ?
