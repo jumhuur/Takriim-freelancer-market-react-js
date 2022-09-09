@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import {FaRegStar,} from "react-icons/fa"
 import {format} from "timeago.js";
-import { collection,getFirestore, query, onSnapshot, limit, orderBy, where } from "firebase/firestore";
+import { collection,getFirestore, query, onSnapshot, limit, orderBy, where, getDocs } from "firebase/firestore";
 
 function Commenst({thisid}){
     const [comments , setcomments] = useState(null)
@@ -13,7 +13,16 @@ function Commenst({thisid}){
         const q = query(commentref, orderBy('CreatedAt', "desc"), where("Jobid" , "==" , thisid.id) , limit(50))    
         //hellida docs 
         async function  get_comm(){
-            onSnapshot (q, (snapshot) => {
+            // onSnapshot (q, (snapshot) => {
+            //     const Dhaq1aad = []
+            //     snapshot.docs.forEach((doc) => {
+            //         Dhaq1aad.push({...doc.data(), id:doc.id})
+            //     })
+            //     setcomments(Dhaq1aad)
+            // })
+
+            getDocs(q)
+            .then((snapshot) => {
                 const Dhaq1aad = []
                 snapshot.docs.forEach((doc) => {
                     Dhaq1aad.push({...doc.data(), id:doc.id})

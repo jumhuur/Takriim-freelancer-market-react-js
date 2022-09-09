@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faMoneyCheck, faPeopleGroup, faStar,} from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
-import { collection,getFirestore, query, onSnapshot, orderBy } from "firebase/firestore";
+import { collection,getFirestore, query, onSnapshot, orderBy, getDocs } from "firebase/firestore";
 
 function Qaybcontent(){
     const {id} = useParams()
@@ -16,7 +16,16 @@ function Qaybcontent(){
         const q = query(colref, orderBy("CreatedAt"))    
         //hellida docs 
         async function  get_content(){
-            onSnapshot (q, (snapshot) => {
+            // onSnapshot (q, (snapshot) => {
+            //     const Dhaq1aad = []
+            //     snapshot.docs.forEach((doc) => {
+            //         Dhaq1aad.push({...doc.data(), id:doc.id})
+            //     })
+            //     setJobqayb(Dhaq1aad)
+            // })
+
+            getDocs(q)
+            .then((snapshot) => {
                 const Dhaq1aad = []
                 snapshot.docs.forEach((doc) => {
                     Dhaq1aad.push({...doc.data(), id:doc.id})

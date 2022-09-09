@@ -65,6 +65,27 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
             kalmad_place.current.classList.add('active')
         };
     }
+
+
+
+    // u  gaara chat 
+    // const {crentuser} = UseAuth()
+    // const db = getFirestore()
+    // const  addchat  = async () => {
+    //     const compaindid = crentuser > user.uid ? crentuser + user.uid : user.uid + crentuser
+    //     try{
+    //         const resp = await getDoc(doc(db, "Chats", compaindid))
+    //         if(!resp.exists){
+    //             await setDoc(doc(db, "Chats", compaindid),{massages:[]})
+
+    //         }
+
+    //     }
+    //     catch(err){
+    //         console.log(err)
+    //     }
+    // }
+
     return(
         <div className="qayb_ macluumo">
             <div className="top_mac">

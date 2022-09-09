@@ -3,7 +3,7 @@ import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faCrown} from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 import { useState } from "react";
-import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
+import { collection,getFirestore, query, onSnapshot, limit, orderBy, getDocs } from "firebase/firestore";
 
 function Papular(){
     const [papular, setpapular] = useState(null)
@@ -14,7 +14,17 @@ function Papular(){
     const q = query(colref, limit(3), orderBy("CreatedAt"))    
     //hellida docs 
     async function  get_papular(){
-        onSnapshot (q, (snapshot) => {
+        // onSnapshot (q, (snapshot) => {
+        //     const Dhaq1aad = []
+        //     snapshot.docs.forEach((doc) => {
+        //         Dhaq1aad.push({...doc.data(), id:doc.id})
+        //     })
+        //     setpapular(Dhaq1aad)
+        // })
+
+
+        getDocs(q)
+        .then((snapshot) => {
             const Dhaq1aad = []
             snapshot.docs.forEach((doc) => {
                 Dhaq1aad.push({...doc.data(), id:doc.id})

@@ -9,7 +9,7 @@ import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus , faFilm, faIm
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import {UseAuth } from '../context/authcontext'
-import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
+import { collection,getFirestore, query, onSnapshot, limit, orderBy, getDocs } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
 import Loading from "../loading";
@@ -128,7 +128,16 @@ function Add_servece(){
     const q = query(colref, limit(8), orderBy("CreatedAt"))    
     //hellida docs 
     async function  getlist_qayb(){
-        onSnapshot (q, (snapshot) => {
+        // onSnapshot (q, (snapshot) => {
+        //     const Dhaq1aad = []
+        //     snapshot.docs.forEach((doc) => {
+        //         Dhaq1aad.push({...doc.data(), id:doc.id})
+        //     })
+        //     setlist(Dhaq1aad)
+        // })
+
+        getDocs(q)
+        .then((snapshot) => {
             const Dhaq1aad = []
             snapshot.docs.forEach((doc) => {
                 Dhaq1aad.push({...doc.data(), id:doc.id})

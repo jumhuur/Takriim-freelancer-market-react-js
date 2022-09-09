@@ -3,7 +3,7 @@ import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {useState , useEffect} from "react"
 import SklQayb from ".//skaltons/qayboskl";
 import {faBarsStaggered,faCirclePlay , faPenNib, faLanguage , faFilePen, faMicrophone , faBookReader , faCode , fangle, faArrowDown, faAngleDown} from "@fortawesome/free-solid-svg-icons";
-import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
+import { collection,getFirestore, query, onSnapshot, limit, orderBy, getDocs } from "firebase/firestore";
 function LinksQaybo({margin,qaybdtl}){
     const {id}  = useParams()
     const [Qayb, setQayb] = useState(null)
@@ -13,7 +13,15 @@ function LinksQaybo({margin,qaybdtl}){
     const q = query(colref, limit(8), orderBy("CreatedAt"))    
     //hellida docs 
     async function  get_Home_qaybo(){
-        onSnapshot (q, (snapshot) => {
+        // onSnapshot (q, (snapshot) => {
+        //     const Dhaq1aad = []
+        //     snapshot.docs.forEach((doc) => {
+        //         Dhaq1aad.push({...doc.data(), id:doc.id})
+        //     })
+        //     setQayb(Dhaq1aad)
+        // })
+        getDocs(q)
+        .then((snapshot) => {
             const Dhaq1aad = []
             snapshot.docs.forEach((doc) => {
                 Dhaq1aad.push({...doc.data(), id:doc.id})
@@ -24,7 +32,7 @@ function LinksQaybo({margin,qaybdtl}){
 
     useEffect(() => {
         get_Home_qaybo()
-    }, [])
+    }, [Qayb])
 
     return(
         <section className="links_noocyo">

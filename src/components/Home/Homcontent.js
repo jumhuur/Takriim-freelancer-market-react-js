@@ -2,7 +2,7 @@ import { useState ,useEffect } from "react"
 import Aside from "../Aside";
 import Jobs from "../Jobs";
 import Jobskl from "../skaltons/Jobskalaton";
-import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
+import { collection,getFirestore, query, onSnapshot, limit, orderBy, getDoc, getDocs } from "firebase/firestore";
 function ContentHome(){
     const [JobsData, setDataJobs] = useState(null)
     //get data user 
@@ -11,7 +11,16 @@ function ContentHome(){
     const q = query(colref, limit(10), orderBy("CreatedAt", "desc"))    
     //hellida docs 
     async function  getdaata_user(){
-        onSnapshot (q, (snapshot) => {
+        // onSnapshot (q, (snapshot) => {
+        //     const Dhaq1aad = []
+        //     snapshot.docs.forEach((doc) => {
+        //         Dhaq1aad.push({...doc.data(), id:doc.id})
+        //     })
+        //     setDataJobs(Dhaq1aad)
+        // })
+
+        getDocs(q)
+        .then((snapshot) => {
             const Dhaq1aad = []
             snapshot.docs.forEach((doc) => {
                 Dhaq1aad.push({...doc.data(), id:doc.id})

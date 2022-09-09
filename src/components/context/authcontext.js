@@ -34,6 +34,11 @@ export function AuthProvader({children}){
     }
     get_furasho()
     }, [Furasho])
+
+
+
+
+
     
     // add job 
     const db = getFirestore()
@@ -57,9 +62,6 @@ export function AuthProvader({children}){
              CreatedAt: serverTimestamp()
         })
     }
-
-    
-
 
 
     // add order

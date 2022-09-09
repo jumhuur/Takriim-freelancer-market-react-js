@@ -2,7 +2,7 @@ import SearchPar from "./searchpar"
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faCircleXmark} from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
-import { collection,getFirestore, query, onSnapshot} from "firebase/firestore";
+import { collection,getFirestore, query, onSnapshot, getDocs} from "firebase/firestore";
 function Search({active, setactive}){
     const [serchAc, setserchAc] = useState(false)
     const [hellay,sethelly] = useState(null)
@@ -14,7 +14,16 @@ function Search({active, setactive}){
     const q = query(colref)    
     //hellida docs 
     async function  getcolections(){
-        onSnapshot (q, (snapshot) => {
+        // onSnapshot (q, (snapshot) => {
+        //     const Dhaq1aad = []
+        //     snapshot.docs.forEach((doc) => {
+        //         Dhaq1aad.push({...doc.data(), id:doc.id})
+        //     })
+        //     sethelly(Dhaq1aad)
+        // })
+
+        getDocs(q)
+        .then((snapshot) => {
             const Dhaq1aad = []
             snapshot.docs.forEach((doc) => {
                 Dhaq1aad.push({...doc.data(), id:doc.id})

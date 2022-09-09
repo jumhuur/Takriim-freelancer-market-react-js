@@ -3,7 +3,7 @@ import SearchPar from "../searchpar"
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { collection,getFirestore, query, onSnapshot, limit, orderBy} from "firebase/firestore";
+import { collection,getFirestore, query, onSnapshot, limit, orderBy, getDocs} from "firebase/firestore";
 import { useEffect } from "react";
 
 function PapularContenar(){
@@ -14,7 +14,16 @@ function PapularContenar(){
     const q = query(colref, limit(10), orderBy("Macmiil", "desc"))    
     //hellida docs 
     async function  getcolections(){
-        onSnapshot (q, (snapshot) => {
+        // onSnapshot (q, (snapshot) => {
+        //     const Dhaq1aad = []
+        //     snapshot.docs.forEach((doc) => {
+        //         Dhaq1aad.push({...doc.data(), id:doc.id})
+        //     })
+        //     sethelly(Dhaq1aad)
+        // })
+
+        getDocs(q)
+        .then((snapshot) => {
             const Dhaq1aad = []
             snapshot.docs.forEach((doc) => {
                 Dhaq1aad.push({...doc.data(), id:doc.id})
