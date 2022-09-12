@@ -305,7 +305,7 @@ function My_Orders(){
                                 <div>
                                 <div className="xaalad">
                                     <div className="x_1aad">
-                                    <input value="2" id="Bilaabay" type="radio" required name="xaalad"
+                                    <input value="1" id="Bilaabay" type="radio" required name="xaalad"
                                     onClick={(e) => setxaalad(xaalad2aad, console.log(xaalad))}
                                     />
                                     <label htmlFor="Bilaabay">Waan Dhameeyay</label>

@@ -2,6 +2,7 @@ import { Link, useHistory } from "react-router-dom"
 import { useContext, useEffect, useState } from "react";
 import { UseAuth } from "../context/authcontext";
 import Alert_wrong from "../Alert2";
+import Loading from "../loading";
 
 
 function SingUp(){
@@ -9,7 +10,7 @@ function SingUp(){
     const [password, setpassword] = useState('')
     const [Name, setname] = useState('')
     const [Nooc, setNooc] = useState('customer')
-    const [Magaalada, setMagaalada] = useState('Soomaliland')
+    const [Magaalada, setMagaalada] = useState('Republic Of Somaliland')
     const [Heerka, setHeerka] = useState('1')
     const [Image, setImage] = useState('/images/avatar.jpg')
     const [r_Total, setr_Total] = useState('0.00')
@@ -34,10 +35,17 @@ function SingUp(){
     }
 
     // gaar 
+    // loading
+    const [load, setload] = useState(false)
+    const loading_handale = () => {
+        load ? setload(false) : setload(true)
+        console.log(load)
+    }
 
     // bilowga samaynrta 
     const handelsubmit = async (e) => {
         e.preventDefault()
+        loading_handale()
         try {
         const data_user = await sinup(email,password)
         await Add_userdata(
@@ -62,6 +70,7 @@ function SingUp(){
         toHomepage.push('/')
         } catch(err) {
         console.log(err)
+        setload(false)
         setalert(true)
         semsg('Emailkan Horaa Loo Qatay')
         setTimeout(() => {
@@ -71,6 +80,7 @@ function SingUp(){
     }
     return(
         <section className="sinup_page">
+            <Loading loading={load}/>
         <div className="xajiye">
             <div className="samayso">
                 <div className="contaner">

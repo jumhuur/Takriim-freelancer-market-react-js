@@ -2,6 +2,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import { UseAuth } from "../context/authcontext";
 import Alert_wrong from "../Alert2";
+import Loading from "../loading";
 function Login(){
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
@@ -14,8 +15,16 @@ function Login(){
         path_kale.push("/")
     }
 
+    // loading
+    const [load, setload] = useState(false)
+    const loading_handale = () => {
+        load ? setload(false) : setload(true)
+        console.log(load)
+    }
+
     const hanlaelogin = async (e) => {
         e.preventDefault()
+        loading_handale()
         try{
             await Login(email, password)
             // const data = {email, password}
@@ -48,6 +57,7 @@ function Login(){
             navigator.push('/')
 
         } catch (error){
+            setload(false)
             setlog(true)
             console.log(error)
             setwrongmsg('Fadlan Emailka Ama Passworka Iska Sax')
@@ -58,8 +68,12 @@ function Login(){
         } , 10000)
     }
 
+
+
+
     return(
         <section className="sinup_page">
+             <Loading loading={load}/>
         <div className="xajiye">
             <div className="samayso">
                 <div className="contaner">

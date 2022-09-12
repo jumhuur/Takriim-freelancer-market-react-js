@@ -96,7 +96,7 @@ function Profile(){
         get_jobs()
         get_cus()
         //get_rate()
-    },[crentuser,id])
+    },[])
     return(
         <div>
         <CompProfile data={user_data}/>
