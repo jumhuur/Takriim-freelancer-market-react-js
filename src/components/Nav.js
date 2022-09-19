@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Nativactions from "./Nativactions";
 import Massages from "./Massages";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import { faAngleDown, faBars, faBell, faEarthAfrica, faEnvelope, faRightToBracket ,faSearch,faToolbox} from "@fortawesome/free-solid-svg-icons";
+import { faFileLines, faAngleDown, faBars, faBell, faEarthAfrica, faEnvelope, faRightToBracket ,faSearch,faToolbox} from "@fortawesome/free-solid-svg-icons";
 import NavMobile from "./NavMobile";
 import Drop_nav from "./Drop_nav";
 import {FaAngleDown , FaGlobeAfrica} from "react-icons/fa"
@@ -66,7 +66,7 @@ function Nav(){
                 <ul>
                 <li>
                 <Link to={'#'}>
-                <FontAwesomeIcon className="i" icon={faToolbox}/> Xeerar  
+                <FontAwesomeIcon className="i" icon={faFileLines}/> Xeerar  
                 </Link>
                 </li>
                 <li onClick={HandelMassage}>
