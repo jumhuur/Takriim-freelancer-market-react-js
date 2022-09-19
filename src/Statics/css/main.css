@@ -1567,6 +1567,7 @@ video{
   line-height: 1.6;
   font-weight: normal;
   width: 90%;
+  word-break: break-word;
 }
 
 .sliding .tranding_haye .card_template .macluumaad P.i{
@@ -2244,6 +2245,7 @@ footer .my_footer .qayb.shaqooyin_link ul li a{
   color: var(--Font-color);
   font-weight: normal;
   text-transform: capitalize;
+  word-break: break-word;
 }
 
 
@@ -2315,7 +2317,7 @@ p.wakhti_com{
   color: var(--Font-color);
   font-weight: normal;
   text-transform: capitalize;
-
+  word-break: break-word;
 }
 
 .main_shaqo .shao_macluumad_dhan .qayb_.sawiro .iibiye_info .info_seller p.qiimayn{

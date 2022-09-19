@@ -226,7 +226,7 @@ function My_Orders(){
                                     }
                                 }
                                 />
-                                <input type={"text"} required value={done} name="xaalad" style={{visibility:"hidden"}}/>
+                                <input type={"text"} required value={done} name="xaalad" style={{visibility:"hidden"}}  accept="image/*,.pdf"/>
                                 {/* <!----------upload file and image --> */}
                                 <div ref={progress} className="upload">
                                     <div ref={file_icon} className="file_icon active">
@@ -305,10 +305,16 @@ function My_Orders(){
                                 <div>
                                 <div className="xaalad">
                                     <div className="x_1aad">
-                                    <input value="1" id="Bilaabay" type="radio" required name="xaalad"
+                                    <input value={xaalad2aad} id="Bilaabay" type="radio" required name="xaalad"
                                     onClick={(e) => setxaalad(xaalad2aad, console.log(xaalad))}
                                     />
                                     <label htmlFor="Bilaabay">Waan Dhameeyay</label>
+                                    </div>
+                                    <div className="x_1aad">
+                                    <input value="3" id="laabtay" type="radio" required name="xaalad" 
+                                    onClick={(e) => setxaalad(xaalad3aad ,  console.log(xaalad))}
+                                    />
+                                    <label htmlFor="laabtay">Ka Laabo Shaqada</label>
                                     </div>
                                 </div>
                                 <button   onClick={loading_handale} type="submit">Cusbonaysii Xalada</button>

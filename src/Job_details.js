@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Sklall from "./components/skaltons/sklAll";
 import Footer from "./components/Footer";
 import {getFirestore, getDoc, doc } from "firebase/firestore";
+import Loading from "./components/loading";
 
 function Job_details(){
     const {id} = useParams();
@@ -25,7 +26,6 @@ useEffect(() => {
            setJobdetails({...doc.data(), id:doc.id})
        })
    }
-
 
    //get data user     
    //hellida docs 

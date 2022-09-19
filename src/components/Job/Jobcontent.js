@@ -5,6 +5,8 @@ import {faSpinner, faStar , faUserGroup , faUserTie , faTrashCanArrowUp , faGear
 import { Link, useHistory, useParams } from "react-router-dom";
 import {useReducer, useState } from "react";
 import {UseAuth} from "../context/authcontext"
+import {getFirestore, doc, deleteDoc, LoadBundleTask } from "firebase/firestore";
+import Loading from "../loading";
 // import { initState, reducer } from "../Reduce/DeleteJob";
 function JobContent({jobdetails ,user}){
     // const [State, dispatch] = useReducer(reducer, initState);
@@ -12,14 +14,28 @@ function JobContent({jobdetails ,user}){
     const {id} = useParams();
     const [active , setactive] = useState (false)
     const {crentuser }  = UseAuth()
-    const myparth = useHistory()
+    const path = useHistory()
     const Id_youtube = "https://www.youtube.com/embed/"+`${jobdetails.Video}`+"?controls=0";
         
    
     function settings_handle(e){
         !active ? setactive(true) : setactive(false)
     }
+
+
+    // delete jobs function
+
+    const db = getFirestore()
+    const docRef = doc(db, "Jobs", id)
+    const Handale_delete = async() => {
+        await deleteDoc(docRef)
+        .then(() => {
+            path.push("/")
+        })
+    }
+
     return(
+        <>
         <section className="main_shaqo">
             <div className="xajiye">
                 <div className="shao_macluumad_dhan">
@@ -37,7 +53,9 @@ function JobContent({jobdetails ,user}){
                                         <FontAwesomeIcon icon={faPenToSquare} /> Cusbonaysii
                                     </Link>
                                 </li>
-                                <li>
+                                <li onClick={function(){
+                                    Handale_delete()
+                                }}>
                                     <Link>
                                     <FontAwesomeIcon icon={faTrashCanArrowUp} /> Masax
                                     </Link>
@@ -114,6 +132,7 @@ function JobContent({jobdetails ,user}){
                 </div>
             </div>
         </section>
+        </>
     )
 }
 

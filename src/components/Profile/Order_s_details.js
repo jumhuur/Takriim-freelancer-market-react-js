@@ -17,6 +17,7 @@ function Gudoon(){
     const [oneOrder , setoneOrder] = useState()
     const [user , setuser] = useState()
     const [c_user, setc_user] = useState()
+    const [income, setIncome] = useState()
     const [job ,setjob] = useState(null)
     const [ordejob,setordejob ] = useState(null)
     const {Add_Comments ,Userinfo , Add_Rasiid ,crentuser } = UseAuth()
@@ -29,7 +30,9 @@ function Gudoon(){
     const UserId = userid
     const qiimaha = oneOrder && oneOrder.Qiimaha 
     const Khidmad = 15 / 100 * parseFloat(qiimaha)
+    const Incomka = 85 / 100 * parseFloat(qiimaha)
     const Last_qiimo = Number(qiimaha) - Khidmad
+    const lastIncome = Number(qiimaha) - Incomka
     const Nooc = "+";
 
     // loading
@@ -77,6 +80,7 @@ function Gudoon(){
             update_rasiid()
             update_Ratings()
             update_job()
+            update_Income()
             setload(false)
 
         }catch(Err){
@@ -137,6 +141,19 @@ function Gudoon(){
             setjob({...doc.data(), id:doc.id})
         })
     }
+
+
+
+    // get income 
+    const Incomeref_r = doc(db, "Income-ka", "Zd8Aq4j0TEMp5zy8iIgx")
+    //const q = query(colref)    
+    function  get_income_now(){
+        getDoc(Incomeref_r)
+        .then((doc) => {
+            setIncome({...doc.data(), id:doc.id})
+        })
+    }
+
 
     // diyaar calc ratings 
     function update_Ratings(){
@@ -215,11 +232,33 @@ function Gudoon(){
             iibsade,
         })
     }
+
+
+
+
+    // update incom-ka
+
+    function update_Income(){
+        const ordref =  doc(db, "Income-ka", "Zd8Aq4j0TEMp5zy8iIgx")
+        const Incometotal = parseFloat(income.TotalIncome)   + parseFloat(lastIncome) 
+        const IncomeBil = parseFloat(income.IncomeBishan) +  parseFloat(lastIncome) 
+        const IncomeSanad = parseInt(income.incomeSanad) + parseFloat(lastIncome)
+        //const Q_r = parseInt(c_user.Qiimayn_user) + 1
+        updateDoc(ordref, {
+            TotalIncome:Incometotal.toFixed(2),
+            IncomeBishan:IncomeBil.toFixed(2),
+            incomeSanad: IncomeSanad.toFixed(2),
+            //Qiimayn_user:Number(Q_r),  
+        })
+    }
+
+
     useEffect(() => {
         getsingaleorder() 
         get_user()
         get_user_cren()
         get_this_job()
+        get_income_now()
     }, [oneOrder])
 
 

@@ -14,12 +14,11 @@ function Homepage(){
     setup()
     const [hassclass , setHasclass] = useState(false);
     function headscrol(){
-        if(window.scrollY > 50){
+        if(window.scrollY > 5){
             setHasclass(true);
         } else{
             setHasclass(false)
         }
-        
     }
 
     window.onscroll = function(){
