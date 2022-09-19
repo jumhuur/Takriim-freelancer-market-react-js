@@ -7,7 +7,7 @@ import { faAngleDown, faBars, faBell, faEarthAfrica, faEnvelope, faRightToBracke
 import NavMobile from "./NavMobile";
 import Drop_nav from "./Drop_nav";
 import {FaAngleDown , FaGlobeAfrica} from "react-icons/fa"
-import { UseAuth } from "./context/authcontext";
+import { UseAuth , Userinfo } from "./context/authcontext";
 import Search from "./serchFrom";
 
 
@@ -62,10 +62,11 @@ function Nav(){
             <Search active={search} setactive={setsearch}/>
             {!search ?
             <>
-            <ul>
+            {Userinfo && Userinfo.Nooc === "customer" ?
+                <ul>
                 <li>
-                <Link to={'/Acount/orders'}>
-                <FontAwesomeIcon className="i" icon={faToolbox}/> Dalabyo  
+                <Link to={'#'}>
+                <FontAwesomeIcon className="i" icon={faToolbox}/> Xeerar  
                 </Link>
                 </li>
                 <li onClick={HandelMassage}>
@@ -94,6 +95,40 @@ function Nav(){
                 </li>
                 <Drop_nav drop={drop}/>
             </ul>
+            :
+            <ul>
+            <li>
+            <Link to={'/Acount/orders'}>
+            <FontAwesomeIcon className="i" icon={faToolbox}/> Dalabyo  
+            </Link>
+            </li>
+            <li onClick={HandelMassage}>
+            <a href="#Massage">
+            <FontAwesomeIcon className="i" icon={faEnvelope}/> Fariimo <span>0</span>
+            </a>
+            </li>
+            <Massages massageHold={massage}/>
+            <li onClick={HandelOgaysiis}>
+                <a href="#Ogaysiis">
+                <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis <span>0</span>
+                </a>
+            </li>
+            <li>
+            <Link to={'#search'} onClick={handalesearch}>
+            <FontAwesomeIcon className="i" icon={faSearch}/>
+            </Link>
+            </li>
+            <Nativactions isactive={isactive}/>
+            <li className="user_nav">
+                <a href="#Drop" onClick={handelDrop}>
+                    <div className="user_">
+                        <img src={Userinfo && Userinfo.Image} />
+                    </div>
+                </a>
+            </li>
+            <Drop_nav drop={drop}/>
+        </ul>
+        }
             </>
             :
             <></>

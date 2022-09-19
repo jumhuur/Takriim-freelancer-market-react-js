@@ -1,5 +1,5 @@
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import { faWallet, faNetworkWired, faToolbox , faMoneyBillTransfer , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus} from "@fortawesome/free-solid-svg-icons";
+import { faWallet, faNetworkWired, faToolbox , faMoneyBillTransfer , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus, faFileLines} from "@fortawesome/free-solid-svg-icons";
 import Xayaysiis from "../Saponsered_Ads";
 import { Link } from "react-router-dom";
 import { UseAuth } from "../context/authcontext";
@@ -45,6 +45,16 @@ function AsideUser(){
                         </Link>
                     </li>
                     <li>
+                        <Link to={`/Profile/update/${uid}`}>
+                            <FontAwesomeIcon className="i" icon={faFileLines}/>   Xeerarka Iibiyaha
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={`/Profile/update/${uid}`}>
+                            <FontAwesomeIcon className="i" icon={faFileLines}/>   Xeerarka Iibsadaha
+                        </Link>
+                    </li>
+                    <li>
                         <a href="">
                         <FontAwesomeIcon className="i" icon={faRightFromBracket}/> Xidho Akoonka
                         </a>
@@ -54,6 +64,16 @@ function AsideUser(){
                     <li>
                         <Link to={`/Profile/update/${uid}`}>
                             <FontAwesomeIcon className="i" icon={faPenToSquare}/> update profile
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={`/Profile/update/${uid}`}>
+                            <FontAwesomeIcon className="i" icon={faFileLines}/>   Xeerarka Iibiyaha
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={`/Profile/update/${uid}`}>
+                            <FontAwesomeIcon className="i" icon={faFileLines}/>   Xeerarka Iibsadaha
                         </Link>
                     </li>
                     <li>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {Link, useHistory} from 'react-router-dom';
-import {faMoneyBillTransfer, faBars,faUserPlus, faNetworkWired, faToolbox , faChartSimple , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus, faAngleDown} from "@fortawesome/free-solid-svg-icons";
+import {faBell,faMoneyBillTransfer, faBars,faUserPlus, faNetworkWired, faToolbox , faChartSimple , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus, faAngleDown, faFileLines, faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
 import { UseAuth } from "./context/authcontext";
 
@@ -122,17 +122,22 @@ function NavMobile({nav_mb}){
             </div>
             <li>
                 <a href="#">
-                    <i className="fa-solid fa-message"></i> Fariimo <span>0</span>
+                <FontAwesomeIcon className="i" icon={faEnvelope} /> Fariimo <span>0</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i className="fa-solid fa-bell"></i> Ogaysiis <span>0</span>
+                <FontAwesomeIcon className="i" icon={faBell} /> Ogaysiis <span>0</span>
                 </a>
             </li>
             <li>
                 <Link to={'/Acount/orders'}>
-                    <i className="fa-solid fa-toolbox"></i> Dalabyo
+                <FontAwesomeIcon className="i" icon={faToolbox} /> Dalabyo
+                </Link>
+            </li>
+            <li>
+                <Link to={'/Acount/orders'}>
+                <FontAwesomeIcon className="i" icon={faFileLines} /> Xeerar
                 </Link>
             </li>
             <Link to={"/Acount/Login"}>

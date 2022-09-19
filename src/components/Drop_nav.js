@@ -27,6 +27,11 @@ function Drop_nav({drop}){
                     <FontAwesomeIcon className="i" icon={faUser} /> Akoonkaaga
                     </Link>
                 </li>
+                <li id="Dr" data="dd">
+                    <Link to={`/Acount/orders`}>
+                    <FontAwesomeIcon className="i" icon={faToolbox} />  Dalbyo
+                    </Link>
+                </li>
                 <li id="Dr">
                     <Link to={`/Profile/update/${crentuser && crentuser.uid}`}>
                         <FontAwesomeIcon className="i" icon={faGear} /> Maarayn
