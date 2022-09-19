@@ -528,7 +528,7 @@ function Gudoon(){
                         <img src={user? user.Image :"/images/avatar.jpg"} />
                     </div>
                     <div className="info_seller">
-                        {user ?  <Link to={`/Acount/${user.Name}/${user.id}`}>
+                        {user ?  <Link to={`#`}>
                             <h2> {user? user.Name :"unknown user"}</h2>
                         </Link> : <></>}
                         
@@ -544,7 +544,7 @@ function Gudoon(){
                         </p>
                         {user ? <Link to={`/Chat`}>
                             <button><FontAwesomeIcon icon={faEnvelope} /> La Xidhiidh</button>
-                        </Link> :"/"}
+                        </Link> :<></>}
 
                     </div>
 
