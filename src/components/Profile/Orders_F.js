@@ -12,7 +12,6 @@ import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "fire
 function Orders_Free(){
     const [order, setorder] = useState(null)
     const {crentuser} = UseAuth()
-
     //get data ordrer frelancer 
     const db = getFirestore()
     const colref = collection(db, "Orders")
@@ -61,27 +60,27 @@ function Orders_Free(){
                             {dat_order.xaalad == 0 ? 
                                 <li>
                                 <span> <FontAwesomeIcon className="i sugaya" icon={faGears} /> </span>
-                                Lama Aqbalin 
+                                Maad Aqbalin 
                                 </li>
                             :dat_order.xaalad == 1 ?  
                                 <li>
                                 <span> <FontAwesomeIcon className="i socda" icon={faClockRotateLeft} /> </span>
-                                socdaa 
+                                Wad Wadaa 
                                 </li>
                             : dat_order.xaalad == 2 ? 
                             <li>
                             <span> <FontAwesomeIcon className="i dhamaday" icon={faRotate} /> </span>
-                            La Diyaarinaya
+                            Wad Diyaarinaysa
                             </li>
                             :dat_order.xaalad == "Done" ? 
                             <li>
                             <span> <FontAwesomeIcon className="i dhamaday" icon={faCircleCheck} /> </span>
-                            Dhamaaday
+                            Waad Dhamaysay
                             </li>
                             :
                                 <li>
                                 <span> <FontAwesomeIcon className="i laabtay" icon={faCircleXmark} /> </span>
-                                Laga Laabtay 
+                                Wad Ka Laabtay 
                                 </li>
                             }
                             <li>

@@ -29,6 +29,7 @@ function My_Orders(){
     // gudbin sttings 
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
+    const [filextan, setfilextan] = useState(null)
 
     const image01 = useRef();
     const spn_img1 = useRef();
@@ -112,10 +113,12 @@ function My_Orders(){
 
     function onchange({target}){
         let file = target.files[0];
+        const extantionfile = file.name.indexOf('.')
         if(file){
             let file_name = file.name.substring(0,30);
             let file_zise = file.size / 1024 / 1024
             setfilename(file_name.substring(0,30))
+            setfilextan(file_name.slice(extantionfile,))
             setfilezise(`${file_zise.toFixed(2)} MB`)
             uploadFile(file_name)
             progress.current.classList.add('progress')
@@ -140,7 +143,7 @@ function My_Orders(){
      const [prog,setprog] = useState()
 
     const upload_image_progile = async () => {
-         const storageRef = ref(Storage, `Orders/${Date.now()}${image}.zip`);
+         const storageRef = ref(Storage, `Orders/${Date.now()}${image}${filextan}`);
  
          const uploadTask = uploadBytesResumable(storageRef, image);
          uploadTask.on('state_changed', 

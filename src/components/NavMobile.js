@@ -146,7 +146,7 @@ function NavMobile({nav_mb}){
                 </Link>
             </li>
             <li>
-                <Link to={'XeerarCustomers'}>
+                <Link to={'/XeerarCustomers'}>
                 <FontAwesomeIcon className="i" icon={faFileLines} /> Xeerar
                 </Link>
             </li>

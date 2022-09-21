@@ -17,6 +17,7 @@ function OrderDetailscheckh(){
     const [order, setorder] = useState(null)
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
+    const [filextan, setfilextan] = useState(null)
     const [PaymentType, setPaymentTaype] = useState('Zaad')
     const {crentuser , add_order} = UseAuth()
     const {xadiga} = useDatacontext()
@@ -46,6 +47,7 @@ function OrderDetailscheckh(){
     const [lanbarka , setlanbarka] = useState("")
     const [gudoomay , setgudoomay] = useState(false)
     const [image , setimage] = useState("")
+    const array_name = [];
 
     const path_kale = useHistory()
 
@@ -92,10 +94,12 @@ function OrderDetailscheckh(){
 
     function onchange({target}){
         let file = target.files[0];
+        const extantionfile = file.name.indexOf('.')
         if(file){
             let file_name = file.name.substring(0,30);
             let file_zise = file.size / 1024 / 1024
-            setfilename(file_name.substring(0,30))
+            setfilename(file_name.substring(-1,30))
+            setfilextan(file_name.slice(extantionfile,))
             setfilezise(`${file_zise.toFixed(2)} MB`)
             uploadFile(file_name)
             progress.current.classList.add('progress')
@@ -148,7 +152,7 @@ function OrderDetailscheckh(){
     const [prog,setprog] = useState()
 
     const upload_image_progile = async () => {
-        const storageRef = ref(Storage, `items/${Date.now()}${image}`);
+        const storageRef = ref(Storage, `items/${Date.now()}${image}${filextan}`);
 
         const uploadTask = uploadBytesResumable(storageRef, image);
         uploadTask.on('state_changed', 

@@ -242,7 +242,7 @@ function Gudoon(){
         const ordref =  doc(db, "Income-ka", "Zd8Aq4j0TEMp5zy8iIgx")
         const Incometotal = parseFloat(income.TotalIncome)   + parseFloat(lastIncome) 
         const IncomeBil = parseFloat(income.IncomeBishan) +  parseFloat(lastIncome) 
-        const IncomeSanad = parseInt(income.incomeSanad) + parseFloat(lastIncome)
+        const IncomeSanad = parseFloat(income.incomeSanad) + parseFloat(lastIncome)
         //const Q_r = parseInt(c_user.Qiimayn_user) + 1
         updateDoc(ordref, {
             TotalIncome:Incometotal.toFixed(2),
