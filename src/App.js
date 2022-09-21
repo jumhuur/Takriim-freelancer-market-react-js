@@ -26,6 +26,7 @@ import Rasiid from './components/Profile/Rasiid';
 import Tob_Nav from './components/Admin/Tob_nav';
 import Furo from './components/Profile/FuroLacag';
 import XerarFreelancer from './components/Xeerarfreelancer';
+import XeerCustomers from './components/XeerarkaCusto';
 
 
 function App(){
@@ -104,7 +105,7 @@ function App(){
             <XerarFreelancer />
           </Route>
           <Route exact path={"/XeerarCustomers"}>
-            <XerarFreelancer />
+            <XeerCustomers />
           </Route>
           {/* admin routes Bilow  */}
           <route exact path={"/Acount/Admin"}>

@@ -65,7 +65,7 @@ function Nav(){
             {Userinfo && Userinfo.Nooc === "customer" ?
                 <ul>
                 <li>
-                <Link to={'#'}>
+                <Link to={'XeerarCustomers'}>
                 <FontAwesomeIcon className="i" icon={faFileLines}/> Xeerar  
                 </Link>
                 </li>

@@ -5544,6 +5544,54 @@ div.raber{
 }
 
 
+
+/*------------------------ xeerar design ----------------------------*/
+div.Xerar{
+  width: 95%;
+  height: 100%;
+  background-color: var(--fonts);
+  margin-top: 2%;
+  border-radius: 5px;
+}
+
+div.Xerar h2, h3 {
+  color: var(--main-2);
+  padding: 3%;
+  font-size: 20px;
+}
+
+div.Xerar h3 {
+  padding-left: 3%;
+  padding-top: 6px;
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--ciwaano);
+  text-decoration: underline;
+}
+
+
+div.Xerar p {
+  color: var(--Font-color);
+  padding: 3%;
+  padding-top: 3px;
+  font-size: 19px;
+  font-weight: normal;
+  line-height: 1.9;
+  text-transform: capitalize;
+}
+div.Xerar p.qodob{
+  padding: 0% 7%;
+}
+
+div.Xerar p.qodob .i{
+  color: var(--main-2);
+}
+
+div.Xerar span{
+  color: var(--main-2);
+  font-weight: bolder;
+}
+
 /*-------------------- str loading css 8 --------------------------*/
 .sk-chase {
   width: 40px;
@@ -5821,6 +5869,10 @@ p.not_foud{
     width: 100%;
   }
 
+  div.Xerar {
+    width: 100%;
+  }
+
   div#xadiga_nooca .xadiga {
     width: calc(100% / 1);
   }
@@ -5902,6 +5954,10 @@ p.not_foud{
 
   div#xadiga_nooca .xadiga {
     width: calc(100% / 1);
+  }
+
+  div.Xerar {
+    width: 100%;
   }
 
   

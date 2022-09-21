@@ -2,7 +2,7 @@ import Aside from "./Aside";
 import Holder from "./NavHolder";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faCircleCheck} from "@fortawesome/free-solid-svg-icons";
-function XerarFreelancer(){
+function XeerCustomers(){
     return(
         <>
         <Holder />
@@ -12,7 +12,7 @@ function XerarFreelancer(){
             {/* <!---------------biloga shaqooyinka -------------------> */}
             <div className="tranding_haye main">
                 <div className="Xerar">
-                    <h2>Xeerarka Iibiyaha (Freelancerka)</h2>
+                    <h2>Xeerarka Iibsadaha (Customer)</h2>
                     <h3>Hordhac</h3>
                     <p>
                     Ujeedada xeerarkan waa Hawl fudayndinta habsami u socodka shaqada shabakada takriim iyo ilaalinta xuquuqda shaqeeyaha iyo loo shaqeeyahaba iyo garashada qof walba oo ka hawl gala shabakada ama hawl ku fushada waxii xaq loogu leeyahay iyo waxa uu xaq u leeyahay isagu , 
@@ -119,7 +119,7 @@ function XerarFreelancer(){
                     <FontAwesomeIcon icon={faCircleCheck} className="i" />	Ka jarid lacag rasiidkiisa 10% hadii rasiidkiisa wax ku jiraan <br/> 
                     <FontAwesomeIcon icon={faCircleCheck} className="i" />	Nisqaaminta qiimaynta freelancer-ka 20% . <br/>
                     </p>
-
+                    
 
                 </div>
             </div>
@@ -131,4 +131,4 @@ function XerarFreelancer(){
 }
 
 
-export default XerarFreelancer
+export default XeerCustomers

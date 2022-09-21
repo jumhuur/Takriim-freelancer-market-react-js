@@ -45,12 +45,12 @@ function AsideUser(){
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/Profile/update/${uid}`}>
+                        <Link to={`/Xeerarfreelancer`}>
                             <FontAwesomeIcon className="i" icon={faFileLines}/>   Xeerarka Iibiyaha
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/Profile/update/${uid}`}>
+                        <Link to={`/XeerarCustomers`}>
                             <FontAwesomeIcon className="i" icon={faFileLines}/>   Xeerarka Iibsadaha
                         </Link>
                     </li>
@@ -67,12 +67,12 @@ function AsideUser(){
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/Profile/update/${uid}`}>
+                        <Link to={`/Xeerarfreelancer`}>
                             <FontAwesomeIcon className="i" icon={faFileLines}/>   Xeerarka Iibiyaha
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/Profile/update/${uid}`}>
+                        <Link to={`/XeerarCustomers`}>
                             <FontAwesomeIcon className="i" icon={faFileLines}/>   Xeerarka Iibsadaha
                         </Link>
                     </li>

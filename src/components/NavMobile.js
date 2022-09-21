@@ -96,6 +96,16 @@ function NavMobile({nav_mb}){
                         <FontAwesomeIcon className="i" icon={faPenToSquare} /> update profile
                         </Link>
                     </li>
+                    <li>
+                        <Link to={`/Xeerarfreelancer`}>
+                        <FontAwesomeIcon className="i" icon={faPenToSquare} /> Xeerarka Iibiyaha
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={`/XeerarCustomers`}>
+                        <FontAwesomeIcon className="i" icon={faPenToSquare} /> Xeerarka Iibsadaha
+                        </Link>
+                    </li>
 
                     <li>
                         <a href="">
@@ -136,7 +146,7 @@ function NavMobile({nav_mb}){
                 </Link>
             </li>
             <li>
-                <Link to={'/Acount/orders'}>
+                <Link to={'XeerarCustomers'}>
                 <FontAwesomeIcon className="i" icon={faFileLines} /> Xeerar
                 </Link>
             </li>
