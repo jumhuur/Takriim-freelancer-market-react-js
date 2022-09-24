@@ -6,10 +6,11 @@ import { Link, useHistory, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
-import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faEnvelope, faEarthAfrica , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
+import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faEnvelope, faEarthAfrica , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus ,faArrowsSpin} from "@fortawesome/free-solid-svg-icons";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
 import Loading from "../loading";
+import { FaRoute } from "react-icons/fa";
 function My_Orders(){
     const {id} = useParams()
     const {userid} = useParams()
@@ -183,34 +184,87 @@ function My_Orders(){
                         </div>                 
                     </div>
                     <div className="faahfaahin_sho">
-                        <h2 className="order_details"><i className="fa-solid fa-bars"></i> Waxyaabha aad uga baahnayad</h2>
+                        <h2 className="order_details"><i className="fa-solid fa-bars"></i> Fariinta Iibsadaha (Customer Note)</h2>
                         <p> {jobfree.Loobahanyahay}</p>
                     </div>
                     {/* <!---------Bilowga macluumaad raacsan ----------------------------> */}
-                    {jobfree.xaalad == "0" || jobfree.xaalad == "1" || jobfree.xaalad == "3"   ?
+                    {jobfree.xaalad == "0" ?
                     <div className="tranding_haye">
                         <div className="rasiid_tamplate">
                             <div className="rasiid info_raacsan">
-                                <h2 className="ciwaan_bahanahay">Ka Dajiso Halkan Hoose :</h2>
+                                <h2 className="ciwaan_bahanahay">Xaalada dalabkan <span className="x_dalab noaqbal"> <FontAwesomeIcon icon={faArrowsSpin} /> Maad Aqbalin</span> </h2>
                                 {/* <!-- <p className="info_dalab_p">
                                 </p> --> */}
+                                {jobfree.image == "" ? 
+                                <>
+                                <img className="notimg_sawir" src="/images/fileorder.svg" alt="saiw"/>
+                                <h2 className="ciwaan_bahanahay2 notimg">Lama Soo Racin File ama Sawir</h2>
+                                </>
+                                : 
+                                <>
                                 <h2 className="ciwaan_bahanahay2">File Ama Sawir La Soo Raaciyay <FontAwesomeIcon icon={faAngleDown}/> :</h2>
                                 <a href={jobfree.image} download className="link_mirfaq">(Download Now) dajiso Hada  <FontAwesomeIcon icon={faDownload} /></a>
+                                </>
+                                }
                             </div>
                         </div>
                     </div>
+                    :jobfree.xaalad == "1" ?
+                    <div className="tranding_haye">
+                    <div className="rasiid_tamplate">
+                        <div className="rasiid info_raacsan">
+                        <h2 className="ciwaan_bahanahay">Xaalada dalabkan <span className="x_dalab socda"> <FontAwesomeIcon icon={faArrowsSpin} /> Wad Wadaa</span> </h2>
+                            {/* <!-- <p className="info_dalab_p">
+                            </p> --> */}
+                            {jobfree.image == "" ? 
+                            <>
+                            <img className="notimg_sawir" src="/images/Process.svg" alt="saiw"/>
+                            <h2 className="ciwaan_bahanahay2 notimg">Lama Soo Racin File ama Sawir</h2>
+                            </>
+                            : 
+                            <>
+                            <img className="notimg_sawir" src="/images/Process.svg" alt="saiw"/>
+                            <h2 className="ciwaan_bahanahay2">File Ama Sawir La Soo Raaciyay  <FontAwesomeIcon icon={faAngleDown}/> </h2>
+                            <a href={jobfree.image} download className="link_mirfaq Wadaa">(Download Now) dajiso Hada  <FontAwesomeIcon icon={faDownload} /></a>
+                            </>
+                            }
+                        </div>
+                    </div>
+                    </div>
+                    :jobfree.xaalad == "3" ?
+                    <div className="tranding_haye">
+                    <div className="rasiid_tamplate">
+                        <div className="rasiid info_raacsan">
+                            <h2 className="ciwaan_bahanahay">Xaalada dalabkan <span className="x_dalab kansal"> <FontAwesomeIcon icon={faArrowsSpin} />Laga Laabtay</span> </h2>
+                            {/* <!-- <p className="info_dalab_p">
+                            <i class="faArrowsSpin"></i>
+                            </p> --> */}
+                            {jobfree.image == "" ? 
+                            <>
+                            <img className="notimg_sawir" src="/images/fileorder.svg" alt="saiw"/>
+                            <h2 className="ciwaan_bahanahay2 notimg">Lama Soo Racin File ama Sawir</h2>
+                            </>
+                            : 
+                            <>
+                            <h2 className="ciwaan_bahanahay2">File Ama Sawir La Soo Raaciyay <FontAwesomeIcon icon={faAngleDown}/> :</h2>
+                            <a href={jobfree.image} download className="link_mirfaq">(Download Now) dajiso Hada  <FontAwesomeIcon icon={faDownload} /></a>
+                            </>
+                            }
+                        </div>
+                    </div>
+                </div>
                     :jobfree.xaalad == "Done" ?
                     <div className="tranding_haye">
                     <div className="rasiid_tamplate">
                         <div className="rasiid info_raacsan">
-                            <h2 className="ciwaan_bahanahay">Dalabkan waad dhamaysay Ka Hor <span></span></h2>
+                            <h2 className="ciwaan_bahanahay">Dalabkan waad dhamaysay <span></span></h2>
                             {/* <!-- <p className="info_dalab_p">
                             </p> --> */}
                             <h2 className="ciwaan_bahanahay2">Halkan Hoose Waa mashruucii aad fulisay <FontAwesomeIcon icon={faAngleDown}/> :</h2>
                             <a href={jobfree.image} download className="link_mirfaq">(Download Now) dajiso Hada  <FontAwesomeIcon icon={faDownload} /></a>
                         </div>
                     </div>
-                </div>
+                    </div>
                     :
                     <div className="rasiid_tamplate">
                     <div className="rasiid">
@@ -255,7 +309,7 @@ function My_Orders(){
                             <button onClick={loading_handale} className="la_bax" type="submit"><FontAwesomeIcon icon={faSquarePlus} /> Gudbi Dalabka </button>
                         </form>
                     </div>
-                </div>
+                    </div>
                 }
                     {/* <!---------dhamaadka macluumaad raacsan -------------------------> */}
 

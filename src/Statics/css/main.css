@@ -4244,6 +4244,46 @@ div.progress .progerss_two .line{
   font-size: 16px;
 }
 
+.rasiid .ciwaan_bahanahay2.notimg{
+  font-size: 21px;
+  font-weight: bold;
+  color: var(--main-2);
+  text-align: center;
+}
+
+.notimg_sawir{
+  width: 50%;
+}
+
+span.x_dalab {
+  padding: 1%;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: normal;
+  color: var(--fonts);
+}
+
+span.x_dalab.noaqbal {
+  background-color: var(--gaar);
+}
+
+span.x_dalab.socda {
+  background-color: var(--main-2);
+}
+
+span.x_dalab.kansal {
+  background-color: #fa1616;
+}
+
+div.progress .progerss_two .line.Done_upl{
+  background-color: var(--guul);
+}
+
+.done_icon {
+  color: #06d703;
+  border-color: var(--guul);
+}
+
 .rasiid .link_mirfaq{
   padding: 2% 2%;
   text-decoration: none;

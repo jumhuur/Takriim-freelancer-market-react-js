@@ -4,7 +4,7 @@ import Footer from "../Footer"
 import  SklatonAll from '../skaltons/Jobskalaton';
 import { Link, useHistory, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
-import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus} from "@fortawesome/free-solid-svg-icons";
+import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus,faCircleCheck,faFileZipper} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {UseAuth} from "../context/authcontext"
 import {useDatacontext} from "../context/dataContext"
@@ -90,6 +90,7 @@ function OrderDetailscheckh(){
         file_icon2.current.classList.add('active')
         setfilename(null)
         setfilezise(null)
+        setimagestate(false)
     }
 
     function onchange({target}){
@@ -142,6 +143,7 @@ function OrderDetailscheckh(){
             )
 
             mypath.push(`/Order/Complated/${id}`)
+            setimagestate(false)
 
 
         } catch(err){
@@ -150,6 +152,7 @@ function OrderDetailscheckh(){
     }
 
     const [prog,setprog] = useState()
+    const [imagestate ,setimagestate] = useState(false)
 
     const upload_image_progile = async () => {
         const storageRef = ref(Storage, `items/${Date.now()}${image}${filextan}`);
@@ -172,6 +175,7 @@ function OrderDetailscheckh(){
         () => {
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                 setimage(downloadURL)
+                setimagestate(true)
             });
         }
         );
@@ -212,7 +216,14 @@ function OrderDetailscheckh(){
                             ></textarea>
                             <label htmlFor="qaab">Hadii file ama sawir iwm aad raacinayso</label>
                             <div className="sawir">
-                                <span ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
+                                <span ref={spn_img1} onClick={image01_click} className="span_image1">
+                                {imagestate ?
+                                <FontAwesomeIcon icon={faCircleCheck} className="done_icon" />
+                                :
+                                <FontAwesomeIcon icon={faCloudArrowUp} />
+                                }   
+                                
+                                </span>
                                 <input ref={image01} onInput={onchange} className="img_01" type="file" name="sawir1aad" style={{visibility:"hidden"}} 
                                         onChange={
                                             function(e){
@@ -226,20 +237,29 @@ function OrderDetailscheckh(){
                                 {/* <!----------upload file and image --> */}
                                 <div ref={progress} className="upload">
                                     <div ref={file_icon} className="file_icon active">
-                                        <FontAwesomeIcon icon={faFileCircleCheck} />
+                                    {imagestate ?
+                                    <FontAwesomeIcon icon={faFileCircleCheck} className="done_icon" />
+                                    :
+                                    <FontAwesomeIcon icon={faFileZipper} />
+                                    }
                                     </div>
                                     <div className="file_name_and_zise">
                                         <div className="macluumaad">
                                             <h2>{filename}  {filezise}</h2>
                                         </div>
                                         <div className="progerss_two">
-                                            <div className="line" style={{width: `${prog}%`}}>
+                                            <div className={imagestate ? "line Done_upl" : "line"} style={{width: `${prog}%`}}>
 
                                             </div>
                                         </div>
                                     </div>
                                     <div ref={file_icon2} className="file_icon delete active" onClick={xidh}>
+                                        {imagestate ? 
+                                            <FontAwesomeIcon icon={faTrashCan} className="done_icon" />
+                                            :
                                             <FontAwesomeIcon icon={faTrashCan} />
+                                        }
+                                            
                                     </div>
                                 </div>
                                 {/* <!----------upload file and image --> */}
