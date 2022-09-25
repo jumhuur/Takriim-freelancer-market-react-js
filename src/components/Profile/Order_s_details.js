@@ -18,8 +18,13 @@ function Gudoon(){
     const [user , setuser] = useState()
     const [c_user, setc_user] = useState()
     const [income, setIncome] = useState()
+    const [Qaybo , setQaybo] = useState()
     const [job ,setjob] = useState(null)
     const [ordejob,setordejob ] = useState(null)
+    // waa hawshii aad waday ee qaybta 
+    // const id_qayb = oneOrder && oneOrder.Qaybid
+    // const [Qaybcount, setQaybcount] = useState('ZRboOTeCZPf2aOhFlSOp')
+    // console.log(Qaybcount)
     const {Add_Comments ,Userinfo , Add_Rasiid ,crentuser } = UseAuth()
     // comments state 
     const [Rate, setRate] = useState(5)
@@ -81,8 +86,8 @@ function Gudoon(){
             update_Ratings()
             update_job()
             update_Income()
+            update_qayb_order()
             setload(false)
-
         }catch(Err){
             console.log(Err)
         }
@@ -151,6 +156,17 @@ function Gudoon(){
         getDoc(Incomeref_r)
         .then((doc) => {
             setIncome({...doc.data(), id:doc.id})
+        })
+    }
+
+
+    // get qaybcount
+    const qaybref = doc(db, "Qaybo", localStorage.getItem('I_qayb'))
+    //const q = query(colref)    
+    function  getQayb_now(){
+        getDoc(qaybref)
+        .then((doc) => {
+            setQaybo({...doc.data(), id:doc.id})
         })
     }
 
@@ -253,12 +269,25 @@ function Gudoon(){
     }
 
 
+    // update qayb
+    function update_qayb_order(){
+        const qaybref = doc(db, "Qaybo", localStorage.getItem('I_qayb'))
+        const qaybcount = parseFloat(Qaybo.CountOrder)   + 1 ;
+        //const Q_r = parseInt(c_user.Qiimayn_user) + 1
+        updateDoc(qaybref, {
+            CountOrder:Number(qaybcount),
+            //Qiimayn_user:Number(Q_r),  
+        })
+    }
+
+
     useEffect(() => {
         getsingaleorder() 
         get_user()
         get_user_cren()
         get_this_job()
         get_income_now()
+        getQayb_now()
     }, [oneOrder])
 
 

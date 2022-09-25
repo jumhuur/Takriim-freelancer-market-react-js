@@ -11,7 +11,7 @@ function Papular(){
     //get data user 
     const db = getFirestore()
     const colref = collection(db, "Qaybo")
-    const q = query(colref, limit(3), orderBy("CreatedAt"))    
+    const q = query(colref, limit(3), orderBy("CountOrder", "desc"))    
     //hellida docs 
     async function  get_papular(){
         // onSnapshot (q, (snapshot) => {
@@ -46,7 +46,7 @@ function Papular(){
                     {papular && papular.map((data) => (
                         <li className="papular_items" key={data.id}>
                             <Link to={`/Qayb/${data.id}`}>
-                                {data.Name} (0)
+                                {data.Name} ({data.CountOrder})
                             </Link>
                         </li>
                     ))}

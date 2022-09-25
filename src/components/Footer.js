@@ -7,7 +7,7 @@ function Footer(){
         <div className="xajiye">
             <div className="my_footer">
                 <div className="logo_footer">
-                <img src="/images/SVGL.svg" alt="logo" />
+                <img src="/images/Logo_Takriim-06.png" alt="logo" />
                 </div>
                 <div className="socil_foter">
                     <ul className="social">

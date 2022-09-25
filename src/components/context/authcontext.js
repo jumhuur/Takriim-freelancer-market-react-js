@@ -66,7 +66,7 @@ export function AuthProvader({children}){
 
     // add order
 
-    function add_order(Loobahanyahay,lanbarka,image,gudoomay,title,Qiimaha,Dalbade_id,UserId,Jobid,Mudada,Xadiga,Nooca,xaalad,Qodobka1aad,Qodobka2aad){
+    function add_order(Loobahanyahay,lanbarka,image,gudoomay,title,Qiimaha,Dalbade_id,UserId,Qaybid,Jobid,Mudada,Xadiga,Nooca,xaalad,Qodobka1aad,Qodobka2aad){
         return setDoc(doc(db, 'Orders',`order${Date.now()}`), {
             Loobahanyahay,
             lanbarka,
@@ -76,6 +76,7 @@ export function AuthProvader({children}){
             Qiimaha,
             Dalbade_id,
             UserId,
+            Qaybid,
             Jobid,
             Mudada,
             Xadiga,

@@ -6,7 +6,7 @@ import { Link, useHistory, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
-import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faEnvelope, faEarthAfrica , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus ,faArrowsSpin} from "@fortawesome/free-solid-svg-icons";
+import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faEnvelope, faEarthAfrica , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus ,faArrowsSpin , faFileZipper} from "@fortawesome/free-solid-svg-icons";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
 import Loading from "../loading";
@@ -74,6 +74,9 @@ function My_Orders(){
         updateDoc (jobref, {
             xaalad,
         })
+        .then(() => {
+            setload(false)
+        })
     }
 
     function update_done(){
@@ -83,17 +86,18 @@ function My_Orders(){
             xaalad,
             image
         })
+        .then(() => {
+            setload(false)
+        })
     }
     const update_xaalad = async (e) => {
         e.preventDefault()
         update_Order()
-        setload(false)
     }
 
     const update_xaalad_done = async (e) => {
         e.preventDefault()
         update_done()
-        setload(false)
     }
 
 
@@ -110,6 +114,7 @@ function My_Orders(){
         file_icon2.current.classList.add('active')
         setfilename(null)
         setfilezise(null)
+        setimagestate(false)
     }
 
     function onchange({target}){
@@ -142,6 +147,7 @@ function My_Orders(){
      const xaalad3aad = "3"
 
      const [prog,setprog] = useState()
+     const [imagestate ,setimagestate] = useState(false)
 
     const upload_image_progile = async () => {
          const storageRef = ref(Storage, `Orders/${Date.now()}${image}${filextan}`);
@@ -164,6 +170,7 @@ function My_Orders(){
          () => {
              getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                  setimage(downloadURL)
+                 setimagestate(true)
              });
          }
          );
@@ -274,7 +281,13 @@ function My_Orders(){
                         <form className="lacag_bixinta" method="put" onSubmit={update_xaalad_done}>
                             <label htmlFor="qaab">Fileka Aad Usoo Qaadaysaa Ha Noqodo Zip file </label>
                             <div className="sawir">
-                                <span ref={spn_img1} onClick={image01_click} className="span_image1"><FontAwesomeIcon icon={faCloudArrowUp} /></span>
+                                <span ref={spn_img1} onClick={image01_click} className="span_image1">
+                                {imagestate ?
+                                <FontAwesomeIcon icon={faCircleCheck} className="done_icon" />
+                                :
+                                <FontAwesomeIcon icon={faCloudArrowUp} />
+                                }  
+                                </span>
                                 <input ref={image01} onInput={onchange} className="img_01" type="file" name="image" style={{visibility:"hidden"}} required 
                                 onChange={
                                     function(e){
@@ -287,20 +300,28 @@ function My_Orders(){
                                 {/* <!----------upload file and image --> */}
                                 <div ref={progress} className="upload">
                                     <div ref={file_icon} className="file_icon active">
-                                        <FontAwesomeIcon icon={faFileCircleCheck} />
+                                    {imagestate ?
+                                    <FontAwesomeIcon icon={faFileCircleCheck} className="done_icon" />
+                                    :
+                                    <FontAwesomeIcon icon={faFileZipper} />
+                                    }
                                     </div>
                                     <div className="file_name_and_zise">
                                         <div className="macluumaad">
                                             <h2>{filename}  {filezise} - {prog && prog.toFixed(1)}%</h2>
                                         </div>
                                         <div className="progerss_two">
-                                            <div className="line" style={{width: `${prog}%`}}>
+                                            <div className={imagestate ? "line Done_upl" : "line"} style={{width: `${prog}%`}}>
 
                                             </div>
                                         </div>
                                     </div>
                                     <div ref={file_icon2} className="file_icon delete active" onClick={xidh}>
+                                    {imagestate ? 
+                                            <FontAwesomeIcon icon={faTrashCan} className="done_icon" />
+                                            :
                                             <FontAwesomeIcon icon={faTrashCan} />
+                                        }
                                     </div>
                                 </div>
                                 {/* <!----------upload file and image --> */}
@@ -374,7 +395,7 @@ function My_Orders(){
                                     <label htmlFor="laabtay">Ka Laabo Shaqada</label>
                                     </div>
                                 </div>
-                                <button   onClick={loading_handale} type="submit">Cusbonaysii Xalada</button>
+                                <button type="submit" onClick={loading_handale}>Cusbonaysii Xalada</button>
                                 </div>
                                 :jobfree.xaalad == "2" ||  jobfree.xaalad == "Done" ?
                                 <di>

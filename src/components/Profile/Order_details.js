@@ -43,12 +43,11 @@ function OrderDetailscheckh(){
     const Qodobka1aad =  order && order.qodob1aad
     const Qodobka2aad =  order && order.qodob2aad
     const Jobid =  id
+    const Qaybid = order && order.Qaybid
     const [Loobahanyahay , setLoobahanyahay] = useState("")
     const [lanbarka , setlanbarka] = useState("")
     const [gudoomay , setgudoomay] = useState(false)
     const [image , setimage] = useState("")
-    const array_name = [];
-
     const path_kale = useHistory()
 
 
@@ -133,6 +132,7 @@ function OrderDetailscheckh(){
                 Qiimaha,
                 Dalbade_id,
                 UserId,
+                Qaybid,
                 Jobid,
                 Mudada,
                 Xadiga,

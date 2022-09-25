@@ -98,12 +98,12 @@ function NavMobile({nav_mb}){
                     </li>
                     <li>
                         <Link to={`/Xeerarfreelancer`}>
-                        <FontAwesomeIcon className="i" icon={faPenToSquare} /> Xeerarka Iibiyaha
+                        <FontAwesomeIcon className="i" icon={faFileLines} /> Xeerarka Iibiyaha
                         </Link>
                     </li>
                     <li>
                         <Link to={`/XeerarCustomers`}>
-                        <FontAwesomeIcon className="i" icon={faPenToSquare} /> Xeerarka Iibsadaha
+                        <FontAwesomeIcon className="i" icon={faFileLines} /> Xeerarka Iibsadaha
                         </Link>
                     </li>
 

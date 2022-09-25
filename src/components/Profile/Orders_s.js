@@ -31,6 +31,7 @@ function OrderUsers(){
         getdaata_order()
 
     }), [order])
+
     return(
         <div>
             <Holder />
@@ -54,7 +55,9 @@ function OrderUsers(){
                 </div>
                 <div className="macluumaad">
                     <div className="qoraalo">
-                        <Link to={`/Acount/order/Info/${dat_order.id}/${dat_order.UserId}/${dat_order.Jobid}`}>
+                        <Link onClick={function(){
+                            localStorage.setItem('I_qayb', dat_order.Qaybid)
+                        }}  to={`/Acount/order/Info/${dat_order.id}/${dat_order.UserId}/${dat_order.Jobid}`} >
                             <h2>{dat_order.title}</h2>
                             <p>
                             Dalabkaaga waad gudbisay macmiil waxaanan rajaynaynaa inaad ku qancid doonta 
