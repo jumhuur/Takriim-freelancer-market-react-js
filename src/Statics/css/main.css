@@ -5602,11 +5602,10 @@ div.Xerar h2, h3 {
 
 div.Xerar h3 {
   padding-left: 3%;
-  padding-top: 6px;
+  padding-top: 0px;
   font-size: 19px;
   font-weight: bold;
   color: var(--ciwaano);
-  text-decoration: underline;
 }
 
 
