@@ -24,7 +24,6 @@ function My_Orders(){
     const [load, setload] = useState(false)
     const loading_handale = () => {
         load ? setload(false) : setload(true)
-        console.log(load)
     }
 
     // gudbin sttings 

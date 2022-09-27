@@ -87,7 +87,6 @@ function Gudoon(){
             update_job()
             update_Income()
             update_qayb_order()
-            setload(false)
         }catch(Err){
             console.log(Err)
         }
@@ -117,6 +116,9 @@ function Gudoon(){
         const ordref =  doc(db, "Orders", id)
         updateDoc(ordref, {
             gudoomay
+        })
+        .then(() => {
+            setload(false)
         })
     }
     //get user 
