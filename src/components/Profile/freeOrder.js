@@ -75,6 +75,7 @@ function My_Orders(){
         })
         .then(() => {
             setload(false)
+            setxaalad("2")
         })
     }
 
@@ -383,13 +384,13 @@ function My_Orders(){
                                 <div className="xaalad">
                                     <div className="x_1aad">
                                     <input value={xaalad2aad} id="Bilaabay" type="radio" required name="xaalad"
-                                    onClick={(e) => setxaalad(xaalad2aad, console.log(xaalad))}
+                                    onClick={(e) => setxaalad(xaalad2aad)}
                                     />
                                     <label htmlFor="Bilaabay">Waan Dhameeyay</label>
                                     </div>
                                     <div className="x_1aad">
                                     <input value="3" id="laabtay" type="radio" required name="xaalad" 
-                                    onClick={(e) => setxaalad(xaalad3aad ,  console.log(xaalad))}
+                                    onClick={(e) => setxaalad(xaalad3aad)}
                                     />
                                     <label htmlFor="laabtay">Ka Laabo Shaqada</label>
                                     </div>

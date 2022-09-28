@@ -24,13 +24,14 @@ function XeerCustomers(){
                     </p>
                     <p className="qodob">
                     2.	Iska Hubso Macluumaadka Dalabka Sida.
-                    </p>
+                    <br/>
                     <FontAwesomeIcon icon={faCircleCheck} className="i" />  Mudada
                     <br/>
                     <FontAwesomeIcon icon={faCircleCheck} className="i" /> 	Qiimaha 
                     <br/>
                     <FontAwesomeIcon icon={faCircleCheck} className="i" />  Xadiga
                     <br/>
+                    </p>
                     <p className="qodob">
                     3.	Macamiilku Isagaa Masuul Ka Ah Xadiga Dalabkiisa Iyo Mudada Uu Noqonayo Inta Uu Doonana, Wuu Ka Dhigan Karaaaa Waana Arin Uu U Xor Yahay, Macmiilka Iibsanaya Adeega Ka Mida Adeegyada Shabakada Takriim .
                     </p>

@@ -308,35 +308,35 @@ function Gudoon(){
         })
     }
 
-    function test(){
-        if(oneOrder){
-            if(oneOrder.xaalad ==  "1" ){
-                xaalad1aad.current.classList.remove('not_allowed')
-                xaalad2aad.current.classList.add('not_allowed')
-                xaalad3aad.current.classList.add('not_allowed')
-                xaalad0aad.current.classList.add('not_allowed')
+    // function test(){
+    //     if(oneOrder){
+    //         if(oneOrder.xaalad ==  "1" ){
+    //             xaalad1aad.current.classList.remove('not_allowed')
+    //             xaalad2aad.current.classList.add('not_allowed')
+    //             xaalad3aad.current.classList.add('not_allowed')
+    //             xaalad0aad.current.classList.add('not_allowed')
 
-            } else if(oneOrder.xaalad ==  "2"  || oneOrder.xaalad ==  "Done"){
-                xaalad2aad.current.classList.remove('not_allowed')
-                xaalad1aad.current.classList.add('not_allowed')
-                xaalad3aad.current.classList.add('not_allowed')
-                xaalad0aad.current.classList.add('not_allowed')
-            } else if(oneOrder.xaalad ==  "0"){
-                xaalad0aad.current.classList.remove('not_allowed')
-                xaalad2aad.current.classList.add('not_allowed')
-                xaalad1aad.current.classList.add('not_allowed')
-                xaalad3aad.current.classList.add('not_allowed')
+    //         } else if(oneOrder.xaalad ==  "2"  || oneOrder.xaalad ==  "Done"){
+    //             xaalad2aad.current.classList.remove('not_allowed')
+    //             xaalad1aad.current.classList.add('not_allowed')
+    //             xaalad3aad.current.classList.add('not_allowed')
+    //             xaalad0aad.current.classList.add('not_allowed')
+    //         } else if(oneOrder.xaalad ==  "0"){
+    //             xaalad0aad.current.classList.remove('not_allowed')
+    //             xaalad2aad.current.classList.add('not_allowed')
+    //             xaalad1aad.current.classList.add('not_allowed')
+    //             xaalad3aad.current.classList.add('not_allowed')
 
 
-            }else{
-                xaalad3aad.current.classList.remove('not_allowed')
-                xaalad1aad.current.classList.add('not_allowed')
-                xaalad2aad.current.classList.add('not_allowed')
-                xaalad0aad.current.classList.add('not_allowed')
-            }
-        }
-    }
-    test()
+    //         }else{
+    //             xaalad3aad.current.classList.remove('not_allowed')
+    //             xaalad1aad.current.classList.add('not_allowed')
+    //             xaalad2aad.current.classList.add('not_allowed')
+    //             xaalad0aad.current.classList.add('not_allowed')
+    //         }
+    //     }
+    // }
+    // test()
 
 
     // outo gudoomid 
@@ -379,36 +379,38 @@ function Gudoon(){
                     </div>
                     <div className="status">
                         {/* <!----------xaalad 0aad---------> */}
-                        <div ref={xaalad0aad} onClick={Changestatus} className="xaalad1aad not_allowed ">
-                            <div className="madaxa defualt">
-                                <div className="x_icon">
-                                    <FontAwesomeIcon icon={faCalendarDays} />
-                                </div>
-                                <div className="x_ciwaaan">
-                                    <h2>Lama Aqbalin Wali Dalabkaaga</h2>
-                                </div>
-                                <div className="x_icon_arrow">
-                                <FontAwesomeIcon icon={faAngleDown} />
-                                </div>
+                        {oneOrder && oneOrder.xaalad == "0" ?
+                        <div ref={xaalad0aad} onClick={Changestatus} className="xaalad1aad active ">
+                        <div className="madaxa defualt">
+                            <div className="x_icon">
+                                <FontAwesomeIcon icon={faCalendarDays} />
                             </div>
-                            <div className="tranding_haye">
-                                {/* <!--if dalab xaladiisa !== iga gudoon--> */}
-                                <div className="rasiid_tamplate">
-                                    <div className="rasiid info_raacsan">
-                                        <p className="info_dalab_p">
-                                            Fadlan Mudane Sug Inta Uu aqbalayo dalabkaaga mudane/marwo
-                                            <h2 className="info_dalab_h2">                                            <h2 className="info_dalab_h2">{user? user.Name :"unknown user"}</h2></h2>
-                                            Hadii uu aqbali waayo Muddo 3 saac ah xaq waxaad u yeelanaysaa
-                                            inaad ka laabato dalabkan 
-                                        </p>
-                                    </div>
-                                    <button className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabka(Cancel Order)</button>
-                                </div>
+                            <div className="x_ciwaaan">
+                                <h2>Lama Aqbalin Wali Dalabkaaga</h2>
                             </div>
+                            <div className="x_icon_arrow">
+                            <FontAwesomeIcon icon={faAngleDown} />
+                            </div>
+                        </div>
+                        <div className="tranding_haye">
+                            {/* <!--if dalab xaladiisa !== iga gudoon--> */}
+                            <div className="rasiid_tamplate">
+                                <div className="rasiid info_raacsan">
+                                    <p className="info_dalab_p">
+                                        Fadlan Mudane Sug Inta Uu aqbalayo dalabkaaga mudane/marwo
+                                        <h2 className="info_dalab_h2">                                            <h2 className="info_dalab_h2">{user? user.Name :"unknown user"}</h2></h2>
+                                        Hadii uu aqbali waayo Muddo 3 saac ah xaq waxaad u yeelanaysaa
+                                        inaad ka laabato dalabkan 
+                                    </p>
+                                </div>
+                                <button className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabka(Cancel Order)</button>
+                            </div>
+                        </div>
 
                         </div>
-                         {/* <!----------xaalad 1aad---------> */}
-                        <div ref={xaalad1aad} onClick={Changestatus} className="xaalad1aad not_allowed ">
+                        :oneOrder && oneOrder.xaalad == "1" ?
+                        // xaalada 1aad
+                        <div ref={xaalad1aad} onClick={Changestatus} className="xaalad1aad active ">
                             <div className="madaxa koowaad">
                                 <div className="x_icon">
                                     <FontAwesomeIcon icon={faSpinner} />
@@ -439,8 +441,9 @@ function Gudoon(){
                             </div>
 
                         </div>
-                        {/* <!----------xaalad 2aad---------> */}
-                        <div ref={xaalad2aad} onClick={Changestatus} className="xaalad1aad not_allowed">
+                        :oneOrder && oneOrder.xaalad == "2" || oneOrder && oneOrder.xaalad ==  "Done"?
+                        //xaalad 2aad
+                        <div ref={xaalad2aad} onClick={Changestatus} className="xaalad1aad active">
                             <div className="madaxa labaad ">
                                 <div className="x_icon">
                                     <FontAwesomeIcon icon={faCircleCheck} />
@@ -505,8 +508,9 @@ function Gudoon(){
                             </div>
 
                         </div>
-                        {/* <!----------xaalad 3aad---------> */}
-                        <div ref={xaalad3aad} onClick={Changestatus} className="xaalad1aad not_allowed">
+                        :oneOrder && oneOrder.xaalad == "3" ?
+                        //xaalad 3aad
+                        <div ref={xaalad3aad} onClick={Changestatus} className="xaalad1aad active">
                             <div className="madaxa sadexaad">
                                 <div className="x_icon">
                                     <FontAwesomeIcon icon={faCircleXmark} />
@@ -532,6 +536,8 @@ function Gudoon(){
                             </div>
 
                         </div>
+                        :<></>
+                        }
                     </div>
                     {/* <!---------dhamaadka macluumaad raacsan -------------------------> */}
                     {/* <AsidJob/> */}
