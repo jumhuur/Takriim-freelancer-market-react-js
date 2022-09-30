@@ -402,7 +402,7 @@ div#Drop_nav  ul#Drop_items li#Dr{
 
 }
 
-div#Drop_nav  ul#Drop_items li#Dr:hover{
+div#Drop_nav  ul#Drop_items li#Dr:hover:not(:last-child){
   background-color: var(--bacground-qaybo);
   transition: all 0.4s ease;
 }
@@ -427,6 +427,41 @@ div#Drop_nav ul#Drop_items li#Dr a .i {
 
 div#Drop_nav ul#Drop_items li#Dr:hover a{
   color: var(--ciwaano);
+}
+
+
+
+/*--------------gal shaqo ama xidh ---------------------*/
+div.lin_shaqo{
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  display: block;
+  width: 95%;
+  border-radius: 15px;
+  padding: 2%;
+  position: relative;
+  overflow: hidden;
+}
+
+div.lin_shaqo div.line {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: var(--guul);
+  color: var(--fonts);
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  transition: all 0.5s ease-in-out;
+
+}
+
+div.lin_shaqo div.line.off{
+  transform: translate(132px , 0px);
+  background-color: var(--gaar);
+  transition: all 0.5s ease-in-out;
 }
 
 /*-----ogaysis---- and massage----*/
