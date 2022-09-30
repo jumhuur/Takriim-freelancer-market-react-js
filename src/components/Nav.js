@@ -7,7 +7,7 @@ import { faFileLines, faAngleDown, faBars, faBell, faEarthAfrica, faEnvelope, fa
 import NavMobile from "./NavMobile";
 import Drop_nav from "./Drop_nav";
 import {FaAngleDown , FaGlobeAfrica} from "react-icons/fa"
-import { UseAuth , Userinfo } from "./context/authcontext";
+import { UseAuth , Userinfo} from "./context/authcontext";
 import Search from "./serchFrom";
 
 
@@ -19,6 +19,9 @@ function Nav(){
     const [Navmobile, setnavMobile] = useState(false)
     const {crentuser, Userinfo} = UseAuth()
 
+    const setlocall = () => {
+        localStorage.setItem('Yourid', Userinfo.uid)
+    }
     const handalesearch = () => {
         search ? setsearch(false) : setsearch(true)
         setmagessa(false)
@@ -121,7 +124,7 @@ function Nav(){
             <Nativactions isactive={isactive}/>
             <li className="user_nav">
                 <a href="#Drop" onClick={handelDrop}>
-                    <div className="user_">
+                    <div className="user_"onClick={setlocall}>
                         <img src={Userinfo && Userinfo.Image} />
                     </div>
                 </a>

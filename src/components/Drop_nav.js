@@ -3,20 +3,45 @@ import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {faCirclePlus,faRightFromBracket,faToolbox , faUser,faSackDollar ,faFileInvoiceDollar,faGear} from "@fortawesome/free-solid-svg-icons";
 import {UseAuth } from "../components/context/authcontext"
 import { useState } from "react";
+import { doc, getDoc, getFirestore, updateDoc } from "firebase/firestore";
+import { useEffect } from "react";
 
 function Drop_nav({drop}){
     const {Logout , crentuser , user_data, Userinfo} =  UseAuth()
     const home = useHistory()
+    const [user,setuser] = useState()
     const [Akoon,setAkoon] = useState(false)
     const [text,settext] = useState("On")
-
-
+    const id = localStorage.getItem('Yourid')
+    const Active = Akoon
     const Handale_shaqo = () => {
         Akoon ? setAkoon(false) : setAkoon(true)
         Akoon ? settext("On") : settext("Off") 
-        console.log(Akoon)
-        console.log(text)
+        update_user()
     }
+
+    console.log(Akoon)
+
+    // get order
+    const db = getFirestore()
+    // get income 
+    const Userfer = doc(db, "Users", id)
+    //const q = query(colref)    
+    function  get_user(){
+        getDoc(Userfer)
+        .then((doc) => {
+            setuser({...doc.data(), id:doc.id})
+        })
+    }
+
+    function update_user(){
+        const userref =  doc(db, "Users", id)
+        updateDoc(userref, {
+            Active:Active
+        })
+    }
+
+
 
     const logouthanle = async (e) => {
         e.preventDefault()
@@ -27,6 +52,10 @@ function Drop_nav({drop}){
             console.log(error)
         }
     }
+
+    useEffect(()=> {
+        get_user()
+    },[])
     return(
         <div id="Drop_nav"  className={drop ? "active" : ""}>
            <div> 
@@ -93,9 +122,16 @@ function Drop_nav({drop}){
                 <li id="Dr">
                     <Link to={"#online"} onClick={Handale_shaqo} className="gal_shaqo">
                      <div className="lin_shaqo">
+                        {user && user.Active ?
                         <div className={Akoon ? "line off": "line"}>
                             {text}
                         </div>
+                        :
+                        <div className={Akoon ? "line off": "line"}>
+                        {text}
+                        </div>
+                        }
+
                      </div>
                     </Link>
                 </li>

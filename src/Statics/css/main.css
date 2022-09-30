@@ -433,7 +433,8 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
 
 /*--------------gal shaqo ama xidh ---------------------*/
 div.lin_shaqo{
-  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  /* background-image: linear-gradient(205deg, #7400b8,#2196f3); */
+  background-color: #cacaca;
   display: block;
   width: 95%;
   border-radius: 15px;
@@ -455,7 +456,6 @@ div.lin_shaqo div.line {
   align-items: center;
   flex-flow: wrap column;
   transition: all 0.5s ease-in-out;
-
 }
 
 div.lin_shaqo div.line.off{
