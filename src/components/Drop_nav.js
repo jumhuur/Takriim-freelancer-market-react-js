@@ -5,21 +5,18 @@ import {UseAuth } from "../components/context/authcontext"
 import { useState } from "react";
 import { doc, getDoc, getFirestore, updateDoc } from "firebase/firestore";
 import { useEffect } from "react";
+import { useRef } from "react";
 
 function Drop_nav({drop}){
-    const {Logout , crentuser , user_data, Userinfo} =  UseAuth()
+    const {Logout , crentuser , Userinfo} =  UseAuth()
     const home = useHistory()
     const [user,setuser] = useState()
-    const [Akoon,setAkoon] = useState(false)
-    const [text,settext] = useState("On")
+    const [Akoon, setAkoon] = useState("false")
     const id = localStorage.getItem('Yourid')
     const Active = Akoon
-    const Handale_shaqo = () => {
-        Akoon ? setAkoon(false) : setAkoon(true)
-        Akoon ? settext("On") : settext("Off") 
-        update_user()
-    }
-
+    // const Handale_shaqo = () => {
+    // }
+    const xaal = (user && user.Active)
     console.log(Akoon)
 
     // get order
@@ -31,6 +28,7 @@ function Drop_nav({drop}){
         getDoc(Userfer)
         .then((doc) => {
             setuser({...doc.data(), id:doc.id})
+           
         })
     }
 
@@ -55,7 +53,7 @@ function Drop_nav({drop}){
 
     useEffect(()=> {
         get_user()
-    },[])
+    },[user])
     return(
         <div id="Drop_nav"  className={drop ? "active" : ""}>
            <div> 
@@ -120,18 +118,18 @@ function Drop_nav({drop}){
                     </Link>
                 </li>
                 <li id="Dr">
-                    <Link to={"#online"} onClick={Handale_shaqo} className="gal_shaqo">
+                    <Link to={"#online"} className="gal_shaqo">
                      <div className="lin_shaqo">
-                        {user && user.Active ?
-                        <div className={Akoon ? "line off": "line"}>
-                            {text}
-                        </div>
-                        :
-                        <div className={Akoon ? "line off": "line"}>
-                        {text}
-                        </div>
-                        }
+                        <select value={Akoon} id="line" onChange={(e) => {
+                        setAkoon(e.target.value)
+                        update_user()
+                    }}>
+                            <option value={"true"}>ON</option>
+                            <option value={"false"}>OFF</option>
+                        </select>
+                        <div className={user && user.Active == "false" ? "Ishaaro ofline" : 'Ishaaro'}>
 
+                        </div>
                      </div>
                     </Link>
                 </li>

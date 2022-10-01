@@ -434,34 +434,48 @@ div#Drop_nav ul#Drop_items li#Dr:hover a{
 /*--------------gal shaqo ama xidh ---------------------*/
 div.lin_shaqo{
   /* background-image: linear-gradient(205deg, #7400b8,#2196f3); */
-  background-color: #cacaca;
+  background-color: var(--fonts);
   display: block;
   width: 95%;
   border-radius: 15px;
   padding: 2%;
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap row;
 }
 
-div.lin_shaqo div.line {
-  width: 27px;
-  height: 27px;
-  border-radius: 50%;
-  background-color: var(--guul);
-  color: var(--fonts);
+div.lin_shaqo select#line {
+  width: 50%;
+  border-radius: 5px;
+  color: var(--Font-color);
   font-size: 12px;
   font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: wrap column;
   transition: all 0.5s ease-in-out;
 }
 
-div.lin_shaqo div.line.off{
+div.lin_shaqo select#line.off{
   transform: translate(132px , 0px);
-  background-color: var(--gaar);
+  background-color: var(--guul);
   transition: all 0.5s ease-in-out;
+}
+
+div.Ishaaro{
+  width: 20px;
+  height: 20px;
+  background-color: var(--guul);
+  border-radius: 50%;
+  box-shadow: 1px 0px 10px hsl(119deg 97% 43%);
+}
+
+div.Ishaaro.ofline{
+  width: 15px;
+  height: 15px;
+  background-color: var(--Font-color);
+  border-radius: 50%;
+  box-shadow: 1px 0px 10px rgb(112 112 112);
 }
 
 /*-----ogaysis---- and massage----*/

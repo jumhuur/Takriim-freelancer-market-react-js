@@ -118,9 +118,14 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
                         <label> {job.Nooca} </label>
                         {
                         q_sax <= 0 || q_sax === NaN ? <p>dalab ma noqonayo wax ka yar 1 </p> :
+                        <>
+                        {user && user.Active === "true" ?
                         <Link to={`/Order/${job.id}`} >
                             <button onClick={setlocal} type="submit">Gudbi Dalabka(<span className="qiimaha_lastiga">{q_sax}</span>$)</button>
                         </Link>
+                        :<></>
+                        }
+                        </>
                         }
                     </form>
                 </div>
