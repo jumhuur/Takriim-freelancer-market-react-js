@@ -478,6 +478,12 @@ div.Ishaaro.ofline{
   box-shadow: 1px 0px 10px rgb(112 112 112);
 }
 
+p#dalb_no{
+  color: var(--gaar);
+  font-size: 16px;
+  font-weight: normal;
+}
+
 /*-----ogaysis---- and massage----*/
 
 #ogaysiis_nav ,#massages_nav{

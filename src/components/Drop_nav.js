@@ -14,15 +14,10 @@ function Drop_nav({drop}){
     const [Akoon, setAkoon] = useState("false")
     const id = localStorage.getItem('Yourid')
     const Active = Akoon
-    // const Handale_shaqo = () => {
-    // }
-    const xaal = (user && user.Active)
-    console.log(Akoon)
-
     // get order
     const db = getFirestore()
     // get income 
-    const Userfer = doc(db, "Users", id)
+    const Userfer = doc(db, "Users", (crentuser.uid))
     //const q = query(colref)    
     function  get_user(){
         getDoc(Userfer)

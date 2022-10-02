@@ -123,7 +123,7 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
                         <Link to={`/Order/${job.id}`} >
                             <button onClick={setlocal} type="submit">Gudbi Dalabka(<span className="qiimaha_lastiga">{q_sax}</span>$)</button>
                         </Link>
-                        :<></>
+                        :<p id="dalb_no">Shaqadan Hada Ma Dalban Kartid</p>
                         }
                         </>
                         }

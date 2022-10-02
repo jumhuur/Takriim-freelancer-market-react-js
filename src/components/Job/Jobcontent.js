@@ -81,7 +81,7 @@ function JobContent({jobdetails ,user}){
                                     <p>{user ? user.Name : "Unkonow user"}</p>
                                     </li>
                                     <li>
-                                        {user && user.Active === "true" ? <p><FontAwesomeIcon className="i" icon={faUserTie} />  dalab Suge</p> :<p><FontAwesomeIcon className="i" icon={faSpinner} />  dalab wade</p>}
+                                        {user && user.Active === "true" ? <p><FontAwesomeIcon className="i" icon={faUserTie} />  Shaqo Suge</p> :<p><FontAwesomeIcon className="i" icon={faSpinner} />  Shaqo wade</p>}
                                     </li>
                                     <li>
                                         <p className="qimayn">
