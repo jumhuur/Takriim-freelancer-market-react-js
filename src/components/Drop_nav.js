@@ -12,7 +12,6 @@ function Drop_nav({drop}){
     const home = useHistory()
     const [user,setuser] = useState()
     const [Akoon, setAkoon] = useState("false")
-    const id = localStorage.getItem('Yourid')
     const Active = Akoon
     // get order
     const db = getFirestore()
@@ -28,7 +27,7 @@ function Drop_nav({drop}){
     }
 
     function update_user(){
-        const userref =  doc(db, "Users", id)
+        const userref =  doc(db, "Users", (crentuser.uid))
         updateDoc(userref, {
             Active:Active
         })

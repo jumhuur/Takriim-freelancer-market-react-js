@@ -71,7 +71,7 @@ function My_Orders(){
     function update_Order(){
         const jobref =  doc(db, "Orders", id)
         updateDoc (jobref, {
-            xaalad,
+            xaalad
         })
         .then(() => {
             setload(false)
@@ -84,7 +84,8 @@ function My_Orders(){
         const xaalad = done
         updateDoc (jobref, {
             xaalad,
-            image
+            image,
+            Done_Date:`${new Date()}`
         })
         .then(() => {
             setload(false)

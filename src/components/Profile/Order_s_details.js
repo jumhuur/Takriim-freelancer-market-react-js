@@ -9,6 +9,7 @@ import {format}  from "timeago.js"
 import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { UseAuth } from "../context/authcontext";
 import Loading from "../loading";
+import userEvent from "@testing-library/user-event";
 
 function Gudoon(){
     const {id} = useParams()
@@ -21,6 +22,7 @@ function Gudoon(){
     const [Qaybo , setQaybo] = useState()
     const [job ,setjob] = useState(null)
     const [ordejob,setordejob ] = useState(null)
+    const xaalad = 4
     // waa hawshii aad waday ee qaybta 
     // const id_qayb = oneOrder && oneOrder.Qaybid
     // const [Qaybcount, setQaybcount] = useState('ZRboOTeCZPf2aOhFlSOp')
@@ -28,7 +30,7 @@ function Gudoon(){
     const {Add_Comments ,Userinfo , Add_Rasiid ,crentuser } = UseAuth()
     // comments state 
     const [Rate, setRate] = useState(5)
-    const [Comment, setComment] = useState()
+    const [Comment, setComment] = useState("Si Aad U fiican Ayaa Lagu Shaqeeyay")
     const Jobid = oneOrder && oneOrder.Jobid
     const Username = user && Userinfo.Name 
     const Image = Userinfo &&  Userinfo.Image
@@ -39,6 +41,38 @@ function Gudoon(){
     const Last_qiimo = Number(qiimaha) - Khidmad
     const lastIncome = Number(qiimaha) - Incomka
     const Nooc = "+";
+
+
+
+    //xisaabinta saacada  ka laabashada
+    const Tariikh = oneOrder && oneOrder.Tariikh
+    const Now = Date.now()
+    const Farqi = Now - new Date(Tariikh)
+    const saacad = Math.round(Farqi / 1000 / 60 / 60) ;
+    //console.log("Saacad", Math.round(saacad))
+
+    //xisaabinta saacada  Gudoomida
+    const Done_Date = oneOrder && oneOrder.Done_Date
+    const Just = Date.now()
+    const k_duwan = Just - new Date(Done_Date)
+    const Maalin = Math.round(k_duwan / 1000 / 60 / 60 / 24) ;
+    //console.log("Saacad", Math.round(saacad))
+    const btn_gudoomid = useRef()
+
+    // const AutGudoomid = () => {
+    //     if(oneOrder && oneOrder){
+    //         if(Maalin >= 2){
+    //             btn_gudoomid.current.click()
+    //             console.log(btn_gudoomid.current)
+    //         }
+    //     }
+    // }
+    // useEffect(() => {
+    //     btn_gudoomid.current.click()
+    //     console.log('sax')
+    // },[])
+    
+
 
     // loading
     const [load, setload] = useState(false)
@@ -116,6 +150,19 @@ function Gudoon(){
         const ordref =  doc(db, "Orders", id)
         updateDoc(ordref, {
             gudoomay
+        })
+        .then(() => {
+            setload(false)
+        })
+    }
+
+
+    // Kalaabashada dalabka
+    function update_Xaalad(){
+        setload(true)
+        const ordref =  doc(db, "Orders", id)
+        updateDoc(ordref, {
+            xaalad:xaalad
         })
         .then(() => {
             setload(false)
@@ -290,6 +337,7 @@ function Gudoon(){
         get_this_job()
         get_income_now()
         getQayb_now()
+        outo_accept()
     }, [oneOrder])
 
 
@@ -308,36 +356,6 @@ function Gudoon(){
         })
     }
 
-    // function test(){
-    //     if(oneOrder){
-    //         if(oneOrder.xaalad ==  "1" ){
-    //             xaalad1aad.current.classList.remove('not_allowed')
-    //             xaalad2aad.current.classList.add('not_allowed')
-    //             xaalad3aad.current.classList.add('not_allowed')
-    //             xaalad0aad.current.classList.add('not_allowed')
-
-    //         } else if(oneOrder.xaalad ==  "2"  || oneOrder.xaalad ==  "Done"){
-    //             xaalad2aad.current.classList.remove('not_allowed')
-    //             xaalad1aad.current.classList.add('not_allowed')
-    //             xaalad3aad.current.classList.add('not_allowed')
-    //             xaalad0aad.current.classList.add('not_allowed')
-    //         } else if(oneOrder.xaalad ==  "0"){
-    //             xaalad0aad.current.classList.remove('not_allowed')
-    //             xaalad2aad.current.classList.add('not_allowed')
-    //             xaalad1aad.current.classList.add('not_allowed')
-    //             xaalad3aad.current.classList.add('not_allowed')
-
-
-    //         }else{
-    //             xaalad3aad.current.classList.remove('not_allowed')
-    //             xaalad1aad.current.classList.add('not_allowed')
-    //             xaalad2aad.current.classList.add('not_allowed')
-    //             xaalad0aad.current.classList.add('not_allowed')
-    //         }
-    //     }
-    // }
-    // test()
-
 
     // outo gudoomid 
     const outo_accept = () => {
@@ -346,10 +364,16 @@ function Gudoon(){
                 console.log("accepted")
             }
         }
-
+        // console.log(new Date(Tariikh))
+        // console.log("Seconds" , Farqi / 1000)
+        // console.log("Minnites" , Farqi / 1000 / 60)
+        // console.log("Saacad" , Farqi / 1000 / 60 / 60)
+        // console.log("days" , Farqi / 1000 / 60 / 60 / 24)
     }
 
-    outo_accept()
+    // cancel dalab 
+
+
 
 
     return(
@@ -400,10 +424,14 @@ function Gudoon(){
                                         Fadlan Mudane Sug Inta Uu aqbalayo dalabkaaga mudane/marwo
                                         <h2 className="info_dalab_h2">                                            <h2 className="info_dalab_h2">{user? user.Name :"unknown user"}</h2></h2>
                                         Hadii uu aqbali waayo Muddo 3 saac ah xaq waxaad u yeelanaysaa
-                                        inaad ka laabato dalabkan 
+                                        inaad ka laabato dalabkan Hada waxaa ka soo wareegay <span id="Dareen">{saacad}</span> Saac
                                     </p>
                                 </div>
-                                <button className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabka(Cancel Order)</button>
+                                {saacad && saacad >= 3 ?
+                                <button onClick={update_Xaalad} className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabka(Cancel Order)</button>
+                                :<></>
+                                }
+                                
                             </div>
                         </div>
 
@@ -465,6 +493,7 @@ function Gudoon(){
                                             <span className="gudoon_fg">
                                                 FG: Waktiga uu qofka kuu shaqeeyay codsado inaad gudoonto Haday Ka Soo dhaafto 5 Maalmood 
                                                 adna aanad wali gudoomin lacagta dalabkaaga dalabka  waxaa loo fasaxayaa iibiyaha adeegan kuu qabtay Si iskuu ahna wuu isku gudoomayaa dalabku
+                                                Wakhtiga Uu Sugayay Inaad Gudoonto Adeegihii shaqadan kuu Qabtay waa  <span id="Dareen">{Maalin}</span> Maalin
                                             </span> 
                                         </p>
                                         {oneOrder && oneOrder.xaalad == "Done" ?
@@ -499,7 +528,7 @@ function Gudoon(){
                                             <input  type="hidden" value={iibsade} name="Iibsade"/>
                                             <input  type="hidden" value={Qiimayn} name="Qiimayn"/>
                                             </form>
-                                            <button onClick={loading_handale} className="gudoon_btn" type="submit">Gudoon Dalabka</button>
+                                            <button ref={btn_gudoomid}  onClick={loading_handale} className="gudoon_btn" type="submit">Gudoon Dalabka</button>
                                         </form>
                                     :""
                                     }
@@ -529,7 +558,36 @@ function Gudoon(){
                                     <div className="rasiid info_raacsan xxaalad">
                                         <p className="info_dalab_p">
                                             Dalabkaaga waa laga laabtay waxaana ka laabatay iibiya adeegan 
-                                            lacagta aad ku bixisay dalabkan waxaa laguugu soo celiyay lanbarkaaga  
+                                            lacagta aad ku bixisay dalabkan waxaa laguugu soo celiyay lanbarkaagan <span id="Dareen">063-{oneOrder && oneOrder.lanbarka}</span>   
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        :oneOrder && oneOrder.xaalad == "4" ?
+                        //xaalad 3aad
+                        <div ref={xaalad3aad} onClick={Changestatus} className="xaalad1aad active">
+                            <div className="madaxa sadexaad">
+                                <div className="x_icon">
+                                    <FontAwesomeIcon icon={faCircleXmark} />
+                                </div>
+                                <div className="x_ciwaaan">
+                                    <h2> Adiga Ayaa Ka Laabtay Dalabkaaga </h2>
+                                </div>
+                                <div className="x_icon_arrow">
+                                <FontAwesomeIcon icon={faAngleDown} />
+                                </div>
+                            </div>
+                            <div className="tranding_haye">
+                                {/* <!--if dalab xaladiisa == iga gudoon--> */}
+                                <div className="rasiid_tamplate xaalad">
+                                    {/* <!--if dalab xaladiisa == iga gudoon--> */}
+                                    <div className="rasiid info_raacsan xxaalad">
+                                        <p className="info_dalab_p">
+                                            Dalabkaaga waa laga laabtay waxaana ka laabatay Adiga Oo Markii Hore Dalbaday 
+                                            lacagta aad ku bixisay dalabkan waxaa laguugu soo celiyay lanbarkaaga
+                                            Aad dalabka ku samaysay ee ahaa <span id="Dareen">063-{oneOrder && oneOrder.lanbarka}</span>  
                                         </p>
                                     </div>
                                 </div>
@@ -591,7 +649,7 @@ function Gudoon(){
 
             </div>
         </div>
-                </div>
+            </div>
         </div>
         </section>
         <Footer/>

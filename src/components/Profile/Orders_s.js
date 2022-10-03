@@ -88,11 +88,16 @@ function OrderUsers(){
                                 <span> <FontAwesomeIcon className="i dhamaday" icon={faCircleCheck} /> </span>
                                 Dhamaaday
                                 </li>
-                            :
+                            :dat_order.xaalad == "4" ? 
                                 <li>
                                 <span> <FontAwesomeIcon className="i laabtay" icon={faCircleXmark} /> </span>
-                                Laga Laabtay 
+                                Wad Ka labatay 
                                 </li>
+                            :
+                            <li>
+                            <span> <FontAwesomeIcon className="i laabtay" icon={faCircleXmark} /> </span>
+                            Waa Laga Laabtay 
+                            </li>
                             }
                             <li>
                             <FontAwesomeIcon className="i" icon={faClock} /> <span>{format(dat_order.CreatedAt)}</span>

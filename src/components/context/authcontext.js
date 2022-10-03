@@ -84,7 +84,8 @@ export function AuthProvader({children}){
             xaalad,
             Qodobka1aad,
             Qodobka2aad,
-            CreatedAt: Date.now()
+            CreatedAt: Date.now(),
+            Tariikh: `${new Date()}`
         })
     }
 

@@ -18,10 +18,7 @@ function Nav(){
     const [drop, setdrop] = useState(false)
     const [Navmobile, setnavMobile] = useState(false)
     const {crentuser, Userinfo} = UseAuth()
-
-    const setlocall = () => {
-        localStorage.setItem('Yourid', Userinfo.uid)
-    }
+    
     const handalesearch = () => {
         search ? setsearch(false) : setsearch(true)
         setmagessa(false)
@@ -124,7 +121,7 @@ function Nav(){
             <Nativactions isactive={isactive}/>
             <li className="user_nav">
                 <a href="#Drop" onClick={handelDrop}>
-                    <div className="user_"onClick={setlocall}>
+                    <div className="user_">
                         <img src={Userinfo && Userinfo.Image} />
                     </div>
                 </a>
