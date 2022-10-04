@@ -38,8 +38,10 @@ function Gudoon(){
     const qiimaha = oneOrder && oneOrder.Qiimaha 
     const Khidmad = 15 / 100 * parseFloat(qiimaha)
     const Incomka = 85 / 100 * parseFloat(qiimaha)
+    const Ganaax_cancel = 1.50 / 100 * parseFloat(qiimaha)
     const Last_qiimo = Number(qiimaha) - Khidmad
     const lastIncome = Number(qiimaha) - Incomka
+    const lastGanaax = Number(qiimaha) - Ganaax_cancel
     const Nooc = "+";
 
 
@@ -290,6 +292,16 @@ function Gudoon(){
         })
     }
 
+    function Ganaax(){
+        const ordref =  doc(db, "Users", userid)
+        const Xidhan = parseFloat(c_user.r_Xidhan) -  parseFloat(Ganaax_cancel) 
+        update_Income_ganaax()
+        updateDoc(ordref, {
+            r_Xidhan:Xidhan.toFixed(2),
+            //Qiimayn_user:Number(Q_r),  
+        })
+    }
+
     function update_job(){
         const job_upd =  doc(db, "Jobs", j_id)
         updateDoc(job_upd, {
@@ -308,6 +320,22 @@ function Gudoon(){
         const Incometotal = parseFloat(income.TotalIncome)   + parseFloat(lastIncome) 
         const IncomeBil = parseFloat(income.IncomeBishan) +  parseFloat(lastIncome) 
         const IncomeSanad = parseFloat(income.incomeSanad) + parseFloat(lastIncome)
+        //const Q_r = parseInt(c_user.Qiimayn_user) + 1
+        updateDoc(ordref, {
+            TotalIncome:Incometotal.toFixed(2),
+            IncomeBishan:IncomeBil.toFixed(2),
+            incomeSanad: IncomeSanad.toFixed(2),
+            //Qiimayn_user:Number(Q_r),  
+        })
+    }
+
+
+
+    function update_Income_ganaax(){
+        const ordref =  doc(db, "Income-ka", "Zd8Aq4j0TEMp5zy8iIgx")
+        const Incometotal = parseFloat(income.TotalIncome)   + parseFloat(Ganaax_cancel) 
+        const IncomeBil = parseFloat(income.IncomeBishan) +  parseFloat(Ganaax_cancel) 
+        const IncomeSanad = parseFloat(income.incomeSanad) + parseFloat(Ganaax_cancel)
         //const Q_r = parseInt(c_user.Qiimayn_user) + 1
         updateDoc(ordref, {
             TotalIncome:Incometotal.toFixed(2),
@@ -428,7 +456,10 @@ function Gudoon(){
                                     </p>
                                 </div>
                                 {saacad && saacad >= 3 ?
-                                <button onClick={update_Xaalad} className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabka(Cancel Order)</button>
+                                <button onClick={function(){
+                                    update_Xaalad()
+                                    Ganaax()
+                                } } className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabka(Cancel Order)</button>
                                 :<></>
                                 }
                                 
