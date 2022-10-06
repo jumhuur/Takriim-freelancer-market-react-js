@@ -11,6 +11,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
 import Loading from "../loading";
 import { FaRoute } from "react-icons/fa";
+import { UseAuth } from "../context/authcontext";
 function My_Orders(){
     const {id} = useParams()
     const {userid} = useParams()
@@ -18,13 +19,44 @@ function My_Orders(){
     const [bayer, setbayer] = useState(null)
     const [xaalad, setxaalad] = useState('')
     const [image, setimage] = useState("")
+    // stateyada iska gudoomida 
+    const [c_user, setc_user] = useState()
+    const [income, setIncome] = useState()
+    const [Qaybo , setQaybo] = useState()
+    const [job ,setjob] = useState(null)
     const done = "Done";
+
+    // hawlaha iska gudoomida 
+    const iibsade = parseInt(job && job.iibsade) + 1
+    const gudoomay = true
+    const jobid = sessionStorage.getItem("jobid")
+    const Qaybid = sessionStorage.getItem("Qaybid")
+    const uid = sessionStorage.getItem("uid")
+    const {Add_Rasiid} = UseAuth()
+    const qiimaha = jobfree && jobfree.Qiimaha
+    const Khidmad = 15 / 100 * parseFloat(qiimaha)
+    const Incomka = 85 / 100 * parseFloat(qiimaha)
+    const Last_qiimo = Number(qiimaha) - Khidmad
+    const lastIncome = Number(qiimaha) - Incomka
+    const Nooc = "+";
+
+    const user = jobfree && jobfree.UserId
+
+    console.log(user)
+
 
     // loading
     const [load, setload] = useState(false)
     const loading_handale = () => {
         load ? setload(false) : setload(true)
     }
+
+    //xisaabinta saacada  Gudoomida
+    const Done_Date = jobfree && jobfree.Done_Date
+    const Just = Date.now()
+    const k_duwan = Just - new Date(Done_Date)
+    const Maalin = Math.round(k_duwan / 1000 / 60 / 60 / 24) ;
+    //console.log("Saacad", Math.round(saacad))
 
     // gudbin sttings 
     const [filename , setfilename] = useState(null)
@@ -59,12 +91,6 @@ function My_Orders(){
                 setbayer({...doc.data(), id:doc.id})
             })
         }
-
-
-        useEffect(() => {
-            getonorder()   
-            getpayerinfo()  
-        }, [jobfree])
 
 
     // udate job (qiimayn & iibsade)
@@ -176,6 +202,147 @@ function My_Orders(){
          }
          );
     }
+
+        // hawlaha oo dhan ee ku sabsaan iska gudoomida dalabka
+        const submitHandale  = async (e) =>{
+        e.preventDefault()
+        setload(true)
+        try{
+            await Add_Rasiid (
+                Last_qiimo,
+                uid,
+                Nooc
+            )
+
+            update_gudoon()
+            update_rasiid()
+            update_job()
+            update_Income()
+            update_qayb_order()
+            setload(false)
+        }catch(Err){
+            console.log(Err)
+        }
+    }
+
+    // get income 
+    const Incomeref_r = doc(db, "Income-ka", "Zd8Aq4j0TEMp5zy8iIgx")
+    //const q = query(colref)    
+    function  get_income_now(){
+        getDoc(Incomeref_r)
+        .then((doc) => {
+            setIncome({...doc.data(), id:doc.id})
+        })
+    }
+
+
+    // update incom-ka
+
+    function update_Income(){
+        const ordref =  doc(db, "Income-ka", "Zd8Aq4j0TEMp5zy8iIgx")
+        const Incometotal = parseFloat(income.TotalIncome)   + parseFloat(lastIncome) 
+        const IncomeBil = parseFloat(income.IncomeBishan) +  parseFloat(lastIncome) 
+        const IncomeSanad = parseFloat(income.incomeSanad) + parseFloat(lastIncome)
+        //const Q_r = parseInt(c_user.Qiimayn_user) + 1
+        updateDoc(ordref, {
+            TotalIncome:Incometotal.toFixed(2),
+            IncomeBishan:IncomeBil.toFixed(2),
+            incomeSanad: IncomeSanad.toFixed(2),
+            //Qiimayn_user:Number(Q_r),  
+        })
+    }
+
+    // update xaalad gudoomay dalab
+    function update_gudoon(){
+        const ordref =  doc(db, "Orders", id)
+        updateDoc(ordref, {
+            gudoomay
+        })
+        .then(() => {
+            setload(false)
+        })
+    }
+
+    //get qaybcount
+    const qaybref = doc(db, "Qaybo", Qaybid)
+    //const q = query(colref)    
+    function  getQayb_now(){
+        getDoc(qaybref)
+        .then((doc) => {
+            setQaybo({...doc.data(), id:doc.id})
+        })
+    }
+
+    // update qayb
+    function update_qayb_order(){
+        const qaybref = doc(db, "Qaybo", Qaybid)
+        const qaybcount = parseFloat(Qaybo.CountOrder)   + 1 ;
+        //const Q_r = parseInt(c_user.Qiimayn_user) + 1
+        updateDoc(qaybref, {
+            CountOrder:Number(qaybcount),
+            //Qiimayn_user:Number(Q_r),  
+        })
+    }
+
+
+    // get user
+    const Userref_r = doc(db, "Users" , uid)
+    //const q = query(colref)    
+    function  get_user_cren(){
+        getDoc(Userref_r)
+        .then((doc) => {
+            setc_user({...doc.data(), id:doc.id})
+        })
+    }
+
+    // rasiid
+    function update_rasiid(){
+        const ordref =  doc(db, "Users", uid)
+        const total = parseFloat(c_user.r_Total)   + parseFloat(Last_qiimo) 
+        const Xidhan = parseFloat(c_user.r_Xidhan) +  parseFloat(Last_qiimo) 
+        const Mac = parseInt(c_user.Macmiil) + 1
+        //const Q_r = parseInt(c_user.Qiimayn_user) + 1
+        updateDoc(ordref, {
+            r_Total:total.toFixed(2),
+            r_Xidhan:Xidhan.toFixed(2),
+            Macmiil: Number(Mac),
+            //Qiimayn_user:Number(Q_r),  
+        })
+    }
+
+
+    // get Job
+
+    const Jobsref_r = doc(db, "Jobs" , jobid)
+    //const q = query(colref)    
+    function  get_this_job(){
+        getDoc(Jobsref_r)
+        .then((doc) => {
+            setjob({...doc.data(), id:doc.id})
+        })
+    }
+
+    // update job
+    function update_job(){
+        const job_upd =  doc(db, "Jobs", jobid)
+        updateDoc(job_upd, {
+            iibsade
+        })
+    }
+
+    useEffect(() => {
+        getonorder()   
+        getpayerinfo()
+        // hawlaha iska gudoomida 
+        get_income_now()
+        get_this_job() 
+        getQayb_now()
+        get_user_cren()
+    }, [jobfree])
+
+
+
+
     return(
     <>
     <Loading loading={load}/>
@@ -260,7 +427,20 @@ function My_Orders(){
                             }
                         </div>
                     </div>
-                </div>
+                    </div>
+                    :jobfree.xaalad == "4" ?
+                    <div className="tranding_haye">
+                    <div className="rasiid_tamplate">
+                        <div className="rasiid info_raacsan">
+                            <h2 className="ciwaan_bahanahay">Xaalada dalabkan <span className="x_dalab kansal"> <FontAwesomeIcon icon={faArrowsSpin} />Laga Laabtay</span> </h2>
+                            {/* <!-- <p className="info_dalab_p">
+                            <i class="faArrowsSpin"></i>
+                            </p> --> */}
+                            <img className="notimg_sawir" src="/images/fileorder.svg" alt="saiw"/>
+                            <h2 className="ciwaan_bahanahay2 notimg">Wuu Ka Laabtay Dalbaduhu</h2>
+                        </div>
+                    </div>
+                    </div>
                     :jobfree.xaalad == "Done" ?
                     <div className="tranding_haye">
                     <div className="rasiid_tamplate">
@@ -268,8 +448,13 @@ function My_Orders(){
                             <h2 className="ciwaan_bahanahay">Dalabkan waad dhamaysay <span></span></h2>
                             {/* <!-- <p className="info_dalab_p">
                             </p> --> */}
-                            <h2 className="ciwaan_bahanahay2">Halkan Hoose Waa mashruucii aad fulisay <FontAwesomeIcon icon={faAngleDown}/> :</h2>
+                            <h2 className="ciwaan_bahanahay2">Halkan Hoose Waa mashruucii aad fulisay Ka Hor {Maalin} Maalin <FontAwesomeIcon icon={faAngleDown}/> :</h2>
                             <a href={jobfree.image} download className="link_mirfaq">(Download Now) dajiso Hada  <FontAwesomeIcon icon={faDownload} /></a>
+                            {Maalin >= 3 && jobfree.gudoomay === false ?
+                            <button onClick={submitHandale} id="btn_all" className="Outo_Gudoon_btn">Gudoon Dalbkan</button>
+                            : <></>
+                            }
+                            
                         </div>
                     </div>
                     </div>

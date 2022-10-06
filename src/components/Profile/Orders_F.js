@@ -46,7 +46,14 @@ function Orders_Free(){
                 </div>
                 <div className="macluumaad">
                     <div className="qoraalo">
-                        <Link to={`/Acount/Myorder/info/${dat_order.id}/${dat_order.Dalbade_id}`}>
+                        <Link onClick={() => {
+                        // localStorage.setItem("Qaybid", dat_order.Qaybid)
+                        // localStorage.setItem("jobid",dat_order.Jobid)
+                        // localStorage.setItem("uid",dat_order.UserId)
+                        sessionStorage.setItem("Qaybid", dat_order.Qaybid)
+                        sessionStorage.setItem("jobid",dat_order.Jobid)
+                        sessionStorage.setItem("uid",dat_order.UserId)
+                        }} to={`/Acount/Myorder/info/${dat_order.id}/${dat_order.Dalbade_id}`}>
                             <h2>{dat_order.title}</h2>
                             <p>
                                 Dalabkan waxa uu kaaga yimid mid ka mida macaamiisha shabakada 
@@ -71,6 +78,11 @@ function Orders_Free(){
                             <li>
                             <span> <FontAwesomeIcon className="i dhamaday" icon={faRotate} /> </span>
                             Wad Diyaarinaysa
+                            </li>
+                            :dat_order.xaalad == 4  ? 
+                            <li>
+                            <span> <FontAwesomeIcon className="i laabtay" icon={faCircleXmark} /> </span>
+                            Wuu Ka Laabtay
                             </li>
                             :dat_order.xaalad == "Done" ? 
                             <li>

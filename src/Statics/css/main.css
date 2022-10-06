@@ -100,6 +100,21 @@ span#Dareen{
   font-weight: bold;
 }
 
+button#btn_all{
+  border-radius: 6px;
+  background-image: linear-gradient(205deg, #7400b8,#2196f3);
+  color: var(--fonts);
+  font-size: 16px;
+  transition: all 0.4s ease;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+button#btn_all:hover{
+  background-image: linear-gradient(205deg, #2196f3 , #7400b8);
+}
+
 
 .ytp-title-text{
   display: none !important;
@@ -5066,6 +5081,13 @@ span.gudoon_fg{
   text-transform: capitalize;
   font-weight: normal;
   padding: 0% 3%;
+
+}
+
+
+button.Outo_Gudoon_btn{
+  width: 65%;
+  height: 55px;
 
 }
 

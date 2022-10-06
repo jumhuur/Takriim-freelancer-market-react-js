@@ -27,10 +27,10 @@ function Gudoon(){
     // const id_qayb = oneOrder && oneOrder.Qaybid
     // const [Qaybcount, setQaybcount] = useState('ZRboOTeCZPf2aOhFlSOp')
     // console.log(Qaybcount)
-    const {Add_Comments ,Userinfo , Add_Rasiid ,crentuser } = UseAuth()
+    const {Add_Comments, Userinfo , Add_Rasiid ,crentuser } = UseAuth()
     // comments state 
     const [Rate, setRate] = useState(5)
-    const [Comment, setComment] = useState("Si Aad U fiican Ayaa Lagu Shaqeeyay")
+    const [Comment, setComment] = useState()
     const Jobid = oneOrder && oneOrder.Jobid
     const Username = user && Userinfo.Name 
     const Image = Userinfo &&  Userinfo.Image
@@ -61,6 +61,12 @@ function Gudoon(){
     //console.log("Saacad", Math.round(saacad))
     const btn_gudoomid = useRef()
 
+
+    // Xisaabinta muddo dhaafka dalabka 
+
+
+
+    
     // const AutGudoomid = () => {
     //     if(oneOrder && oneOrder){
     //         if(Maalin >= 2){
@@ -305,8 +311,7 @@ function Gudoon(){
     function update_job(){
         const job_upd =  doc(db, "Jobs", j_id)
         updateDoc(job_upd, {
-            Qiimayn,
-            iibsade,
+            iibsade
         })
     }
 
@@ -492,10 +497,10 @@ function Gudoon(){
                                         <p className="info_dalab_p">
                                             Waa Laguu wadaa dalabkaaga Fadlan Sug Wakhtiga kuugu Qoran Kaadhaka shaqada 
                                             kama laaban kartid dalabkaaga Hadii La Bilaabo shaqada kaliya waxaad dalabkan ka laaban kartaa
-                                            marka uu muddo dhaafo ama Wakhtigii balanta ay dhaafto mahadsanid
+                                            marka uu muddo dhaafo ama Wakhtigii balanta ay dhaafto mahadsanid 
                                         </p>
                                     </div>
-                                    <button className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabka(Cancel Order)</button>
+                                    <button id="BTN_All" className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabkan</button>
                                 </div>
                             </div>
 
