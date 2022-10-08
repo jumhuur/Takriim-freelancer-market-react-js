@@ -733,6 +733,7 @@ p#dalb_no{
 
 .head #nav_mobile ul div.qaybo_mobile ul li a{
   color: var(--Font-color);
+  display: block;
 }
 
 .head #nav_mobile ul div.qaybo_mobile ul li:hover a{

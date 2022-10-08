@@ -40,10 +40,6 @@ function My_Orders(){
     const lastIncome = Number(qiimaha) - Incomka
     const Nooc = "+";
 
-    const user = jobfree && jobfree.UserId
-
-    console.log(user)
-
 
     // loading
     const [load, setload] = useState(false)
@@ -55,7 +51,8 @@ function My_Orders(){
     const Done_Date = jobfree && jobfree.Done_Date
     const Just = Date.now()
     const k_duwan = Just - new Date(Done_Date)
-    const Maalin = Math.round(k_duwan / 1000 / 60 / 60 / 24) ;
+    const Saacad = Math.floor(k_duwan / 1000 / 60 / 60) ;
+    const Maalin = Math.floor(k_duwan / 1000 / 60 / 60 / 24) ;
     //console.log("Saacad", Math.round(saacad))
 
     // gudbin sttings 
@@ -448,9 +445,9 @@ function My_Orders(){
                             <h2 className="ciwaan_bahanahay">Dalabkan waad dhamaysay <span></span></h2>
                             {/* <!-- <p className="info_dalab_p">
                             </p> --> */}
-                            <h2 className="ciwaan_bahanahay2">Halkan Hoose Waa mashruucii aad fulisay Ka Hor {Maalin} Maalin <FontAwesomeIcon icon={faAngleDown}/> :</h2>
+                            <h2 className="ciwaan_bahanahay2">Halkan Hoose Waa mashruucii aad fulisay Ka Hor  <span id="Dareen">{Saacad}</span> Saac <FontAwesomeIcon icon={faAngleDown}/> :</h2>
                             <a href={jobfree.image} download className="link_mirfaq">(Download Now) dajiso Hada  <FontAwesomeIcon icon={faDownload} /></a>
-                            {Maalin >= 3 && jobfree.gudoomay === false ?
+                            {Saacad >= 24 && jobfree.gudoomay === false ?
                             <button onClick={submitHandale} id="btn_all" className="Outo_Gudoon_btn">Gudoon Dalbkan</button>
                             : <></>
                             }
