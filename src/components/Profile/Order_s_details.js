@@ -41,7 +41,7 @@ function Gudoon(){
     const Ganaax_cancel = 1.50 / 100 * parseFloat(qiimaha)
     const Last_qiimo = Number(qiimaha) - Khidmad
     const lastIncome = Number(qiimaha) - Incomka
-    const lastGanaax = Number(qiimaha) - Ganaax_cancel
+    const Ganaax_cancel_two = 3 / 100 * parseFloat(qiimaha)
     const Nooc = "+";
 
 
@@ -51,6 +51,9 @@ function Gudoon(){
     const Now = Date.now()
     const Farqi = Now - new Date(Tariikh)
     const saacad = Math.round(Farqi / 1000 / 60 / 60) ;
+    const Maalin_dalab = Math.floor(Farqi / 1000 / 60 / 60 /24) ;
+    const muddo_dalab = Number(oneOrder && oneOrder.Mudada)
+    const Balan = muddo_dalab - Maalin_dalab
     //console.log("Saacad", Math.round(saacad))
 
     //xisaabinta saacada  Gudoomida
@@ -298,10 +301,22 @@ function Gudoon(){
         })
     }
 
+    // ka jarida freelancerka 1.50% qiimaha dalabka  (Aqbalid la,aan)
     function Ganaax(){
         const ordref =  doc(db, "Users", userid)
         const Xidhan = parseFloat(c_user.r_Xidhan) -  parseFloat(Ganaax_cancel) 
         update_Income_ganaax()
+        updateDoc(ordref, {
+            r_Xidhan:Xidhan.toFixed(2),
+            //Qiimayn_user:Number(Q_r),  
+        })
+    }
+
+    // ka jarida freelancerka 3% qiimaha dalabka (Muddo Dhaaf) 
+    function Ganaax_Two(){
+        const ordref =  doc(db, "Users", userid)
+        const Xidhan = parseFloat(c_user.r_Xidhan) -  parseFloat(Ganaax_cancel_two) 
+        update_Income_ganaax_two()
         updateDoc(ordref, {
             r_Xidhan:Xidhan.toFixed(2),
             //Qiimayn_user:Number(Q_r),  
@@ -341,6 +356,21 @@ function Gudoon(){
         const Incometotal = parseFloat(income.TotalIncome)   + parseFloat(Ganaax_cancel) 
         const IncomeBil = parseFloat(income.IncomeBishan) +  parseFloat(Ganaax_cancel) 
         const IncomeSanad = parseFloat(income.incomeSanad) + parseFloat(Ganaax_cancel)
+        //const Q_r = parseInt(c_user.Qiimayn_user) + 1
+        updateDoc(ordref, {
+            TotalIncome:Incometotal.toFixed(2),
+            IncomeBishan:IncomeBil.toFixed(2),
+            incomeSanad: IncomeSanad.toFixed(2),
+            //Qiimayn_user:Number(Q_r),  
+        })
+    }
+
+
+    function update_Income_ganaax_two(){
+        const ordref =  doc(db, "Income-ka", "Zd8Aq4j0TEMp5zy8iIgx")
+        const Incometotal = parseFloat(income.TotalIncome)   + parseFloat(Ganaax_cancel_two) 
+        const IncomeBil = parseFloat(income.IncomeBishan) +  parseFloat(Ganaax_cancel_two) 
+        const IncomeSanad = parseFloat(income.incomeSanad) + parseFloat(Ganaax_cancel_two)
         //const Q_r = parseInt(c_user.Qiimayn_user) + 1
         updateDoc(ordref, {
             TotalIncome:Incometotal.toFixed(2),
@@ -497,10 +527,17 @@ function Gudoon(){
                                         <p className="info_dalab_p">
                                             Waa Laguu wadaa dalabkaaga Fadlan Sug Wakhtiga kuugu Qoran Kaadhaka shaqada 
                                             kama laaban kartid dalabkaaga Hadii La Bilaabo shaqada kaliya waxaad dalabkan ka laaban kartaa
-                                            marka uu muddo dhaafo ama Wakhtigii balanta ay dhaafto mahadsanid 
+                                            marka uu muddo dhaafo ama Wakhtigii balanta ay dhaafto Wakhtii Balantu Ahayd waxa ka Hadhsan  {muddo_dalab - Maalin_dalab} Maalin
                                         </p>
                                     </div>
-                                    <button id="BTN_All" className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabkan</button>
+                                    {Balan <= 0 ?
+                                    <button id="btn_all" onClick={function(){
+                                        update_Xaalad()
+                                        Ganaax_Two()
+                                    }} className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabkan</button>
+                                    :<></>
+                                    }
+                                    
                                 </div>
                             </div>
 
