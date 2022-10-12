@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {Link, useHistory} from 'react-router-dom';
 import {faBell,faMoneyBillTransfer, faBars,faUserPlus, faNetworkWired, faToolbox , faChartSimple , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus, faAngleDown, faFileLines, faEnvelope} from "@fortawesome/free-solid-svg-icons";
-import { collection,getFirestore, query, onSnapshot, limit, orderBy } from "firebase/firestore";
+import { collection,getFirestore, query, onSnapshot, limit, orderBy, getDoc, doc, updateDoc } from "firebase/firestore";
 import { UseAuth } from "./context/authcontext";
 
 function NavMobile({nav_mb}){
     const {Userinfo, crentuser,Logout} = UseAuth ()
     const uid = Userinfo && Userinfo.uid
     const [datnav , setdatnav] = useState(null)
+    const [user,setuser] = useState()
+    const [Akoon, setAkoon] = useState("false")
+    const Active = Akoon
     const home = useHistory()
         //get data user 
         const db = getFirestore()
@@ -34,9 +37,28 @@ function NavMobile({nav_mb}){
                 console.log(error)
             }
         }
+
+        // // get income 
+        // const Userfer = doc(db, "Users", (crentuser.uid))
+        // //const q = query(colref)    
+        // function  get_user(){
+        //     getDoc (Userfer)
+        //     .then((doc) => {
+        //         setuser({...doc.data(), id:doc.id})
+               
+        //     })
+        // }
+    
+        // function update_user(){
+        //     const userref =  doc(db, "Users", (crentuser.uid))
+        //     updateDoc(userref, {
+        //         Active:Active
+        //     })
+        // }
     
         useEffect(() => {
             get_Home_qaybo()
+            //get_user()
         }, [])
     return(
         <div id="nav_mobile" className={nav_mb ? "active":""}>
@@ -150,6 +172,23 @@ function NavMobile({nav_mb}){
                 <FontAwesomeIcon className="i" icon={faFileLines} /> Xeerar
                 </Link>
             </li>
+            {/* <li id="Dr">
+                    <Link to={"#online"} className="gal_shaqo">
+                     <div className="lin_shaqo">
+                        <select value={Akoon} id="line" onChange={(e) => {
+                        setAkoon(e.target.value)
+                        update_user()
+                    }}>
+                            <option value={"true"}>ON</option>
+                            <option value={"false"}>OFF</option>
+                        </select>
+                        <div className={user && user.Active == "false" ? "Ishaaro ofline" : 'Ishaaro'}>
+
+                        </div>
+                     </div>
+                    </Link>
+            </li> */}
+
             <Link to={"/Acount/Login"}>
             <button className="nav_mobile_btn" onClick={logouthanle}><FontAwesomeIcon className="i" icon={faRightFromBracket} /> Xidho Akoon-ka</button>
             </Link>

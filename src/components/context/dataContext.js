@@ -8,6 +8,7 @@ export function  ContextProvader({children}){
     const [mudada, setmudada] = useState("")
     const [qiimaha, setqiimaha] = useState("")
     const [xadiga, setxadiga] = useState("")
+    const [Progress_now,setProgress_now ] = useState('')
 
     function data(mudada, qiimaha, xadiga){
         setqiimaha(qiimaha)
@@ -19,12 +20,21 @@ export function  ContextProvader({children}){
         return data(mudada, qiimaha, xadiga)
     }
 
+    function Prog_now (Progress_now){
+        setProgress_now(Progress_now)
+    }
+
+    const setPROG_now = () => {
+        return Prog_now(Progress_now)
+    }
+
     const value = {
         sedata,
         mudada,
         qiimaha,
-        xadiga
-
+        xadiga,
+        Prog_now,
+        Progress_now
     }
 
 

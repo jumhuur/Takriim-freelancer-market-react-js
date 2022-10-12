@@ -564,9 +564,10 @@ function Gudoon(){
                                         <p className="info_dalab_p">
                                             Fadlan mudane dalabkaag Hubso inuu yahay sidaad u rabtay intaanad Ku dhufan botomka gudamida dalabka mahadsanid
                                             <span className="gudoon_fg">
-                                                FG: Waktiga uu qofka kuu shaqeeyay codsado inaad gudoonto Haday Ka Soo dhaafto 5 Maalmood 
-                                                adna aanad wali gudoomin lacagta dalabkaaga dalabka  waxaa loo fasaxayaa iibiyaha adeegan kuu qabtay Si iskuu ahna wuu isku gudoomayaa dalabku
-                                                Wakhtiga Uu Sugayay Inaad Gudoonto Adeegihii shaqadan kuu Qabtay waa  <span id="Dareen">{Maalin}</span> Maalin
+                                                FG: Waktiga uu qofka kuu shaqeeyay codsado inaad gudoonto Haday Ka Soo dhaafto 24 Saacadood
+                                                adna aanad wali gudoomin lacagta dalabkaaga dalabka  waxaa loo fasaxayaa .
+                                                <br/>
+                                                Wakhtiga Ka Hadhay Balanka Dalabkan :   <span id="Dareen">{Balan}</span> Maalin
                                             </span> 
                                         </p>
                                         {oneOrder && oneOrder.xaalad == "Done" ?
@@ -577,6 +578,13 @@ function Gudoon(){
                                         :
                                         <>
                                                 <h2 className="ciwaan_bahanahay2">Waxaa socota Diyaarinta Dalabkaaga <i className="fa-solid fa-angle-down arrow"></i> :</h2>
+                                                {Balan <= 0 ?
+                                                <button id="btn_all" onClick={function(){
+                                                    update_Xaalad()
+                                                    Ganaax_Two()
+                                                }} className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabkan</button>
+                                                :<></>
+                                                }
                                         </>
                                         }
                                     </div>

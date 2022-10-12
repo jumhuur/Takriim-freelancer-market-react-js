@@ -10,8 +10,8 @@ import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload 
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
 import Loading from "../loading";
-import { FaRoute } from "react-icons/fa";
 import { UseAuth } from "../context/authcontext";
+//import {useDatacontext} from '../context/dataContext';
 function My_Orders(){
     const {id} = useParams()
     const {userid} = useParams()
@@ -33,6 +33,7 @@ function My_Orders(){
     const Qaybid = sessionStorage.getItem("Qaybid")
     const uid = sessionStorage.getItem("uid")
     const {Add_Rasiid} = UseAuth()
+   // const {Prog_now} = useDatacontext()
     const qiimaha = jobfree && jobfree.Qiimaha
     const Khidmad = 15 / 100 * parseFloat(qiimaha)
     const Incomka = 85 / 100 * parseFloat(qiimaha)
@@ -181,6 +182,7 @@ function My_Orders(){
          (snapshot) => {
              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
              setprog(progress)
+             
              switch (snapshot.state) {
              case 'paused':
                  break;
