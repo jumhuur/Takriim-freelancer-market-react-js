@@ -326,7 +326,8 @@ function Gudoon(){
     function update_job(){
         const job_upd =  doc(db, "Jobs", j_id)
         updateDoc(job_upd, {
-            iibsade
+            iibsade,
+            Qiimayn
         })
     }
 
