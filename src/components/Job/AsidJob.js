@@ -45,7 +45,13 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
         } else {
             setxadiga(xadiga_inputka)
             setqimosaxa(last_qii.toFixed(2))
+            if(lastmuddo < 1){
+                setmudayn(0.50)
+            } else {
             setmudayn(Math.floor(lastmuddo))
+            }
+            //setmudayn(Math.floor(lastmuddo))
+
         }
     }
 

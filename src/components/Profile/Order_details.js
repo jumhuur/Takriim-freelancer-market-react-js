@@ -35,7 +35,7 @@ function OrderDetailscheckh(){
     const title = order && order.title
     const Qiimaha =  window.localStorage.getItem('Q')
     const Dalbade_id =  crentuser && crentuser.uid
-    const Mudada =  window.localStorage.getItem('M')
+    const Mudada =  Number(window.localStorage.getItem('M'))
     const UserId =  order && order.UserId
     const Xadiga = window.localStorage.getItem('X')
     const Nooca =  order && order.Nooca

@@ -54,7 +54,6 @@ function Gudoon(){
     const Maalin_dalab = Math.floor(Farqi / 1000 / 60 / 60 /24) ;
     const muddo_dalab = Number(oneOrder && oneOrder.Mudada)
     const Balan = muddo_dalab - Maalin_dalab
-    //console.log("Saacad", Math.round(saacad))
 
     //xisaabinta saacada  Gudoomida
     const Done_Date = oneOrder && oneOrder.Done_Date
@@ -528,7 +527,7 @@ function Gudoon(){
                                         <p className="info_dalab_p">
                                             Waa Laguu wadaa dalabkaaga Fadlan Sug Wakhtiga kuugu Qoran Kaadhaka shaqada 
                                             kama laaban kartid dalabkaaga Hadii La Bilaabo shaqada kaliya waxaad dalabkan ka laaban kartaa
-                                            marka uu muddo dhaafo ama Wakhtigii balanta ay dhaafto Wakhtii Balantu Ahayd waxa ka Hadhsan  {muddo_dalab - Maalin_dalab} Maalin
+                                            marka uu muddo dhaafo ama Wakhtigii balanta ay dhaafto Wakhtii Balantu Ahayd waxa ka Hadhsan  {Balan} Maalin
                                         </p>
                                     </div>
                                     {Balan <= 0 ?

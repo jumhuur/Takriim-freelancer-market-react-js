@@ -771,6 +771,7 @@ p#dalb_no{
   color: var(--Font-color);
   font-family: "nooca_farta";
   font-size: 20px;
+  display: block;
 }
 
 #nav_mobile li a span{
