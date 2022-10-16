@@ -6,11 +6,12 @@ import { Link, useHistory, useParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
-import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faEnvelope, faEarthAfrica , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus ,faArrowsSpin , faFileZipper} from "@fortawesome/free-solid-svg-icons";
+import { faShieldHalved,faCircleCheck , faAngleDown , faCircleXmark ,faDownload  , faEnvelope, faEarthAfrica , faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus ,faArrowsSpin , faFileZipper, faClock} from "@fortawesome/free-solid-svg-icons";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
 import Loading from "../loading";
 import { UseAuth } from "../context/authcontext";
+import { FaTimes } from "react-icons/fa";
 //import {useDatacontext} from '../context/dataContext';
 function My_Orders(){
     const {id} = useParams()
@@ -56,6 +57,14 @@ function My_Orders(){
     const Maalin = Math.floor(k_duwan / 1000 / 60 / 60 / 24) ;
     //console.log("Saacad", Math.round(saacad))
 
+    // xisaabinta wakhtiga hadhsan 
+    const Order_date = jobfree && jobfree.Tariikh
+    const farqi_date = Just - new Date(Order_date)
+    const date_saacad = Math.floor(farqi_date / 1000 / 60 /60)
+    const date_Maalin = Math.floor(farqi_date / 1000 / 60 /60 / 24)
+    const muddo_dalab = Number(jobfree && jobfree.Mudada)
+    const Balan = muddo_dalab - date_Maalin
+    const nisbo = Balan * 100 / muddo_dalab
     // gudbin sttings 
     const [filename , setfilename] = useState(null)
     const [filezise , setfilezise] = useState(null)
@@ -531,8 +540,21 @@ function My_Orders(){
                             Waa Qiimaha Iibsaduhu Gaadhsiiyay
                         </p>
                         <div className="more_info">
+                        {jobfree.xaalad < 4 ?
+                        <>
+                            {jobfree.gudoomay == false && jobfree.xaalad !== "Done"?
+                            <div className="balan_count">
+                                <p id="balan">{Balan} Malin</p>
+                                {/* <p>{nisbo}%</p> */}
+                            </div>
+                            :<></>
+                            }
+                            </>
+                            :<></>
+                        }  
                             <ul>
                                 <li> <FontAwesomeIcon className="i" icon={faCircleCheck} /> Mudada : <span>{jobfree && jobfree.Mudada}</span> Maalmood</li>
+                                <li>  <FontAwesomeIcon className="i" icon={faCircleCheck} /> Waxa Kuu Hadhsan {Balan} Maalin </li>
                                 <li>  <FontAwesomeIcon className="i" icon={faCircleCheck} /> Xadiga : <span>{jobfree && jobfree.Xadiga}</span> {jobfree && jobfree.Nooca}</li>
                                 <li>  <FontAwesomeIcon className="i" icon={faCircleCheck} /> {jobfree && jobfree.Qodobka1aad} </li>
                                 <li>  <FontAwesomeIcon className="i" icon={faCircleCheck} /> {jobfree && jobfree.Qodobka2aad} </li>

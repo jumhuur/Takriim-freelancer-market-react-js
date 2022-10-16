@@ -5893,6 +5893,43 @@ p.not_foud{
   font-size: 16px;
 }
 
+div.balan_count{
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  /* background-image: linear-gradient(205deg, #7400b8,#2196f3); */
+  background-color: var(--fonts);
+  z-index: 0;
+  right: 16px;
+  top: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap column;
+  font-weight: normal;
+  box-shadow: 0px 0px 15px 0px var(--bacground-qaybo);
+  border: dashed 1.50px var(--fonts);
+  animation:Lood linear 2.5s infinite;
+}
+
+@keyframes Lood1 {
+  0%{
+    transform: rotate(1deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+div.balan_count > p#balan{
+  font-weight: normal;
+  font-size: 17px;
+  color: var(--Font-color);
+}
+
+
+
 
 
 /*---------------- all admin stayles ----------------*/
@@ -5987,6 +6024,19 @@ p.not_foud{
     height: 100%;
     margin-bottom: 2%;
   }
+  div.balan_count{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    right: 7px;
+    top: 33px;
+  }
+
+div.balan_count > p#balan{
+  font-size: 12px !important;
+  font-weight: bold;
+}
+
 
   div#xadiga_nooca {
     width: 100%;
@@ -6069,6 +6119,19 @@ p.not_foud{
   .xajiye,
   .haye {
     max-width: 540px;
+  }
+
+  div.balan_count{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    right: 7px;
+    top: 33px;
+  }
+
+  div.balan_count > p#balan{
+    font-size: 12px !important;
+    font-weight: bold;
   }
 
   div#xadiga_nooca {
@@ -6557,6 +6620,14 @@ p.not_foud{
     }
     .haye {
       max-width: 540px;
+    }
+
+    div.balan_count{
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      right: 12px;
+      top: 45px;
     }
   
 
