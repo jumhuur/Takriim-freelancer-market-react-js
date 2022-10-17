@@ -1,5 +1,5 @@
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import { faWallet, faNetworkWired, faToolbox , faMoneyBillTransfer , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus, faFileLines} from "@fortawesome/free-solid-svg-icons";
+import { faWallet, faNetworkWired, faToolbox , faMoneyBillTransfer , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus, faFileLines, faUserTie} from "@fortawesome/free-solid-svg-icons";
 import Xayaysiis from "../Saponsered_Ads";
 import { Link } from "react-router-dom";
 import { UseAuth } from "../context/authcontext";
@@ -45,6 +45,11 @@ function AsideUser(){
                         </Link>
                     </li>
                     <li>
+                        <Link to={`/freelancers`}>
+                            <FontAwesomeIcon className="i" icon={faUserTie}/>   Freelancers
+                        </Link>
+                    </li>
+                    <li>
                         <Link to={`/Xeerarfreelancer`}>
                             <FontAwesomeIcon className="i" icon={faFileLines}/>   Xeerarka Iibiyaha
                         </Link>
@@ -64,6 +69,11 @@ function AsideUser(){
                     <li>
                         <Link to={`/Profile/update/${uid}`}>
                             <FontAwesomeIcon className="i" icon={faPenToSquare}/> update profile
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={`/freelancers`}>
+                            <FontAwesomeIcon className="i" icon={faUserTie}/>   Freelancers
                         </Link>
                     </li>
                     <li>

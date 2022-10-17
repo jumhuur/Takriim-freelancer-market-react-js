@@ -27,6 +27,7 @@ import Tob_Nav from './components/Admin/Tob_nav';
 import Furo from './components/Profile/FuroLacag';
 import XerarFreelancer from './components/Xeerarfreelancer';
 import XeerCustomers from './components/XeerarkaCusto';
+import Freelancers from './components/Freelancers';
 
 
 function App(){
@@ -106,6 +107,9 @@ function App(){
           </Route>
           <Route exact path={"/XeerarCustomers"}>
             <XeerCustomers />
+          </Route>
+          <Route exact path={"/Freelancers"}>
+            <Freelancers />
           </Route>
           {/* admin routes Bilow  */}
           <route exact path={"/Acount/Admin"}>

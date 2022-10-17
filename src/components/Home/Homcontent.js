@@ -11,14 +11,6 @@ function ContentHome(){
     const q = query(colref, limit(10), orderBy("CreatedAt", "desc"))    
     //hellida docs 
     async function  getdaata_user(){
-        // onSnapshot (q, (snapshot) => {
-        //     const Dhaq1aad = []
-        //     snapshot.docs.forEach((doc) => {
-        //         Dhaq1aad.push({...doc.data(), id:doc.id})
-        //     })
-        //     setDataJobs(Dhaq1aad)
-        // })
-
         getDocs(q)
         .then((snapshot) => {
             const Dhaq1aad = []

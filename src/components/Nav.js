@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import Nativactions from "./Nativactions";
 import Massages from "./Massages";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import { faFileLines, faAngleDown, faBars, faBell, faEarthAfrica, faEnvelope, faRightToBracket ,faSearch,faToolbox} from "@fortawesome/free-solid-svg-icons";
+import { faFileLines, faAngleDown, faBars, faBell, faEarthAfrica, faEnvelope, faRightToBracket ,faSearch,faToolbox, faUserTie} from "@fortawesome/free-solid-svg-icons";
 import NavMobile from "./NavMobile";
 import Drop_nav from "./Drop_nav";
-import {FaAngleDown , FaGlobeAfrica} from "react-icons/fa"
+import {FaAngleDown , FaGlobeAfrica, FaUserTie} from "react-icons/fa"
 import { UseAuth , Userinfo} from "./context/authcontext";
 import Search from "./serchFrom";
 
@@ -144,9 +144,9 @@ function Nav(){
                 </a>
             </li>
             <li>
-                <a href="#">
-                    more  <FaAngleDown />
-                </a>
+                <Link to={"/freelancers"}>
+                <FontAwesomeIcon className="i" icon={faUserTie} /> Freelancers  
+                </Link>
             </li>
             <li>
                 <a href="https://e-sako.web.app/">

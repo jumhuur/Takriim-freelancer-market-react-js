@@ -1,6 +1,6 @@
 import { Link, useHistory } from "react-router-dom"
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import {faCirclePlus,faRightFromBracket,faToolbox , faUser,faSackDollar ,faFileInvoiceDollar,faGear} from "@fortawesome/free-solid-svg-icons";
+import {faCirclePlus,faRightFromBracket,faToolbox , faUser,faSackDollar ,faFileInvoiceDollar,faGear, faUserTie} from "@fortawesome/free-solid-svg-icons";
 import {UseAuth } from "../components/context/authcontext"
 import { useState } from "react";
 import { doc, getDoc, getFirestore, updateDoc } from "firebase/firestore";
@@ -66,6 +66,11 @@ function Drop_nav({drop}){
                 <li id="Dr">
                     <Link to={`/Profile/update/${crentuser && crentuser.uid}`}>
                         <FontAwesomeIcon className="i" icon={faGear} /> Maarayn
+                    </Link>
+                </li>
+                <li id="Dr">
+                    <Link to={"/freelancers"}>
+                        <FontAwesomeIcon className="i" icon={faUserTie} /> Freelancers
                     </Link>
                 </li>
                 <li id="Dr">
