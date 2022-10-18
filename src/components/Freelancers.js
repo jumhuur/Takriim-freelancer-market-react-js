@@ -35,7 +35,8 @@ function Freelancers(){
             {/* <!---------------biloga shaqooyinka -------------------> */}
             <div className="tranding_haye main">
                 <div className="freelancers">
-                    {freelancers && freelancers.map(data => (
+                    {freelancers ? 
+                    freelancers.map(data => (
                     <div className="cards_freelancers" key={data.uid}>
                     <div className="lines_freelancer">
         
@@ -58,11 +59,21 @@ function Freelancers(){
                             </div>
                     </div> 
                 </div>
-                ))}
+                )):
+                <div className="cover_looad_free">
+                    <div class="sk-folding-cube">
+                    <div class="sk-cube1 sk-cube"></div>
+                    <div class="sk-cube2 sk-cube"></div>
+                    <div class="sk-cube4 sk-cube"></div>
+                    <div class="sk-cube3 sk-cube"></div>
+                    </div>
+                </div>
+               }
 
 
                 </div>
             </div>
+            
             {/* <!---------------dhamaadka shaqooyinka -------------------> */}
         </div>
         </section>
