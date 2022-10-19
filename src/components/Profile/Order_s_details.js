@@ -524,11 +524,22 @@ function Gudoon(){
                                 {/* <!--if dalab xaladiisa !== iga gudoon--> */}
                                 <div className="rasiid_tamplate">
                                     <div className="rasiid info_raacsan">
+                                        {Balan > 0 ?
                                         <p className="info_dalab_p">
-                                            Waa Laguu wadaa dalabkaaga Fadlan Sug Wakhtiga kuugu Qoran Kaadhaka shaqada 
-                                            kama laaban kartid dalabkaaga Hadii La Bilaabo shaqada kaliya waxaad dalabkan ka laaban kartaa
-                                            marka uu muddo dhaafo ama Wakhtigii balanta ay dhaafto Wakhtii Balantu Ahayd waxa ka Hadhsan  {Balan} Maalin
+                                        Waa Laguu wadaa dalabkaaga Fadlan Sug Wakhtiga kuugu Qoran Kaadhaka shaqada 
+                                        kama laaban kartid dalabkaaga Hadii La Bilaabo shaqada kaliya waxaad dalabkan ka laaban kartaa
+                                        marka uu muddo dhaafo ama Wakhtigii balanta ay dhaafto Wakhtii Balantu Ahayd waxa ka Hadhsan  {Balan} Maalin
                                         </p>
+                                        :
+                                        <>
+                                        <p className="info_dalab_p">
+                                            Wakhtigii  Balanka wuu dhaafay  Dalabkan Waxaad Xaq Uleedahay Macmiil inaad    ka laabato
+                                            adoo adeegsanaya Bottomka hoose Lacagta dalabkan oon waxba ka dhinayn ayaa Laguu soo celinaya 
+                                            hadaad ka laabato Maadama dalabkan  wakhtigiisii dhaafay !
+                                        </p>
+                                        </>
+                                        }
+
                                     </div>
                                     {Balan <= 0 ?
                                     <button id="btn_all" onClick={function(){

@@ -544,8 +544,18 @@ function My_Orders(){
                         <>
                             {jobfree.gudoomay == false && jobfree.xaalad !== "Done"?
                             <div className="balan_count">
-                                <p id="balan">{Balan}</p>
-                                <p id="balan">Malin</p>
+                            {Balan > 0 ?
+                            <>
+                             <p id="balan">{Balan}</p>
+                            <p id="balan">Malin</p>
+                            </>
+                            :
+                            <>
+                            <p id="balan">Muddo</p>
+                            <p id="balan">Dhaaf</p>
+                            </>
+                            }
+
                                 {/* <p>{nisbo}%</p> */}
                             </div>
                             :<></>

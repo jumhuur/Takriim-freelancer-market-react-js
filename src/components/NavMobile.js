@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import {Link, useHistory} from 'react-router-dom';
-import {faBell,faMoneyBillTransfer, faBars,faUserPlus, faNetworkWired, faToolbox , faChartSimple , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus, faAngleDown, faFileLines, faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import {faBell,faMoneyBillTransfer, faBars,faUserPlus, faNetworkWired, faToolbox , faChartSimple , faFileInvoiceDollar ,faSackDollar ,faPenToSquare ,faRightFromBracket, faCirclePlus, faAngleDown, faFileLines, faEnvelope, faUserTie} from "@fortawesome/free-solid-svg-icons";
 import { collection,getFirestore, query, onSnapshot, limit, orderBy, getDoc, doc, updateDoc } from "firebase/firestore";
 import { UseAuth } from "./context/authcontext";
 
@@ -13,11 +13,11 @@ function NavMobile({nav_mb}){
     const [Akoon, setAkoon] = useState("false")
     const Active = Akoon
     const home = useHistory()
-        //get data user 
+        //get data user
         const db = getFirestore()
         const colref = collection(db, "Qaybo")
-        const q = query(colref, limit(8), orderBy("CreatedAt"))    
-        //hellida docs 
+        const q = query(colref, limit(8), orderBy("CreatedAt"))
+        //hellida docs
         async function  get_Home_qaybo(){
             onSnapshot (q, (snapshot) => {
                 const Dhaq1aad = []
@@ -38,24 +38,24 @@ function NavMobile({nav_mb}){
             }
         }
 
-        // // get income 
+        // // get income
         // const Userfer = doc(db, "Users", (crentuser.uid))
-        // //const q = query(colref)    
+        // //const q = query(colref)
         // function  get_user(){
         //     getDoc (Userfer)
         //     .then((doc) => {
         //         setuser({...doc.data(), id:doc.id})
-               
+
         //     })
         // }
-    
+
         // function update_user(){
         //     const userref =  doc(db, "Users", (crentuser.uid))
         //     updateDoc(userref, {
         //         Active:Active
         //     })
         // }
-    
+
         useEffect(() => {
             get_Home_qaybo()
             //get_user()
@@ -106,7 +106,7 @@ function NavMobile({nav_mb}){
                         <Link to={`/rasiid/furo/${uid}`}>
                             <FontAwesomeIcon className="i" icon={faMoneyBillTransfer}/>   Furo Lacag
                         </Link>
-                        
+
                     </li>
                     <li>
                         <Link to={'/Acount/Add_Job'}>
@@ -138,6 +138,17 @@ function NavMobile({nav_mb}){
                     :
                     <>
                     <li>
+                        <Link to={"/freelancers"}>
+                        <FontAwesomeIcon className="i" icon={faUserTie} /> Freelancers
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={'/XeerarCustomers'}>
+                        <FontAwesomeIcon className="i" icon={faFileLines} /> Xeerar
+                        </Link>
+                    </li>
+
+                    <li>
                         <Link to={`/Profile/update/${uid}`}>
                         <FontAwesomeIcon className="i" icon={faPenToSquare} /> update profile
                         </Link>
@@ -167,11 +178,6 @@ function NavMobile({nav_mb}){
                 <FontAwesomeIcon className="i" icon={faToolbox} /> Dalabyo
                 </Link>
             </li>
-            <li>
-                <Link to={'/XeerarCustomers'}>
-                <FontAwesomeIcon className="i" icon={faFileLines} /> Xeerar
-                </Link>
-            </li>
             {/* <li id="Dr">
                     <Link to={"#online"} className="gal_shaqo">
                      <div className="lin_shaqo">
@@ -195,6 +201,28 @@ function NavMobile({nav_mb}){
             </>
             :
             <>
+            <li className="qayb_mobile">
+            <FontAwesomeIcon  className="i" icon={faBars}/> Qaybb Muhiima < FontAwesomeIcon icon={faAngleDown}/>
+            </li>
+            <div className="qaybo_mobile" style={{"display": "flex"}}>
+                <ul>
+                    <li>
+                        <Link to={"/freelancers"}>
+                        <FontAwesomeIcon className="i" icon={faUserTie} /> Freelancers
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={`/Xeerarfreelancer`}>
+                        <FontAwesomeIcon className="i" icon={faFileLines} /> Xeerarka Iibiyaha
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={`/XeerarCustomers`}>
+                        <FontAwesomeIcon className="i" icon={faFileLines} /> Xeerarka Iibsadaha
+                        </Link>
+                    </li>
+                </ul>
+            </div>
             <Link to={"/Acount/Login"}>
                 <button className="nav_mobile_btn"><FontAwesomeIcon className="i" icon={faRightFromBracket} /> Gal Akoon</button>
             </Link>
@@ -204,7 +232,7 @@ function NavMobile({nav_mb}){
             </>
             }
 
-            
+
         </ul>
     </div>
     )
