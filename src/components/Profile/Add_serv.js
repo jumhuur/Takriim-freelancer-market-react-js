@@ -25,7 +25,7 @@ function Add_servece(){
     // states from 
     const [title , settitle] = useState("")
     const [Qiimaha , setQiimaha] = useState("5.00")
-    const [Qaybid , setQaybid] = useState("62b6cf1b1ef353ae79459850")
+    const [Qaybid , setQaybid] = useState("YCavgeVqRkYerQH52M0o")
     const [Mudada , setMudada] = useState("0.25")
     const UserId = crentuser && crentuser.uid
     const [Xadiga , setXadiga] = useState("")

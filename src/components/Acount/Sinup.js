@@ -19,7 +19,7 @@ function SingUp(){
     const [Info, setInfo] = useState('Takriim User')
     const [Macmiil, setMacmiil] = useState(0)
     const [Qiimayn_user, setQiimayn_user] = useState('0')
-    const Qiimayn_user5 = 0;
+    const Qiimayn_user5 = 1;
     const Qiimayn_user4 = 0;
     const Qiimayn_user3 = 0;
     const Qiimayn_user2 = 0;
