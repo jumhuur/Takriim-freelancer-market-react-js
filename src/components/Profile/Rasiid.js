@@ -89,10 +89,10 @@ function Rasiid(){
                     <>
                     <div className="total" id="total">
                     <h2><span>{rasiid_tr.id.substr(6,6).toUpperCase()}</span></h2>
-                    <p><FontAwesomeIcon className="i" icon={faToolbox} /> Dalabka Id</p>
+                    <p><FontAwesomeIcon className="i" icon={faToolbox} /> Dalab Id</p>
                     </div>
                     <div className="avalible" id="avalible">
-                    <h2> + {rasiid_tr && rasiid_tr.Qiimaha} $</h2>
+                    <h2> + {rasiid_tr &&  Number(rasiid_tr.Qiimaha).toFixed(2)} $</h2>
                     <p><FontAwesomeIcon className="i" icon={faChartLine} /> Lacagta Aad Heshay</p>
                     </div>
                     </>
