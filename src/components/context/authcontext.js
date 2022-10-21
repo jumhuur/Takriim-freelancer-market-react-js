@@ -130,7 +130,8 @@ export function AuthProvader({children}){
 
     //add user info
     function Add_userdata(
-        Name, 
+        Name,
+        aler_count,
         Nooc , 
         Image , 
         Heerka , 
@@ -150,6 +151,7 @@ export function AuthProvader({children}){
         user_id){
         return setDoc(doc(db, "Users", user_id), {
             Name,
+            aler_count,
             Image,
             Nooc,
             Heerka,

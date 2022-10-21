@@ -24,6 +24,7 @@ function SingUp(){
     const Qiimayn_user3 = 0;
     const Qiimayn_user2 = 0;
     const Qiimayn_user1 = 0;
+    const aler_count = 0;
 
     const [alert, setalert] = useState(false)
     const [msg, semsg] = useState(false)
@@ -50,6 +51,7 @@ function SingUp(){
         const data_user = await sinup(email,password)
         await Add_userdata(
             Name,
+            aler_count,
             Nooc , 
             Image , 
             Heerka, 
