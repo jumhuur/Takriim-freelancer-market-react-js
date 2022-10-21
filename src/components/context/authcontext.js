@@ -64,6 +64,17 @@ export function AuthProvader({children}){
     }
 
 
+    // add nativations 
+    function add_nativations_user(nooca_nat,UserId,title){
+        return setDoc(doc(db,"user_natications", `${UserId}${Date.now()}`), {
+            nooca_nat,
+            UserId,
+            title,
+            CreatedAt: Date.now(),
+        })
+    }
+
+
     // add order
 
     function add_order(Loobahanyahay,lanbarka,image,gudoomay,title,Qiimaha,Dalbade_id,UserId,Qaybid,Jobid,Mudada,Xadiga,Nooca,xaalad,Qodobka1aad,Qodobka2aad){
@@ -234,7 +245,8 @@ export function AuthProvader({children}){
         Add_Comments,
         Add_Rasiid,
         cashOut,
-        Furasho
+        Furasho,
+        add_nativations_user
     }
 
 

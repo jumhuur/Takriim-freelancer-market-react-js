@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Nativactions from "./Nativactions";
 import Massages from "./Massages";
@@ -7,8 +7,9 @@ import { faFileLines, faAngleDown, faBars, faBell, faEarthAfrica, faEnvelope, fa
 import NavMobile from "./NavMobile";
 import Drop_nav from "./Drop_nav";
 import {FaAngleDown , FaGlobeAfrica, FaUserTie} from "react-icons/fa"
-import { UseAuth , Userinfo} from "./context/authcontext";
+import { UseAuth} from "./context/authcontext";
 import Search from "./serchFrom";
+import { collection, doc, getDoc, getDocs, getFirestore, query, updateDoc, where } from "firebase/firestore";
 
 
 function Nav(){
@@ -30,9 +31,12 @@ function Nav(){
         isactive ? setisactive(false): setisactive(true);
         setmagessa(false)
         setdrop(false)
+        setalert(0)
+        update_aler()
     }
 
     function HandelMassage(){
+        
         massage ? setmagessa(false): setmagessa(true);
         setisactive(false)
         setdrop(false)
@@ -47,6 +51,59 @@ function Nav(){
     function HandelNavMobile(){
         Navmobile ? setnavMobile(false): setnavMobile(true);
     }
+
+
+    // nativations
+    const [Ogaysiis, setOgaysiis] = useState (null)
+    const [alert, setalert] = useState('0')
+    const [user ,setuser] = useState()
+    const u_id = crentuser && crentuser.uid
+    const count =  user && user.aler_count
+    const cod = useRef()
+
+    //get data user 
+    const db = getFirestore()
+    const colref = collection(db, "user_natications")
+    const q = query(colref, where("UserId", "==" , u_id,))    
+    //hellida docs 
+    async function  Get_nativications(){
+        getDocs(q)
+        .then((snapshot) => {
+            const Dhaq1aad = []
+            snapshot.docs.forEach((doc) => {
+                Dhaq1aad.push({...doc.data(), id:doc.id})
+            })
+            setOgaysiis(Dhaq1aad)
+        })
+    }
+
+    function update_aler(){
+        const alert_ref = doc(db, "Users", u_id)
+        updateDoc(alert_ref, {
+            aler_count:0
+        })
+    }
+
+    // daarida codka
+
+    // useEffect(() => {
+    //     cod.current.play()
+    // },[Ogaysiis])
+
+    useEffect((function(){
+        Get_nativications()
+        // const q = query(colref)    
+        const  get_user_cren = () => {
+            const Userref_r = doc(db, "Users" , crentuser.uid)
+            getDoc(Userref_r)
+            .then((doc) => {
+                setuser({...doc.data(), id:doc.id})
+            })
+            setalert(count)
+        }
+        crentuser && 
+        get_user_cren()
+    }), [crentuser , user])
       
     return (
     <div>
@@ -71,13 +128,13 @@ function Nav(){
                 </li>
                 <li onClick={HandelMassage}>
                 <a href="#Massage">
-                <FontAwesomeIcon className="i" icon={faEnvelope}/> Fariimo <span>0</span>
+                <FontAwesomeIcon className="i" icon={faEnvelope}/> Fariimo <span></span>
                 </a>
                 </li>
                 <Massages massageHold={massage}/>
                 <li onClick={HandelOgaysiis}>
                     <a href="#Ogaysiis">
-                    <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis <span>0</span>
+                    <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis <span>{alert}</span>
                     </a>
                 </li>
                 <li>
@@ -85,7 +142,8 @@ function Nav(){
                 <FontAwesomeIcon className="i" icon={faSearch}/>
                 </Link>
                 </li>
-                <Nativactions isactive={isactive}/>
+                <audio ref={cod} src="/Media/alert.mp3"></audio>
+                <Nativactions isactive={isactive} Ogaysiis={Ogaysiis}/>
                 <li className="user_nav">
                     <a href="#Drop" onClick={handelDrop}>
                         <div className="user_">
@@ -110,7 +168,7 @@ function Nav(){
             <Massages massageHold={massage}/>
             <li onClick={HandelOgaysiis}>
                 <a href="#Ogaysiis">
-                <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis <span>0</span>
+                <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis <span>{alert}</span>
                 </a>
             </li>
             <li>
@@ -118,7 +176,8 @@ function Nav(){
             <FontAwesomeIcon className="i" icon={faSearch}/>
             </Link>
             </li>
-            <Nativactions isactive={isactive}/>
+            <audio ref={cod} src="/Media/alert.mp3"></audio>
+            <Nativactions isactive={isactive} Ogaysiis={Ogaysiis}/>
             <li className="user_nav">
                 <a href="#Drop" onClick={handelDrop}>
                     <div className="user_">

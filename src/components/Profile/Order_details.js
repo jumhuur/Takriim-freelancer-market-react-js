@@ -8,7 +8,7 @@ import {faFileCircleCheck,faTrashCan,faCloudArrowUp ,faSquarePlus,faCircleCheck,
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {UseAuth} from "../context/authcontext"
 import {useDatacontext} from "../context/dataContext"
-import {getFirestore,getDoc, doc } from "firebase/firestore";
+import {getFirestore,getDoc, doc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Storage} from "../../Firebase";
 import Loading from "../loading";
@@ -19,10 +19,17 @@ function OrderDetailscheckh(){
     const [filezise , setfilezise] = useState(null)
     const [filextan, setfilextan] = useState(null)
     const [PaymentType, setPaymentTaype] = useState('Zaad')
-    const {crentuser , add_order} = UseAuth()
+    const {crentuser , add_order, add_nativations_user} = UseAuth()
     const {xadiga} = useDatacontext()
     const path = `/Order/Complated/${id}`
     const mypath = useHistory()
+    // oagaysiis
+    const nooca_nat = "0";
+    const user_uid = sessionStorage.getItem('user_uid')
+    const [c_user, setc_user] = useState('')
+    const count = c_user.aler_count + 1
+    console.log(count)
+
 
     // loading
     const [load, setload] = useState(false)
@@ -71,8 +78,25 @@ function OrderDetailscheckh(){
             setorder(doc.data())
         })
     }
+
+    const Userref_r = doc(db, "Users" , user_uid)
+    //const q = query(colref)    
+    function  get_user_cren(){
+        getDoc(Userref_r)
+        .then((doc) => {
+            setc_user({...doc.data(), id:doc.id})
+        })
+    }
+
+    function update_aler(){
+        const alert_ref = doc(db, "Users", user_uid)
+        updateDoc(alert_ref, {
+            aler_count:Number(count)
+        })
+    }
     useEffect(function(){
         getsingalejob()
+        get_user_cren()
 
     }, [])
 
@@ -141,6 +165,21 @@ function OrderDetailscheckh(){
                 Qodobka1aad,
                 Qodobka2aad,
             )
+
+
+            await add_nativations_user(
+                nooca_nat,
+                UserId,
+                title,
+            )
+
+            // update alert
+            update_aler()
+
+            
+
+
+
 
             mypath.push(`/Order/Complated/${id}`)
             setimagestate(false)

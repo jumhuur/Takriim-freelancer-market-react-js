@@ -27,6 +27,7 @@ function AsideJob({jobmudo ,qiimojob ,Jobxadiga,job,user , jobid}){
         window.localStorage.setItem('Q', q.current.value)
         window.localStorage.setItem('M', m.current.value)
         window.localStorage.setItem('X', x.current.value)
+        sessionStorage.setItem('user_uid', user.uid)
     }
 
 

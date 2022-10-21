@@ -1,6 +1,6 @@
-import { useState } from "react"
-
-function Nativactions({isactive}){
+import { Link } from "react-router-dom";
+import {format} from "timeago.js";
+function Nativactions({isactive, Ogaysiis}){
     return (
         <div id="ogaysiis_nav" className={isactive ? "active":''}>
         <div className="footer_msg top">
@@ -8,42 +8,15 @@ function Nativactions({isactive}){
             </a>
         </div>
         <div className="all_massage">
-            <a href="">
-                <div className="msg">
-                    <h2>Waxaa lagaa soo dalbaday adeegan <span>Hufid Iyo Hagaajinta Baxsigaaga Jaamacada</span> Fadlan hore ugu jawaab macmiilka</h2>
-                    <p>Tariikh : <span>28-05-2022  </span>     <span className="Xaalad"><i className="fa-solid fa-bell"></i></span></p>
-                </div>
-            </a>
-            <a href="">
-                <div className="msg">
-                    <h2>Waxaa lagaa soo dalbaday adeegan <span>Hufid Iyo Hagaajinta Baxsigaaga Jaamacada</span> Fadlan hore ugu jawaab macmiilka</h2>
-                    <p>Tariikh : <span>28-05-2022</span>   <span className="Xaalad"><i className="fa-solid fa-bell-slash"></i></span></p>
-                </div>
-            </a>
-            <a href="">
-                <div className="msg">
-                    <h2>Waxaa lagaa soo dalbaday adeegan <span>Hufid Iyo Hagaajinta Baxsigaaga Jaamacada</span> Fadlan hore ugu jawaab macmiilka</h2>
-                    <p>Tariikh : <span>28-05-2022</span>   <span className="Xaalad"><i className="fa-solid fa-bell-slash"></i></span></p>
-                </div>
-            </a>
-            <a href="">
-                <div className="msg">
-                    <h2>Waxaa lagaa soo dalbaday adeegan <span>Hufid Iyo Hagaajinta Baxsigaaga Jaamacada</span> Fadlan hore ugu jawaab macmiilka</h2>
-                    <p>Tariikh : <span>28-05-2022</span>   <span className="Xaalad"><i className="fa-solid fa-bell-slash"></i></span></p>
-                </div>
-            </a>
-            <a href="">
-                <div className="msg">
-                    <h2>Waxaa lagaa soo dalbaday adeegan <span>Hufid Iyo Hagaajinta Baxsigaaga Jaamacada</span> Fadlan hore ugu jawaab macmiilka</h2>
-                    <p>Tariikh : <span>28-05-2022</span>   <span className="Xaalad"><i className="fa-solid fa-bell-slash"></i></span></p>
-                </div>
-            </a>
-            <a href="">
+            {Ogaysiis && Ogaysiis.map(data => (   
+            <Link to={`/Acount/Myorder`} key={data.UserId}>
             <div className="msg">
-                <h2>Waa la aqabalay adeegan <span>Hufid Iyo Hagaajinta Baxsigaaga Jaamacada</span> wanaag ayaan kuu rajaynaynaa</h2>
-                <p>Tariikh : <span>28-05-2022</span>  <span className="Xaalad"><i className="fa-solid fa-bell-slash"></i></span></p>
+                <h2>Waxaa lagaa soo dalbaday <span>{data.title}</span> .</h2>
+                <p>Wakti : <span>{format(data.CreatedAt)}  </span>     <span className="Xaalad"><i className="fa-solid fa-bell"></i></span></p>
             </div>
-            </a>
+            </Link>
+            ))}
+
         </div>
         <div className="footer_msg">
             <a href="">
