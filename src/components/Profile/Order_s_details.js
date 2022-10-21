@@ -27,7 +27,7 @@ function Gudoon(){
     // const id_qayb = oneOrder && oneOrder.Qaybid
     // const [Qaybcount, setQaybcount] = useState('ZRboOTeCZPf2aOhFlSOp')
     // console.log(Qaybcount)
-    const {Add_Comments, Userinfo , Add_Rasiid ,crentuser } = UseAuth()
+    const {Add_Comments, Userinfo , Add_Rasiid ,crentuser ,add_nativations_user } = UseAuth()
     // comments state 
     const [Rate, setRate] = useState(5)
     const [Comment, setComment] = useState()
@@ -43,6 +43,10 @@ function Gudoon(){
     const lastIncome = Number(qiimaha) - Incomka
     const Ganaax_cancel_two = 3 / 100 * parseFloat(qiimaha)
     const Nooc = "+";
+
+    // alert vars
+    const title = oneOrder && oneOrder.title 
+    const count = c_user && c_user.aler_count + 1
 
 
 
@@ -62,26 +66,6 @@ function Gudoon(){
     const Maalin = Math.round(k_duwan / 1000 / 60 / 60 / 24) ;
     //console.log("Saacad", Math.round(saacad))
     const btn_gudoomid = useRef()
-
-
-    // Xisaabinta muddo dhaafka dalabka 
-
-
-
-    
-    // const AutGudoomid = () => {
-    //     if(oneOrder && oneOrder){
-    //         if(Maalin >= 2){
-    //             btn_gudoomid.current.click()
-    //             console.log(btn_gudoomid.current)
-    //         }
-    //     }
-    // }
-    // useEffect(() => {
-    //     btn_gudoomid.current.click()
-    //     console.log('sax')
-    // },[])
-    
 
 
     // loading
@@ -108,6 +92,7 @@ function Gudoon(){
     },[crentuser])
 
     const submitHandale  = async (e) =>{
+        const nooca_nat = 2
         e.preventDefault()
         try{
             await Add_Comments(
@@ -125,12 +110,19 @@ function Gudoon(){
                 Nooc
             )
 
+            await add_nativations_user(
+                nooca_nat,
+                UserId,
+                title,
+            )
+
             update_gudoon()
             update_rasiid()
             update_Ratings()
             update_job()
             update_Income()
             update_qayb_order()
+            update_aler()
         }catch(Err){
             console.log(Err)
         }
@@ -392,6 +384,31 @@ function Gudoon(){
         })
     }
 
+    
+    // nativicatiosn
+    const  alert_cancel =  async () => {
+        const nooca_nat = 1
+        try{
+            await add_nativations_user(
+                nooca_nat,
+                UserId,
+                title,
+            )
+            update_aler()
+
+        } catch(err){
+            console.log(err)
+        }
+    }
+
+    function update_aler(){
+        const alert_ref = doc(db, "Users", userid)
+        updateDoc(alert_ref, {
+            aler_count:Number(count)
+        })
+    }
+
+
 
     useEffect(() => {
         getsingaleorder() 
@@ -494,6 +511,7 @@ function Gudoon(){
                                 <button onClick={function(){
                                     update_Xaalad()
                                     Ganaax()
+                                    alert_cancel()
                                 } } className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabka(Cancel Order)</button>
                                 :<></>
                                 }
@@ -593,6 +611,7 @@ function Gudoon(){
                                                 <button id="btn_all" onClick={function(){
                                                     update_Xaalad()
                                                     Ganaax_Two()
+                                                    alert_cancel()
                                                 }} className="cancel_order"><i className="fa-solid fa-trash-can"></i> Ka Laabo Dalabkan</button>
                                                 :<></>
                                                 }

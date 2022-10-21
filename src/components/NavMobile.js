@@ -5,7 +5,7 @@ import {faBell,faMoneyBillTransfer, faBars,faUserPlus, faNetworkWired, faToolbox
 import { collection,getFirestore, query, onSnapshot, limit, orderBy, getDoc, doc, updateDoc } from "firebase/firestore";
 import { UseAuth } from "./context/authcontext";
 
-function NavMobile({nav_mb}){
+function NavMobile({nav_mb,Ogaysiis}){
     const {Userinfo, crentuser,Logout} = UseAuth ()
     const uid = Userinfo && Userinfo.uid
     const [datnav , setdatnav] = useState(null)
@@ -170,7 +170,7 @@ function NavMobile({nav_mb}){
             </li>
             <li>
                 <a href="#">
-                <FontAwesomeIcon className="i" icon={faBell} /> Ogaysiis <span>0</span>
+                <FontAwesomeIcon className="i" icon={faBell} /> Ogaysiis <span>{Ogaysiis}</span>
                 </a>
             </li>
             <li>
@@ -202,7 +202,7 @@ function NavMobile({nav_mb}){
             :
             <>
             <li className="qayb_mobile">
-            <FontAwesomeIcon  className="i" icon={faBars}/> Qaybb Muhiima < FontAwesomeIcon icon={faAngleDown}/>
+            <FontAwesomeIcon  className="i" icon={faBars}/> Qaybo Muhiima < FontAwesomeIcon icon={faAngleDown}/>
             </li>
             <div className="qaybo_mobile" style={{"display": "flex"}}>
                 <ul>

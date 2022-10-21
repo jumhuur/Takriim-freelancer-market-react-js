@@ -28,7 +28,6 @@ function OrderDetailscheckh(){
     const user_uid = sessionStorage.getItem('user_uid')
     const [c_user, setc_user] = useState('')
     const count = c_user.aler_count + 1
-    console.log(count)
 
 
     // loading

@@ -9,7 +9,7 @@ import Drop_nav from "./Drop_nav";
 import {FaAngleDown , FaGlobeAfrica, FaUserTie} from "react-icons/fa"
 import { UseAuth} from "./context/authcontext";
 import Search from "./serchFrom";
-import { collection, doc, getDoc, getDocs, getFirestore, query, updateDoc, where } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, getFirestore, orderBy, query, updateDoc, where } from "firebase/firestore";
 
 
 function Nav(){
@@ -19,6 +19,7 @@ function Nav(){
     const [drop, setdrop] = useState(false)
     const [Navmobile, setnavMobile] = useState(false)
     const {crentuser, Userinfo} = UseAuth()
+    const [aler_xadidi, setalert_xadid] = useState(1)
     
     const handalesearch = () => {
         search ? setsearch(false) : setsearch(true)
@@ -32,6 +33,7 @@ function Nav(){
         setmagessa(false)
         setdrop(false)
         setalert(0)
+        setalert_xadid(1)
         update_aler()
     }
 
@@ -64,7 +66,7 @@ function Nav(){
     //get data user 
     const db = getFirestore()
     const colref = collection(db, "user_natications")
-    const q = query(colref, where("UserId", "==" , u_id,))    
+    const q = query(colref, where("UserId", "==" , u_id,) ,orderBy("CreatedAt" , "desc"))    
     //hellida docs 
     async function  Get_nativications(){
         getDocs(q)
@@ -86,9 +88,13 @@ function Nav(){
 
     // daarida codka
 
-    // useEffect(() => {
-    //     cod.current.play()
-    // },[Ogaysiis])
+    useEffect(() => {
+        if(alert > 0 && aler_xadidi > 0){
+            cod.current.play()
+            setalert_xadid(0)
+        }
+
+    },[Ogaysiis])
 
     useEffect((function(){
         Get_nativications()
@@ -108,6 +114,7 @@ function Nav(){
     return (
     <div>
         <div className="xajiye">
+        <audio ref={cod} src="/Media/alert.mp3"></audio>
         <div className='header hoos'>
         <div className="logo">
             <Link to='/'>
@@ -142,7 +149,6 @@ function Nav(){
                 <FontAwesomeIcon className="i" icon={faSearch}/>
                 </Link>
                 </li>
-                <audio ref={cod} src="/Media/alert.mp3"></audio>
                 <Nativactions isactive={isactive} Ogaysiis={Ogaysiis}/>
                 <li className="user_nav">
                     <a href="#Drop" onClick={handelDrop}>
@@ -176,7 +182,6 @@ function Nav(){
             <FontAwesomeIcon className="i" icon={faSearch}/>
             </Link>
             </li>
-            <audio ref={cod} src="/Media/alert.mp3"></audio>
             <Nativactions isactive={isactive} Ogaysiis={Ogaysiis}/>
             <li className="user_nav">
                 <a href="#Drop" onClick={handelDrop}>
@@ -255,7 +260,7 @@ function Nav(){
         {/* <!--------- end nav mobile-----------------------------> */}
         </div>
     </div>
-    <NavMobile nav_mb={Navmobile}/>
+    <NavMobile nav_mb={Navmobile} Ogaysiis={alert}/>
     </div>
 )
     

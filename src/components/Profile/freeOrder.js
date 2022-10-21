@@ -33,7 +33,7 @@ function My_Orders(){
     const jobid = sessionStorage.getItem("jobid")
     const Qaybid = sessionStorage.getItem("Qaybid")
     const uid = sessionStorage.getItem("uid")
-    const {Add_Rasiid} = UseAuth()
+    const {Add_Rasiid ,add_nativations_user} = UseAuth()
    // const {Prog_now} = useDatacontext()
     const qiimaha = jobfree && jobfree.Qiimaha
     const Khidmad = 15 / 100 * parseFloat(qiimaha)
@@ -41,6 +41,7 @@ function My_Orders(){
     const Last_qiimo = Number(qiimaha) - Khidmad
     const lastIncome = Number(qiimaha) - Incomka
     const Nooc = "+";
+    const title = jobfree && jobfree.title
 
 
     // loading
@@ -126,12 +127,38 @@ function My_Orders(){
     }
     const update_xaalad = async (e) => {
         e.preventDefault()
+        const nooca_nat = 6
+        const UserId = userid
+        try{
+            await add_nativations_user(
+                nooca_nat,
+                UserId,
+                title,
+            )
+
+        } catch(err){
+            console.log(err)
+        }
         update_Order()
+        update_aler()
     }
 
     const update_xaalad_done = async (e) => {
         e.preventDefault()
+        const nooca_nat = 7
+        const UserId = userid
+        try{
+            await add_nativations_user(
+                nooca_nat,
+                UserId,
+                title,
+            )
+
+        } catch(err){
+            console.log(err)
+        }
         update_done()
+        update_aler()
     }
 
 
@@ -213,6 +240,8 @@ function My_Orders(){
 
         // hawlaha oo dhan ee ku sabsaan iska gudoomida dalabka
         const submitHandale  = async (e) =>{
+        const nooca_nat = 8
+        const UserId = userid
         e.preventDefault()
         setload(true)
         try{
@@ -222,11 +251,18 @@ function My_Orders(){
                 Nooc
             )
 
+            await add_nativations_user(
+                nooca_nat,
+                UserId,
+                title,
+            )
+
             update_gudoon()
             update_rasiid()
             update_job()
             update_Income()
             update_qayb_order()
+            update_aler()
             setload(false)
         }catch(Err){
             console.log(Err)
@@ -335,6 +371,17 @@ function My_Orders(){
         const job_upd =  doc(db, "Jobs", jobid)
         updateDoc(job_upd, {
             iibsade
+        })
+    }
+
+
+
+    // alerts 
+    function update_aler(){
+        const alert_ref = doc(db, "Users", userid)
+        const count = bayer.aler_count + 1
+        updateDoc(alert_ref, {
+            aler_count:Number(count)
         })
     }
 
