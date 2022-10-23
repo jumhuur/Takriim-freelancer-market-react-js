@@ -19,6 +19,7 @@ function Nav(){
     const [drop, setdrop] = useState(false)
     const [Navmobile, setnavMobile] = useState(false)
     const {crentuser, Userinfo} = UseAuth()
+    const [alert, setalert] = useState('0')
     const [aler_xadidi, setalert_xadid] = useState(1)
     
     const handalesearch = () => {
@@ -33,7 +34,7 @@ function Nav(){
         setmagessa(false)
         setdrop(false)
         setalert(0)
-        setalert_xadid(1)
+        setalert_xadid(0)
         update_aler()
     }
 
@@ -57,7 +58,6 @@ function Nav(){
 
     // nativations
     const [Ogaysiis, setOgaysiis] = useState (null)
-    const [alert, setalert] = useState('0')
     const [user ,setuser] = useState()
     const u_id = crentuser && crentuser.uid
     const count =  user && user.aler_count
@@ -92,6 +92,7 @@ function Nav(){
         if(alert > 0 && aler_xadidi > 0){
             cod.current.play()
             setalert_xadid(0)
+            //cod.crentuser.pause()
         }
 
     },[Ogaysiis])
