@@ -28,6 +28,7 @@ import Furo from './components/Profile/FuroLacag';
 import XerarFreelancer from './components/Xeerarfreelancer';
 import XeerCustomers from './components/XeerarkaCusto';
 import Freelancers from './components/Freelancers';
+import All_alerts from './components/Profile/All_nativactions';
 
 
 function App(){
@@ -110,6 +111,9 @@ function App(){
           </Route>
           <Route exact path={"/Freelancers"}>
             <Freelancers />
+          </Route>
+          <Route exact path={"/Alerts"}>
+            <All_alerts />
           </Route>
           {/* admin routes Bilow  */}
           <route exact path={"/Acount/Admin"}>

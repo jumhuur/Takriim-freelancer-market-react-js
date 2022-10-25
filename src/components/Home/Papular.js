@@ -14,15 +14,6 @@ function Papular(){
     const q = query(colref, limit(3), orderBy("CountOrder", "desc"))    
     //hellida docs 
     async function  get_papular(){
-        // onSnapshot (q, (snapshot) => {
-        //     const Dhaq1aad = []
-        //     snapshot.docs.forEach((doc) => {
-        //         Dhaq1aad.push({...doc.data(), id:doc.id})
-        //     })
-        //     setpapular(Dhaq1aad)
-        // })
-
-
         getDocs(q)
         .then((snapshot) => {
             const Dhaq1aad = []

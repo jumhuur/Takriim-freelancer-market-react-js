@@ -20,6 +20,7 @@ function Nav(){
     const [Navmobile, setnavMobile] = useState(false)
     const {crentuser, Userinfo} = UseAuth()
     const [alert, setalert] = useState('0')
+    const [fariin, setfariin] = useState(0)
     const [aler_xadidi, setalert_xadid] = useState(1)
     
     const handalesearch = () => {
@@ -110,7 +111,7 @@ function Nav(){
         }
         crentuser && 
         get_user_cren()
-    }), [crentuser , user])
+    }), [crentuser ,user])
       
     return (
     <div>
@@ -136,13 +137,22 @@ function Nav(){
                 </li>
                 <li onClick={HandelMassage}>
                 <a href="#Massage">
-                <FontAwesomeIcon className="i" icon={faEnvelope}/> Fariimo <span></span>
+                <FontAwesomeIcon className="i" icon={faEnvelope}/> Fariimo 
+                {fariin > 0 ? 
+                <span>0</span>
+                :<></>
+                }
+                
                 </a>
                 </li>
                 <Massages massageHold={massage}/>
                 <li onClick={HandelOgaysiis}>
                     <a href="#Ogaysiis">
-                    <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis <span>{alert}</span>
+                    <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis
+                    {alert > 0 ? 
+                    <span>{alert}</span>
+                    :<></>
+                    }
                     </a>
                 </li>
                 <li>
@@ -169,13 +179,22 @@ function Nav(){
             </li>
             <li onClick={HandelMassage}>
             <a href="#Massage">
-            <FontAwesomeIcon className="i" icon={faEnvelope}/> Fariimo <span>0</span>
+            <FontAwesomeIcon className="i" icon={faEnvelope}/> Fariimo 
+            {fariin > 0 ? 
+                <span>0</span>
+                :<></>
+            }
             </a>
             </li>
             <Massages massageHold={massage}/>
             <li onClick={HandelOgaysiis}>
                 <a href="#Ogaysiis">
-                <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis <span>{alert}</span>
+                <FontAwesomeIcon className="i" icon={faBell}/> Ogaysiis 
+                
+                {alert > 0 ? 
+                <span>{alert}</span>
+                :<></>
+                }
                 </a>
             </li>
             <li>
