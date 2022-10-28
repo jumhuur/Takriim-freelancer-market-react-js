@@ -93,7 +93,6 @@ function Nav(){
         if(alert > 0 && aler_xadidi > 0){
             cod.current.play()
             setalert_xadid(0)
-            //cod.crentuser.pause()
         }
 
     },[Ogaysiis])

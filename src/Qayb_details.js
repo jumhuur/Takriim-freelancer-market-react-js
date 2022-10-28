@@ -15,6 +15,7 @@ function Qaybdetails(){
     const docref = doc(db, "Qaybo" , id)
     //const q = query(colref)    
     function  get_qaybo(){
+        console.log("ss")
         getDoc(docref)
         .then((doc) => {
             setQaybdetails({...doc.data(), id:doc.id})
@@ -22,7 +23,6 @@ function Qaybdetails(){
     }
     useEffect(function(){
         get_qaybo()
-
     } ,[])
     return(
         <div>

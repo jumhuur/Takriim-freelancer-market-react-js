@@ -13,7 +13,7 @@ function Papular(){
     const colref = collection(db, "Qaybo")
     const q = query(colref, limit(3), orderBy("CountOrder", "desc"))    
     //hellida docs 
-    async function  get_papular(){
+    function  get_papular(){
         getDocs(q)
         .then((snapshot) => {
             const Dhaq1aad = []

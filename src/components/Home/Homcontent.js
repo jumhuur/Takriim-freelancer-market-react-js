@@ -10,7 +10,7 @@ function ContentHome(){
     const colref = collection(db, "Jobs")
     const q = query(colref, limit(10), orderBy("CreatedAt", "desc"))    
     //hellida docs 
-    async function  getdaata_user(){
+    function  getdaata_user(){
         getDocs(q)
         .then((snapshot) => {
             const Dhaq1aad = []
@@ -23,16 +23,8 @@ function ContentHome(){
 
 
     useEffect((function(){
-        // const objects  = async () => {
-        //     const data =  await fetch('/jobs/Home');
-        //     const object = await data.json()
-        //     if(data.ok){
-        //         setDataJobs(object)
-        //     }
-        // }
-        // objects()
         getdaata_user()
-    }), [])
+    }),[])
     return(
         <section className="sliding">
             <div className="xajiye kala_qayb">

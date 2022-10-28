@@ -14,14 +14,6 @@ function PapularContenar(){
     const q = query(colref, limit(10), orderBy("Macmiil", "desc"))    
     //hellida docs 
     async function  getcolections(){
-        // onSnapshot (q, (snapshot) => {
-        //     const Dhaq1aad = []
-        //     snapshot.docs.forEach((doc) => {
-        //         Dhaq1aad.push({...doc.data(), id:doc.id})
-        //     })
-        //     sethelly(Dhaq1aad)
-        // })
-
         getDocs(q)
         .then((snapshot) => {
             const Dhaq1aad = []

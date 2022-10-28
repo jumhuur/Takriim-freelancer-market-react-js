@@ -47,7 +47,7 @@ function Drop_nav({drop}){
 
     useEffect(()=> {
         get_user()
-    },[user])
+    },[])
     return(
         <div id="Drop_nav"  className={drop ? "active" : ""}>
            <div> 
@@ -127,11 +127,11 @@ function Drop_nav({drop}){
                             <option value={"false"}>OFF</option>
                         </select>
                         <div className={user && user.Active == "false" ? "Ishaaro ofline" : 'Ishaaro'}>
-
                         </div>
                      </div>
                     </Link>
                 </li>
+                
             </ul>
             }
 
