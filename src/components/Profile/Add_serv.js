@@ -67,7 +67,7 @@ function Add_servece(){
     }
 
     function onchange({target}){
-        let file = target.files[0];
+        let file = target.file[0];
         if(file){
             let file_name = file.name.substring(0,30);
             let file_zise = file.size / 1024 / 1024

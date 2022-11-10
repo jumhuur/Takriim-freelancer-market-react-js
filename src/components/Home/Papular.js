@@ -21,6 +21,7 @@ function Papular(){
                 Dhaq1aad.push({...doc.data(), id:doc.id})
             })
             setpapular(Dhaq1aad)
+            console.log('sax')
         })
     }
 

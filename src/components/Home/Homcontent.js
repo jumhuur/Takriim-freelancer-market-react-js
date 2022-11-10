@@ -18,6 +18,7 @@ function ContentHome(){
                 Dhaq1aad.push({...doc.data(), id:doc.id})
             })
             setDataJobs(Dhaq1aad)
+            console.log('jobs')
         })
     }
 

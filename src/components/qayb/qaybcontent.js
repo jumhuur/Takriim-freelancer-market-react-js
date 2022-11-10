@@ -16,14 +16,6 @@ function Qaybcontent(){
         const q = query(colref, orderBy("CreatedAt"))    
         //hellida docs 
         async function  get_content(){
-            // onSnapshot (q, (snapshot) => {
-            //     const Dhaq1aad = []
-            //     snapshot.docs.forEach((doc) => {
-            //         Dhaq1aad.push({...doc.data(), id:doc.id})
-            //     })
-            //     setJobqayb(Dhaq1aad)
-            // })
-
             getDocs(q)
             .then((snapshot) => {
                 const Dhaq1aad = []

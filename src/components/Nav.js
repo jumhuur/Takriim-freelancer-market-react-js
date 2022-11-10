@@ -110,7 +110,7 @@ function Nav(){
         }
         crentuser && 
         get_user_cren()
-    }), [crentuser ,user])
+    }), [])
       
     return (
     <div>

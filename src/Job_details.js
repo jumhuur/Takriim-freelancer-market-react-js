@@ -39,7 +39,7 @@ useEffect(() => {
    }
    getsinleuser()
    getsingalejob()
-},[user])
+},[])
     return (
         <div>
             <Holder />
