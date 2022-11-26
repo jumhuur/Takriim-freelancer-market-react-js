@@ -95,7 +95,7 @@ function Nav(){
             setalert_xadid(0)
         }
 
-    },[Ogaysiis])
+    },[user,Ogaysiis])
 
     useEffect((function(){
         Get_nativications()
@@ -110,7 +110,7 @@ function Nav(){
         }
         crentuser && 
         get_user_cren()
-    }), [])
+    }), [user,crentuser])
       
     return (
     <div>
