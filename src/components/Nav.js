@@ -95,7 +95,7 @@ function Nav(){
             setalert_xadid(0)
         }
 
-    },[user,Ogaysiis])
+    },[Ogaysiis])
 
     useEffect((function(){
         Get_nativications()
