@@ -93,6 +93,8 @@ html{
   margin: 0;
   font-family: sans-serif;
   font-family: "nooca_farta";
+  scrollbar-color: var(--bacground-qaybo);
+  scrollbar-width: thin;
 }
 
 span#Dareen{
