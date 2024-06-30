@@ -3,7 +3,6 @@
 
 # files 
 /Firebase.js
-/../Firebase.js
 # dependencies
 /node_modules
 /.pnp
